@@ -15,22 +15,14 @@ class CourseDaoImplTest {
     }
 
     @Test
-    void getJson() {
+    void setMap() {
     }
 
     @Test
-    void queryCourseDescription() {
+    void getMap() {
     }
 
     @Test
-    void queryCourseTitle() {
-    }
-
-    @Test
-    void queryCourseSectionList() {
-    }
-
-    @Test
-    void queryCourseSectionScheduleMap() {
+    void queryCourseTerm() {
     }
 }
