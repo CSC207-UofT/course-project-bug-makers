@@ -1,5 +1,6 @@
 package com.courseApp.calendarService;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +12,6 @@ public abstract class CalendarFactory implements TimeConversion {
 
     @Override
     public int getIntTime(String s){
-        return Integer.parseInt(s.substring(0,2));
+        return Integer.parseInt(s.split(":")[0]);
     }
-
 }

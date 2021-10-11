@@ -32,9 +32,9 @@ public class WorkdayCalendar extends CalendarFactory implements Presentable {
             for (Object weekday : lectures.keySet()){
                 List<String> time = (List) lectures.get(weekday);
                 int r = Constants.START_HEIGHT +
-                        ((super.getIntTime((String) time.get(0)) - Constants.START_TIME)*Constants.HOUR_HEIGHT);
-                String row = list.get(r); //get the row of start time
-                String row2 = list.get(r+1);
+                        ((super.getIntTime(time.get(0)) - Constants.START_TIME)*Constants.HOUR_HEIGHT);
+                String row = new String(list.get(r)); //get the row of start time
+                String row2 = new String(list.get(r+1));
                 int w = getWeekDay((String) weekday);
                 list.set(r, row.substring(0,w + 3)+ (String)((String) courseCode).substring(0,7) +
                         row.substring(w + Constants.CELL_FILLING -2, row.length()));
@@ -49,28 +49,43 @@ public class WorkdayCalendar extends CalendarFactory implements Presentable {
        return res.toString();
     }
 
-//    public static void main(String[] args) {
-//        ArrayList<String> th_schedule = new ArrayList<>();
-//        th_schedule.add("17:00");
-//        th_schedule.add("18:00");
-//
-//
-//        ArrayList<String> tu_schedule = new ArrayList<>();
-//        tu_schedule.add("11:00");
-//        tu_schedule.add("12:00");
-//
-//        Map<String, ArrayList<String>> day = new HashMap<>();
-//        day.put("TH", th_schedule);
-//        day.put("TU", tu_schedule);
-//
-//        Map<String, Map<String, ArrayList<String>>> cad = new HashMap<>();
-//        cad.put("CSC207SLEC0101", day);
-//
-//        System.out.println(cad);
-//
-//        System.out.println(new WorkdayCalendar(cad).present());
-//
-//    }
+    public static void main(String[] args) {
+        ArrayList<String> th_schedule = new ArrayList<>();
+        th_schedule.add("17:00");
+        th_schedule.add("18:00");
+
+
+        ArrayList<String> tu_schedule = new ArrayList<>();
+        tu_schedule.add("11:00");
+        tu_schedule.add("12:00");
+
+
+        ArrayList<String> th_schedule2 = new ArrayList<>();
+        th_schedule2.add("8:00");
+        th_schedule2.add("9:00");
+
+
+        ArrayList<String> mo_schedule2 = new ArrayList<>();
+        mo_schedule2.add("10:00");
+        mo_schedule2.add("11:00");
+
+        Map<String, ArrayList<String>> day = new HashMap<>();
+        day.put("TH", th_schedule);
+        day.put("TU", tu_schedule);
+
+        Map<String, ArrayList<String>> day2 = new HashMap<>();
+        day2.put("TH", th_schedule2);
+        day2.put("MO", mo_schedule2);
+
+        Map<String, Map<String, ArrayList<String>>> cad = new HashMap<>();
+        cad.put("CSC207SLEC0101", day);
+        cad.put("CSC108SLEC0102", day2);
+
+        System.out.println(cad);
+
+        System.out.println(new WorkdayCalendar(cad).present());
+
+    }
 
 
 }
