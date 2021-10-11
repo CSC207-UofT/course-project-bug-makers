@@ -1,4 +1,4 @@
 package com.courseApp.DAO;
 
-public class UserDAO {
+public interface UserDAO {
 }
