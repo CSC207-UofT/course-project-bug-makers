@@ -12,7 +12,7 @@ public class UrlReader {
         String line;
 
         try (InputStream in = url.openStream()) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            BufferedReader reader =     new BufferedReader(new InputStreamReader(in));
             while ((line = reader.readLine()) != null) {
                 sb.append(line).append(System.lineSeparator());
             }

@@ -1,4 +1,4 @@
-package com.courseApp.userService;
+package com.courseApp.interfaceAdaptor;
 
 public class CourseServiceController {
 }
