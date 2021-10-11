@@ -33,12 +33,12 @@ public class WorkdayCalendar extends CalendarFactory implements Presentable {
                 List<String> time = (List) lectures.get(weekday);
                 int r = Constants.START_HEIGHT +
                         ((super.getIntTime(time.get(0)) - Constants.START_TIME)*Constants.HOUR_HEIGHT);
-                String row = new String(list.get(r)); //get the row of start time
-                String row2 = new String(list.get(r+1));
+                String row = list.get(r); //get the row of start time
+                String row2 = list.get(r + 1);
                 int w = getWeekDay((String) weekday);
-                list.set(r, row.substring(0,w + 3)+ (String)((String) courseCode).substring(0,7) +
+                list.set(r, row.substring(0,w + 3)+ ((String) courseCode).substring(0,7) +
                         row.substring(w + Constants.CELL_FILLING -2, row.length()));
-                list.set(r+1, row2.substring(0,w + 3)+ (String)((String) courseCode).substring(7, ((String) courseCode).length()) +
+                list.set(r+1, row2.substring(0,w + 3)+ ((String) courseCode).substring(7, ((String) courseCode).length()) +
                         row2.substring(w + Constants.CELL_FILLING -2, row2.length()));
             }
     }
