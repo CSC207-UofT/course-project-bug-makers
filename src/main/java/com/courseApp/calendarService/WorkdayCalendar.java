@@ -49,28 +49,28 @@ public class WorkdayCalendar extends CalendarFactory implements Presentable {
        return res.toString();
     }
 
-    public static void main(String[] args) {
-        ArrayList<String> th_schedule = new ArrayList<>();
-        th_schedule.add("17:00");
-        th_schedule.add("18:00");
-
-
-        ArrayList<String> tu_schedule = new ArrayList<>();
-        tu_schedule.add("11:00");
-        tu_schedule.add("12:00");
-
-        Map<String, ArrayList<String>> day = new HashMap<>();
-        day.put("TH", th_schedule);
-        day.put("TU", tu_schedule);
-
-        Map<String, Map<String, ArrayList<String>>> cad = new HashMap<>();
-        cad.put("CSC207SLEC0101", day);
-
-        System.out.println(cad);
-
-        System.out.println(new WorkdayCalendar(cad).present());
-
-    }
+//    public static void main(String[] args) {
+//        ArrayList<String> th_schedule = new ArrayList<>();
+//        th_schedule.add("17:00");
+//        th_schedule.add("18:00");
+//
+//
+//        ArrayList<String> tu_schedule = new ArrayList<>();
+//        tu_schedule.add("11:00");
+//        tu_schedule.add("12:00");
+//
+//        Map<String, ArrayList<String>> day = new HashMap<>();
+//        day.put("TH", th_schedule);
+//        day.put("TU", tu_schedule);
+//
+//        Map<String, Map<String, ArrayList<String>>> cad = new HashMap<>();
+//        cad.put("CSC207SLEC0101", day);
+//
+//        System.out.println(cad);
+//
+//        System.out.println(new WorkdayCalendar(cad).present());
+//
+//    }
 
 
 }
