@@ -2,7 +2,7 @@ package com.courseApp.DAO;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junitx.jupiter.api.Assertions.*;
 
 class CourseDaoImplTest {
 
