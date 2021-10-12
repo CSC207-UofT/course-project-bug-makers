@@ -6,6 +6,10 @@ import java.util.List;
 
 public class Constants {
 
+
+
+
+ //////// Calendar Constants
     public final static int CELL_FILLING = 12;
     public final static int HOUR_HEIGHT = 4;
     public final static int START_TIME = 8;
@@ -94,7 +98,7 @@ public class Constants {
                     +------------+------------+------------+------------+------------+------------+""";
 
 
-
+ //////// UofT API constants
     public static final String UT_API_URL = "https://timetable.iit.artsci.utoronto.ca/api/20219/" +
             "courses?org=&code={courseCode}&section={courseTerm}";
 
@@ -111,6 +115,17 @@ public class Constants {
     public static List<String> getListedWorkday(){
         return new ArrayList<>(Arrays.asList(WORK_DAY_TABLE.split("\n")));
     }
+
+
+
+    //////// User MangoDB constants
+    public static final String DB_CONNECTION = "mongodb+srv://bugmaker:wmiIpcMxxGSnSOzU@clusterbugmaker." +
+            "28uz2.mongodb.net/myFirstDatabase?retryWrites=true";
+
+    public static final String DB_DATABASE_NAME = "bugMakerProject";
+    public static final String DB_COLLECTION_NAME = "userSheet";
+
+
 
 
 

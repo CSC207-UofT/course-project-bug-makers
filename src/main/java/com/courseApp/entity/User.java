@@ -13,11 +13,14 @@ public abstract class User {
     public String username;
     public List<String> listCourse;
     public List<String> listWish;
-    public List<Calendar> listCalendar;
+    public List<Schedule> listSchedule;
+
+
+
     public User(String username){
         this.username = username;
         this.listCourse = new ArrayList<String>();
-        this.listCalendar = new ArrayList<Calendar>();
+        this.listSchedule = new ArrayList<Schedule>();
         this.listWish = new ArrayList<String>();
     }
 
@@ -29,7 +32,7 @@ public abstract class User {
         return listWish;
     }
 
-    public List<Calendar> getListCalendar() {
-        return listCalendar;
+    public List<Schedule> getListScehdule() {
+        return listSchedule;
     }
 }
