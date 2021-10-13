@@ -1,5 +1,6 @@
 package com.courseApp.entity;
 
+
 import com.courseApp.constants.Constants;
 
 import java.util.ArrayList;
