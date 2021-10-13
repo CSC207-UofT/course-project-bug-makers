@@ -1,4 +1,4 @@
-package com.courseApp.DAO;
+package com.courseApp.dao;
 
 import com.courseApp.constants.Exceptions;
 import com.courseApp.entity.Course;
@@ -12,7 +12,7 @@ import java.util.*;
 
 /**
  * An implemented CourseDao class. It could query data from API and generate a course entity by course code.
- * Note that course code should be in format of [3 char dept code][3 digit three num][term Tag], i.e., CSC207F.
+ * Note that course code should be ControlPresentInfo format of [3 char dept code][3 digit three num][term Tag], i.e., CSC207F.
  */
 public class CourseDaoImpl implements CourseDAO {
 

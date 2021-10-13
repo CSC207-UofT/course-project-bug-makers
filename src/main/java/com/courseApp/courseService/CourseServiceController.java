@@ -3,11 +3,15 @@ package com.courseApp.courseService;
 import com.courseApp.constants.Constants;
 import com.courseApp.entity.Schedule;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * Course Service Controller for Present course-related information and course planning.
  */
-public class CourseServiceController implements PresentInformation, UserCoursePlanning{
+public class CourseServiceController implements ControlPresentInformation, ControlUserCoursePlanning {
 
 
     /**
@@ -111,11 +115,10 @@ public class CourseServiceController implements PresentInformation, UserCoursePl
      * Return the planned schedule list String iff the planning is successful, otherwise, null.
      *
      * @param username username
-     * @param password password
      * @return schedule list String
      */
     @Override
-    public String PlanCourse(String username, String password) {
+    public String PlanCourse(String username) {
         return null;
 //        TODO ;)
     }
@@ -162,5 +165,8 @@ public class CourseServiceController implements PresentInformation, UserCoursePl
 //
 //        Schedule schedule = new Schedule(cad);
 //        System.out.println(new CourseServiceController().getScheduleSummary(schedule));
+
+//        CourseServiceController csc = new CourseServiceController();
+//        System.out.println(csc.getSectionInformation("CSC207FLEC0101"));
 //    }
 }

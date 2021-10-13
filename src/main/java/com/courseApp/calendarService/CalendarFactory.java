@@ -1,16 +1,15 @@
 package com.courseApp.calendarService;
 
-import com.courseApp.constants.Constants;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import com.courseApp.constants.Constants;
 
+/**
+ * CalendarFactory for generating calendar, which follows the factor design pattern.
+ */
 public abstract class CalendarFactory {
-    protected Map<String, Map<String, ArrayList<String>>> formattedSchedule;
+    protected final Map<String, Map<String, ArrayList<String>>> formattedSchedule;
     public CalendarFactory(Map<String, Map<String, ArrayList<String>>> formattedSchedule) {
         this.formattedSchedule = formattedSchedule;
     }

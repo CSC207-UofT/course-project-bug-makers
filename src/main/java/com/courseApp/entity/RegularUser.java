@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * RegularUser is a subclass of User. This user entity has a password.
- * RegUser object will be saved in a database.
+ * RegUser object will be saved ControlPresentInfo a database.
  * More commands than AnonymousUser.
  */
 public class RegularUser extends User{

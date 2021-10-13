@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Interface for providing basic course information.
  */
-public interface CourseBasicInfo {
+public interface UseCourseBasicInfo {
 
     String getCourseTitle();
     String getCourseCode();

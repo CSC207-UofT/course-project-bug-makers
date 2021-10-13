@@ -1,4 +1,4 @@
-package com.courseApp.DAO;
+package com.courseApp.dao;
 
 import com.courseApp.entity.Course;
 
