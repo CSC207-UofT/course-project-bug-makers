@@ -13,7 +13,7 @@ public class PasswordEncoderMD5 {
     public static String encode(String plaintext)  {
         MessageDigest md = null;
         try {
-            md = MessageDigest.getInstance("MD5");
+            md = MessageDigest.getInstance("MD5"); // MD5 algorithm
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
