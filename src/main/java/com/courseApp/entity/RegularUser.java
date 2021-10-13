@@ -9,16 +9,7 @@ import java.util.ArrayList;
  */
 public class RegularUser extends User{
 
-
-    private String password;
-    public List<String> searchHistory;
-    public RegularUser(String username, String password){
-        super(username);
-        this.password = password;
-
-    }
-
-    public String getPassword() {
-        return password;
+    public RegularUser(String username, ArrayList<String> courseList, ArrayList<String> wishList, ArrayList<Schedule> scheduleList, String userRole) {
+        super(username, courseList, wishList, scheduleList, userRole);
     }
 }

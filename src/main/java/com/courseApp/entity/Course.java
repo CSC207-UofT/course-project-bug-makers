@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Course Entity
+ */
 public class Course {
     private final String courseCode;
     private final String courseTitle;
@@ -12,20 +15,23 @@ public class Course {
     private final List<String> courseSectionList;
     private final Map<String,Map<String, ArrayList<String>>> courseSectionScheduleMap;
     private final String courseTerm;
+    private final String prerequisite;
+
 
     public Course(String courseCode,
                   String courseTitle,
                   String courseDescription,
                   List<String> courseSectionList,
-                  Map<String,Map<String, ArrayList<String>>>
+                  Map<String, Map<String, ArrayList<String>>>
                           courseSectionScheduleMap,
-                  String courseTerm) {
+                  String courseTerm, String prerequisite) {
         this.courseCode = courseCode;
         this.courseTitle = courseTitle;
         this.courseDescription = courseDescription;
         this.courseSectionList = courseSectionList;
         this.courseSectionScheduleMap = courseSectionScheduleMap;
         this.courseTerm = courseTerm;
+        this.prerequisite = prerequisite;
     }
 
 
@@ -51,6 +57,10 @@ public class Course {
 
     public String getCourseTerm() {
         return courseTerm;
+    }
+
+    public String getCoursePrerequisite() {
+        return prerequisite;
     }
 
 }
