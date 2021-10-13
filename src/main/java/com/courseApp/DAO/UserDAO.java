@@ -1,18 +1,29 @@
 package com.courseApp.DAO;
 
+import com.courseApp.entity.Schedule;
 import com.courseApp.entity.User;
-import com.mongodb.ConnectionString;
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoDatabase;
 
+import java.util.ArrayList;
+
+/**
+ * UserDAO interface for querying user data, register action and login action.
+ */
 public interface UserDAO {
 
     User queryUser();
 
-    Boolean queryUserState();
+    Boolean queryUserInDB();
+
+    Boolean userRegister();
+
+    Boolean userLogin();
 
     String queryUserRole();
 
-    Boolean registerUser();
+    ArrayList<String> queryCourseList();
+
+    ArrayList<String> queryWishList();
+
+    ArrayList<Schedule> queryScheduleList();
 
 }

@@ -14,7 +14,6 @@ public class Constants {
     public final static int HOUR_HEIGHT = 4;
     public final static int START_TIME = 8;
     public final static int START_HEIGHT = 5;
-    public final static String WORK_DAY_TABLE =
     public final static int TIME_DIFFERENCE_MIN = 1;
     public final static int LOCATION_MO = 14;
     public final static int LOCATION_TU = 27;
@@ -120,9 +119,6 @@ public class Constants {
     public static final String DESCRIPTION_FORMATTER_1 = "<p>";
     public static final String DESCRIPTION_FORMATTER_2 = "</p>";
 
-    public static List<String> getListedWorkday(){
-        return new ArrayList<>(Arrays.asList(WORK_DAY_TABLE.split("\n")));
-    }
 
 
 
@@ -140,7 +136,6 @@ public class Constants {
     public static final int COURSE_CODE_W_SECTION_LENGTH = 14;
 
     //////// Course Presentation constants
-    public static final String CHANGE_LINE = "\n";
     public static final String TRI_TAB = "          ";
     public static final String TITLE = "- Title: ";
     public static final String DESCRIPTION = "- Description: ";
