@@ -14,6 +14,7 @@ public class Constants {
     public final static int HOUR_HEIGHT = 4;
     public final static int START_TIME = 8;
     public final static int START_HEIGHT = 5;
+    public final static String WORK_DAY_TABLE =
     public final static int TIME_DIFFERENCE_MIN = 1;
     public final static int LOCATION_MO = 14;
     public final static int LOCATION_TU = 27;
@@ -97,6 +98,9 @@ public class Constants {
                     |            |            |            |            |            |            |
                     +------------+------------+------------+------------+------------+------------+""";
 
+    public static List<String> getListedWorkday(){
+        return new ArrayList<>(Arrays.asList(WORK_DAY_TABLE.split("\n")));
+    }
 
  //////// UofT API constants
     public static final String UT_API_URL = "https://timetable.iit.artsci.utoronto.ca/api/20219/" +
@@ -111,6 +115,10 @@ public class Constants {
     public static final String MEETING_START_TIME = "meetingStartTime";
     public static final String MEETING_END_TIME = "meetingEndTime";
     public static final String MEETING_DAY = "meetingDay";
+    public static final String PREREQUISITE = "prerequisite";
+    public static final String SECTION_MARKER = "-";
+    public static final String DESCRIPTION_FORMATTER_1 = "<p>";
+    public static final String DESCRIPTION_FORMATTER_2 = "</p>";
 
     public static List<String> getListedWorkday(){
         return new ArrayList<>(Arrays.asList(WORK_DAY_TABLE.split("\n")));
@@ -118,7 +126,8 @@ public class Constants {
 
 
 
-    //////// User MangoDB constants
+
+   //////// User MangoDB constants
     public static final String DB_CONNECTION = "mongodb+srv://bugmaker:wmiIpcMxxGSnSOzU@clusterbugmaker." +
             "28uz2.mongodb.net/myFirstDatabase?retryWrites=true";
 
@@ -126,9 +135,27 @@ public class Constants {
     public static final String DB_COLLECTION_NAME = "userSheet";
 
 
+    //////// Course Code constants
+    public static final int COURSE_CODE_FLAG = 7;
+    public static final int COURSE_CODE_W_SECTION_LENGTH = 14;
 
+    //////// Course Presentation constants
+    public static final String CHANGE_LINE = "\n";
+    public static final String TRI_TAB = "          ";
+    public static final String TITLE = "- Title: ";
+    public static final String DESCRIPTION = "- Description: ";
+    public static final String SECTION = "- Section:";
+    public static final String NAME_PREREQUISITE ="- Prerequisite: ";
+    public static final String LONG_LINE = " ---------- ---------- ---------- ---------- ---------- ----------";
 
-
+    //////// Uer DAO constants
+    public static final String USERNAME = "username";
+    public static final String COURSE_LIST = "course_list";
+    public static final String WISH_LIST = "wish_list";
+    public static final String SCHEDULE_LIST = "schedule_list";
+    public static final String USER_ROLE = "userRole";
+    public static final String REGULAR_USER = "regularUser";
+    public static final String PASSWORD = "password";
 
 
 
