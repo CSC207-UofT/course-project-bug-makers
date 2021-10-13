@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CalendarPresenter implements CalendarPresentation{
+/**
+ * Presenter for presenting a target calendar.
+ */
+public class CalendarPresenter implements ControlCalendarPresentation {
     /**
      * Generate the header for the calendar.
      *
@@ -39,6 +42,7 @@ public class CalendarPresenter implements CalendarPresentation{
                 new HashMap<>();
         Map<String, Map<String, ArrayList<String>>> winterSchedule =
                 new HashMap<>();
+        // Filter target term
         for (String course: rawSchedule.keySet()){
             if (Character.toString(course.charAt(6)).equals(Constants.FALL_TERM)||
                     Character.toString(course.charAt(6)).equals(Constants.YEAR)){
@@ -57,15 +61,17 @@ public class CalendarPresenter implements CalendarPresentation{
      * @param termType the term(s) we want
      * @param calendarType the type of the Calendar the user want
      * @param rawSchedule the input hashmap from the schedule, containing all the courses of the year.
-     * @return a presentation of WorkdayCalendar of the termType in CMD shell.
+     * @return a presentation of WorkdayCalendar of the termType ControlPresentInfo CMD shell.
      */
     public String presentCalendar(String termType, String calendarType,
                                   Map<String, Map<String, ArrayList<String>>> rawSchedule){
         String resultingCalendar = "";
         resultingCalendar += headerGenerator(termType);
+        // Check calendar type
         if (calendarType.equals(Constants.TYPE_WORKDAY)){
             WorkdayCalendar workdayCalendar = new WorkdayCalendar(scheduleProcessor(termType, rawSchedule));
             resultingCalendar += workdayCalendar.present();
+            // Check term
             if (termType.equals(Constants.YEAR)){
                 resultingCalendar += headerGenerator(Constants.WINTER_TERM);
                 WorkdayCalendar workdayCalendarWinter =

@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class Schedule {
     private final ArrayList<String> sectionList;
-    private final Map<String, Map<String, ArrayList<String>>> scheduleMap;
+    private Map<String, Map<String, ArrayList<String>>> scheduleMap;
 
     public Schedule(ArrayList<String> sectionList, Map<String, Map<String, ArrayList<String>>> scheduleMap) {
         this.sectionList = sectionList;
@@ -22,6 +22,10 @@ public class Schedule {
     public Schedule(Map<String, Map<String, ArrayList<String>>> scheduleMap) {
         this.sectionList = new ArrayList<>(scheduleMap.keySet());
         this.scheduleMap = scheduleMap;
+    }
+
+    public Schedule(ArrayList<String> sectionList) {
+        this.sectionList = sectionList;
     }
 
     /**
@@ -36,7 +40,7 @@ public class Schedule {
     /**
      * Getting schedule map.
      *
-     * The map must be in format: Map(courseCodeW/Section -> Map(weekDay -> ArrayList(schedule)))
+     * The map must be ControlPresentInfo format: Map(courseCodeW/Section -> Map(weekDay -> ArrayList(schedule)))
      *
      * @return map of schedules
      */
@@ -51,7 +55,11 @@ public class Schedule {
             sb.append(entry.getKey()).append(Constants.CHANGE_LINE).append(Constants.TRI_TAB);
             sb.append(entry.getValue()).append(Constants.CHANGE_LINE);
         }
-        sb.append(Constants.LONG_LINE);
+        sb.append(Constants.LONG_LINE).append(Constants.CHANGE_LINE);
         return sb.toString();
+    }
+
+    public void setScheduleMap(Map<String, Map<String, ArrayList<String>>> scheduleMap) {
+        this.scheduleMap = scheduleMap;
     }
 }

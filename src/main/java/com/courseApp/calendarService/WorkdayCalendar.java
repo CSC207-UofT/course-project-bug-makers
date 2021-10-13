@@ -8,19 +8,20 @@ import com.courseApp.constants.Constants;
 import com.courseApp.utils.AggregateList;
 import com.courseApp.utils.TimeConversion;
 
-public class WorkdayCalendar extends CalendarFactory implements Presentable {
+public class WorkdayCalendar extends CalendarFactory implements UsePresentable {
 
     public WorkdayCalendar(Map<String, Map<String, ArrayList<String>>> formattedSchedule) {
         super(formattedSchedule);
     }
 
     /**
-     * Convert the String weekday to an integer format indicating its location in WorkdayCalendar.
+     * Convert the String weekday to an integer format indicating its location ControlPresentInfo WorkdayCalendar.
      *
      * @param weekday String of Days of week
-     * @return weekday's location in the WorkdayCalendar
+     * @return weekday's location ControlPresentInfo the WorkdayCalendar
      */
     private int getWeekDay(String weekday) {
+        // FEATURE SUPPORTED BY JDK16
         return switch (weekday) {
             case "MO" -> Constants.LOCATION_MO;
             case "TU" -> Constants.LOCATION_TU;
@@ -34,9 +35,9 @@ public class WorkdayCalendar extends CalendarFactory implements Presentable {
      * Modify the cell according to the length of the event.
      *
      * @param list the Calendar list
-     * @param weekDay weekday's location in the WorkdayCalendar
+     * @param weekDay weekday's location ControlPresentInfo the WorkdayCalendar
      * @param startingT Starting time of this section
-     * @param timeDifference the duration of this event in hour
+     * @param timeDifference the duration of this event ControlPresentInfo hour
      */
     private void modifyCell(List<String> list, int weekDay, int startingT, int timeDifference){
         // modify the cell if the duration is longer than an hour
@@ -55,7 +56,7 @@ public class WorkdayCalendar extends CalendarFactory implements Presentable {
      * Mark cell as occupied by courseCode.
      *
      * @param list the Calendar list
-     * @param weekDay weekday's location in the WorkdayCalendar
+     * @param weekDay weekday's location ControlPresentInfo the WorkdayCalendar
      * @param startingT Starting time of this section
      * @param courseCode The 7-character code representing a course
      */
@@ -72,12 +73,12 @@ public class WorkdayCalendar extends CalendarFactory implements Presentable {
 
     /**
      *
-     * @return a presentation of WorkdayCalendar in CMD shell.
+     * @return a presentation of WorkdayCalendar ControlPresentInfo CMD shell.
      */
     @Override
     public String present(){
         List<String> list = Constants.getListedWorkday();
-        //loop over all the keys(course codes) in this schedule
+        //loop over all the keys(course codes) ControlPresentInfo this schedule
         for(String courseCode : this.formattedSchedule.keySet()){
             Map<String, ArrayList<String>> sections = this.formattedSchedule.get(courseCode);
             //loop over the time slot(s) that this section occurs

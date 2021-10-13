@@ -3,7 +3,7 @@ package com.courseApp.courseService;
 /**
  * Interface for providing user course planning function.
  */
-public interface UserCoursePlanning {
+public interface ControlUserCoursePlanning {
 
-    String PlanCourse(String username, String password);
+    String PlanCourse(String username);
 }

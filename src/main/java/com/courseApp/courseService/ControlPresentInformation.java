@@ -6,7 +6,7 @@ import com.courseApp.entity.Schedule;
  * Interface for providing various of vernal course-related information,
  * including specific course information, section information and schedule summary.
  */
-public interface PresentInformation {
+public interface ControlPresentInformation {
 
     String getCourseGeneralInformation(String courseCode) throws Throwable;
 

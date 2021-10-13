@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Interface for providing section specific information.
  */
-public interface SectionSpecificScheduleInfo {
+public interface UseSectionSpecificScheduleInfo {
 
     Map<String, ArrayList<String>> getSectionSpecificSchedule() throws Throwable;
 

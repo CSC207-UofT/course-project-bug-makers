@@ -1,4 +1,4 @@
-package com.courseApp.DAO;
+package com.courseApp.dao;
 
 import com.courseApp.entity.Schedule;
 import com.courseApp.entity.User;
@@ -25,5 +25,11 @@ public interface UserDAO {
     ArrayList<String> queryWishList();
 
     ArrayList<Schedule> queryScheduleList();
+
+    boolean updateCourseList(ArrayList<String> courseList);
+
+    boolean updateWishList(ArrayList<String> wishList);
+
+    boolean updateScheduleList(ArrayList<Schedule> scheduleList);
 
 }

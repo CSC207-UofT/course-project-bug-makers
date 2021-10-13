@@ -1,6 +1,6 @@
 package com.courseApp.courseService;
 
-import com.courseApp.DAO.CourseDaoImpl;
+import com.courseApp.dao.CourseDaoImpl;
 import com.courseApp.constants.Constants;
 import com.courseApp.constants.Exceptions;
 import com.courseApp.entity.Course;
@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * CourseInformationGenerator Use Case for querying course information.
  */
-public class CourseInformationGenerator implements CourseBasicInfo, SectionSpecificScheduleInfo{
+public class CourseInformationGenerator implements UseCourseBasicInfo, UseSectionSpecificScheduleInfo {
     private final String section;
     private final Course courseEntity;
 
@@ -152,6 +152,7 @@ public class CourseInformationGenerator implements CourseBasicInfo, SectionSpeci
         }
 
     }
+
 
 //    public static void main(String[] args) throws Throwable {
 //        CourseInformationGenerator cig = new CourseInformationGenerator("CSC207FLEC0101");

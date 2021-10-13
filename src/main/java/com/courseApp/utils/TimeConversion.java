@@ -11,7 +11,7 @@ public class TimeConversion {
      * Convert the String timeString to its integer format.
      *
      * @param timeString String of time
-     * @return time in integer form
+     * @return time ControlPresentInfo integer form
      */
     public static int getIntTime(String timeString){
         return Integer.parseInt(timeString.split(Constants.TIME_COMMA)[0]);
@@ -22,7 +22,7 @@ public class TimeConversion {
      *
      * @param starting Starting time of this section
      * @param ending Ending time of this section
-     * @return the duration of this event in hour.
+     * @return the duration of this event ControlPresentInfo hour.
      */
     public static int getTimeDiff(int starting, int ending){
         return (ending - starting);

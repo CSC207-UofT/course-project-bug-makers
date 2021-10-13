@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Map;
 
 /**
- * Display a calendar.
+ * Interface for displaying a calendar.
  */
-public interface CalendarPresentation {
+public interface ControlCalendarPresentation {
     String presentCalendar(String termType, String calendarType,
                            Map<String, Map<String, ArrayList<String>>> rawSchedule);
 }

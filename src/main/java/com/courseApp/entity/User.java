@@ -10,10 +10,10 @@ import java.util.ArrayList;
 public abstract class User {
 
     protected String username;
-    protected ArrayList<String> courseList;
-    protected ArrayList<String> wishList;
-    protected ArrayList<Schedule> scheduleList;
-    protected String userRole;
+    protected ArrayList<String> courseList; // High priority ControlPresentInfo course planning
+    protected ArrayList<String> wishList; // Low priority ControlPresentInfo course planning
+    protected ArrayList<Schedule> scheduleList; // List for storing schedule objects
+    protected String userRole; // User role
 
     public User(String username,
                 ArrayList<String> courseList,

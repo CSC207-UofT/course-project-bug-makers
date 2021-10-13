@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+/**
+ * Constant class for storing constants, including parameters and calendar models.
+ */
 public class Constants {
-
-
-
 
  //////// Calendar Constants
     public final static int CELL_FILLING = 12;
@@ -29,6 +30,8 @@ public class Constants {
     public static final String CHANGE_LINE = "\n";
     public static final String TYPE_WORKDAY = "Workday";
 
+
+    // NOTE THAT THIS FEATURE REQUIRE JAVA 16.
     final static String WORK_DAY_TABLE =
             """
                     +------------+------------+------------+------------+------------+------------+
