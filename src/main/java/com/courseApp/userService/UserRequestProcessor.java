@@ -193,6 +193,21 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
         return true;
     }
 
+    /**
+     * Update the Schedule to the head of schedule list.
+     *
+     * @param schedule schedule
+     * @return true iff the process is successful
+     */
+    @Override
+    public boolean insertOneSchedule(Schedule schedule) {
+        UserDAO userDao = new UserDaoImpl(this.username);
+        ArrayList<Schedule> res = userDao.queryScheduleList();
+        res.add(0, schedule);
+        userDao.updateScheduleList(res);
+        return true;
+    }
+
 //    public static void main(String[] args) {
 //        new UserRequestProcessor().clearCourseList("TestRegister2");
 //    }
