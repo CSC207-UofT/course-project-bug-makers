@@ -136,6 +136,7 @@ public class Constants {
 
     //////// Course Code constants
     public static final int COURSE_CODE_FLAG = 7;
+    public static final int COURSE_CODE_SECTION_FLAG = 3;
     public static final int COURSE_CODE_W_SECTION_LENGTH = 14;
 
     //////// Course Presentation constants
@@ -154,6 +155,7 @@ public class Constants {
     public static final String USER_ROLE = "userRole";
     public static final String REGULAR_USER = "regularUser";
     public static final String PASSWORD = "password";
+    public static final int  DEFAULT_SCHEDULE = 0;
 
 
 
