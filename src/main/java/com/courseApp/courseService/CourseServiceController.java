@@ -107,20 +107,80 @@ public class CourseServiceController implements ControlPresentInformation, Contr
 
     /**
      * Plan the schedule for user with given username and password.
-     * Course planning will base on courseList and wishList with courseList at a higher priority and wishList at a
-     * lower priority.
+     * Course planning will base on courseList, then wishList with courseList at a higher priority
+     * and wishList at a lower priority.
      *
      * Planned schedule should be added to scheduleList.
      *
      * Return the planned schedule list String iff the planning is successful, otherwise, null.
      *
      * @param username username
+     * @param password password
      * @return schedule list String
      */
     @Override
-    public String PlanCourse(String username) {
+    public String PlanCourse(String username, String password) {
         return null;
 //        TODO ;)
+        ArrayList<String> result = new ArrayList<>();
+        UserDaoImpl userDao = UserDaoImpl(username, password);
+        ArrayList<String> courses = userDao.queryCourseList();
+        ArrayList<String> wishlist = userDao.queryWishList();
+    }
+
+    public ArrayList<String> PlanCourseHelper(Schedule schedule, ArrayList<String> courses, ArrayList<String> wishlist) {
+        if (courses.size() == 1 && wishlist.isEmpty()) {
+            String course = courses.get(0);
+            ArrayList<String> current_sections = schedule.getSectionList();
+            ArrayList<String> new_sections = CourseDaoImpl(course).queryCourseSectionList();
+            for (String s : new_sections) {
+                for (String c : current_sections) {
+                    //if (conflicts(s, c)) {
+                    //  break
+                    //}
+                    //else if (c == current_sections.get(current_sections.size()) && conflicts(s, c) == false) {
+                    // return new ArrayList<String>(s)
+                    //}
+                }
+            }
+            throw new Exception(NO_EXISTING_SCHEUDULE); //Someone teach me whats wrong with this
+        }
+        else if (courses.isEmpty()) {
+            try {
+                PlanCourseHelper(schedule, wishlist, new ArrayList<String>());
+            } catch(Exception NO_EXISTING_SCHEDULE) {
+                return new ArrayList<String>();
+            } finally {
+                return PlanCourseHelper(schedule, wishlist, new ArrayList<String>());
+            }
+        }
+        else {
+            ArrayList<String> result = new ArrayList<String>();
+            String course = courses.get(0);
+            ArrayList<String> current_sections = schedule.getSectionList();
+            ArrayList<String> new_sections = CourseDaoImpl(course).queryCourseSectionList();
+            for (String s : new_sections) {
+                for (String c : current_sections) {
+                    if (conflicts(s, c)) {
+                        break;
+                    }
+                    if (c == current_sections.get(current_sections.size()) && conflicts(s, c) == false) {
+                        result.add(s);
+                    }
+                }
+                if (result.isEmpty() == false) {
+                    try {
+                        PlanCourseHelper(schedule, new ArrayList<String>(courses.subList(1, courses.size() - 1)), wishlist);
+                    } catch(Exception NO_EXISTING_SCHEDULE) {
+                        result.clear();
+                    } finally {
+                        result.addAll(PlanCourseHelper(schedule, wishlist, new ArrayList<String>()));
+                        return result;
+                    }
+                }
+            }
+            throw new Exception(NO_EXISTING_SCHEUDULE);
+        }
     }
 
 
