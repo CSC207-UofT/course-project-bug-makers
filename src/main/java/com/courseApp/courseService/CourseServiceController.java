@@ -123,9 +123,6 @@ public class CourseServiceController implements ControlPresentInformation, Contr
      * @return schedule list String
      */
 
-
-
-
     @Override
     public String planCourse(String username) {
         Schedule schedule = new CoursePlanner(username).generateSchedule();
