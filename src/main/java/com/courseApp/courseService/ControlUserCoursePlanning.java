@@ -5,5 +5,5 @@ package com.courseApp.courseService;
  */
 public interface ControlUserCoursePlanning {
 
-    String PlanCourse(String username);
+    String planCourse(String username);
 }

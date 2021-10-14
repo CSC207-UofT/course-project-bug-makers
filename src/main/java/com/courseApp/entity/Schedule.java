@@ -24,7 +24,7 @@ public class Schedule {
         this.scheduleMap = scheduleMap;
     }
 
-    public Schedule(ArrayList<String> sectionList) {
+    public Schedule(ArrayList<String> sectionList){
         this.sectionList = sectionList;
     }
 
