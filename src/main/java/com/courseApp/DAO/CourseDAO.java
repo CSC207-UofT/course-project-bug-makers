@@ -9,6 +9,7 @@ import java.util.Map;
 
 public interface CourseDAO {
 
+
      Course generateCourseEntity();
 
      void generateQuery() throws Throwable;
