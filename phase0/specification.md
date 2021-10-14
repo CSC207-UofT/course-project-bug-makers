@@ -1,6 +1,5 @@
 # Specification
 
-
 ### 1. Introduction
 For our CSC207 project, we are planning to build a course planning app that allows students to plan and review their 
 courses. Based on student reviews and user information, our app can also recommend specific courses tailored to the 
