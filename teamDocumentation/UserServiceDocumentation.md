@@ -41,4 +41,6 @@ that's a successful login for given password and username.
   - Course List: `.getCourseList(String username)`, will give you string representation of course list.
   - Wish List: `.getWishList(String username)`, will give you a string representation of the wish list.
   - Schedule List: `.getScheduleList(String username)`, will give you a string representation of the schedule list.
-- If you wish to get the latest `Schedule`, I mean the *Object*, you may call `getLatestSchedule(String username)`, it wil give you the `Schedule` obj. It is handy when it comes to schedule update and calendar present.
+- If you wish to get the latest `Schedule`, I mean the *Object*, you may call `.getLatestSchedule(String username)`, it wil give you the `Schedule` obj. It is handy when it comes to schedule update and calendar present.
+- If you wish to modify the course/wish, you may try `.rmCourse(String username, String courseCode)`,  `rmWish(String username, String courseCode)`. 
+- If your wish to clear up the course/wish list, you may try `userClearCourseList(String username)` and `userClearWishList(String username)`.
