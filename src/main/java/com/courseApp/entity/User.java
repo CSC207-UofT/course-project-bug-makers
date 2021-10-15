@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 /**
  * Abstract class representing the users of this app. User has a username for identification purpose.
- * Testing
  */
 public abstract class User {
 
