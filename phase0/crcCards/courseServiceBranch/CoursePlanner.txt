@@ -1,0 +1,10 @@
+Class name: Course Planner <Use Case>
+Sub-classes: -
+
+Responsibilities:
+* Based on given user information, return a planned schedule for user.
+
+Collaborators:
+* CourseInformationGenerator
+* UserRequestProcessor
+* Schedule

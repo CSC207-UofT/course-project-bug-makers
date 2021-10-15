@@ -1,0 +1,16 @@
+Class name: UserDaoImpl <Use Case>
+Sub-classes: -
+
+Responsibilities:
+* Execute Login/Register actions.
+* Query User Information (wish list, course list, schedule list) from Database.
+* Modify User Information from Database
+    * insert objects into wish list, course list, schedule list;
+    * remove objects from wish list, course list, schedule list;
+    * clear objects from wish list, course list, schedule list;
+
+Collaborators:
+* User
+* UserRequestProcessor
+* ScheduleUpdater
+* PasswordEncoderMD5

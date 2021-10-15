@@ -1,0 +1,9 @@
+Class name: CourseServiceController <Controller>
+Sub-classes: -
+
+Responsibilities:
+* Summaries and present information, such as Course General Information Table, Course Schedule Summary, Section Information.
+
+Collaborators:
+* CourseInformationGenerator
+* Command

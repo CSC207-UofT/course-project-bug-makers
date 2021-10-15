@@ -6,7 +6,7 @@ import com.courseApp.constants.Constants;
 
 public class AggregateList {
     /**
-     * Convert list to String.
+     * Aggregate a list of String to a single String.
      *
      * @param list list of calendar strings
      * @return the String format of calendar.

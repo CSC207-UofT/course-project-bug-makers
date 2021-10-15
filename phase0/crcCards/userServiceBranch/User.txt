@@ -1,0 +1,9 @@
+Class name: User <Abstract Entity>
+Sub-classes: RegularUser
+
+Responsibilities:
+* Storing user information and role, including course list, wish list and schedule list
+
+Collaborators:
+* UserDaoImpl
+* UserRequestProcessor

@@ -1,0 +1,12 @@
+Class name: CourseDaoImpl <Use Case>
+Sub-classes: -
+
+Responsibilities:
+* Connect with the UofT API and query course information.
+    * Including course description course prerequisite, section list, section schedule and course term.
+* Generate a course entity.
+
+Collaborators:
+* Course
+* CourseInformationGenerator
+* UrlReader

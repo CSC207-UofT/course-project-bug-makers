@@ -1,0 +1,8 @@
+Class name: Course <Entity>
+Sub-classes: -
+
+Responsibilities:
+* Storing course description course prerequisite, section list, section schedule, course term and course time.
+
+Collaborators:
+* CourseDaoImpl

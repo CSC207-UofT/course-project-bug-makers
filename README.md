@@ -10,7 +10,7 @@ For our CSC207 project, we are planning to build a course planning app that allo
 
 
 
-## Progress Summary & Design Feature Highlights
+## Progress Summary & Design Highlights
 
 ![Course_app](README.assets/CourseAppMindMap.png)
 
