@@ -12,7 +12,7 @@ For our CSC207 project, we are planning to build a course planning app that allo
 
 ## Progress Summary & Design Feature Highlights
 
-![Course app](README.assets/Course app.png)
+![Course_app](README.assets/CourseAppMindMap.png)
 
 ## System Requirements
 
