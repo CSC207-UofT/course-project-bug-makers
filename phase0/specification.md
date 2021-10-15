@@ -10,11 +10,9 @@
 4. [Phase0 Plan](#Our Phase 0 Plan)
 
 
-
 ## Introduction
 
 For our CSC207 project, we are planning to build a course planning app that allows students to plan and review their courses. A build-in connection to UofT API will present comprehensive course information to users, while user information is safely stored in a remote database. Along with an auto-scheduling algorithm that can help with course planning, a timetable visualization function gives a convenient course scheduling experience. Based on student reviews and user information, our app can also recommend specific courses tailored to the user’s program requirements. Alongside the course planning function, our app aims to provide a platform for students to connect and network with their fellow peers. 
-
 
 
 ## Feature Discussions
@@ -33,9 +31,6 @@ Note that the course planning list and course wish list are different when it co
 
 The main function of our app is to allow students to add specific courses to their timetable. Each course has a name 
 and a course code, as well as other details about the course such as its breadth category, distribution category, 
-co-requisites, delivery instructions, course description and list of sections. Each section has a section ID and can
-be further classified as one of the three following categories: lecture, tutorial, or lab. Each lecture section will 
-have an assigned professor, while tutorials and labs will have an assigned teaching assistant (TA).
 
 
 
@@ -46,16 +41,20 @@ current timetable. Each schedule has a course, a section, and a time slot. When 
 their timetable, the schedule will be added to the user’s current timetable, which is a list of their current schedules.
 Students can search up information such as a course’s description, as well as their current timetable.
 
+### 4. Scheduling 
+When a user wants to plan a new schedule, our app will generate a calendar that will allow students to visualize their 
+current timetable. Each schedule has a course, a section, and a time slot. When a student wants to plan a schedule into
+their timetable, the schedule will be added to the user’s current timetable, which is a list of their current schedules.
+Students can search up information such as a course’s description, as well as their current timetable and courses they 
+have previously taken. 
 
-
-### 4. Submitting Reviews
+### 5. Submitting Reviews
 
 Alongside planning their timetable, students can submit reviews of their courses on the reviews forum. Each review 
 should contain a rating out of 5 and an optional comment made by the user about the course. Once a review is submitted, 
 it will be posted onto the reviews forum, where other students can publicly view. Based on the rating of the courses, 
 our app will use an algorithm to recommend specific courses to a user. The algorithm will also take into account the 
 user’s program, year as well as time availability for the respected course. 
-
 
 
 ## Project Architecture
@@ -92,3 +91,4 @@ user’s program, year as well as time availability for the respected course.
       - Manual course planning
   - Calendar service
     - Realize a work-day calendar based on user's course list
+
