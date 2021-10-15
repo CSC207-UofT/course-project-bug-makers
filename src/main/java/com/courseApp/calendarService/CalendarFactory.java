@@ -1,17 +1,17 @@
 package com.courseApp.calendarService;
 
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
-public abstract class CalendarFactory implements TimeConversion {
-    protected Map course;
-    public CalendarFactory(Map map) {
-        this.course = map;
+
+/**
+ * CalendarFactory for generating calendar, which follows the factor design pattern.
+ */
+public abstract class CalendarFactory {
+    protected final Map<String, Map<String, ArrayList<String>>> formattedSchedule;
+    public CalendarFactory(Map<String, Map<String, ArrayList<String>>> formattedSchedule) {
+        this.formattedSchedule = formattedSchedule;
     }
 
-    @Override
-    public int getIntTime(String s){
-        return Integer.parseInt(s.split(":")[0]);
-    }
 }

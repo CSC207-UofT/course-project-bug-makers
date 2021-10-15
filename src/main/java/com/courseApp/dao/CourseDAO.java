@@ -1,4 +1,4 @@
-package com.courseApp.DAO;
+package com.courseApp.dao;
 
 import com.courseApp.entity.Course;
 
@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * Interface for providing interaction with API.
+ */
 public interface CourseDAO {
 
 
@@ -19,6 +23,8 @@ public interface CourseDAO {
      Map<String, Object> getMap();
 
      String queryCourseTerm();
+
+     String queryCoursePrerequisite();
 
      String queryCourseDescription();
 

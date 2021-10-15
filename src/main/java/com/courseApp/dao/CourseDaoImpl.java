@@ -1,4 +1,4 @@
-package com.courseApp.DAO;
+package com.courseApp.dao;
 
 import com.courseApp.constants.Exceptions;
 import com.courseApp.entity.Course;
@@ -12,7 +12,7 @@ import java.util.*;
 
 /**
  * An implemented CourseDao class. It could query data from API and generate a course entity by course code.
- * Note that course code should be in format of [3 char dept code][3 digit three num][term flag], i.e., CSC207F.
+ * Note that course code should be ControlPresentInfo format of [3 char dept code][3 digit three num][term Tag], i.e., CSC207F.
  */
 public class CourseDaoImpl implements CourseDAO {
 
@@ -21,6 +21,13 @@ public class CourseDaoImpl implements CourseDAO {
     private Map<String, Object> map;
     private URL url;
 
+
+    /**
+     * Construct a CourseDaoImpl instance.
+     *
+     * @param courseCode courseCode of Department Code + Course Number + Term Tag
+     * @throws Throwable raise error if the information does not exist.
+     */
     public CourseDaoImpl(String courseCode) throws Throwable {
 
         this.courseCode = courseCode;
@@ -28,6 +35,10 @@ public class CourseDaoImpl implements CourseDAO {
         this.setMap();
     }
 
+    /**
+     * Generate a course entity.
+     * @return Course (an entity)
+     */
     @Override
     public Course generateCourseEntity()  {
 
@@ -36,7 +47,8 @@ public class CourseDaoImpl implements CourseDAO {
                 this.queryCourseDescription(),
                 this.queryCourseSectionList(),
                 this.queryCourseSectionScheduleMap(),
-                this.courseTerm);
+                this.courseTerm,
+                this.queryCoursePrerequisite());
 
     }
 
@@ -61,7 +73,7 @@ public class CourseDaoImpl implements CourseDAO {
     /**
      * Setter method for converting Json response from the API to a map instance variable.
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "SuspiciousMethodCalls"})
     @Override
     public void setMap() throws Throwable {
         this.generateQuery();
@@ -71,7 +83,7 @@ public class CourseDaoImpl implements CourseDAO {
     }
 
     /**
-     * Getter Method for map instance variable, where map is the Json response from the API.
+     * Getter method for getting map instance variable, where map is the Json response from the API.
      *
      * @return map type of json file of the API response
      */
@@ -91,13 +103,23 @@ public class CourseDaoImpl implements CourseDAO {
     }
 
     /**
+     * Query method for getting the course pre-req.
+     *
+     * @return Course pre-req string
+     */
+    @Override
+    public String queryCoursePrerequisite() {
+        return (String) this.map.get(Constants.PREREQUISITE);
+    }
+
+    /**
      * Query method for getting the course description
      *
      * @return Course Term
      */
     @Override
     public String queryCourseDescription() {
-        return (String) this.map.get(Constants.COURSE_DESCRIPTION);
+        return procDescription((String) this.map.get(Constants.COURSE_DESCRIPTION));
     }
 
     /**
@@ -117,13 +139,16 @@ public class CourseDaoImpl implements CourseDAO {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public List<String> queryCourseSectionList() {
+    public ArrayList<String> queryCourseSectionList() {
         Set<String> res = ((Map<String, Object>) this.map.get(Constants.MEETING)).keySet();
         return new ArrayList<>(res);
     }
 
 
     /** Query method, returns the schedule for each section.
+     *
+     * Structure should be like: Map(section -> Map(weekday -> ArrayList(timing)))
+     *
      *
      * @return schedule for each section.
      */
@@ -146,42 +171,36 @@ public class CourseDaoImpl implements CourseDAO {
                 sectionSpecific.put((String)((Map<String, Object>)
                         entry.getValue()).get(Constants.MEETING_DAY), meetingTimes);
             }
-            resMap.put(section, sectionSpecific);
-
-
+            resMap.put(procSection(section), sectionSpecific);
         }
         return resMap;
+    }
+
+    /**
+     * Process the section string, return the section string with SECTION_MAKER omitted.
+     * @param section  Section string
+     * @return Edited section string with SECTION_MAKER omitted
+     */
+    private String procSection(String section){
+        return section.replace(Constants.SECTION_MARKER, "");
+    }
+
+    /**
+     * Process the description string, return the modified description string with DESCRIPTION formatter omitted.
+     * @param description Description string
+     * @return Edited description string with formatter omitted
+     */
+    private String procDescription(String description){
+
+        return description.replace(Constants.DESCRIPTION_FORMATTER_1, "").replace(Constants.DESCRIPTION_FORMATTER_2, "");
     }
 
 
 
 //    public static void main(String[] args) throws Throwable {
-////        System.out.println(1);
-////        CourseDaoImpl cdi = new CourseDaoImpl("CSC207F");
-////        cdi.setMap();
-////        System.out.println(cdi.queryCourseSectionScheduleMap());
-////
-////
-////        ArrayList<String> th_schedule = new ArrayList<>();
-////        th_schedule.add("17:00");
-////        th_schedule.add("18:00");
-////
-////
-////        ArrayList<String> tu_schedule = new ArrayList<>();
-////        tu_schedule.add("11:00");
-////        tu_schedule.add("12:00");
-////
-////        Map<String, ArrayList<String>> day = new HashMap<>();
-////        day.put("TH", th_schedule);
-////        day.put("TU", tu_schedule);
-////
-////        Map<String, Map<String, ArrayList<String>>> cad = new HashMap<>();
-////        cad.put("CSC207SLEC0101", day);
-////
-////        System.out.println(cad);
-//
+//        System.out.println(1);
 //        CourseDaoImpl cdi = new CourseDaoImpl("CSC207F");
-//        Course a = cdi.generateCourseEntity();
-//        System.out.println(a);
+//        Course course = cdi.generateCourseEntity();
+//        System.out.println(course);
 //    }
 }
