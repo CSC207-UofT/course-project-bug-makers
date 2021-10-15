@@ -100,8 +100,8 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
         UserDAO userDao = new UserDaoImpl(this.username);
         ArrayList<String> res = userDao.queryCourseList();
         res.add(courseCode);
-        userDao.updateCourseList(res);
-        return true;
+        return userDao.updateCourseList(res);
+
     }
 
     /**
@@ -189,8 +189,8 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
     @Override
     public boolean clearScheduleList() {
         UserDAO userDao = new UserDaoImpl(this.username);
-        userDao.updateScheduleList(new ArrayList<>());
-        return true;
+        return userDao.updateScheduleList(new ArrayList<>());
+
     }
 
     /**
@@ -204,8 +204,8 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
         UserDAO userDao = new UserDaoImpl(this.username);
         ArrayList<Schedule> res = userDao.queryScheduleList();
         res.add(0, schedule);
-        userDao.updateScheduleList(res);
-        return true;
+        return userDao.updateScheduleList(res);
+
     }
 
 //    public static void main(String[] args) {
