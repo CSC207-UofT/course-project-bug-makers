@@ -1,0 +1,16 @@
+Class name: UserRequestProcessor <Use Case>
+Sub-classes: -
+
+Responsibilities:
+* Order Login/Register actions.
+* Return raw User Information (wish list, course list, schedule list).
+* Order changing User Information
+    * insert one object into wish list, course list, schedule list;
+    * remove one object from wish list, course list, schedule list;
+    * update a clear list to wish list, course list, schedule list;
+
+Collaborators:
+* UserServiceController
+* User
+* UserDaoImpl
+* Schedule

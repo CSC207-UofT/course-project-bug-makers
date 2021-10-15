@@ -1,0 +1,9 @@
+Class name: Calendar Factory <Abstract Use Case>
+Sub-classes: WorkdayCalendar
+
+Responsibilities:
+* Based on given user schedule, generate a calendar.
+* (Framework for a factory design pattern.)
+
+Collaborators:
+* CalendarPresenter

@@ -1,0 +1,8 @@
+Class name: UrlReader <Helper Class>
+Sub-classes: -
+
+Responsibilities:
+* Convert http response to a string.
+
+Collaborators:
+* CourseDaoImpl

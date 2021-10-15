@@ -1,0 +1,11 @@
+Class name: Schedule <Entity>
+Sub-classes: -
+
+Responsibilities:
+* Store scheduled section list.
+* Store schedule timetable map.
+
+Collaborators:
+* ScheduleUpdater
+* CoursePlanner
+* UserRequestProcessor

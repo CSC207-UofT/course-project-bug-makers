@@ -1,0 +1,10 @@
+Class name: CalendarPresenter <Controller>
+Sub-classes: -
+
+Responsibilities:
+* Based on given user account and user request, present a calendar.
+
+Collaborators:
+* CalendarFactory
+* Command
+* AggregateList
