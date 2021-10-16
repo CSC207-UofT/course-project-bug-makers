@@ -4,15 +4,20 @@ import com.courseApp.driver.cmdline.IShellState;
 
 import java.util.List;
 
-public class userLogin extends UserCommand{
+public class UserLogin extends UserCommand{
 
-    public userLogin() {
+    public UserLogin() {
 
-        super(2, 0);
+        super(2, 2);
     }
 
     @Override
     public String executeCommand(IShellState shellState, List<String> arguments) throws Exception {
+        return null;
+    }
+
+    @Override
+    public String executeCommand(IShellState shellState, List<String> arguments, String username) throws Throwable {
         return null;
     }
 }

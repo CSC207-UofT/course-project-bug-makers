@@ -13,8 +13,36 @@ public class CmdShell {
         System.out.println("Do you have an account? Y/N");
         String haveAccount = in.nextLine();
         String username = "";
-        boolean wantToRegister = false;
 
+        username = loginOrRegister(in, haveAccount, username);
+
+        IShellState shellState = new ShellState(username);
+        CommandExecutor commandExecutor = new CommandExecutor();
+        while (shellState.isRunning()) {
+            System.out.println("Enter command (type ?commands for the list of commands): ");
+            String commandLine = in.nextLine();
+            if (commandLine.equals("?commands")){
+                System.out.println("User commands: " + Constants.USER_COMMAND_DIC.keySet().toString());
+                System.out.println("Course commands: " + Constants.COURSE_COMMAND_DIC.keySet().toString());
+                System.out.println("Calendar commands: " + Constants.CALENDAR_COMMAND_DIC.keySet().toString());
+            } else {
+                try {
+                    String output = commandExecutor.executeCommand(shellState, commandLine, username);
+                    System.out.println(output);
+                } catch (Throwable throwable) {
+                    System.out.println(throwable.getMessage());
+                }
+            }
+        }
+
+        in.close();
+
+    }
+
+
+    // helper method
+    private static String loginOrRegister(Scanner in, String haveAccount, String username) {
+        boolean wantToRegister = false;
         if (haveAccount.equals("Y")) {
             boolean exitLoop = false;
             while (!exitLoop) {
@@ -35,7 +63,8 @@ public class CmdShell {
                     }
                 }
             }
-        } if (haveAccount.equals("N") || wantToRegister) {
+        }
+        if (haveAccount.equals("N") || wantToRegister) {
             System.out.println("Let's create an account for you! \n Please enter your username: ");
             String inputUsername = in.nextLine();
             System.out.println("Please enter your password: ");
@@ -44,26 +73,6 @@ public class CmdShell {
             userServiceController.userRegister(inputUsername, inputPassword);
             username = inputUsername;
         }
-        ShellState shellState = new ShellState(username);
-        CommandExecutor commandExecutor = new CommandExecutor();
-        while (shellState.isRunning()) {
-            System.out.println("Enter command (type ?commands for the list of commands): ");
-            String commandLine = in.nextLine();
-            if (commandLine.equals("?commands")){
-                System.out.println("User commands: " + Constants.USER_COMMAND_DIC.keySet().toString());
-                System.out.println("Course commands: " + Constants.COURSE_COMMAND_DIC.keySet().toString());
-                System.out.println("Calendar commands: " + Constants.CALENDAR_COMMAND_DIC.keySet().toString());
-            } else {
-                try {
-                    String output = commandExecutor.executeCommand(shellState, commandLine);
-                    System.out.println(output);
-                } catch (Throwable throwable) {
-                    System.out.println(throwable.getMessage());
-                }
-            }
-        }
-
-        in.close();
-
+        return username;
     }
 }

@@ -1,7 +1,7 @@
 package com.courseApp.driver.cmdline.commands;
 
-import com.courseApp.driver.cmdline.IShellState;
 import com.courseApp.courseService.CourseServiceController;
+import com.courseApp.driver.cmdline.IShellState;
 
 import java.util.List;
 

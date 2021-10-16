@@ -27,6 +27,7 @@ public abstract class Command {
     abstract public String executeCommand
             (IShellState shellState, List<String> arguments) throws Throwable;
 
+
     protected void checkArgumentsNum(List<String> arguments) throws Exception {
         if (arguments.size() > maxArguments) {
             throw new Exception("too many arguments provided");
