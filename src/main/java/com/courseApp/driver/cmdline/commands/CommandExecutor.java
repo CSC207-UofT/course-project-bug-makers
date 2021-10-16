@@ -17,7 +17,7 @@ public class CommandExecutor {
      * @return string that is given back as command is executed
      * @throws Exception if any of the provided arguments is invalid
      */
-    public String executeCommand(IShellState shellState, String commandLine) throws Throwable {
+    public String executeCommand(IShellState shellState, String commandLine, String username) throws Throwable {
 
         shellState.addHistory(commandLine);
 
@@ -27,19 +27,25 @@ public class CommandExecutor {
         if (!CommandReader.isValidCommand(command)) {
             throw new Exception(Exceptions.COMMAND_NOT_FOUND);
         }
+
         List<String> arguments = cmdArgTuple.getArguments();
         Command apprCmdObject;
+        String result;
+
         if (Constants.USER_COMMAND_DIC.containsKey(command)) {
             apprCmdObject = Constants.USER_COMMAND_DIC.get(command);
+            result = ((UserCommand) apprCmdObject).executeCommand(shellState, arguments, username);
+
         } else if (Constants.COURSE_COMMAND_DIC.containsKey(command)) {
             apprCmdObject = Constants.COURSE_COMMAND_DIC.get(command);
+            result = apprCmdObject.executeCommand(shellState, arguments);
         } else {
             apprCmdObject = Constants.CALENDAR_COMMAND_DIC.get(command);
+            result = apprCmdObject.executeCommand(shellState, arguments);
         }
 
-        // return the result of the executed command
-        String result;
-        result = apprCmdObject.executeCommand(shellState, arguments);
+
+
 
         return result;
     }

@@ -163,17 +163,22 @@ public class Constants {
 
 
     //////// Dictionaries of commands
-    public static final Hashtable<String, UserCommand> ACCOUNT_COMMAND_DIC = new Hashtable<String, UserCommand>();
+    public static final Hashtable<String, Command> ACCOUNT_COMMAND_DIC = new Hashtable<String, Command>();
     public static final Hashtable<String, UserCommand> USER_COMMAND_DIC = new Hashtable<String, UserCommand>();
     public static final Hashtable<String, CourseCommand> COURSE_COMMAND_DIC = new Hashtable<String, CourseCommand>();
     public static final Hashtable<String, CalendarCommand> CALENDAR_COMMAND_DIC = new Hashtable<String, CalendarCommand>();
 
     static{
         // user commands
-        ACCOUNT_COMMAND_DIC.put("user_login", new userLogin());
-        //ACCOUNT_COMMAND_DIC.put("user_register", new userRegister());
+        ACCOUNT_COMMAND_DIC.put("userLogin", new UserLogin());
+        ACCOUNT_COMMAND_DIC.put("userRegister", new UserRegister());
+        ACCOUNT_COMMAND_DIC.put("quitSession", new QuitSession());
 
-        COURSE_COMMAND_DIC.put("get_course_general_information", new GetCourseGeneralInformation());
+        USER_COMMAND_DIC.put("clearWishList", new UserClearWishList());
+        USER_COMMAND_DIC.put("rmCourse", new RmCourse());
+        USER_COMMAND_DIC.put("rmWish", new RmWish());
+
+        COURSE_COMMAND_DIC.put("getCourseGeneralInformation", new GetCourseGeneralInformation());
     }
 
 
