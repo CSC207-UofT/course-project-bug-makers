@@ -19,12 +19,12 @@ public class CalendarPresenter implements ControlCalendarPresentation {
     private String headerGenerator(String termType){
         String resultingHeader = "";
         if (termType.equals(Constants.YEAR)){
-            resultingHeader += "Calendar of the Year\n";
+            resultingHeader += Constants.YEAR_HEADER;
         }
         if (termType.equals(Constants.FALL_TERM) || termType.equals(Constants.YEAR)){
-            resultingHeader += "Calendar of the Fall Term\n";
+            resultingHeader += Constants.FALL_HEADER;
         }
-        else {resultingHeader += "Calendar of the Winter Term\n";}
+        else {resultingHeader += Constants.WINTER_HEADER;}
         return resultingHeader;
     }
 
@@ -36,6 +36,7 @@ public class CalendarPresenter implements ControlCalendarPresentation {
      * @param rawSchedule the schedule list for the year
      * @return the schedule list of this term.
      */
+    @SuppressWarnings("StringOperationCanBeSimplified")
     private Map<String, Map<String, ArrayList<String>>> scheduleProcessor
             (String termType, Map<String, Map<String, ArrayList<String>>> rawSchedule){
         Map<String, Map<String, ArrayList<String>>> fallSchedule =
@@ -44,11 +45,12 @@ public class CalendarPresenter implements ControlCalendarPresentation {
                 new HashMap<>();
         // Filter target term
         for (String course: rawSchedule.keySet()){
-            if (Character.toString(course.charAt(6)).equals(Constants.FALL_TERM)||
-                    Character.toString(course.charAt(6)).equals(Constants.YEAR)){
+            boolean isYear = course.substring(Constants.COURSE_CODE_FLAG - 1, Constants.COURSE_CODE_FLAG).equals(Constants.YEAR);
+            if (course.substring(Constants.COURSE_CODE_FLAG -1, Constants.COURSE_CODE_FLAG).equals(Constants.FALL_TERM)||
+                    isYear){
                 fallSchedule.put(course, rawSchedule.get(course));}
-            if (Character.toString(course.charAt(6)).equals(Constants.WINTER_TERM) ||
-                    Character.toString(course.charAt(6)).equals(Constants.YEAR)){
+            if (course.substring(Constants.COURSE_CODE_FLAG -1, Constants.COURSE_CODE_FLAG).equals(Constants.WINTER_TERM) ||
+                    isYear){
                 winterSchedule.put(course, rawSchedule.get(course));
             }
         }
