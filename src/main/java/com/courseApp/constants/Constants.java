@@ -1,7 +1,10 @@
 package com.courseApp.constants;
 
+import com.courseApp.driver.cmdline.commands.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.List;
 
 
@@ -136,7 +139,9 @@ public class Constants {
 
     //////// Course Code constants
     public static final int COURSE_CODE_FLAG = 7;
+    public static final int COURSE_CODE_SECTION_FLAG = 3;
     public static final int COURSE_CODE_W_SECTION_LENGTH = 14;
+
 
     //////// Course Presentation constants
     public static final String TRI_TAB = "          ";
@@ -154,7 +159,22 @@ public class Constants {
     public static final String USER_ROLE = "userRole";
     public static final String REGULAR_USER = "regularUser";
     public static final String PASSWORD = "password";
+    public static final int  DEFAULT_SCHEDULE = 0;
 
+
+    //////// Dictionaries of commands
+    public static final Hashtable<String, UserCommand> ACCOUNT_COMMAND_DIC = new Hashtable<String, UserCommand>();
+    public static final Hashtable<String, UserCommand> USER_COMMAND_DIC = new Hashtable<String, UserCommand>();
+    public static final Hashtable<String, CourseCommand> COURSE_COMMAND_DIC = new Hashtable<String, CourseCommand>();
+    public static final Hashtable<String, CalendarCommand> CALENDAR_COMMAND_DIC = new Hashtable<String, CalendarCommand>();
+
+    static{
+        // user commands
+        ACCOUNT_COMMAND_DIC.put("user_login", new userLogin());
+        //ACCOUNT_COMMAND_DIC.put("user_register", new userRegister());
+
+        COURSE_COMMAND_DIC.put("get_course_general_information", new GetCourseGeneralInformation());
+    }
 
 
 }

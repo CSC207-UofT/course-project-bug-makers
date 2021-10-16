@@ -1,11 +1,13 @@
 package com.courseApp.userService;
+import com.courseApp.constants.Constants;
+import com.courseApp.entity.Schedule;
 
 
 /**
  * User Service Controller for user-related demands.
  */
 public class UserServiceController implements ControlLoginRegister, ControlRM, ControlClear,
-        ControlPresentInfo, ControlAddOne {
+        ControlPresentInfo, ControlAddOne, ControlLatestSchedule{
 
     /**
      *  User login
@@ -154,6 +156,17 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
     @Override
     public boolean addWish(String username, String courseCode) {
         return new UserRequestProcessor(username).insertOneWish(courseCode);
+    }
+
+    /**
+     * Return the default schedule
+     *
+     * @param username username
+     * @return Schedule at the default position
+     */
+    @Override
+    public Schedule getLatestSchedule(String username) {
+        return new UserRequestProcessor(username).queryUserScheduleList().get(Constants.DEFAULT_SCHEDULE);
     }
 
 //    public static void main(String[] args) {

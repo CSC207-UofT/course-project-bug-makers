@@ -136,6 +136,21 @@ public class CourseInformationGenerator implements UseCourseBasicInfo, UseSectio
         return this.courseEntity.getCourseSectionScheduleMap();
     }
 
+    /**
+     * Get the section type list for all section.
+     *
+     * @return List of section types in the order of section list.
+     */
+
+    @Override
+    public List<String> getCourseSectionType() {
+        List<String> res = this.getCourseSectionList();
+        for(int i = 0; i < res.size(); i++){
+            res.set(i, res.get(i).substring(0, Constants.COURSE_CODE_SECTION_FLAG));
+        }
+        return res;
+
+    }
 
     /**
      * Get the schedule map for a single section with section by provided section code.
