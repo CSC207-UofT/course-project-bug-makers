@@ -123,6 +123,7 @@ public class CourseInformationGenerator implements UseCourseBasicInfo, UseSectio
         return this.courseEntity.getCourseSectionList();
     }
 
+
     /**
      * Get the schedule map for all sections.
      *
@@ -140,6 +141,7 @@ public class CourseInformationGenerator implements UseCourseBasicInfo, UseSectio
      *
      * @return List of section types in the order of section list.
      */
+
     @Override
     public List<String> getCourseSectionType() {
         List<String> res = this.getCourseSectionList();
@@ -149,7 +151,6 @@ public class CourseInformationGenerator implements UseCourseBasicInfo, UseSectio
         return res;
 
     }
-
 
     /**
      * Get the schedule map for a single section with section by provided section code.
@@ -168,10 +169,9 @@ public class CourseInformationGenerator implements UseCourseBasicInfo, UseSectio
     }
 
 
-
 //    public static void main(String[] args) throws Throwable {
-//        CourseInformationGenerator cig = new CourseInformationGenerator("CSC207F");
-//        System.out.println(cig.getCourseSectionType());
+//        CourseInformationGenerator cig = new CourseInformationGenerator("CSC207FLEC0101");
+//        System.out.println(cig.getSectionSpecificSchedule());
 //    }
 
 }

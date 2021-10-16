@@ -53,7 +53,6 @@ public class CourseServiceController implements ControlPresentInformation, Contr
         return generateScheduleSummary(schedule);
     }
 
-
     /**
      * Generate Course Information, including title, description, prerequisite and section schedule.
      *
