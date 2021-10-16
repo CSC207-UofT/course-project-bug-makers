@@ -36,6 +36,7 @@ public class CalendarPresenter implements ControlCalendarPresentation {
      * @param rawSchedule the schedule list for the year
      * @return the schedule list of this term.
      */
+    @SuppressWarnings("StringOperationCanBeSimplified")
     private Map<String, Map<String, ArrayList<String>>> scheduleProcessor
             (String termType, Map<String, Map<String, ArrayList<String>>> rawSchedule){
         Map<String, Map<String, ArrayList<String>>> fallSchedule =
