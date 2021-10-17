@@ -1,0 +1,8 @@
+Class name: UseLoginRegister <Interface>
+Sub-classes: UserRequestProcessor
+
+Responsibilities:
+* Provide function of user register and verifying login state.
+
+Collaborators:
+* UserServiceController

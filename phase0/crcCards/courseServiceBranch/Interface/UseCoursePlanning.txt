@@ -1,0 +1,8 @@
+Class name: UseCoursePlanning <Interface>
+Sub-classes: CoursePlanner
+
+Responsibilities:
+* Run course scheduling algorithm and provide a schedule map
+
+Collaborators:
+* CourseInformationController

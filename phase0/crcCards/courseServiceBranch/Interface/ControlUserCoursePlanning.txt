@@ -1,0 +1,8 @@
+Class name: ControlUserCoursePlanning <Interface>
+Sub-classes: CourseServiceController
+
+Responsibilities:
+* Provide course planning service.
+
+Collaborators:
+* Driver

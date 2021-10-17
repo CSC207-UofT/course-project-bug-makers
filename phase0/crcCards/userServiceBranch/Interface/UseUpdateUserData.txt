@@ -1,0 +1,8 @@
+Class name: UseUpdateUserData <Interface>
+Sub-classes: UserRequestProcessor
+
+Responsibilities:
+* Provide function of updating user data, including course list, wish list and schedule list.
+
+Collaborators:
+* UserServiceController

@@ -1,0 +1,8 @@
+Class name: ControlLatestSchedule <Interface>
+Sub-classes: UserServiceController
+
+Responsibilities:
+* Provide function of presenting readable version of the latest schedule.
+
+Collaborators:
+* Driver

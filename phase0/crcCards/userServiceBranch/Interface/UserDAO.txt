@@ -1,0 +1,16 @@
+Class name: UserDao <Interface>
+Sub-classes: UserDaoImpl
+
+Responsibilities:
+* Provide function of executing Login/Register actions.
+* Provide function of querying user Information (wish list, course list, schedule list) from Database.
+* Provide function of Modifying user Information from Database
+    * insert objects into wish list, course list, schedule list;
+    * remove objects from wish list, course list, schedule list;
+    * clear objects from wish list, course list, schedule list;
+
+Collaborators:
+* User
+* UserRequestProcessor
+* ScheduleUpdater
+* PasswordEncoderMD5

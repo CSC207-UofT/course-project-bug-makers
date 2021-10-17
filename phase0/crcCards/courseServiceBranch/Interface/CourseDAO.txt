@@ -1,0 +1,11 @@
+Class name: CourseDAO <Interface>
+Sub-classes: CourseDaoImpl
+
+Responsibilities:
+* Provide the connection with the UofT API and query course information.
+    * Including course description course prerequisite, section list, section schedule and course term.
+* Provide functionality of generating a course entity.
+
+Collaborators:
+* Course
+* CourseInformationGenerator

@@ -188,7 +188,7 @@ public class CourseDaoImpl implements CourseDAO {
     /**
      * Process the description string, return the modified description string with DESCRIPTION formatter omitted.
      * @param description Description string
-     * @return Edited description string with formatter omitted
+     * @return Edited description string with formatter omitted.getCourseSectionScheduleMap().entrySet()
      */
     private String procDescription(String description){
 

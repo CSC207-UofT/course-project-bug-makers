@@ -1,0 +1,8 @@
+Class name: ControlCalendarPresentation <Interface>
+Sub-classes: CalendarPresenter
+
+Responsibilities:
+* Generate a displayable String representation of calendar on demand, with customization.
+
+Collaborators:
+- Driver

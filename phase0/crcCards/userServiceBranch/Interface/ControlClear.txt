@@ -1,0 +1,8 @@
+Class name: ControlClear <Interface>
+Sub-classes: UserServiceController
+
+Responsibilities:
+* Provide function of clearing user's wish list and course list.
+
+Collaborators:
+* Driver

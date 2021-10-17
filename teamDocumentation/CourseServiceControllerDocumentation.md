@@ -24,3 +24,4 @@
 - If you wish to visualize a schedule, or check its summary, you may want to try `getScheduleSummary(Schedule schedule)`. It will give a String to you.
 - if you wish to get information for a specific section, you may want to try `getSectionInformation(String courseCodeWSection)`. It will return to you a String representation of the section requested.
 - If you wish to get summary of a course, you may want to try `getCourseGeneralInformation(String courseCode)`. It will return you a comprehensive summary table of details of the course.
+- If you wish to add course/wish, you may try `addCourse(String username, String courseCode)` or `addWish(String username, String courseCode)`. They will return ture iff the process goes thorough.

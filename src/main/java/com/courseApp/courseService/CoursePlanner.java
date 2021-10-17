@@ -16,7 +16,7 @@ import java.util.List;
  *
  * [UNDER CONSTRUCTION]
  */
-public class CoursePlanner {
+public class CoursePlanner implements UseCoursePlanning {
 
     private String username;
     private ArrayList<String> courseList;
