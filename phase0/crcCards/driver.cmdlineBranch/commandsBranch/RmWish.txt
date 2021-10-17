@@ -8,3 +8,4 @@ Responsibilities:
 Collaborators:
 * IShellState
 * UserServiceController
+

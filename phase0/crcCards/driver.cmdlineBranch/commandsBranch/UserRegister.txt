@@ -2,8 +2,7 @@ Class name: UserRegister <Adaptor>
 Superclass: UserCommand, Command
 
 Responsibilities:
-* Register an account for a new user 
+* Register an account for a new user
 
 Collaborators:
 * IShellState
-
