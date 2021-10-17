@@ -220,5 +220,23 @@ public class Constants {
                                                                                                                                                                                                              \s
             """;
 
+    ////CmdShell Constants
+    public static final String CMD_WELCOME = "Welcome to MyCoursePlanner";
+    public static final String CMD_CHECK_ACCOUNT = "Do you have an account? Y/N";
+    public static final String CMD_ENTER = "Enter command (type ?commands for the list of commands): ";
+    public static final String HELPER = "?commands";
+    public static final String HELPER_USER = "User commands: ";
+    public static final String HELPER_COURSE = "Course commands: ";
+    public static final String HELPER_CALENDAR = "Calendar commands: ";
+    public static final String YES = "Y";
+    public static final String NO = "N";
+    public static final String ENTER_USERNAME = "Please enter your username: ";
+    public static final String ENTER_PASSWORD = "Please enter your password: ";
+    public static final String SUCCESS = "Login Success!";
+    public static final String FAIL = "Login Failed :( Try again or register a new account. TryAgain/ Register ";
+    public static final String REGISTER = "Register";
+    public static final String CREATE_ACCOUNT = "Let's create an account for you! \n Please enter your username: ";
+    public static final String CREATE_PASSWORD = "Please enter your password: ";
+
 
 }
