@@ -2,7 +2,7 @@
 
 In this document, we will walk through the CRC cards.
 
-> Note that the CRC cards are organized into 4 main businesses of our application. The directory pathways are not the same as   our application file structure.
+> Note that the CRC cards are organized into 4 main businesses of our application. The directory pathway may not reflect our file structure.
 
 
 
