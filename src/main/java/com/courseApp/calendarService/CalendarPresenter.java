@@ -5,6 +5,8 @@ import com.courseApp.constants.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.courseApp.courseService.CourseServiceController;
 import com.courseApp.entity.Schedule;
 import com.courseApp.userService.UserServiceController;
 
@@ -125,21 +127,20 @@ public class CalendarPresenter implements ControlCalendarPresentation {
 //        cad.put("CSC108SLEC0102", day2);
 //        cad.put("MAT137YLEC0102", day3);
 //        cad.put("CSC209FLEC0102", day4);
-
-        UserServiceController USC = new UserServiceController();
-        USC.userRegister("USC","1234567890");
-        //USC.userLogin("USC","1234567890");
-        USC.userClearCourseList("USC");
-        USC.addCourse("USC", "CSC207FLEC0401");
-        USC.addCourse("USC", "CSC207FTUT0101");
-        USC.addCourse("USC", "CSC236FLEC0301");
-        USC.addCourse("USC", "BCH210FLEC9901");
-        USC.addCourse("USC", "ECO200FLEC5101");
-        USC.getScheduleList("USC");
-        USC.getLatestSchedule("USC");
-
-        System.out.println(new CalendarPresenter().presentCalendar("W",
-                "Workday", USC.getLatestSchedule("USC")));
+//
+//        UserServiceController USC3 = new UserServiceController();
+//        USC3.userLogin("USC3","1234567890");
+//        USC3.userClearCourseList("USC3");
+//        USC3.addCourse("USC3", "BIO230FLEC9901");
+//        USC3.addCourse("USC3", "STA238SLEC0201");
+//        USC3.addCourse("USC3", "MAT223SLEC0301");
+//        USC3.addCourse("USC3", "CSC209SLEC0102");
+//        USC3.addCourse("USC3", "MAT137YTUT0503");
+//        USC3.getScheduleList("USC3");
+//        new CourseServiceController().planCourse("USC3");
+//
+//        System.out.println(new CalendarPresenter().presentCalendar("S",
+//                "Workday", USC3.getLatestSchedule("USC3").getScheduleMap()));
 
     }
 }
