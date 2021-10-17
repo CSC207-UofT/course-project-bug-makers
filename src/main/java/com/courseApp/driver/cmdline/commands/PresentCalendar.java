@@ -2,13 +2,14 @@ package com.courseApp.driver.cmdline.commands;
 
 import com.courseApp.calendarService.CalendarPresenter;
 import com.courseApp.driver.cmdline.IShellState;
+import com.courseApp.userService.UserServiceController;
 
 import java.util.List;
 
 public class PresentCalendar extends CalendarCommand{
 
-    public PresentCalendar(int maxArguments, int minArguments) {
-        super(1, 1);
+    public PresentCalendar() {
+        super(2, 2);
     }
 
     @Override
@@ -17,15 +18,14 @@ public class PresentCalendar extends CalendarCommand{
         StringBuilder result = new StringBuilder();
         StringBuilder allErrorMsg = new StringBuilder();
         CalendarPresenter presenter = new CalendarPresenter();
-        for (String courseCode: arguments){
+        UserServiceController usc = new UserServiceController();
             // append all information about the course to result
-            try {
-                result.append(presenter.presentCalendar());
-            } catch (Throwable e) {
-                e.printStackTrace();
-            }
+        try {
+            result.append(presenter.presentCalendar(arguments.get(0), arguments.get(1),
+                    usc.getLatestSchedule(shellState.getUsername()).getScheduleMap()));
+        } catch (Throwable e) {
+            e.printStackTrace();
         }
         return result.toString();
-        return null;
     }
 }
