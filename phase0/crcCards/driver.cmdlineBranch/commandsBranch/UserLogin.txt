@@ -1,0 +1,9 @@
+Class name: UserLogin <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Login to user's account
+
+Collaborators:
+* IShellState
+

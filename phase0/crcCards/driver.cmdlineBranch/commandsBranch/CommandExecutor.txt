@@ -1,0 +1,12 @@
+Class name: CommandExecutor <Adaptor>
+Superclass: -
+
+Responsibilities:
+* Executes the provided command accordingly
+
+Collaborators:
+* Exceptions
+* IShellState
+* CmdArgTuple
+* Constants
+* Java Utils

@@ -1,0 +1,10 @@
+Class name: RmWish <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Remove course from user's wish list
+* Returns a string that verifies whether the course has been successfully removed from the user's wish list
+
+Collaborators:
+* IShellState
+* UserServiceController

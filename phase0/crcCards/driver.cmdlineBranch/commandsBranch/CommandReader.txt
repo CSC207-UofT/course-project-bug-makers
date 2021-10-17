@@ -1,0 +1,10 @@
+Class name: CommandReader <Adaptor>
+Superclass: -
+
+Responsibilities:
+* Parses command line input, recognizes a string surrounded by quotes as one argument
+
+Collaborators:
+* Constants
+* Exceptions
+* CmdArgTuple

@@ -1,0 +1,10 @@
+Class name: RmCourse <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Remove course from user's course list
+* Returns a string that verifies whether the course has been successfully removed
+
+Collaborators:
+* IShellState
+* UserServiceController

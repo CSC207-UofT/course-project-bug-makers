@@ -1,0 +1,9 @@
+Class name: GetScheduleList <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Return a string representation of the user's schedule list
+
+Collaborators:
+* IShellState
+* UserServiceController
