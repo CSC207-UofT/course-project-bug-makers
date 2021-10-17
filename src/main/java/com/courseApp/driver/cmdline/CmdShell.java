@@ -7,7 +7,7 @@ import com.courseApp.constants.Constants;
 
 public class CmdShell {
 
-    public static void main(String[] args){
+    public static void run(){
         Scanner in = new Scanner(System.in);
         System.out.println(Constants.WELCOME_LOGO);
         System.out.println("Welcome to MyCoursePlanner");
