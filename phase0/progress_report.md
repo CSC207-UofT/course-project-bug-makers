@@ -34,7 +34,16 @@
 
 ## Specification Summary
 
+For our CSC207 project, we are planning to build a course planning app that allows students to plan and review their 
+courses. There are four main functions that our app will carry out: registration/login, scheduling & presenting 
+calendars, submitting reviews, and retrieving information about specific courses, schedules, and user-related data. 
+Our main focus will be scheduling and presenting the calendars.
+There are two user-oriented interfaces: the GUI and the CMD line interface. 
+As we are going to store our user data remotely, our application involves a connection to MongoDB. Data from UofT 
+Art&Sci API will be analyzed for querying course information.
+
 ## CRC Model
+Our CRC Model 
 
 ## Scenario Walk Through
 
