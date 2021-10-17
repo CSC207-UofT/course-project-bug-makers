@@ -7,8 +7,9 @@ import com.courseApp.constants.Constants;
 
 public class CmdShell {
 
-    public static void main(String[] args){
+    public static void run(){
         Scanner in = new Scanner(System.in);
+        System.out.println(Constants.WELCOME_LOGO);
         System.out.println("Welcome to MyCoursePlanner");
         System.out.println("Do you have an account? Y/N");
         String haveAccount = in.nextLine();
@@ -22,9 +23,9 @@ public class CmdShell {
             System.out.println("Enter command (type ?commands for the list of commands): ");
             String commandLine = in.nextLine();
             if (commandLine.equals("?commands")){
-                System.out.println("User commands: " + Constants.USER_COMMAND_DIC.keySet().toString());
-                System.out.println("Course commands: " + Constants.COURSE_COMMAND_DIC.keySet().toString());
-                System.out.println("Calendar commands: " + Constants.CALENDAR_COMMAND_DIC.keySet().toString());
+                System.out.println("User commands: " + Constants.USER_COMMAND_DIC.keySet());
+                System.out.println("Course commands: " + Constants.COURSE_COMMAND_DIC.keySet());
+                System.out.println("Calendar commands: " + Constants.CALENDAR_COMMAND_DIC.keySet());
             } else {
                 try {
                     String output = commandExecutor.executeCommand(shellState, commandLine, username);

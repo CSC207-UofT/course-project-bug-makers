@@ -180,7 +180,7 @@ public class Constants {
 
         USER_COMMAND_DIC.put("userClearCourseList", new UserClearCourseList());
         USER_COMMAND_DIC.put("clearWishList", new UserClearWishList());
-        USER_COMMAND_DIC.put("userClearScheduleList", new UserClearScheduleList());
+        USER_COMMAND_DIC.put("clearScheduleList", new UserClearScheduleList());
         USER_COMMAND_DIC.put("rmCourse", new RmCourse());
         USER_COMMAND_DIC.put("rmWish", new RmWish());
         USER_COMMAND_DIC.put("getCourseList", new GetCourseList());
@@ -192,10 +192,33 @@ public class Constants {
 
         COURSE_COMMAND_DIC.put("getCourseGeneralInformation", new GetCourseGeneralInformation());
         COURSE_COMMAND_DIC.put("getSectionInformation", new GetSectionInformation());
+        COURSE_COMMAND_DIC.put("planCourse", new PlanCourse());
 
-        CALENDAR_COMMAND_DIC.put("presentCalender", new PresentCalendar());
+        CALENDAR_COMMAND_DIC.put("presentCalendar", new PresentCalendar());
 
     }
+
+
+    //// Driver Constants
+
+    public static final String WELCOME_LOGO = """
+                                                                                                                                                                                                                   \s
+                                                                   `-/+osso+:-                                                                                .oooo+`                                              \s
+                                                                 `/ydddhhhhddo                                                                               `sddddd+                                              \s
+                        .::- .:///:.  .:///-`   ::::`     -:::` `sdddo-.``.-/`     .-////:.      -:::`    .:::.   -::. `-//-   .:////:-.     .:////-`        /ddh:ddd-      .::- .:///-`    `::: `-///:.           \s
+                        +ddhohhhdddhoshhhdddh:  +ddd+    -dddy` +dddo            .shdddhddhs:    oddd.    /ddd/   odds/hddd/ .shddhhhdd+   :yhdhyyddho`     -ddd/ oddy`     /dddohhhdddy/   -dddoyhhdddh+`         \s
+                        +dddh:..:hdddy:../dddh  `sddd-  `yddh.  yddd.           .hddh:..-sddd/   oddd.    /ddd/   odddds/::. /dddo.`.-:`  :dddo.``-ydds    `yddy  `hddo     /dddh:..-yddd-  -dddd/..-sddd+         \s
+                        +ddd+    sddd:    hddd`  `yddy` +ddd:   hddd.           +ddd/    `dddh   oddd.    /ddd/   oddd+      .ydddhs+-`   ydddsooooyddd`   +ddd/...+ddd:    /ddd+    :dddo  -ddds    `dddh         \s
+                        +ddd:    oddd-    yddd`   -ddd+.dddo    oddd/           oddd:     hddd`  oddd-    +ddd/   oddd-       `-+shdddh+  hdddsssssssss`  -ddddddddddddh.   /ddd/    -ddds  -ddds    `dddh         \s
+                        +ddd:    oddd.    yddd`    /dddsddy`    .hddh/.` ```.`  -ddds`  `:ddds   oddd/   .yddd/   oddd-      ``   `-hddd. +ddd/`     ``  `hddh++++++oddds   /dddy`  `oddd/  -dddh.  `/ddds         \s
+                        +ddd:    oddd.    yddd`     +ddddh.      -sdddhysyyhd/   /hddhssyddds`   -hdddssshhddd/   oddd-      +hso++ohdds` `ohddyo+oosy:  oddd/       oddd/  /dddhhssydddo`  -ddddhssydddy.         \s
+                        :sss-    +sss.    osss`     `yddd/         -/syyyyys+.    `/oyyyys+-      .+syyys/`+ss:   /sss.      -osyyyyso:`    ./oyyyyys+. .ssso`       `ssss` /ddd//syyyo:    -dddo:syyys:`          \s
+                                                   `:dddo                                                                                                                   /ddd:           -dddo                  \s
+                                                -ssydddo                                                                                                                    /ddd:           -dddo                  \s
+                                                :yhys+-                                                                                                                     /hhh:           -hhh+                  \s
+                                                                                                                                                                                                                   \s
+                                                                                                                                                                                                             \s
+            """;
 
 
 }
