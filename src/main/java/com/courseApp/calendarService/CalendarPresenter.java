@@ -88,7 +88,7 @@ public class CalendarPresenter implements ControlCalendarPresentation {
     return resultingCalendar;
     }
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
 
 //        ArrayList<String> th_schedule = new ArrayList<>();
 //        th_schedule.add("17:00");
@@ -142,5 +142,5 @@ public class CalendarPresenter implements ControlCalendarPresentation {
 //        System.out.println(new CalendarPresenter().presentCalendar("S",
 //                "Workday", USC3.getLatestSchedule("USC3").getScheduleMap()));
 
-    }
+//    }
 }
