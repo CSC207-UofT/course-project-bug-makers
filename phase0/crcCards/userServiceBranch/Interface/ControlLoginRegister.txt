@@ -1,0 +1,9 @@
+Class name: ControlLoginRegister <Interface>
+Sub-classes: UserServiceController
+
+Responsibilities:
+* Provide function of user register and verifying login state.
+* Provide readable status of register and login outcome.
+
+Collaborators:
+* Driver

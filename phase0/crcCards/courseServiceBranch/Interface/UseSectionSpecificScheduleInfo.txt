@@ -1,0 +1,8 @@
+Class name: UseSectionSpecificScheduleInfo <Interface>
+Sub-classes: CourseInformationGenerator
+
+Responsibilities:
+* Get the section specific information, i.e. the schedule map for every section.
+
+Collaborators:
+* CourseInformationGenerator

@@ -1,0 +1,8 @@
+Class name: UseSchedule <Interface>
+Sub-classes: ScheduleUpdater
+
+Responsibilities:
+* Provide Schedule update service, place in a schedule map.
+
+Collaborators:
+- CourseServiceController

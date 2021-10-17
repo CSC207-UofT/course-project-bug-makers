@@ -1,0 +1,8 @@
+Class name: ControlPresentInfo <Interface>
+Sub-classes: UserServiceController
+
+Responsibilities:
+* Provide function of presenting readable course information
+
+Collaborators:
+* Driver

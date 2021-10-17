@@ -1,0 +1,9 @@
+Class name: UseCourseBasicInfo <Interface>
+Sub-classes: CourseInformationGenerator
+
+Responsibilities:
+* Generate a variety of basic course information, including course description, course pre-req, section list and course
+team and so on.
+
+Collaborators:
+- CourseServiceController

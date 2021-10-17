@@ -1,0 +1,9 @@
+Class name: UsePresentable <Interface>
+Sub-classes: WorkdayCalendar
+
+Responsibilities:
+* Generate a displayable String.
+* (Framework for a factory design pattern.)
+
+Collaborators:
+* CalendarPresenter

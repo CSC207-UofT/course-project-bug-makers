@@ -1,0 +1,8 @@
+Class name: ControlAddOne <Interface>
+Sub-classes: UserServiceController
+
+Responsibilities:
+* Provide function of adding one course/wish to the course/wish list.
+
+Collaborators:
+* Driver

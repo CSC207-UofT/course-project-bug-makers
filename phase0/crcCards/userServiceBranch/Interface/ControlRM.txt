@@ -1,0 +1,8 @@
+Class name: ControlRM <Interface>
+Sub-classes: UserServiceController
+
+Responsibilities:
+* Provide function of removing one course/wish from the course/wish list.
+
+Collaborators:
+* Driver
