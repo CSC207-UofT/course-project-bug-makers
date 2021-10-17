@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.courseApp.courseService.CourseServiceController;
+import com.courseApp.entity.Schedule;
+import com.courseApp.userService.UserServiceController;
+
 /**
  * Presenter for presenting a target calendar.
  */
@@ -86,7 +90,7 @@ public class CalendarPresenter implements ControlCalendarPresentation {
 
 
 //    public static void main(String[] args) {
-//
+
 //        ArrayList<String> th_schedule = new ArrayList<>();
 //        th_schedule.add("17:00");
 //        th_schedule.add("19:00");
@@ -125,8 +129,19 @@ public class CalendarPresenter implements ControlCalendarPresentation {
 //        cad.put("MAT137YLEC0102", day3);
 //        cad.put("CSC209FLEC0102", day4);
 //
-//        System.out.println(new CalendarPresenter().presentCalendar("W",
-//                "Workday", cad));
+//        UserServiceController USC3 = new UserServiceController();
+//        USC3.userLogin("USC3","1234567890");
+//        USC3.userClearCourseList("USC3");
+//        USC3.addCourse("USC3", "BIO230FLEC9901");
+//        USC3.addCourse("USC3", "STA238SLEC0201");
+//        USC3.addCourse("USC3", "MAT223SLEC0301");
+//        USC3.addCourse("USC3", "CSC209SLEC0102");
+//        USC3.addCourse("USC3", "MAT137YTUT0503");
+//        USC3.getScheduleList("USC3");
+//        new CourseServiceController().planCourse("USC3");
 //
+//        System.out.println(new CalendarPresenter().presentCalendar("S",
+//                "Workday", USC3.getLatestSchedule("USC3").getScheduleMap()));
+
 //    }
 }

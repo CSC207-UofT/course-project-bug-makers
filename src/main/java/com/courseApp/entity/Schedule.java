@@ -50,13 +50,16 @@ public class Schedule {
 
     @Override
     public String toString() {
+        if(this.scheduleMap != null){
         StringBuilder sb = new StringBuilder(this.getSectionList().toString()).append(Constants.CHANGE_LINE);
         for(var entry : this.getScheduleMap().entrySet()){
             sb.append(entry.getKey()).append(Constants.CHANGE_LINE).append(Constants.TRI_TAB);
             sb.append(entry.getValue()).append(Constants.CHANGE_LINE);
         }
         sb.append(Constants.LONG_LINE).append(Constants.CHANGE_LINE);
-        return sb.toString();
+        return sb.toString();} else{
+            return this.sectionList.toString();
+        }
     }
 
     public void setScheduleMap(Map<String, Map<String, ArrayList<String>>> scheduleMap) {
