@@ -12,7 +12,13 @@
 
 ## Introduction
 
-For our CSC207 project, we are planning to build a course planning app that allows students to plan and review their courses. A build-in connection to UofT API will present comprehensive course information to users, while user information is safely stored in a remote database. Along with an auto-scheduling algorithm that can help with course planning, a timetable visualization function gives a convenient course scheduling experience. Based on student reviews and user information, our app can also recommend specific courses tailored to the user’s program requirements. Alongside the course planning function, our app aims to provide a platform for students to connect and network with their fellow peers. 
+For our CSC207 project, we are planning to build a course planning app that allows students to plan and review their 
+courses. A built-in connection to UofT API will present comprehensive course information to users, while user 
+information is safely stored in a remote database. Along with an auto-scheduling algorithm that can help with course 
+planning, a timetable visualization function gives a convenient course scheduling experience. Based on student reviews 
+and user information, our app can also recommend specific courses tailored to the user’s program requirements. 
+Alongside the course planning function, our app aims to provide a platform for students to connect and network with 
+their fellow peers. 
 
 
 ## Feature Discussions
@@ -23,7 +29,9 @@ When a user registers for an account, they will be required to create a username
 any changes to their account then log back in when needed. The user account will store information such as the user’s 
 ID, course planning list course wish list, as well as their schedule history.
 
-Note that the course planning list and course wish list are different when it comes to course planning, course planning list your mediatory course list but wish list is your "electives". They have a priority difference in course planning.
+Note that the course planning list and course wish list are different when it comes to course planning; course planning 
+will list all of your mandatory courses but wish list will contain your "electives". These lists will have a priority 
+difference in course planning.
 
 
 
@@ -31,24 +39,19 @@ Note that the course planning list and course wish list are different when it co
 
 The main function of our app is to allow students to add specific courses to their timetable. Each course has a name 
 and a course code, as well as other details about the course such as its breadth category, distribution category, 
+co-requisites, delivery instructions, course description and list of sections. Each section has a section ID and can be 
+further classified as one of the three following categories: lecture, tutorial, or lab. Each lecture section will have 
+an assigned professor, while tutorials and labs will have an assigned teaching assistant (TA).
 
 
-
-### 3. Scheduling & Calendar Presentation
-
-When a user wants to plan a new schedule, our app will generate a calendar that will allow students to visualize their 
-current timetable. Each schedule has a course, a section, and a time slot. When a student wants to plan a schedule into
-their timetable, the schedule will be added to the user’s current timetable, which is a list of their current schedules.
-Students can search up information such as a course’s description, as well as their current timetable.
-
-### 4. Scheduling 
+### 3. Scheduling 
 When a user wants to plan a new schedule, our app will generate a calendar that will allow students to visualize their 
 current timetable. Each schedule has a course, a section, and a time slot. When a student wants to plan a schedule into
 their timetable, the schedule will be added to the user’s current timetable, which is a list of their current schedules.
 Students can search up information such as a course’s description, as well as their current timetable and courses they 
 have previously taken. 
 
-### 5. Submitting Reviews
+### 4. Submitting Reviews
 
 Alongside planning their timetable, students can submit reviews of their courses on the reviews forum. Each review 
 should contain a rating out of 5 and an optional comment made by the user about the course. Once a review is submitted, 
@@ -59,7 +62,7 @@ user’s program, year as well as time availability for the respected course.
 
 ## Project Architecture
 
-- There are two user-oriented interfaces: GUI and CMD line interface. As we are going to store our user data remotely, our application involves the connection to MangoDB. Data from UofT Art&Sci API should be analyzed for querying course information. Here is our container diagram:
+- There are two user-oriented interfaces: GUI and CMD line interface. As we are going to store our user data remotely, our application involves a connection to MongoDB. Data from UofT Art&Sci API will be analyzed for querying course information. Here is our container diagram:
 
 ![CD](specification.assets/ContainerDiagram.jpg)
 
