@@ -3,13 +3,14 @@ package com.courseApp.driver.cmdline.commands;
 import com.courseApp.courseService.CourseServiceController;
 import com.courseApp.driver.cmdline.IShellState;
 import com.courseApp.entity.Schedule;
+import com.courseApp.userService.UserServiceController;
 
 import java.util.List;
 
 public class GetScheduleSummary extends CourseCommand{
 
     public GetScheduleSummary(int maxArguments, int minArguments) {
-        super(1, 1);
+        super(0, 0);
     }
 
     @Override
@@ -18,14 +19,13 @@ public class GetScheduleSummary extends CourseCommand{
         StringBuilder result = new StringBuilder();
         StringBuilder allErrorMsg = new StringBuilder();
         CourseServiceController courseController = new CourseServiceController();
-        for (String schedule: arguments){
+        UserServiceController usc = new UserServiceController();
             // append all information about the Schedule to result
             try {
-                result.append(courseController.getScheduleSummary(schedule));
+                result.append(courseController.getScheduleSummary(usc.getLatestSchedule(shellState.getUsername())));
             } catch (Throwable e) {
                 e.printStackTrace();
             }
-        }
         return result.toString();
     }
 }

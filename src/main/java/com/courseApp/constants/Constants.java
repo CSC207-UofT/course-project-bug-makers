@@ -167,10 +167,10 @@ public class Constants {
 
 
     //////// Dictionaries of commands
-    public static final Hashtable<String, Command> ACCOUNT_COMMAND_DIC = new Hashtable<String, Command>();
-    public static final Hashtable<String, UserCommand> USER_COMMAND_DIC = new Hashtable<String, UserCommand>();
-    public static final Hashtable<String, CourseCommand> COURSE_COMMAND_DIC = new Hashtable<String, CourseCommand>();
-    public static final Hashtable<String, CalendarCommand> CALENDAR_COMMAND_DIC = new Hashtable<String, CalendarCommand>();
+    public static final Hashtable<String, Command> ACCOUNT_COMMAND_DIC = new Hashtable<>();
+    public static final Hashtable<String, UserCommand> USER_COMMAND_DIC = new Hashtable<>();
+    public static final Hashtable<String, CourseCommand> COURSE_COMMAND_DIC = new Hashtable<>();
+    public static final Hashtable<String, CalendarCommand> CALENDAR_COMMAND_DIC = new Hashtable<>();
 
     static{
         // user commands
@@ -192,6 +192,8 @@ public class Constants {
 
         COURSE_COMMAND_DIC.put("getCourseGeneralInformation", new GetCourseGeneralInformation());
         COURSE_COMMAND_DIC.put("getSectionInformation", new GetSectionInformation());
+
+        CALENDAR_COMMAND_DIC.put("presentCalender", new PresentCalendar());
 
     }
 

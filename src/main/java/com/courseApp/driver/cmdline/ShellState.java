@@ -18,7 +18,7 @@ public class ShellState implements IShellState{
         this.courseService = false;
         this.calendarService = false;
         this.username = username;
-        this.commandsHistory = new ArrayList<String>();
+        this.commandsHistory = new ArrayList<>();
 
     }
 
