@@ -1,0 +1,10 @@
+Class name: GetWishList <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Return string representation of user Wish List
+
+Collaborators:
+* IShellState
+* UserServiceController
+

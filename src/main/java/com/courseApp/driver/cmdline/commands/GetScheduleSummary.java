@@ -1,4 +1,3 @@
-/**
 package com.courseApp.driver.cmdline.commands;
 
 import com.courseApp.courseService.CourseServiceController;
@@ -30,4 +29,3 @@ public class GetScheduleSummary extends CourseCommand{
         return result.toString();
     }
 }
- */

@@ -1,0 +1,10 @@
+Class name: GetLatestSchedule <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Return the user's latest schedule
+
+Collaborators:
+* IShellState
+* Schedule
+* UserServiceController

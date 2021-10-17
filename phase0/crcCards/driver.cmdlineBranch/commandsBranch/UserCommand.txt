@@ -1,0 +1,9 @@
+Class name: UserCommand <Abstract Adaptor>
+Superclass: Command
+
+Responsibilities:
+* Create a User Command
+* (Framework for a User Command)
+
+Collaborators:
+* IShellState

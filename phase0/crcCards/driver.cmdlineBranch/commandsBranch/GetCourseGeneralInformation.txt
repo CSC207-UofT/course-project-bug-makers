@@ -1,0 +1,9 @@
+Class name: GetCourseGeneralInformation <Adaptor>
+Superclass: CourseCommand, Command
+
+Responsibilities:
+* Returns the string representation of a course's general information
+
+Collaborators:
+* IShellState
+* CourseServiceController

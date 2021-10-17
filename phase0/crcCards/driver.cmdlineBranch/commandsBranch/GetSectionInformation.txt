@@ -1,0 +1,9 @@
+Class name: GetSectionInformation <Adaptor>
+Superclass: CourseCommand, Command
+
+Responsibilities:
+* Return a string representation of the section information
+
+Collaborators:
+* IShellState
+* UserServiceController

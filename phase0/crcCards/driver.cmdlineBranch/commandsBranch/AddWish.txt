@@ -1,0 +1,10 @@
+Class name: AddWish <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Add course to user's wish list
+* Returns a string that verifies whether the course has been successfully added to the user's wish list
+
+Collaborators:
+* IShellState
+* UserServiceController

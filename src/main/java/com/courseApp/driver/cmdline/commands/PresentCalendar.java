@@ -1,4 +1,3 @@
-/**
 package com.courseApp.driver.cmdline.commands;
 
 import com.courseApp.calendarService.CalendarPresenter;
@@ -30,5 +29,3 @@ public class PresentCalendar extends CalendarCommand{
         return null;
     }
 }
-
- */

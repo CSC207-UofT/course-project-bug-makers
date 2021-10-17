@@ -1,0 +1,11 @@
+Class name: UserClearCourseList <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Clears the user's course list
+* Returns a string that verifies whether the user's course list has been successfully cleared
+
+Collaborators:
+* IShellState
+* UserServiceController
+

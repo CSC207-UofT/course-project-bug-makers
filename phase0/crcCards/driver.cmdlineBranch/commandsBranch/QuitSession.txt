@@ -1,0 +1,8 @@
+Class name: QuitSession <Adaptor>
+Superclass: Command
+
+Responsibilities:
+* Quit the current session
+
+Collaborators:
+* IShellState

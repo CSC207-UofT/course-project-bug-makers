@@ -1,0 +1,10 @@
+Class name: UserClearScheduleList <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Clears the user's schedule list
+* Returns a string that verifies whether the user's schedule list has been successfully cleared
+
+Collaborators:
+* IShellState
+* UserServiceController

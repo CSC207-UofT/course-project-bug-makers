@@ -1,0 +1,7 @@
+Class name: ShellState <driver>
+
+Responsibilities:
+* Hold state of CmdShell program in 1 session
+
+Collaborators:
+*

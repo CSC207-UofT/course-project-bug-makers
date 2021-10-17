@@ -1,0 +1,9 @@
+Class name: GetCourseList <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Return a string representation of the user's course list
+
+Collaborators:
+* IShellState
+* UserServiceController

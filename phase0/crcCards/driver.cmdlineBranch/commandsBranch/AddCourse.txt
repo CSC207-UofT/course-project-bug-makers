@@ -1,0 +1,11 @@
+Class name: AddCourse <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Add course to user's course list
+* Returns a string that verifies whether the course has been successfully added to the user's course list
+
+Collaborators:
+* IShellState
+* UserServiceController
+

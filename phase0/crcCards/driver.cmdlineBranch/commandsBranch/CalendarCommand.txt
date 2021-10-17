@@ -1,0 +1,9 @@
+Class name: CalendarCommand <Abstract Adaptor>
+Superclass: Command
+
+Responsibilities:
+* Create a Calendar Command
+* (Framework for a Calendar Command)
+
+Collaborators:
+* -

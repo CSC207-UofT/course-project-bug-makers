@@ -1,0 +1,9 @@
+Class name: Command <Abstract Adaptor>
+Superclass: -
+
+Responsibilities:
+* Base class for any commands that might be used in the program
+
+Collaborators:
+* IShellState
+* Utils

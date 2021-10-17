@@ -1,0 +1,11 @@
+Class name: CmdShell <driver>
+
+Responsibilities:
+* Run and terminate the program
+* Provide users access to execute commands
+
+Collaborators:
+* ShellState
+* CommandExecutor
+* Constants
+* UserServiceController

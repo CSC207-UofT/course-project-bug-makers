@@ -1,0 +1,10 @@
+Class name: UserClearWishList <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Clears the user's wish list
+* Returns a string that verifies whether the user's wish list has been successfully cleared
+
+Collaborators:
+* IShellState
+* UserServiceController

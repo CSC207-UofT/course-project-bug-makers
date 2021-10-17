@@ -1,0 +1,10 @@
+Class name: CourseCommand <Abstract Adaptor>
+Superclass: Command
+
+Responsibilities:
+* Create a course command
+* (Framework for a Course Command)
+
+Collaborators:
+* -
+

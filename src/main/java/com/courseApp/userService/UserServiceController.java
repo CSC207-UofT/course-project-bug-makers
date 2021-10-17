@@ -3,15 +3,11 @@ import com.courseApp.constants.Constants;
 import com.courseApp.entity.Schedule;
 
 
-import com.courseApp.constants.Constants;
-import com.courseApp.entity.Schedule;
-
 /**
  * User Service Controller for user-related demands.
  */
 public class UserServiceController implements ControlLoginRegister, ControlRM, ControlClear,
-
-        ControlPresentInfo, ControlAddOne, ControlLatestSchedule {
+        ControlPresentInfo, ControlAddOne, ControlLatestSchedule{
 
     /**
      *  User login
@@ -138,9 +134,6 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
     }
 
 
-
-
-
     /**
      * Add course to course list.
      *
@@ -177,13 +170,9 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
     }
 
 //    public static void main(String[] args) {
+//        System.out.println(new UserServiceController().userRegister("bugMaker", "bugMaker"));
 //        System.out.println(new UserServiceController().getCourseList("bugMaker"));
-////        System.out.println(new UserServiceController().addCourse("bugMaker", "CSC207FLEC0101"));
-////        System.out.println(new UserServiceController().addCourse("bugMaker", "MAT223FLEC0601"));
-////        System.out.println(new UserServiceController().addCourse("bugMaker", "BIO230FLEC9901"));
-////        System.out.println(new UserServiceController().addCourse("bugMaker", "STA237F"));
-////        System.out.println(new UserServiceController().addCourse("bugMaker", "ECO200Y"));
-//        System.out.println(new UserServiceController().addWish("bugMaker", "BIO230F"));
+//        System.out.println(new UserServiceController().addCourse("bugMaker", "CSC207FLEC0101"));
 //        System.out.println(new UserServiceController().getCourseList("bugMaker"));
 //    }
 }
