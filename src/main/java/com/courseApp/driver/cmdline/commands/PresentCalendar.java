@@ -1,12 +1,13 @@
 package com.courseApp.driver.cmdline.commands;
 
-import com.courseApp.courseService.CourseServiceController;
+import com.courseApp.calendarService.CalendarPresenter;
 import com.courseApp.driver.cmdline.IShellState;
 
 import java.util.List;
 
-public class GetSectionInformation extends CourseCommand{
-    public GetSectionInformation() {
+public class PresentCalendar extends CalendarCommand{
+
+    public PresentCalendar(int maxArguments, int minArguments) {
         super(1, 1);
     }
 
@@ -15,15 +16,16 @@ public class GetSectionInformation extends CourseCommand{
         checkArgumentsNum(arguments);
         StringBuilder result = new StringBuilder();
         StringBuilder allErrorMsg = new StringBuilder();
-        CourseServiceController courseController = new CourseServiceController();
-        for (String courseCodeWSection: arguments){
-            // append all information about the section to result
+        CalendarPresenter presenter = new CalendarPresenter();
+        for (String courseCode: arguments){
+            // append all information about the course to result
             try {
-                result.append(courseController.getSectionInformation(courseCodeWSection));
+                result.append(presenter.presentCalendar());
             } catch (Throwable e) {
                 e.printStackTrace();
             }
         }
         return result.toString();
+        return null;
     }
 }

@@ -2,11 +2,13 @@ package com.courseApp.driver.cmdline.commands;
 
 import com.courseApp.courseService.CourseServiceController;
 import com.courseApp.driver.cmdline.IShellState;
+import com.courseApp.entity.Schedule;
 
 import java.util.List;
 
-public class GetSectionInformation extends CourseCommand{
-    public GetSectionInformation() {
+public class GetScheduleSummary extends CourseCommand{
+
+    public GetScheduleSummary(int maxArguments, int minArguments) {
         super(1, 1);
     }
 
@@ -16,10 +18,10 @@ public class GetSectionInformation extends CourseCommand{
         StringBuilder result = new StringBuilder();
         StringBuilder allErrorMsg = new StringBuilder();
         CourseServiceController courseController = new CourseServiceController();
-        for (String courseCodeWSection: arguments){
-            // append all information about the section to result
+        for (String schedule: arguments){
+            // append all information about the Schedule to result
             try {
-                result.append(courseController.getSectionInformation(courseCodeWSection));
+                result.append(courseController.getScheduleSummary(schedule));
             } catch (Throwable e) {
                 e.printStackTrace();
             }
