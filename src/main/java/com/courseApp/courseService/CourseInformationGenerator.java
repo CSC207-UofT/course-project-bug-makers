@@ -140,6 +140,7 @@ public class CourseInformationGenerator implements UseCourseBasicInfo, UseSectio
      *
      * @return List of section types in the order of section list.
      */
+
     @Override
     public List<String> getCourseSectionType() {
         List<String> res = this.getCourseSectionList();

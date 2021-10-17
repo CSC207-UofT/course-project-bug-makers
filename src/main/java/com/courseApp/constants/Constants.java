@@ -1,7 +1,10 @@
 package com.courseApp.constants;
 
+import com.courseApp.driver.cmdline.commands.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.List;
 
 
@@ -142,6 +145,7 @@ public class Constants {
     public static final int COURSE_CODE_SECTION_FLAG = 3;
     public static final int COURSE_CODE_W_SECTION_LENGTH = 14;
 
+
     //////// Course Presentation constants
     public static final String TRI_TAB = "          ";
     public static final String TITLE = "- Title: ";
@@ -159,6 +163,36 @@ public class Constants {
     public static final String REGULAR_USER = "regularUser";
     public static final String PASSWORD = "password";
     public static final int  DEFAULT_SCHEDULE = 0;
+
+
+
+    //////// Dictionaries of commands
+    public static final Hashtable<String, Command> ACCOUNT_COMMAND_DIC = new Hashtable<String, Command>();
+    public static final Hashtable<String, UserCommand> USER_COMMAND_DIC = new Hashtable<String, UserCommand>();
+    public static final Hashtable<String, CourseCommand> COURSE_COMMAND_DIC = new Hashtable<String, CourseCommand>();
+    public static final Hashtable<String, CalendarCommand> CALENDAR_COMMAND_DIC = new Hashtable<String, CalendarCommand>();
+
+    static{
+        // user commands
+        ACCOUNT_COMMAND_DIC.put("userLogin", new UserLogin());
+        ACCOUNT_COMMAND_DIC.put("userRegister", new UserRegister());
+        ACCOUNT_COMMAND_DIC.put("quitSession", new QuitSession());
+
+        USER_COMMAND_DIC.put("userClearCourseList", new UserClearCourseList());
+        USER_COMMAND_DIC.put("clearWishList", new UserClearWishList());
+        USER_COMMAND_DIC.put("userClearScheduleList", new UserClearScheduleList());
+        USER_COMMAND_DIC.put("rmCourse", new RmCourse());
+        USER_COMMAND_DIC.put("rmWish", new RmWish());
+        USER_COMMAND_DIC.put("getCourseList", new GetCourseList());
+        USER_COMMAND_DIC.put("getWishList", new GetWishList());
+        USER_COMMAND_DIC.put("getScheduleList", new GetScheduleList());
+        USER_COMMAND_DIC.put("addCourse", new AddCourse());
+        USER_COMMAND_DIC.put("addWish", new AddWish());
+        USER_COMMAND_DIC.put("getLatestSchedule", new GetLatestSchedule());
+
+        COURSE_COMMAND_DIC.put("getCourseGeneralInformation", new GetCourseGeneralInformation());
+        COURSE_COMMAND_DIC.put("getSectionInformation", new GetSectionInformation());
+    }
 
 
 

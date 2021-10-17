@@ -38,7 +38,7 @@ public class CalendarPresenter implements ControlCalendarPresentation {
      */
     @SuppressWarnings("StringOperationCanBeSimplified")
     private Map<String, Map<String, ArrayList<String>>> scheduleProcessor
-            (String termType, Map<String, Map<String, ArrayList<String>>> rawSchedule){
+    (String termType, Map<String, Map<String, ArrayList<String>>> rawSchedule){
         Map<String, Map<String, ArrayList<String>>> fallSchedule =
                 new HashMap<>();
         Map<String, Map<String, ArrayList<String>>> winterSchedule =
@@ -81,7 +81,7 @@ public class CalendarPresenter implements ControlCalendarPresentation {
                 resultingCalendar += workdayCalendarWinter.present();
             }
         }
-    return resultingCalendar;
+        return resultingCalendar;
     }
 
 //    public static void main(String[] args) {

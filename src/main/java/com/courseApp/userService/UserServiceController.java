@@ -1,4 +1,6 @@
 package com.courseApp.userService;
+import com.courseApp.constants.Constants;
+import com.courseApp.entity.Schedule;
 
 
 import com.courseApp.constants.Constants;
@@ -8,6 +10,7 @@ import com.courseApp.entity.Schedule;
  * User Service Controller for user-related demands.
  */
 public class UserServiceController implements ControlLoginRegister, ControlRM, ControlClear,
+
         ControlPresentInfo, ControlAddOne, ControlLatestSchedule {
 
     /**
