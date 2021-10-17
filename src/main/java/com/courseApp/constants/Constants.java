@@ -32,6 +32,10 @@ public class Constants {
     public static final String TIME_COMMA = ":";
     public static final String CHANGE_LINE = "\n";
     public static final String TYPE_WORKDAY = "Workday";
+    public static final String YEAR_HEADER = "Calendar of the Year\n";
+    public static final String FALL_HEADER = "Calendar of the Fall Term\n";
+    public static final String WINTER_HEADER = "Calendar of the Winter Term\n";
+
 
 
     // NOTE THAT THIS FEATURE REQUIRE JAVA 16.
@@ -174,11 +178,21 @@ public class Constants {
         ACCOUNT_COMMAND_DIC.put("userRegister", new UserRegister());
         ACCOUNT_COMMAND_DIC.put("quitSession", new QuitSession());
 
+        USER_COMMAND_DIC.put("userClearCourseList", new UserClearCourseList());
         USER_COMMAND_DIC.put("clearWishList", new UserClearWishList());
+        USER_COMMAND_DIC.put("userClearScheduleList", new UserClearScheduleList());
         USER_COMMAND_DIC.put("rmCourse", new RmCourse());
         USER_COMMAND_DIC.put("rmWish", new RmWish());
+        USER_COMMAND_DIC.put("getCourseList", new GetCourseList());
+        USER_COMMAND_DIC.put("getWishList", new GetWishList());
+        USER_COMMAND_DIC.put("getScheduleList", new GetScheduleList());
+        USER_COMMAND_DIC.put("addCourse", new AddCourse());
+        USER_COMMAND_DIC.put("addWish", new AddWish());
+        USER_COMMAND_DIC.put("getLatestSchedule", new GetLatestSchedule());
 
         COURSE_COMMAND_DIC.put("getCourseGeneralInformation", new GetCourseGeneralInformation());
+        COURSE_COMMAND_DIC.put("getSectionInformation", new GetSectionInformation());
+
     }
 
 
