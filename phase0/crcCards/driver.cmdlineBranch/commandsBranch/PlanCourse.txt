@@ -1,0 +1,9 @@
+Class name: PlanCourse <Adaptor>
+Superclass: UserCommand, Command
+
+Responsibilities:
+* Based on user's course list, generate schedule for the user.
+
+Collaborators:
+* IShellState
+* CourseServiceController

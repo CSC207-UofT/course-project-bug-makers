@@ -180,7 +180,7 @@ public class Constants {
 
         USER_COMMAND_DIC.put("userClearCourseList", new UserClearCourseList());
         USER_COMMAND_DIC.put("clearWishList", new UserClearWishList());
-        USER_COMMAND_DIC.put("userClearScheduleList", new UserClearScheduleList());
+        USER_COMMAND_DIC.put("clearScheduleList", new UserClearScheduleList());
         USER_COMMAND_DIC.put("rmCourse", new RmCourse());
         USER_COMMAND_DIC.put("rmWish", new RmWish());
         USER_COMMAND_DIC.put("getCourseList", new GetCourseList());
@@ -192,8 +192,9 @@ public class Constants {
 
         COURSE_COMMAND_DIC.put("getCourseGeneralInformation", new GetCourseGeneralInformation());
         COURSE_COMMAND_DIC.put("getSectionInformation", new GetSectionInformation());
+        COURSE_COMMAND_DIC.put("planCourse", new PlanCourse());
 
-        CALENDAR_COMMAND_DIC.put("presentCalender", new PresentCalendar());
+        CALENDAR_COMMAND_DIC.put("presentCalendar", new PresentCalendar());
 
     }
 
