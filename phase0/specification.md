@@ -91,4 +91,5 @@ user’s program, year as well as time availability for the respected course.
       - Manual course planning
   - Calendar service
     - Realize a work-day calendar based on user's course list
+  - A CMD driver
 
