@@ -1,0 +1,8 @@
+Class name: AggregateList <Helper Class>
+Sub-classes: -
+
+Responsibilities:
+* Aggregate a list of String to a single string.
+
+Collaborators:
+* CalendarPresenter

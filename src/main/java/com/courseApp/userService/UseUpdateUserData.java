@@ -1,5 +1,7 @@
 package com.courseApp.userService;
 
+import com.courseApp.entity.Schedule;
+
 /**
  * Interface for realizing user data update.
  */
@@ -18,4 +20,6 @@ public interface UseUpdateUserData {
     boolean clearWishList();
 
     boolean clearScheduleList();
+
+    boolean insertOneSchedule(Schedule schedule);
 }

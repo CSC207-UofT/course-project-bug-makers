@@ -165,6 +165,7 @@ public class Constants {
     public static final int  DEFAULT_SCHEDULE = 0;
 
 
+
     //////// Dictionaries of commands
     public static final Hashtable<String, Command> ACCOUNT_COMMAND_DIC = new Hashtable<String, Command>();
     public static final Hashtable<String, UserCommand> USER_COMMAND_DIC = new Hashtable<String, UserCommand>();
@@ -192,6 +193,7 @@ public class Constants {
         COURSE_COMMAND_DIC.put("getCourseGeneralInformation", new GetCourseGeneralInformation());
         COURSE_COMMAND_DIC.put("getSectionInformation", new GetSectionInformation());
     }
+
 
 
 }

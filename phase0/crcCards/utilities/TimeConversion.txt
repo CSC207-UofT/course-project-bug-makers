@@ -1,0 +1,8 @@
+Class name: TimeConversion <Helper Class>
+Sub-classes: -
+
+Responsibilities:
+* Convert String time representation to int time.
+
+Collaborators:
+* CalendarFactory

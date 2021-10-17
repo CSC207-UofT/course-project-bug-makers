@@ -1,0 +1,6 @@
+Class name: Exceptions
+
+Responsibilities:
+* Holds program exceptions
+
+Collaborators: -

@@ -1,0 +1,10 @@
+Class name: CourseInformationGenerator <Use Case>
+Sub-classes: -
+
+Responsibilities:
+* Analyze, reformat, pack and return the course information.
+    * Including course description course prerequisite, section list, section schedule, course term, section information.
+
+Collaborators:
+* Course
+* CourseServiceController

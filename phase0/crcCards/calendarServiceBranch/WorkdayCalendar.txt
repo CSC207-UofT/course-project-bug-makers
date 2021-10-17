@@ -1,0 +1,9 @@
+Class name: WorkdayCalendar <Use Case>
+Super-classes: CalendarFactory
+
+Responsibilities:
+* Based on given user schedule, generate a calendar.
+
+Collaborators:
+* CalendarPresenter
+* TimeConversion

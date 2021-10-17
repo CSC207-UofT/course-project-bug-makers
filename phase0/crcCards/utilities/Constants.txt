@@ -1,0 +1,6 @@
+Class name: Constants
+
+Responsibilities:
+* Holds program constants
+
+Collaborators: -

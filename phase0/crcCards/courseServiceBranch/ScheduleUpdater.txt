@@ -1,0 +1,9 @@
+Class name: ScheduleUpdater <Use Case>
+Sub-classes: -
+
+Responsibilities:
+* Update a schedule map in the schedule entity based on its schedule section list.
+
+Collaborators:
+* Schedule
+* CourseInformationGenerator
