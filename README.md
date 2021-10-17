@@ -25,5 +25,22 @@ For our CSC207 project, we are planning to build a course planning app that allo
 
 ## Sample Usage
 
-[Under Construction]
+We have a test account for you!
+1. Try to log in our test account!
+   - Username: `ReadMeDemo`;
+   - Password: `1234567890`.
+2. Explore `CSC207F`'s summary!
+```
+$ getCourseGeneralInformation CSC207F
+```
+3. Check our intelligent pre-set course list (and then *Star* our Project)!
+```
+$ getCourseList
+``` 
+4. Try our auto-generated calendar and take a screenshot (share it to your Ins story)! 
+```
+$ presentCalendar F Workday
+```
 
+Here's our little GIF instruction:
+![](README.assets/readmedemo.gif)
