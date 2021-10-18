@@ -2,7 +2,7 @@
 
 ![myCourseApp](README.assets/myCourseApp.jpg)
 
-> Note that this project requires `JDK16` . Dependences can be found in  `build.gradle ` . Please refer to `teamDocumentation` for details.
+> Note that this project requires `JDK16` . Dependencies can be found in  `build.gradle` . Please refer to `teamDocumentation` for detail instructions on commands.
 
 ## What is myCourseApp?
 
@@ -41,6 +41,7 @@ $ getCourseList
 ```
 $ presentCalendar F Workday
 ```
+5. Click [here](teamDocumentation/cmdDocumentation.md) for more interesting commands (make sure you have `JDK 16`)!
 
 Here's our little GIF instruction:
 ![](README.assets/readmedemo.gif)
