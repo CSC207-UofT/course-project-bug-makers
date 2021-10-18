@@ -75,7 +75,7 @@ Click [here](walkthrough.md) for details.
 - [Kevin Cheng & Kuan Pang] We have connected our application with the UofT API for course information query, as well as a complete auto-scheduling algorithm (algorithm will be updated in `Phase 1/2`, preview is in our branch).
 - [Jiaming Weng & Sherry You] We have adopted the *Factory Design Pattern* in our Calendar Service, where our structure supports a variety of timetable choices and customizations.
 - We have followed clean structure and solid principle thorough out our `Phase 0` stage. Especially we have segregated the dependency by interfaces.
-- All of our teammates have participated in the structure design and programming, a big thank you to Sherry You for her ultimate contribution to our documentations. 
+- All of our teammates have participated in the structure design and programming. Sherry You contributed a lot to our team documentations. 
 
 
 ## Open Questions
