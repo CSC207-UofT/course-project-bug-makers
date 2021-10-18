@@ -23,7 +23,7 @@ When a user registers for an account, they will be required to create a username
 any changes to their account then log back in when needed. The user account will store information such as the user’s 
 ID, course planning list course wish list, as well as their schedule history.
 
-Note that the course planning list and course wish list are different when it comes to course planning, course planning list your mediatory course list but wish list is your "electives". They have a priority difference in course planning.
+Note that the course planning list and course wish list are different when it comes to course planning, course planning list your mandatory course list but wish list is your "electives". They have a priority difference in course planning.
 
 
 

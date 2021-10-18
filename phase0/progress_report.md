@@ -56,6 +56,7 @@ Click [here](progress_report.md) for details.
 - Here is our software architecture diagram (for implemented part), showing the layer segregation:
 ![](progress_report.assets/CD.jpg)
 - Here is our class dependency overview (for implemented part).
+![](progress_report.assets/main.png)
 
 Click [here](crcCards/crcWalkThrough.md) for details.
 
