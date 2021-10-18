@@ -7,7 +7,7 @@
 ## What is myCourseApp?
 
 ![](README.assets/myCourseApp.png)
-For our CSC207 project, we are planning to build a course planning app that allows students to plan and review their courses. A built-in connection to UofT API will present comprehensive course information to users, while user information is safely stored in a remote database. Along with an auto-scheduling algorithm that can help with course planning, a timetable visualization function gives a convenient course scheduling experience. Based on student reviews and user information, our app can also recommend specific courses tailored to the user’s program requirements. Finally, our app aims to provide a platform for students to connect and network with their fellow peers. 
+For our CSC207 project, we are planning to build a course planning app that allows students to plan and review their courses. A build-in connection to UofT API will present comprehensive course information to users, while user information is safely stored in a remote database. Course planning functionality is provided through our auto-scheduling algorithm. Timetable visualization functionality gives user a convenient course scheduling experience. Students can rate and write reviews on courses they have taken before. Based on these reviews and the user's information, our app strives to recommend specific courses tailored to the user’s request and program requirements. In addition, our app aims to provide a platform for students to connect and network with their fellow peers.
 
 
 
