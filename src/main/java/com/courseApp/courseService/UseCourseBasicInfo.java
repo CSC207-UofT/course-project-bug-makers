@@ -17,5 +17,6 @@ public interface UseCourseBasicInfo {
     List<String> getCourseSectionList();
     Map<String, Map<String, ArrayList<String>>> getCourseSectionScheduleMap();
     List<String> getCourseSectionType();
+    Map<String, String> getCourseSectionInstructorMap();
 
 }

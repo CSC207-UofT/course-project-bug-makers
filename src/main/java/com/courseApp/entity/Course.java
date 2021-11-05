@@ -16,6 +16,7 @@ public class Course {
     private final Map<String,Map<String, ArrayList<String>>> courseSectionScheduleMap;
     private final String courseTerm;
     private final String prerequisite;
+    private final Map<String, String> SectionInstructorMap;
 
 
     public Course(String courseCode,
@@ -24,7 +25,8 @@ public class Course {
                   List<String> courseSectionList,
                   Map<String, Map<String, ArrayList<String>>>
                           courseSectionScheduleMap,
-                  String courseTerm, String prerequisite) {
+                  String courseTerm, String prerequisite,
+                  Map<String, String> sectionInstructorMap) {
         this.courseCode = courseCode;
         this.courseTitle = courseTitle;
         this.courseDescription = courseDescription;
@@ -32,6 +34,7 @@ public class Course {
         this.courseSectionScheduleMap = courseSectionScheduleMap;
         this.courseTerm = courseTerm;
         this.prerequisite = prerequisite;
+        this.SectionInstructorMap = sectionInstructorMap;
     }
 
 
@@ -62,5 +65,7 @@ public class Course {
     public String getCoursePrerequisite() {
         return prerequisite;
     }
+
+    public Map<String, String> getSectionInstructorMap(){return this.SectionInstructorMap;}
 
 }

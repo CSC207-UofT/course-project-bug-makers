@@ -10,6 +10,8 @@ import com.google.gson.Gson;
 import java.net.URL;
 import java.util.*;
 
+import static com.courseApp.constants.Constants.*;
+
 /**
  * An implemented CourseDao class. It could query data from API and generate a course entity by course code.
  * Note that course code should be ControlPresentInfo format of [3 char dept code][3 digit three num][term Tag], i.e., CSC207F.
@@ -48,7 +50,7 @@ public class CourseDaoImpl implements CourseDAO {
                 this.queryCourseSectionList(),
                 this.queryCourseSectionScheduleMap(),
                 this.courseTerm,
-                this.queryCoursePrerequisite());
+                this.queryCoursePrerequisite(), this.querySectionInstructorMap());
 
     }
 
@@ -60,7 +62,7 @@ public class CourseDaoImpl implements CourseDAO {
      */
     @Override
     public void generateQuery() throws Throwable {
-        if (this.courseTerm.equals("S") | this.courseTerm.equals("F") | this.courseTerm.equals("Y")) {
+        if (this.courseTerm.equals(Constants.WINTER_TERM) | this.courseTerm.equals(Constants.FALL_TERM) | this.courseTerm.equals(Constants.YEAR)) {
             String res = Constants.UT_API_URL.replace(Constants.COURSE_CODE, this.courseCode.substring(0,
                     this.courseCode.length() - 1));
             this.url = new URL(res.replace(Constants.COURSE_TERM, this.courseTerm));
@@ -92,15 +94,6 @@ public class CourseDaoImpl implements CourseDAO {
         return this.map;
     }
 
-    /**
-     * Query method for getting the course term.
-     *
-     * @return Course Term
-     */
-    @Override
-    public String queryCourseTerm() {
-        return this.courseTerm;
-    }
 
     /**
      * Query method for getting the course pre-req.
@@ -177,6 +170,36 @@ public class CourseDaoImpl implements CourseDAO {
     }
 
     /**
+     * Query the instructor name for each section.
+     *
+     * @return Map of section as key and Instructor name as value.
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public Map<String, String> querySectionInstructorMap() {
+        Map<String, Object> sectionMap = (Map<String, Object>) this.map.get(Constants.MEETING);
+        Map<String, String> resMap = new HashMap<>();
+
+        for (String section : this.queryCourseSectionList()){
+            // loop over the sections under the course
+            if (section.contains(LEC_FLAG)){
+            Map<String, Object> sectionDetail = (Map<String, Object>) ((Map<String, Object>)
+                    sectionMap.get(section)).get(Constants.INSTRUCTOR);
+            StringBuilder sb = new StringBuilder();
+            for (var entry: sectionDetail.entrySet()){
+                // loop over the instructor list
+                sb.append(((Map<String, Object>)  entry.getValue()).get(Constants.FIRST_NAME));
+                sb.append(Constants.INSTRUCTOR_SPLIT);
+                sb.append(((Map<String, Object>)  entry.getValue()).get(Constants.LAST_NAME));
+                sb.append(COMMA);
+            }
+            resMap.put(procSection(section), sb.toString().replaceFirst(LAST_REG,""));}
+        }
+
+        return resMap;
+    }
+
+    /**
      * Process the section string, return the section string with SECTION_MAKER omitted.
      * @param section  Section string
      * @return Edited section string with SECTION_MAKER omitted
@@ -192,7 +215,8 @@ public class CourseDaoImpl implements CourseDAO {
      */
     private String procDescription(String description){
 
-        return description.replace(Constants.DESCRIPTION_FORMATTER_1, "").replace(Constants.DESCRIPTION_FORMATTER_2, "");
+        return description.replace(Constants.DESCRIPTION_FORMATTER_1,
+                "").replace(Constants.DESCRIPTION_FORMATTER_2, "");
     }
 
 
@@ -200,7 +224,11 @@ public class CourseDaoImpl implements CourseDAO {
 //    public static void main(String[] args) throws Throwable {
 //        System.out.println(1);
 //        CourseDaoImpl cdi = new CourseDaoImpl("CSC207F");
-//        Course course = cdi.generateCourseEntity();
-//        System.out.println(course);
+//        Map<String, String> res = cdi.querySectionInstructorMap();
+//        System.out.println(res);
 //    }
+
+
+
+
 }

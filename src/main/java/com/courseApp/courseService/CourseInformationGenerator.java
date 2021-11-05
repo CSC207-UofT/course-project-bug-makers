@@ -153,6 +153,17 @@ public class CourseInformationGenerator implements UseCourseBasicInfo, UseSectio
     }
 
     /**
+     * Get the instructor name map for all the sections
+     * Note that this only returns LEC.
+     *
+     * @return Map of section to instructor name.
+     */
+    @Override
+    public Map<String, String> getCourseSectionInstructorMap() {
+        return this.courseEntity.getSectionInstructorMap();
+    }
+
+    /**
      * Get the schedule map for a single section with section by provided section code.
      *
      * @return map of schedule for all sections
@@ -168,10 +179,24 @@ public class CourseInformationGenerator implements UseCourseBasicInfo, UseSectio
 
     }
 
+    /**
+     * Get the instructor name of the given section.
+     *
+     * @return name of the given section
+     */
+    @Override
+    public String getSectionSpecificInstructor() throws Throwable {
+        if (this.section != null){
+            return this.getCourseSectionInstructorMap().get(this.section);
+        } else {
+            throw new Throwable(Exceptions.NO_SECTION_CODE);
+        }
+    }
 
+//
 //    public static void main(String[] args) throws Throwable {
 //        CourseInformationGenerator cig = new CourseInformationGenerator("CSC207FLEC0101");
-//        System.out.println(cig.getSectionSpecificSchedule());
+//        System.out.println(cig.getSectionSpecificInstructor());
 //    }
 
 }
