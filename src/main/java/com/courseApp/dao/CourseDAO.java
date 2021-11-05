@@ -22,8 +22,6 @@ public interface CourseDAO {
 
      Map<String, Object> getMap();
 
-     String queryCourseTerm();
-
      String queryCoursePrerequisite();
 
      String queryCourseDescription();
@@ -33,4 +31,7 @@ public interface CourseDAO {
      List<String> queryCourseSectionList();
 
      Map<String, Map<String, ArrayList<String>>> queryCourseSectionScheduleMap();
+
+     Map<String, String> querySectionInstructorMap();
+
 }

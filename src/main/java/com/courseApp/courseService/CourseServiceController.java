@@ -54,7 +54,7 @@ public class CourseServiceController implements ControlPresentInformation, Contr
     }
 
     /**
-     * Generate Course Information, including title, description, prerequisite and section schedule.
+     * Generate Course Information, including title, description, prerequisite and section schedule & instructor name.
      *
      * @param courseCode course code
      * @return String of course Information
@@ -74,6 +74,8 @@ public class CourseServiceController implements ControlPresentInformation, Contr
         for(var entry : cig.getCourseSectionScheduleMap().entrySet()){
             result.append(Constants.TRI_TAB).append(Constants.TRI_TAB);
             result.append(entry.getKey()).append(Constants.TRI_TAB).append(entry.getValue());
+            Map<String, String> tempMap = cig.getCourseSectionInstructorMap();
+            result.append(Constants.TRI_TAB).append(tempMap.get(entry.getKey()) != null ? tempMap.get(entry.getKey()): Constants.SECTION_MARKER);
             result.append(Constants.CHANGE_LINE);
         }
 
@@ -94,7 +96,8 @@ public class CourseServiceController implements ControlPresentInformation, Contr
         CourseInformationGenerator cig = new CourseInformationGenerator(courseCodeWSection);
 
         return courseCodeWSection + Constants.CHANGE_LINE + Constants.TRI_TAB +
-                cig.getSectionSpecificSchedule() + Constants.CHANGE_LINE + Constants.LONG_LINE;
+                cig.getSectionSpecificSchedule() + Constants.TRI_TAB + cig.getSectionSpecificInstructor()+ Constants.CHANGE_LINE +
+                Constants.LONG_LINE;
     }
 
     /**
@@ -128,5 +131,10 @@ public class CourseServiceController implements ControlPresentInformation, Contr
         new UserRequestProcessor(username).insertOneSchedule(schedule);
         return schedule.getSectionList().toString();
     }
+
+//    public static void main(String[] args) throws Throwable {
+//        CourseServiceController csc = new CourseServiceController();
+//        System.out.println(csc.getSectionInformation("CSC207FLEC0101"));
+//    }
 
 }

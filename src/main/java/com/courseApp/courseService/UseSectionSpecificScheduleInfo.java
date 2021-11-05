@@ -10,4 +10,6 @@ public interface UseSectionSpecificScheduleInfo {
 
     Map<String, ArrayList<String>> getSectionSpecificSchedule() throws Throwable;
 
+    String getSectionSpecificInstructor() throws Throwable;
+
 }

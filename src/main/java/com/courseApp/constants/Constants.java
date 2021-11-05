@@ -128,6 +128,13 @@ public class Constants {
     public static final String SECTION_MARKER = "-";
     public static final String DESCRIPTION_FORMATTER_1 = "<p>";
     public static final String DESCRIPTION_FORMATTER_2 = "</p>";
+    public static final String INSTRUCTOR = "instructors";
+    public static final String FIRST_NAME = "firstName";
+    public static final String LAST_NAME = "lastName";
+    public static final String COMMA = ", ";
+    public static final String INSTRUCTOR_SPLIT = ". ";
+    public static final String LEC_FLAG = "LEC";
+    public static final String LAST_REG = ",.$";
 
 
 
