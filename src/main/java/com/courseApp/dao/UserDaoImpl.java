@@ -2,7 +2,6 @@ package com.courseApp.dao;
 
 import com.courseApp.constants.Constants;
 import com.courseApp.courseService.ScheduleUpdater;
-import com.courseApp.entity.RegularUser;
 import com.courseApp.entity.Schedule;
 import com.courseApp.entity.User;
 import com.courseApp.utils.PasswordEncoderMD5;
@@ -65,7 +64,7 @@ public class UserDaoImpl implements UserDAO{
     @Override
     public User queryUser() {
         if (Objects.equals(queryUserRole(), Constants.REGULAR_USER) & checkPassword()){
-            return new RegularUser(this.userName,
+            return new User(this.userName,
                     queryCourseList(),
                     queryWishList(),
                     queryScheduleList(),
@@ -218,7 +217,7 @@ public class UserDaoImpl implements UserDAO{
 
     private MongoCollection<Document> getCollection() {
         //Suppress MongoDB logger
-        Logger mongoLogger = Logger.getLogger( "org.mongodb.driver" );
+        Logger mongoLogger = Logger.getLogger( Constants.DB_LOGGER );
         mongoLogger.setLevel(Level.SEVERE);
         //Establish connection to mongoDB
         ConnectionString connectionString = new ConnectionString(Constants.DB_CONNECTION);

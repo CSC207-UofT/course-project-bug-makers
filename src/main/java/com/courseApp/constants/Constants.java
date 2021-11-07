@@ -146,6 +146,7 @@ public class Constants {
 
     public static final String DB_DATABASE_NAME = "bugMakerProject";
     public static final String DB_COLLECTION_NAME = "userSheet";
+    public static final String DB_LOGGER = "org.mongodb.driver";
 
 
     //////// Course Code constants
