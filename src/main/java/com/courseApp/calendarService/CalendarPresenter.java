@@ -2,6 +2,8 @@ package com.courseApp.calendarService;
 
 import com.courseApp.constants.Constants;
 
+import java.lang.reflect.Array;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -62,6 +64,30 @@ public class CalendarPresenter implements ControlCalendarPresentation {
     }
 
     /**
+     * Decorate the Calendar following the instruction of termType
+     *
+     * @param fallCalendar Fall Calendar of required type
+     * @param winterCalendar Winter Calendar of required type
+     * @param termType the term(s) we want
+     * @param rawSchedule the input hashmap from the schedule, containing all the courses of the year.
+     * @return a String presentation of Calendar of the desired termType & 
+     */
+    private String typeDecorator(UsePresentable fallCalendar, UsePresentable winterCalendar,String termType,
+                                 Map<String, Map<String, ArrayList<String>>> rawSchedule){
+        String resultingCalendar = "";
+        switch (termType) {
+            case Constants.FALL_TERM -> resultingCalendar += fallCalendar.present();
+            case Constants.WINTER_TERM -> resultingCalendar += winterCalendar.present();
+            case Constants.YEAR -> {
+                resultingCalendar += fallCalendar.present();
+                resultingCalendar += headerGenerator(Constants.WINTER_TERM);
+                resultingCalendar += winterCalendar.present();
+            }
+        }
+        return resultingCalendar;
+    }
+
+    /**
      * Generate a calendarType Calendar of the termType.
      *
      * @param termType the term(s) we want
@@ -75,73 +101,32 @@ public class CalendarPresenter implements ControlCalendarPresentation {
         resultingCalendar += headerGenerator(termType);
         // Check calendar type
         if (calendarType.equals(Constants.TYPE_WORKDAY)){
-            WorkdayCalendar workdayCalendar = new WorkdayCalendar(scheduleProcessor(termType, rawSchedule));
-            resultingCalendar += workdayCalendar.present();
-            // Check term
-            if (termType.equals(Constants.YEAR)){
-                resultingCalendar += headerGenerator(Constants.WINTER_TERM);
-                WorkdayCalendar workdayCalendarWinter =
-                        new WorkdayCalendar(scheduleProcessor(Constants.WINTER_TERM, rawSchedule));
-                resultingCalendar += workdayCalendarWinter.present();
-            }
+            WorkdayCalendar fallCalendar = new WorkdayCalendar(scheduleProcessor(Constants.FALL_TERM, rawSchedule));
+            WorkdayCalendar winterCalendar = new WorkdayCalendar(scheduleProcessor(Constants.WINTER_TERM, rawSchedule));
+            resultingCalendar += typeDecorator(fallCalendar, winterCalendar, termType, rawSchedule);
         }
         return resultingCalendar;
     }
 
 
 //    public static void main(String[] args) {
-
-//        ArrayList<String> th_schedule = new ArrayList<>();
-//        th_schedule.add("17:00");
-//        th_schedule.add("19:00");
+//        CalendarPresenter cad;
+//
+//        UserServiceController USC2 = new UserServiceController();
 //
 //
-//        ArrayList<String> tu_schedule = new ArrayList<>();
-//        tu_schedule.add("11:00");
-//        tu_schedule.add("14:00");
+////        USC2.userClearCourseList("USC2");
+////        USC2.addCourse("USC2", "BIO230FLEC9901");
+////        USC2.addCourse("USC2", "STA238SLEC0201");
+////        USC2.addCourse("USC2", "MAT223SLEC0301");
+////        USC2.addCourse("USC2", "CSC209SLEC0102");
+////        USC2.addCourse("USC2", "MAT137YTUT0503");
+////        USC2.getScheduleList("USC2");
+////        new CourseServiceController().planCourse("USC2");
 //
 //
-//        ArrayList<String> th_schedule2 = new ArrayList<>();
-//        th_schedule2.add("8:00");
-//        th_schedule2.add("9:00");
+//        cad = new CalendarPresenter();
 //
-//
-//        ArrayList<String> mo_schedule2 = new ArrayList<>();
-//        mo_schedule2.add("10:00");
-//        mo_schedule2.add("11:00");
-//
-//        Map<String, ArrayList<String>> day = new HashMap<>();
-//        day.put("TH", th_schedule);
-//
-//
-//        Map<String, ArrayList<String>> day2 = new HashMap<>();
-//        day2.put("TH", th_schedule2);
-//
-//        Map<String, ArrayList<String>> day3 = new HashMap<>();
-//        day3.put("TU", tu_schedule);
-//
-//        Map<String, ArrayList<String>> day4 = new HashMap<>();
-//        day4.put("MO", mo_schedule2);
-//
-//        Map<String, Map<String, ArrayList<String>>> cad = new HashMap<>();
-//        cad.put("CSC207SLEC0101", day);
-//        cad.put("CSC108SLEC0102", day2);
-//        cad.put("MAT137YLEC0102", day3);
-//        cad.put("CSC209FLEC0102", day4);
-//
-//        UserServiceController USC3 = new UserServiceController();
-//        USC3.userLogin("USC3","1234567890");
-//        USC3.userClearCourseList("USC3");
-//        USC3.addCourse("USC3", "BIO230FLEC9901");
-//        USC3.addCourse("USC3", "STA238SLEC0201");
-//        USC3.addCourse("USC3", "MAT223SLEC0301");
-//        USC3.addCourse("USC3", "CSC209SLEC0102");
-//        USC3.addCourse("USC3", "MAT137YTUT0503");
-//        USC3.getScheduleList("USC3");
-//        new CourseServiceController().planCourse("USC3");
-//
-//        System.out.println(new CalendarPresenter().presentCalendar("S",
-//                "Workday", USC3.getLatestSchedule("USC3").getScheduleMap()));
-
+//        System.out.println(cad.presentCalendar("Y", "Workday", USC2.getLatestSchedule("USC2").getScheduleMap()));
 //    }
 }
