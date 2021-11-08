@@ -1,11 +1,21 @@
 package com.courseApp.constants;
 
 import com.courseApp.driver.cmdline.commands.*;
+import com.mongodb.MongoClientSettings;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.ClassModelBuilder;
+import org.bson.codecs.pojo.Convention;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.List;
+
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import static org.bson.codecs.pojo.Conventions.ANNOTATION_CONVENTION;
+import static org.bson.codecs.pojo.Conventions.SET_PRIVATE_FIELDS_CONVENTION;
 
 
 /**
@@ -145,7 +155,11 @@ public class Constants {
             "28uz2.mongodb.net/myFirstDatabase?retryWrites=true";
 
     public static final String DB_DATABASE_NAME = "bugMakerProject";
-    public static final String DB_COLLECTION_NAME = "userSheet";
+    public static final String DB_USER_COLLECTION_NAME = "userSheet";
+    public static final String DB_LOGGER = "org.mongodb.driver";
+    public static final List<Convention> list = List.of(ANNOTATION_CONVENTION);
+    public static final CodecRegistry CODEC_REGISTRY = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
+            fromProviders(PojoCodecProvider.builder().conventions(list).automatic(true).build()));
 
 
     //////// Course Code constants
@@ -164,12 +178,13 @@ public class Constants {
 
     //////// Uer DAO constants
     public static final String USERNAME = "username";
-    public static final String COURSE_LIST = "course_list";
-    public static final String WISH_LIST = "wish_list";
-    public static final String SCHEDULE_LIST = "schedule_list";
+    public static final String COURSE_LIST = "courseList";
+    public static final String WISH_LIST = "wishList";
+    public static final String SCHEDULE_LIST = "scheduleList";
     public static final String USER_ROLE = "userRole";
     public static final String REGULAR_USER = "regularUser";
-    public static final String PASSWORD = "password";
+    public static final String ENCRYPTED_PASSWORD = "encryptedPassword";
+    public static final String REVIEW_LIST = "reviewList";
     public static final int  DEFAULT_SCHEDULE = 0;
 
 
@@ -204,6 +219,23 @@ public class Constants {
         CALENDAR_COMMAND_DIC.put("presentCalendar", new PresentCalendar());
 
     }
+
+    // Review MongoDB Constants
+    public static final String GENERAL_RATE = "generalRate";
+    public static final String DIFFICULTY_RATE = "difficultyRate";
+    public static final String RECOMMENDATION_SCORE = "recommendationScore";
+    public static final String REVIEW_STRING = "reviewString";
+    public static final String INST_NAME = "instructorName";
+    public static final String INST_GENERAL_RATE = "instGeneralRate";
+    public static final String INST_DIFFICULTY_RATE = "instDifficultyRate";
+    public static final String INST_RECOMMENDATION_SCORE = "instRecommendationScore";
+    public static final String USER_REVIEW_LIST = "userReviewList";
+    public static final String COURSE_CODE_DB = "courseCode";
+    public static final String COURSE_DIFFICULTY_RATE = "courseDifficultyRate";
+    public static final String COURSE_GENERAL_RATE = "courseGeneralRate";
+    public static final String INST_REVIEW_MAP = "instReviewMap";
+    public static final String SECTION_LIST = "sectionList";
+    public static final String SCHEDULE_MAP = "scheduleMap";
 
 
     //// Driver Constants

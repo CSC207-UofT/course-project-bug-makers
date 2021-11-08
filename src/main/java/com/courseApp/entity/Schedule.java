@@ -2,6 +2,8 @@ package com.courseApp.entity;
 
 
 import com.courseApp.constants.Constants;
+import org.bson.codecs.pojo.annotations.BsonCreator;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,12 +13,24 @@ import java.util.Map;
  * Schedule Entity for storing scheduled sections.
  */
 public class Schedule {
-    private final ArrayList<String> sectionList;
+    private ArrayList<String> sectionList;
     private Map<String, Map<String, ArrayList<String>>> scheduleMap;
 
-    public Schedule(ArrayList<String> sectionList, Map<String, Map<String, ArrayList<String>>> scheduleMap) {
+    /**
+     * Bson constructor for instantiating Schedule entity.
+     *
+     * @param sectionList Bson sectionList
+     * @param scheduleMap Bson scheduleMap
+     */
+    @BsonCreator
+    public Schedule(@BsonProperty(Constants.SECTION_LIST) ArrayList<String> sectionList,
+                    @BsonProperty(Constants.SCHEDULE_MAP) Map<String, Map<String, ArrayList<String>>> scheduleMap) {
         this.sectionList = sectionList;
         this.scheduleMap = scheduleMap;
+    }
+
+    public void setSectionList(ArrayList<String> sectionList) {
+        this.sectionList = sectionList;
     }
 
     public Schedule(Map<String, Map<String, ArrayList<String>>> scheduleMap) {
