@@ -26,7 +26,7 @@ import static com.mongodb.client.model.Updates.set;
 /**
  * Implemented User DAO for user data querying, login/register services.
  */
-public class UserDaoImpl implements UserDAO{
+public class UserDaoImpl extends AbstractDao implements UserDAO{
     private final String userName;
     private String password;
     private final MongoCollection<User> collection;
@@ -78,7 +78,7 @@ public class UserDaoImpl implements UserDAO{
      */
     @Override
     public Boolean queryUserInDB() {
-        return collection.find(eq(Constants.USERNAME, this.userName)).first() != null;
+        return collection.find(this.filter).first() != null;
 
     }
 
@@ -201,16 +201,7 @@ public class UserDaoImpl implements UserDAO{
      * @return MongoDB's userSheet collection, which applied User entity POJOs support.
      */
     private MongoCollection<User> getCollection() {
-        //Suppress MongoDB logger
-        Logger mongoLogger = Logger.getLogger( Constants.DB_LOGGER );
-        mongoLogger.setLevel(Level.SEVERE);
-        //Establish connection to mongoDB
-        ConnectionString connectionString = new ConnectionString(Constants.DB_CONNECTION);
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(connectionString)
-                .build();
-        MongoClient mongoClient = MongoClients.create(settings);
-        MongoDatabase mongoDb =  mongoClient.getDatabase(Constants.DB_DATABASE_NAME).withCodecRegistry(Constants.CODEC_REGISTRY);
+        MongoDatabase mongoDb =  getDatabase();
         return mongoDb.getCollection(Constants.DB_USER_COLLECTION_NAME, User.class);
     }
 
