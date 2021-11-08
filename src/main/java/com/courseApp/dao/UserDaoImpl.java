@@ -224,20 +224,20 @@ public class UserDaoImpl implements UserDAO{
         return queryByUserName().checkPassword(this.password);
     }
 
-//    /**
-//     * Convert list of Schedule objs to list of sectionList obj.
-//     *
-//     * @param scheduleList schedule list
-//     * @return section list
-//     */
-//    @Deprecated
-//    private ArrayList<ArrayList<String>> scheduleListArray2sectionListArray(ArrayList<Schedule> scheduleList){
-//        ArrayList<ArrayList<String>> res = new ArrayList<>();
-//        for(Schedule schedule: scheduleList){
-//            res.add(schedule.getSectionList());
-//        }
-//        return res;
-//    }
+    /**
+     * Convert list of Schedule objs to list of sectionList obj.
+     *
+     * @param scheduleList schedule list
+     * @return section list
+     */
+    @Deprecated
+    private ArrayList<ArrayList<String>> scheduleListArray2sectionListArray(ArrayList<Schedule> scheduleList){
+        ArrayList<ArrayList<String>> res = new ArrayList<>();
+        for(Schedule schedule: scheduleList){
+            res.add(schedule.getSectionList());
+        }
+        return res;
+    }
 
 
 //    public static void main(String[] args) {
@@ -292,10 +292,10 @@ public class UserDaoImpl implements UserDAO{
 //        System.out.println(sl);
 //        }
 
-    public static void main(String[] args) {
-        UserDaoImpl udi = new UserDaoImpl("v5test", "v2test");
-        User user = udi.queryUser();
-        System.out.println(user);
-
-    }
+//    public static void main(String[] args) {
+//        UserDaoImpl udi = new UserDaoImpl("v5test", "v2test");
+//        User user = udi.queryUser();
+//        System.out.println(user);
+//
+//    }
     }
