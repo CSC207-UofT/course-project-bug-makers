@@ -68,9 +68,9 @@ public class CalendarPresenter implements ControlCalendarPresentation {
      *
      * @param fallCalendar Fall Calendar of required type
      * @param winterCalendar Winter Calendar of required type
-     * @param termType the term(s) we want
-     * @param rawSchedule the input hashmap from the schedule, containing all the courses of the year.
-     * @return a String presentation of Calendar of the desired termType & 
+     * @param termType the String term(s) we want
+     * @param rawSchedule the input map from the schedule, containing all the courses of the year.
+     * @return a String presentation of Calendar of the desired termType
      */
     private String typeDecorator(UsePresentable fallCalendar, UsePresentable winterCalendar,String termType,
                                  Map<String, Map<String, ArrayList<String>>> rawSchedule){
@@ -90,10 +90,10 @@ public class CalendarPresenter implements ControlCalendarPresentation {
     /**
      * Generate a calendarType Calendar of the termType.
      *
-     * @param termType the term(s) we want
+     * @param termType the String term(s) we want
      * @param calendarType the type of the Calendar the user want
      * @param rawSchedule the input hashmap from the schedule, containing all the courses of the year.
-     * @return a presentation of WorkdayCalendar of the termType ControlPresentInfo CMD shell.
+     * @return a String presentation of WorkdayCalendar of the termType ControlPresentInfo CMD shell.
      */
     public String presentCalendar(String termType, String calendarType,
                                   Map<String, Map<String, ArrayList<String>>> rawSchedule){
