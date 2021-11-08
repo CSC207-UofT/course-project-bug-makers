@@ -1,5 +1,9 @@
 package com.courseApp.entity;
 
+import com.courseApp.constants.Constants;
+import org.bson.codecs.pojo.annotations.BsonCreator;
+import org.bson.codecs.pojo.annotations.BsonProperty;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,21 +12,25 @@ import java.util.Map;
  * course review entity for course code, course difficulty rate, course general rate, instructor review map and known instructor list.
  */
 public class CourseReview {
-    private final String courseCode;
+    private String courseCode;
     private float courseDifficultyRate;
     private float courseGeneralRate;
     private Map<String, InstReview> instReviewMap;
     private ArrayList<String> instList;
 
     /**
-     * Constructor with instructor review provided.
+     * Bson constructor, with instructor review provided, for Course Review Entity.
      *
      * @param courseCode course code w/o section
      * @param courseDifficultyRate course difficulty rate
      * @param courseGeneralRate course general rate
      * @param instReviewMap instructor map
      */
-    public CourseReview(String courseCode, float courseDifficultyRate, float courseGeneralRate, Map<String, InstReview> instReviewMap) {
+    @BsonCreator
+    public CourseReview(@BsonProperty(Constants.COURSE_CODE_DB) String courseCode,
+                        @BsonProperty(Constants.COURSE_DIFFICULTY_RATE) float courseDifficultyRate,
+                        @BsonProperty(Constants.COURSE_GENERAL_RATE) float courseGeneralRate,
+                        @BsonProperty(Constants.INST_REVIEW_MAP) Map<String, InstReview> instReviewMap) {
         this.courseCode = courseCode;
         this.courseDifficultyRate = courseDifficultyRate;
         this.courseGeneralRate = courseGeneralRate;
@@ -73,6 +81,9 @@ public class CourseReview {
             this.setCourseGeneralRate(res/this.instReviewMap.size());}
     }
 
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
 
     public String getCourseCode() {
         return courseCode;

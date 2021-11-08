@@ -18,7 +18,9 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static com.courseApp.constants.Constants.CODEC_REGISTRY;
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
 
 /**
@@ -27,7 +29,7 @@ import static com.mongodb.client.model.Updates.set;
 public class UserDaoImpl implements UserDAO{
     private final String userName;
     private String password;
-    private final MongoCollection<Document> collection;
+    private final MongoCollection<User> collection;
     private final Bson filter;
 
 
@@ -63,12 +65,8 @@ public class UserDaoImpl implements UserDAO{
      */
     @Override
     public User queryUser() {
-        if (Objects.equals(queryUserRole(), Constants.REGULAR_USER) & checkPassword()){
-            return new User(this.userName,
-                    queryCourseList(),
-                    queryWishList(),
-                    queryScheduleList(),
-                    queryUserRole());
+        if(checkPassword()){
+            return collection.find(eq(Constants.USERNAME, this.userName)).first();
         }
         return null;
     }
@@ -80,7 +78,8 @@ public class UserDaoImpl implements UserDAO{
      */
     @Override
     public Boolean queryUserInDB() {
-        return this.queryByUserName().iterator().hasNext();
+        return collection.find(eq(Constants.USERNAME, this.userName)).first() != null;
+
     }
 
     /**
@@ -90,7 +89,7 @@ public class UserDaoImpl implements UserDAO{
      */
     @Override
     public String queryUserRole() {
-        return (String) this.queryByUserName().iterator().next().get(Constants.USER_ROLE);
+        return this.queryByUserName().getUserRole();
     }
 
     /**
@@ -98,10 +97,9 @@ public class UserDaoImpl implements UserDAO{
      *
      * @return user's course list
      */
-    @SuppressWarnings("unchecked")
     @Override
     public ArrayList<String> queryCourseList() {
-        return (ArrayList<String>) this.queryByUserName().iterator().next().get(Constants.COURSE_LIST);
+        return this.queryByUserName().getCourseList();
     }
 
     /**
@@ -109,10 +107,9 @@ public class UserDaoImpl implements UserDAO{
      *
      * @return user's wish list
      */
-    @SuppressWarnings("unchecked")
     @Override
     public ArrayList<String> queryWishList() {
-        return (ArrayList<String>) this.queryByUserName().iterator().next().get(Constants.WISH_LIST);
+        return this.queryByUserName().getWishList();
 
     }
 
@@ -121,19 +118,9 @@ public class UserDaoImpl implements UserDAO{
      *
      * @return user's schedule list with no schedule map ControlPresentInfo the schedule object.
      */
-    @SuppressWarnings("unchecked")
     @Override
     public ArrayList<Schedule> queryScheduleList() {
-        ArrayList<Schedule> res = new ArrayList<>();
-        for (ArrayList<String> strings : (ArrayList<ArrayList<String>>)
-                this.queryByUserName().iterator().next().get(Constants.SCHEDULE_LIST)) {
-            res.add(new Schedule(strings));
-        }
-        ScheduleUpdater su = new ScheduleUpdater();
-        for(Schedule schedule : res){
-            su.updateScheduleMap(schedule);
-        }
-        return res;
+        return this.queryByUserName().getScheduleList();
     }
 
     /**
@@ -168,8 +155,7 @@ public class UserDaoImpl implements UserDAO{
      */
     @Override
     public boolean updateScheduleList(ArrayList<Schedule> scheduleList) {
-        this.collection.updateOne(this.filter, set(Constants.SCHEDULE_LIST,
-                scheduleListArray2sectionListArray(scheduleList)));
+        this.collection.updateOne(this.filter, set(Constants.SCHEDULE_LIST, scheduleList));
         return true;
     }
 
@@ -181,14 +167,8 @@ public class UserDaoImpl implements UserDAO{
     @Override
     public Boolean userRegister() {
         if (!queryUserInDB()){
-        Document person = new Document(Constants.USERNAME, this.userName)
-                .append(Constants.PASSWORD, PasswordEncoderMD5.encode(this.password))
-                .append(Constants.COURSE_LIST, new ArrayList<String>())
-                .append(Constants.WISH_LIST, new ArrayList<String>())
-                .append(Constants.SCHEDULE_LIST, new ArrayList<ArrayList<String>>())
-                .append(Constants.USER_ROLE, Constants.REGULAR_USER)
-                ;
-        this.collection.insertOne(person);
+            User user = new User(this.userName, this.password);
+            this.collection.insertOne(user);
         return true;}
         return false;
 
@@ -211,11 +191,16 @@ public class UserDaoImpl implements UserDAO{
      * @return Iterator of username, note that we are only allowing one username to appear ControlPresentInfo the database for
      * once, so the queried item should be the first one ControlPresentInfo the iterator.
      */
-    private Iterable<Document> queryByUserName(){
-        return this.collection.find(eq(Constants.USERNAME, this.userName));
+    private User queryByUserName(){
+        return collection.find(eq(Constants.USERNAME, this.userName)).first();
     }
 
-    private MongoCollection<Document> getCollection() {
+    /**
+     * Apply POJO to the userSheet collection by Bson.
+     *
+     * @return MongoDB's userSheet collection, which applied User entity POJOs support.
+     */
+    private MongoCollection<User> getCollection() {
         //Suppress MongoDB logger
         Logger mongoLogger = Logger.getLogger( Constants.DB_LOGGER );
         mongoLogger.setLevel(Level.SEVERE);
@@ -225,8 +210,8 @@ public class UserDaoImpl implements UserDAO{
                 .applyConnectionString(connectionString)
                 .build();
         MongoClient mongoClient = MongoClients.create(settings);
-        MongoDatabase mongoDb =  mongoClient.getDatabase(Constants.DB_DATABASE_NAME);
-        return mongoDb.getCollection(Constants.DB_COLLECTION_NAME);
+        MongoDatabase mongoDb =  mongoClient.getDatabase(Constants.DB_DATABASE_NAME).withCodecRegistry(Constants.CODEC_REGISTRY);
+        return mongoDb.getCollection(Constants.DB_USER_COLLECTION_NAME, User.class);
     }
 
     /**
@@ -236,23 +221,23 @@ public class UserDaoImpl implements UserDAO{
      * @return True iff the password is consistent, otherwise, false.
      */
     private boolean checkPassword(){
-        return (PasswordEncoderMD5.encode(this.password))
-                .equals(this.queryByUserName().iterator().next().get(Constants.PASSWORD));
+        return queryByUserName().checkPassword(this.password);
     }
 
-    /**
-     * Convert list of Schedule objs to list of sectionList obj.
-     *
-     * @param scheduleList schedule list
-     * @return section list
-     */
-    private ArrayList<ArrayList<String>> scheduleListArray2sectionListArray(ArrayList<Schedule> scheduleList){
-        ArrayList<ArrayList<String>> res = new ArrayList<>();
-        for(Schedule schedule: scheduleList){
-            res.add(schedule.getSectionList());
-        }
-        return res;
-    }
+//    /**
+//     * Convert list of Schedule objs to list of sectionList obj.
+//     *
+//     * @param scheduleList schedule list
+//     * @return section list
+//     */
+//    @Deprecated
+//    private ArrayList<ArrayList<String>> scheduleListArray2sectionListArray(ArrayList<Schedule> scheduleList){
+//        ArrayList<ArrayList<String>> res = new ArrayList<>();
+//        for(Schedule schedule: scheduleList){
+//            res.add(schedule.getSectionList());
+//        }
+//        return res;
+//    }
 
 
 //    public static void main(String[] args) {
@@ -306,4 +291,11 @@ public class UserDaoImpl implements UserDAO{
 //        ArrayList<Schedule> sl =  udi.queryScheduleList();
 //        System.out.println(sl);
 //        }
+
+    public static void main(String[] args) {
+        UserDaoImpl udi = new UserDaoImpl("v5test", "v2test");
+        User user = udi.queryUser();
+        System.out.println(user);
+
+    }
     }

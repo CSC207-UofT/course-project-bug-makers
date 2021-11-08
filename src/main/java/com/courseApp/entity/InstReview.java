@@ -1,20 +1,38 @@
 package com.courseApp.entity;
 
+import com.courseApp.constants.Constants;
+import org.bson.codecs.pojo.annotations.BsonCreator;
+import org.bson.codecs.pojo.annotations.BsonProperty;
+
 import java.util.ArrayList;
 
 /**
  * InstReview entity for instructor name, instructor difficulty rate, instructor general rate,
- * instructor recommendation rate and a list of userReview eneties.
+ * instructor recommendation rate and a list of userReview entities.
  *
  */
 public class InstReview {
-    private final String instructorName;
+    private String instructorName;
     private float instGeneralRate;
     private float instDifficultyRate;
     private float instRecommendationScore;
     private ArrayList<UserReview> userReviewList;
 
-    public InstReview(String instructorName, float instGeneralRate, float instDifficultyRate, float instRecommendationScore, ArrayList<UserReview> userReviewList) {
+    /**
+     * Bson constructor for InstReview Entity
+     *
+     * @param instructorName Bson instructorName
+     * @param instGeneralRate Bson instGeneralRate
+     * @param instDifficultyRate Bson instDifficultyRate
+     * @param instRecommendationScore Bson instRecommendationScore
+     * @param userReviewList Bson userReviewList
+     */
+    @BsonCreator
+    public InstReview(@BsonProperty(Constants.INST_NAME) String instructorName,
+                      @BsonProperty(Constants.INST_GENERAL_RATE) float instGeneralRate,
+                      @BsonProperty(Constants.INST_DIFFICULTY_RATE) float instDifficultyRate,
+                      @BsonProperty(Constants.INST_RECOMMENDATION_SCORE) float instRecommendationScore,
+                      @BsonProperty(Constants.USER_REVIEW_LIST) ArrayList<UserReview> userReviewList) {
         this.instructorName = instructorName;
         this.instGeneralRate = instGeneralRate;
         this.instDifficultyRate = instDifficultyRate;
@@ -59,6 +77,10 @@ public class InstReview {
 
     public float getInstGeneralRate() {
         return instGeneralRate;
+    }
+
+    public void setInstructorName(String instructorName) {
+        this.instructorName = instructorName;
     }
 
     public float getInstDifficultyRate() {
