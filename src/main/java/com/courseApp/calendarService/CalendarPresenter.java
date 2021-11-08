@@ -91,8 +91,8 @@ public class CalendarPresenter implements ControlCalendarPresentation {
      * Generate a calendarType Calendar of the termType.
      *
      * @param termType the String term(s) we want
-     * @param calendarType the type of the Calendar the user want
-     * @param rawSchedule the input hashmap from the schedule, containing all the courses of the year.
+     * @param calendarType the String type of the Calendar the user wants
+     * @param rawSchedule the input map from the schedule, containing all the courses of the year.
      * @return a String presentation of WorkdayCalendar of the termType ControlPresentInfo CMD shell.
      */
     public String presentCalendar(String termType, String calendarType,
