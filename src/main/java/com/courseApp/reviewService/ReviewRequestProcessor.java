@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Review Request Processor use case for realizing review data query and IO.
  */
-public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview{
+public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, UseQueryRecommendationInfo{
 
     /**
      * Check the existence of course review, and then return the course review summary map, or null if the course review is
@@ -146,5 +146,20 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview{
     @Override
     public boolean createOneCourseReview(String courseCode, String instName) {
         return false;
+    }
+
+    /**
+     * Get the recommendation map for a course, where the map should be:
+     * String instName:
+     * - generalRate: Double
+     * - difficultyRate: Double
+     * - recommendationScore : Double
+     *
+     * @param courseCode course code
+     * @return recommendation map
+     */
+    @Override
+    public Map<String, Map<String, Double>> getRecommendationMap(String courseCode) {
+        return null;
     }
 }
