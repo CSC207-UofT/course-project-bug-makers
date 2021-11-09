@@ -35,6 +35,8 @@ public class Constants {
     public static final String YEAR_HEADER = "Calendar of the Year\n";
     public static final String FALL_HEADER = "Calendar of the Fall Term\n";
     public static final String WINTER_HEADER = "Calendar of the Winter Term\n";
+    public static final String CALENDAR_TYPE_ERROR = "The calendar type is invalid.";
+    public static final String TERM_TYPE_ERROR = "The Term type is invalid.";
 
 
 

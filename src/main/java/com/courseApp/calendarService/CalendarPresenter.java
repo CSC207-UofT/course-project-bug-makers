@@ -83,6 +83,7 @@ public class CalendarPresenter implements ControlCalendarPresentation {
                 resultingCalendar += headerGenerator(Constants.WINTER_TERM);
                 resultingCalendar += winterCalendar.present();
             }
+            default -> throw new IllegalStateException("Unexpected value: " + termType);
         }
         return resultingCalendar;
     }
@@ -97,22 +98,35 @@ public class CalendarPresenter implements ControlCalendarPresentation {
      */
     public String presentCalendar(String termType, String calendarType,
                                   Map<String, Map<String, ArrayList<String>>> rawSchedule){
+
+        // Check calendar type
+        UsePresentable fallCalendar;
+        UsePresentable winterCalendar;
+        if (calendarType.equals(Constants.TYPE_WORKDAY)){
+            fallCalendar = new WorkdayCalendar(scheduleProcessor(Constants.FALL_TERM, rawSchedule));
+            winterCalendar = new WorkdayCalendar(scheduleProcessor(Constants.WINTER_TERM, rawSchedule));
+        }
+        else{
+            return Constants.CALENDAR_TYPE_ERROR;
+        }
         String resultingCalendar = "";
         resultingCalendar += headerGenerator(termType);
-        // Check calendar type
-        if (calendarType.equals(Constants.TYPE_WORKDAY)){
-            WorkdayCalendar fallCalendar = new WorkdayCalendar(scheduleProcessor(Constants.FALL_TERM, rawSchedule));
-            WorkdayCalendar winterCalendar = new WorkdayCalendar(scheduleProcessor(Constants.WINTER_TERM, rawSchedule));
-            resultingCalendar += typeDecorator(fallCalendar, winterCalendar, termType, rawSchedule);
-        }
+        resultingCalendar += typeDecorator(fallCalendar, winterCalendar, termType, rawSchedule);
         return resultingCalendar;
     }
 
-
 //    public static void main(String[] args) {
-//        CalendarPresenter cad;
+//        CalendarPresenter cad = new CalendarPresenter();
+//        Map<String, Map<String, ArrayList<String>>> rawSchedule = new HashMap<>();
+//        Map<String, ArrayList<String>> course = new HashMap<>();
+//        ArrayList<String> array = new ArrayList<>();
+//        array.add("13:00-14:00");
+//        course.put("MO", array);
+//        rawSchedule.put("BIO230FLEC9901", course);
+//        System.out.println(cad.presentCalendar("W", "Workday", rawSchedule));
 //
 //        UserServiceController USC2 = new UserServiceController();
+//        USC2.userRegister("USC2", "1234567890");
 //
 //
 ////        USC2.userClearCourseList("USC2");
@@ -127,6 +141,5 @@ public class CalendarPresenter implements ControlCalendarPresentation {
 //
 //        cad = new CalendarPresenter();
 //
-//        System.out.println(cad.presentCalendar("Y", "Workday", USC2.getLatestSchedule("USC2").getScheduleMap()));
 //    }
 }
