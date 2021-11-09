@@ -1,25 +1,15 @@
 package com.courseApp.dao;
 
 import com.courseApp.constants.Constants;
-import com.courseApp.courseService.ScheduleUpdater;
 import com.courseApp.entity.Schedule;
 import com.courseApp.entity.User;
 import com.courseApp.entity.UserReview;
-import com.courseApp.utils.PasswordEncoderMD5;
-import com.mongodb.*;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import static com.courseApp.constants.Constants.CODEC_REGISTRY;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
@@ -27,7 +17,7 @@ import static com.mongodb.client.model.Updates.set;
 /**
  * Implemented User DAO for user data querying, login/register services.
  */
-public class UserDaoImpl extends AbstractDao implements UserDAO{
+public class UserDaoImpl extends AbstractDatabaseDao implements UserDAO{
     private final String userName;
     private String password;
     private final MongoCollection<User> collection;

@@ -14,7 +14,10 @@ import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
 
-public class ReviewDaoImpl extends AbstractDao implements ReviewDAO{
+/**
+ * Implemented Review DAO for user data querying, IO services.
+ */
+public class ReviewDaoImpl extends AbstractDatabaseDao implements ReviewDAO{
 
     private final MongoCollection<CourseReview > collection;
 
@@ -31,11 +34,10 @@ public class ReviewDaoImpl extends AbstractDao implements ReviewDAO{
     @Override
     public CourseReview queryCourseReview(String courseCode) {
         return collection.find(eq(Constants.COURSE_CODE_DB, courseCode)).first();
-
     }
 
     /**
-     * Query existing course list in the review system.
+     * Query existing course list in the review database.
      *
      * @return Arraylist of course code.
      */
@@ -135,8 +137,8 @@ public class ReviewDaoImpl extends AbstractDao implements ReviewDAO{
 
 //    public static void main(String[] args) {
 //        ReviewDaoImpl rdi = new ReviewDaoImpl();
-//        rdi.createCourseReview("CSC209");
-//        rdi.createInstReview("CSC209", "test");
+//        rdi.createCourseReview("CSC207");
+//        rdi.createInstReview("CSC207", "test");
 //        UserReview ur = new UserReview("username", 1.0D, 1.0D, 1.0D, "GOOD");
 //        ArrayList<UserReview> urList = new ArrayList<>();
 //        urList.add(ur);

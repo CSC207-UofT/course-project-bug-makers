@@ -10,7 +10,7 @@ import com.mongodb.client.MongoDatabase;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public abstract class AbstractDao {
+public abstract class AbstractDatabaseDao {
 
     protected MongoDatabase getDatabase() {
         //Suppress MongoDB logger
