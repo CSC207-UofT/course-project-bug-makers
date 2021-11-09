@@ -4,6 +4,7 @@ import com.courseApp.constants.Constants;
 import com.courseApp.courseService.ScheduleUpdater;
 import com.courseApp.entity.Schedule;
 import com.courseApp.entity.User;
+import com.courseApp.entity.UserReview;
 import com.courseApp.utils.PasswordEncoderMD5;
 import com.mongodb.*;
 import com.mongodb.client.MongoClients;
@@ -114,7 +115,7 @@ public class UserDaoImpl extends AbstractDao implements UserDAO{
     }
 
     /**
-     * Query user's schedule list
+     * Rewrite the course list in the database.
      *
      * @return user's schedule list with no schedule map ControlPresentInfo the schedule object.
      */
@@ -136,7 +137,7 @@ public class UserDaoImpl extends AbstractDao implements UserDAO{
     }
 
     /**
-     * Update wish List
+     * Rewrite the wish list in the database.
      *
      * @param wishList User wish list
      * @return ture iff the update is successful
@@ -148,7 +149,7 @@ public class UserDaoImpl extends AbstractDao implements UserDAO{
     }
 
     /**
-     * Update schedule list. Note that the schedule map is omitted.
+     * Rewrite schedule list in the database.
      *
      * @param scheduleList list of schedule
      * @return ture iff the update is successful
@@ -156,6 +157,28 @@ public class UserDaoImpl extends AbstractDao implements UserDAO{
     @Override
     public boolean updateScheduleList(ArrayList<Schedule> scheduleList) {
         this.collection.updateOne(this.filter, set(Constants.SCHEDULE_LIST, scheduleList));
+        return true;
+    }
+
+    /**
+     * Query the user review list, corresponding to the targeted user.
+     *
+     * @return ArrayList of User Review entity.
+     */
+    @Override
+    public ArrayList<UserReview> queryUserReviewList() {
+        return this.queryByUserName().getReviewList();
+    }
+
+    /**
+     * Rewrite the review list in the database
+     *
+     * @param reviewList list of UserReviews
+     * @return true iff teh update is successful
+     */
+    @Override
+    public boolean updateUserReviewList(ArrayList<UserReview> reviewList) {
+        this.collection.updateOne(this.filter, set(Constants.REVIEW_LIST, reviewList));
         return true;
     }
 

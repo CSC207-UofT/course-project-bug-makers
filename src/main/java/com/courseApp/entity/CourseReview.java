@@ -13,8 +13,8 @@ import java.util.Map;
  */
 public class CourseReview {
     private String courseCode;
-    private float courseDifficultyRate;
-    private float courseGeneralRate;
+    private double courseDifficultyRate;
+    private double courseGeneralRate;
     private Map<String, InstReview> instReviewMap;
     private ArrayList<String> instList;
 
@@ -28,8 +28,8 @@ public class CourseReview {
      */
     @BsonCreator
     public CourseReview(@BsonProperty(Constants.COURSE_CODE_DB) String courseCode,
-                        @BsonProperty(Constants.COURSE_DIFFICULTY_RATE) float courseDifficultyRate,
-                        @BsonProperty(Constants.COURSE_GENERAL_RATE) float courseGeneralRate,
+                        @BsonProperty(Constants.COURSE_DIFFICULTY_RATE) double courseDifficultyRate,
+                        @BsonProperty(Constants.COURSE_GENERAL_RATE) double courseGeneralRate,
                         @BsonProperty(Constants.INST_REVIEW_MAP) Map<String, InstReview> instReviewMap,
                         @BsonProperty(Constants.INST_LIST) ArrayList<String> instList) {
         this.courseCode = courseCode;
@@ -47,8 +47,8 @@ public class CourseReview {
      */
     public CourseReview(String courseCode) {
         this.courseCode = courseCode;
-        this.courseDifficultyRate = 0.0F;
-        this.courseGeneralRate = 0.0F;
+        this.courseDifficultyRate = 0.0D;
+        this.courseGeneralRate = 0.0D;
         this.instReviewMap = new HashMap<>();
         this.instList = new ArrayList<>();
         this.instList.addAll(instReviewMap.keySet()); // Generate instructor list.
@@ -59,7 +59,7 @@ public class CourseReview {
      * Update the avg. course difficulty rate.
      */
     public void updateCourseDifficultyRate(){
-        float res = 0;
+        double res = 0.0D;
         for (var entry: this.instReviewMap.entrySet()){
             res += entry.getValue().getInstDifficultyRate();
         }
@@ -71,7 +71,7 @@ public class CourseReview {
      * Update the avg. course difficulty rate.
      */
     public void updateCourseGeneralRate(){
-        float res = 0;
+        double res = 0;
         for (var entry: this.instReviewMap.entrySet()){
             res += entry.getValue().getInstGeneralRate();
         }
@@ -114,7 +114,7 @@ public class CourseReview {
      *
      * @return updated course general rate
      */
-    public float getCourseGeneralRate() {
+    public double getCourseGeneralRate() {
         this.updateCourseGeneralRate();
         return courseGeneralRate;
     }
@@ -125,7 +125,7 @@ public class CourseReview {
      * @return updated course difficulty rate
      */
 
-    public float getCourseDifficultyRate() {
+    public double getCourseDifficultyRate() {
         this.updateCourseDifficultyRate();
         return courseDifficultyRate;
     }
@@ -138,11 +138,11 @@ public class CourseReview {
         return courseCode;
     }
 
-    public void setCourseDifficultyRate(float courseDifficultyRate) {
+    public void setCourseDifficultyRate(double courseDifficultyRate) {
         this.courseDifficultyRate = courseDifficultyRate;
     }
 
-    public void setCourseGeneralRate(float courseGeneralRate) {
+    public void setCourseGeneralRate(double courseGeneralRate) {
         this.courseGeneralRate = courseGeneralRate;
     }
 

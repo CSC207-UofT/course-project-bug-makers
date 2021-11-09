@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 public class InstReview {
     private String instructorName;
-    private float instGeneralRate;
-    private float instDifficultyRate;
-    private float instRecommendationScore;
+    private double instGeneralRate;
+    private double instDifficultyRate;
+    private double instRecommendationScore;
     private ArrayList<UserReview> userReviewList;
 
     /**
@@ -29,9 +29,9 @@ public class InstReview {
      */
     @BsonCreator
     public InstReview(@BsonProperty(Constants.INST_NAME) String instructorName,
-                      @BsonProperty(Constants.INST_GENERAL_RATE) float instGeneralRate,
-                      @BsonProperty(Constants.INST_DIFFICULTY_RATE) float instDifficultyRate,
-                      @BsonProperty(Constants.INST_RECOMMENDATION_SCORE) float instRecommendationScore,
+                      @BsonProperty(Constants.INST_GENERAL_RATE) double instGeneralRate,
+                      @BsonProperty(Constants.INST_DIFFICULTY_RATE) double instDifficultyRate,
+                      @BsonProperty(Constants.INST_RECOMMENDATION_SCORE) double instRecommendationScore,
                       @BsonProperty(Constants.USER_REVIEW_LIST) ArrayList<UserReview> userReviewList) {
         this.instructorName = instructorName;
         this.instGeneralRate = instGeneralRate;
@@ -57,7 +57,7 @@ public class InstReview {
      * Update instructor's general rate.
      */
     public void updateInstructorGeneralRate(){
-        float res = 0;
+        double res = 0D;
         for (UserReview ur: this.userReviewList){
             res += ur.getGeneralRate();
         }
@@ -68,11 +68,22 @@ public class InstReview {
      * Update instructor's difficulty rate.
      */
     public void updateInstructorDifficultyRate(){
-        float res = 0;
+        double res = 0D;
         for (UserReview ur: this.userReviewList){
             res += ur.getDifficultyRate();
         }
         this.setInstDifficultyRate(res/this.userReviewList.size());
+    }
+
+    /**
+     * Update instructor's recommendation score.
+     */
+    public void updateInstructorRecommendationScore(){
+        double res = 0D;
+        for (UserReview ur: this.userReviewList){
+            res += ur.getRecommendationScore();
+        }
+        this.setInstRecommendationScore(res/this.userReviewList.size());
     }
 
     /**
@@ -103,7 +114,7 @@ public class InstReview {
         return instructorName;
     }
 
-    public float getInstGeneralRate() {
+    public double getInstGeneralRate() {
         return instGeneralRate;
     }
 
@@ -111,11 +122,11 @@ public class InstReview {
         this.instructorName = instructorName;
     }
 
-    public float getInstDifficultyRate() {
+    public double getInstDifficultyRate() {
         return instDifficultyRate;
     }
 
-    public float getInstRecommendationScore() {
+    public double getInstRecommendationScore() {
         return instRecommendationScore;
     }
 
@@ -123,15 +134,15 @@ public class InstReview {
         return userReviewList;
     }
 
-    public void setInstGeneralRate(float instGeneralRate) {
+    public void setInstGeneralRate(double instGeneralRate) {
         this.instGeneralRate = instGeneralRate;
     }
 
-    public void setInstDifficultyRate(float instDifficultyRate) {
+    public void setInstDifficultyRate(double instDifficultyRate) {
         this.instDifficultyRate = instDifficultyRate;
     }
 
-    public void setInstRecommendationScore(float instRecommendationScore) {
+    public void setInstRecommendationScore(double instRecommendationScore) {
         this.instRecommendationScore = instRecommendationScore;
     }
 
@@ -139,5 +150,6 @@ public class InstReview {
         this.userReviewList = userReviewList;
         this.updateInstructorDifficultyRate();
         this.updateInstructorGeneralRate();
+        this.updateInstructorRecommendationScore();
     }
 }

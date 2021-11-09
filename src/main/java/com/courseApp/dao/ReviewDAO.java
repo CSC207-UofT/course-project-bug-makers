@@ -21,7 +21,7 @@ public interface ReviewDAO {
 
 
     /**
-     * Query existing course list in the review system.
+     * Query existing course list in the review sheet.
      *
      * @return Arraylist of course code.
      */

@@ -3,6 +3,7 @@ package com.courseApp.userService;
 import com.courseApp.dao.UserDAO;
 import com.courseApp.dao.UserDaoImpl;
 import com.courseApp.entity.Schedule;
+import com.courseApp.entity.UserReview;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
     /**
      * User Login Authentication.
      *
-     * @return True iff the username and password are consistent with the data ControlPresentInfo the database.
+     * @return True iff the username and password are consistent with the data in the database.
      */
     @Override
     public boolean userLogin() {
@@ -56,7 +57,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
     }
 
     /**
-     * Return course list for user. Note that method should be called after the authentication.
+     * Return course list for user. Note that method should be called after  authentication.
      *
      * @return List of Course List.
      */
@@ -67,7 +68,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
 
 
     /**
-     * Return user wish list. Note that method should only be called after the authentication.
+     * Return user wish list. Note that method should only be called after  authentication.
      *
      * @return List of wish list.
      */
@@ -78,7 +79,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
 
 
     /**
-     * Return user schedule list. Note that method should only be called after the authentication.
+     * Return user schedule list. Note that method should only be called after  authentication.
      *
      * @return List of user schedule
      */
@@ -87,10 +88,20 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
         return new UserDaoImpl(this.username).queryScheduleList();
     }
 
+    /**
+     * Return user schedule list of the targeted user. Note that this method should only be called after authentication
+     *
+     * @return List of User Review
+     */
+    @Override
+    public ArrayList<UserReview> queryUserReviewList() {
+        return new UserDaoImpl(this.username).queryUserReviewList();
+    }
+
 
     /**
      * Insert one course to the user course list.
-     * Note that method should only be called after the authentication.
+     * Note that method should only be called after  authentication.
      *
      * @param courseCode course code
      * @return ture iff the insertion is successful
@@ -106,7 +117,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
 
     /**
      * Insert one course to the wishList.
-     * Note that method should be called after the authentication.
+     * Note that method should be called after authentication.
      *
      * @param courseCode course code
      * @return true iff the insertion is successful
@@ -121,8 +132,24 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
     }
 
     /**
+     * Insert one user review to the reviewList.
+     * Note that method should be called after  authentication.
+     *
+     * @param userReview user review
+     * @return true iff the insertion is successful
+     */
+    @Override
+    public boolean insertOneReview(UserReview userReview) {
+        UserDAO userDao = new UserDaoImpl(this.username);
+        ArrayList<UserReview> res = userDao.queryUserReviewList();
+        res.add(userReview);
+        userDao.updateUserReviewList(res);
+        return true;
+    }
+
+    /**
      * Remove one course ControlPresentInfo the user course list, the result is false if there is no such course ControlPresentInfo the course list.
-     * Note that method should be called after the authentication.
+     * Note that method should be called after authentication.
      *
      * @param courseCode course code
      * @return true iff the removal is successful.
@@ -140,8 +167,26 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
     }
 
     /**
+     * Remove the one course review from the review list of targeted user.
+     *
+     * @param userReview user review entity
+     * @return true iff the removal is successful
+     */
+    @Override
+    public boolean removeOneReview(UserReview userReview) {
+        UserDAO userDao = new UserDaoImpl(this.username);
+        ArrayList<UserReview> res = userDao.queryUserReviewList();
+        if (res.contains(userReview)){
+            res.remove(userReview);
+            userDao.updateUserReviewList(res);
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Remove one course ControlPresentInfo the wish list, the result is false if there is no such course ControlPresentInfo the wish list.
-     * Note that method should be called after the authentication.
+     * Note that method should be called after  authentication.
      *
      * @param courseCode course code
      * @return true iff the removal is successful.

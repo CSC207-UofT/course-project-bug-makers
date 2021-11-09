@@ -239,6 +239,7 @@ public class Constants {
     public static final String SECTION_LIST = "sectionList";
     public static final String SCHEDULE_MAP = "scheduleMap";
     public static final String INST_LIST = "instList";
+    public static final String TIMESTAMP = "timestamp";
 
 
     //// Driver Constants
