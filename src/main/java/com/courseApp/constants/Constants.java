@@ -156,10 +156,12 @@ public class Constants {
 
     public static final String DB_DATABASE_NAME = "bugMakerProject";
     public static final String DB_USER_COLLECTION_NAME = "userSheet";
+    public static final String DB_REVIEW_COLLECTION_NAME = "reviewSheet";
     public static final String DB_LOGGER = "org.mongodb.driver";
     public static final List<Convention> list = List.of(ANNOTATION_CONVENTION);
     public static final CodecRegistry CODEC_REGISTRY = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
             fromProviders(PojoCodecProvider.builder().conventions(list).automatic(true).build()));
+    public static final int PROJECTION_TRUE = 1;
 
 
     //////// Course Code constants
@@ -236,6 +238,8 @@ public class Constants {
     public static final String INST_REVIEW_MAP = "instReviewMap";
     public static final String SECTION_LIST = "sectionList";
     public static final String SCHEDULE_MAP = "scheduleMap";
+    public static final String INST_LIST = "instList";
+    public static final String TIMESTAMP = "timestamp";
 
 
     //// Driver Constants

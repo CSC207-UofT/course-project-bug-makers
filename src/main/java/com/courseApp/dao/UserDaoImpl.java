@@ -1,24 +1,15 @@
 package com.courseApp.dao;
 
 import com.courseApp.constants.Constants;
-import com.courseApp.courseService.ScheduleUpdater;
 import com.courseApp.entity.Schedule;
 import com.courseApp.entity.User;
-import com.courseApp.utils.PasswordEncoderMD5;
-import com.mongodb.*;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoClient;
+import com.courseApp.entity.UserReview;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import static com.courseApp.constants.Constants.CODEC_REGISTRY;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
@@ -26,7 +17,7 @@ import static com.mongodb.client.model.Updates.set;
 /**
  * Implemented User DAO for user data querying, login/register services.
  */
-public class UserDaoImpl implements UserDAO{
+public class UserDaoImpl extends AbstractDatabaseDao implements UserDAO{
     private final String userName;
     private String password;
     private final MongoCollection<User> collection;
@@ -78,7 +69,7 @@ public class UserDaoImpl implements UserDAO{
      */
     @Override
     public Boolean queryUserInDB() {
-        return collection.find(eq(Constants.USERNAME, this.userName)).first() != null;
+        return collection.find(this.filter).first() != null;
 
     }
 
@@ -114,7 +105,7 @@ public class UserDaoImpl implements UserDAO{
     }
 
     /**
-     * Query user's schedule list
+     * Rewrite the course list in the database.
      *
      * @return user's schedule list with no schedule map ControlPresentInfo the schedule object.
      */
@@ -136,7 +127,7 @@ public class UserDaoImpl implements UserDAO{
     }
 
     /**
-     * Update wish List
+     * Rewrite the wish list in the database.
      *
      * @param wishList User wish list
      * @return ture iff the update is successful
@@ -148,7 +139,7 @@ public class UserDaoImpl implements UserDAO{
     }
 
     /**
-     * Update schedule list. Note that the schedule map is omitted.
+     * Rewrite schedule list in the database.
      *
      * @param scheduleList list of schedule
      * @return ture iff the update is successful
@@ -156,6 +147,28 @@ public class UserDaoImpl implements UserDAO{
     @Override
     public boolean updateScheduleList(ArrayList<Schedule> scheduleList) {
         this.collection.updateOne(this.filter, set(Constants.SCHEDULE_LIST, scheduleList));
+        return true;
+    }
+
+    /**
+     * Query the user review list, corresponding to the targeted user.
+     *
+     * @return ArrayList of User Review entity.
+     */
+    @Override
+    public ArrayList<UserReview> queryUserReviewList() {
+        return this.queryByUserName().getReviewList();
+    }
+
+    /**
+     * Rewrite the review list in the database
+     *
+     * @param reviewList list of UserReviews
+     * @return true iff teh update is successful
+     */
+    @Override
+    public boolean updateUserReviewList(ArrayList<UserReview> reviewList) {
+        this.collection.updateOne(this.filter, set(Constants.REVIEW_LIST, reviewList));
         return true;
     }
 
@@ -201,16 +214,7 @@ public class UserDaoImpl implements UserDAO{
      * @return MongoDB's userSheet collection, which applied User entity POJOs support.
      */
     private MongoCollection<User> getCollection() {
-        //Suppress MongoDB logger
-        Logger mongoLogger = Logger.getLogger( Constants.DB_LOGGER );
-        mongoLogger.setLevel(Level.SEVERE);
-        //Establish connection to mongoDB
-        ConnectionString connectionString = new ConnectionString(Constants.DB_CONNECTION);
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(connectionString)
-                .build();
-        MongoClient mongoClient = MongoClients.create(settings);
-        MongoDatabase mongoDb =  mongoClient.getDatabase(Constants.DB_DATABASE_NAME).withCodecRegistry(Constants.CODEC_REGISTRY);
+        MongoDatabase mongoDb =  getDatabase();
         return mongoDb.getCollection(Constants.DB_USER_COLLECTION_NAME, User.class);
     }
 
@@ -224,20 +228,20 @@ public class UserDaoImpl implements UserDAO{
         return queryByUserName().checkPassword(this.password);
     }
 
-//    /**
-//     * Convert list of Schedule objs to list of sectionList obj.
-//     *
-//     * @param scheduleList schedule list
-//     * @return section list
-//     */
-//    @Deprecated
-//    private ArrayList<ArrayList<String>> scheduleListArray2sectionListArray(ArrayList<Schedule> scheduleList){
-//        ArrayList<ArrayList<String>> res = new ArrayList<>();
-//        for(Schedule schedule: scheduleList){
-//            res.add(schedule.getSectionList());
-//        }
-//        return res;
-//    }
+    /**
+     * Convert list of Schedule objs to list of sectionList obj.
+     *
+     * @param scheduleList schedule list
+     * @return section list
+     */
+    @Deprecated
+    private ArrayList<ArrayList<String>> scheduleListArray2sectionListArray(ArrayList<Schedule> scheduleList){
+        ArrayList<ArrayList<String>> res = new ArrayList<>();
+        for(Schedule schedule: scheduleList){
+            res.add(schedule.getSectionList());
+        }
+        return res;
+    }
 
 
 //    public static void main(String[] args) {
@@ -292,10 +296,10 @@ public class UserDaoImpl implements UserDAO{
 //        System.out.println(sl);
 //        }
 
-    public static void main(String[] args) {
-        UserDaoImpl udi = new UserDaoImpl("v5test", "v2test");
-        User user = udi.queryUser();
-        System.out.println(user);
-
-    }
+//    public static void main(String[] args) {
+//        UserDaoImpl udi = new UserDaoImpl("v5test", "v2test");
+//        User user = udi.queryUser();
+//        System.out.println(user);
+//
+//    }
     }
