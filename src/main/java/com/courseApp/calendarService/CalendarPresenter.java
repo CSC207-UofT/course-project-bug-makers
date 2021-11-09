@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.courseApp.constants.Exceptions;
 import com.courseApp.courseService.CourseServiceController;
 import com.courseApp.entity.Schedule;
 import com.courseApp.userService.UserServiceController;
@@ -83,7 +84,7 @@ public class CalendarPresenter implements ControlCalendarPresentation {
                 resultingCalendar += headerGenerator(Constants.WINTER_TERM);
                 resultingCalendar += winterCalendar.present();
             }
-            default -> throw new IllegalStateException("Unexpected value: " + termType);
+            default -> throw new IllegalStateException(Exceptions.WRONG_TERM_TYPE);
         }
         return resultingCalendar;
     }
@@ -107,7 +108,7 @@ public class CalendarPresenter implements ControlCalendarPresentation {
             winterCalendar = new WorkdayCalendar(scheduleProcessor(Constants.WINTER_TERM, rawSchedule));
         }
         else{
-            return Constants.CALENDAR_TYPE_ERROR;
+            return Exceptions.WRONG_CALENDAR_TYPE;
         }
         String resultingCalendar = "";
         resultingCalendar += headerGenerator(termType);
