@@ -25,7 +25,7 @@ in the `CalendarPresenter` class.
     - `"S"` for winter term, 
     - `"Y"` for both of  terms, please be aware that it gives **two** calendars.
 
-  - You can choose different format arguing `calendarType`, so for instant, `"WorkDay"` is the only available choice as we have only implemented this subclass, `WorkdayCalendar`. 
+  - You can choose different format arguing `calendarType`, so for instant, `"Workday"` is the only available choice as we have only implemented this subclass, `WorkdayCalendar`. 
 
 
 - The rest of the code are functional, but they will not be accessed or used directly by users.
