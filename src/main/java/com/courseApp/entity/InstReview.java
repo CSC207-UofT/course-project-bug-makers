@@ -41,6 +41,19 @@ public class InstReview {
     }
 
     /**
+     * Constructor for instantiating raw instructor review
+     *
+     * @param instructorName name of the instructor
+     */
+    public InstReview(String instructorName) {
+        this.instructorName = instructorName;
+        this.instGeneralRate = 0.0F;
+        this.instDifficultyRate = 0.0F;
+        this.instRecommendationScore = 0.0F;
+        this.userReviewList = new ArrayList<>();
+    }
+
+    /**
      * Update instructor's general rate.
      */
     public void updateInstructorGeneralRate(){
@@ -70,6 +83,21 @@ public class InstReview {
     public int getReviewNumber(){
         return this.userReviewList.size();
     }
+
+    /**
+     * Get specific user review by a username.
+     *
+     * @return UserReview entity
+     */
+    public UserReview getSpecificUserReview(String username){
+        for(UserReview ur: this.userReviewList){
+            if(ur.getUsername().equals(username)){
+                return ur;
+            }
+        }
+        return null;
+    }
+
 
     public String getInstructorName() {
         return instructorName;
@@ -109,5 +137,7 @@ public class InstReview {
 
     public void setUserReviewList(ArrayList<UserReview> userReviewList) {
         this.userReviewList = userReviewList;
+        this.updateInstructorDifficultyRate();
+        this.updateInstructorGeneralRate();
     }
 }

@@ -30,13 +30,13 @@ public class CourseReview {
     public CourseReview(@BsonProperty(Constants.COURSE_CODE_DB) String courseCode,
                         @BsonProperty(Constants.COURSE_DIFFICULTY_RATE) float courseDifficultyRate,
                         @BsonProperty(Constants.COURSE_GENERAL_RATE) float courseGeneralRate,
-                        @BsonProperty(Constants.INST_REVIEW_MAP) Map<String, InstReview> instReviewMap) {
+                        @BsonProperty(Constants.INST_REVIEW_MAP) Map<String, InstReview> instReviewMap,
+                        @BsonProperty(Constants.INST_LIST) ArrayList<String> instList) {
         this.courseCode = courseCode;
         this.courseDifficultyRate = courseDifficultyRate;
         this.courseGeneralRate = courseGeneralRate;
         this.instReviewMap = instReviewMap;
-        this.instList = new ArrayList<>();
-        this.instList.addAll(instReviewMap.keySet()); // Generate instructor list.
+        this.instList = instList; // Generate instructor list.
     }
 
     /**
@@ -44,13 +44,11 @@ public class CourseReview {
      * The instructor review map will be blank.
      *
      * @param courseCode course code w/o section
-     * @param courseDifficultyRate course difficulty rate
-     * @param courseGeneralRate course general rate
      */
-    public CourseReview(String courseCode, float courseDifficultyRate, float courseGeneralRate) {
+    public CourseReview(String courseCode) {
         this.courseCode = courseCode;
-        this.courseDifficultyRate = courseDifficultyRate;
-        this.courseGeneralRate = courseGeneralRate;
+        this.courseDifficultyRate = 0.0F;
+        this.courseGeneralRate = 0.0F;
         this.instReviewMap = new HashMap<>();
         this.instList = new ArrayList<>();
         this.instList.addAll(instReviewMap.keySet()); // Generate instructor list.
@@ -81,6 +79,57 @@ public class CourseReview {
             this.setCourseGeneralRate(res/this.instReviewMap.size());}
     }
 
+    /**
+     * Return the targeted instructor's review
+     *
+     * @param instName targeted instructor
+     * @return InstReview entity
+     */
+    public InstReview getSpecificInstReview(String instName){
+        return this.instReviewMap.get(instName);
+    }
+
+    /**
+     * Update the instructor list based on current instructor review map.
+     */
+    private void updateInstList(){
+        ArrayList<String> temp = new ArrayList<>(this.instReviewMap.keySet());
+        this.setInstList(temp);
+    }
+
+    /**
+     * Create a new InstReview entity for course entity.
+     *
+     * @param instName name of the instructor
+     */
+    public void createNewInstReview(String instName){
+        this.instReviewMap.put(instName, new InstReview(instName));
+        this.updateInstList();
+        this.updateCourseDifficultyRate();
+        this.updateCourseGeneralRate();
+    }
+
+    /**
+     * Update the course general rate and return it
+     *
+     * @return updated course general rate
+     */
+    public float getCourseGeneralRate() {
+        this.updateCourseGeneralRate();
+        return courseGeneralRate;
+    }
+
+    /**
+     * Update the course difficulty rate and return it
+     *
+     * @return updated course difficulty rate
+     */
+
+    public float getCourseDifficultyRate() {
+        this.updateCourseDifficultyRate();
+        return courseDifficultyRate;
+    }
+
     public void setCourseCode(String courseCode) {
         this.courseCode = courseCode;
     }
@@ -89,16 +138,8 @@ public class CourseReview {
         return courseCode;
     }
 
-    public float getCourseDifficultyRate() {
-        return courseDifficultyRate;
-    }
-
     public void setCourseDifficultyRate(float courseDifficultyRate) {
         this.courseDifficultyRate = courseDifficultyRate;
-    }
-
-    public float getCourseGeneralRate() {
-        return courseGeneralRate;
     }
 
     public void setCourseGeneralRate(float courseGeneralRate) {
