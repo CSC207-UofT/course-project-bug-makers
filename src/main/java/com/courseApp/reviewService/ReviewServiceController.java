@@ -3,7 +3,7 @@ package com.courseApp.reviewService;
 import java.util.ArrayList;
 
 //TODO: entire doc
-public class ReviewServiceController implements ControlReviewUpdate, ControlReviewCreation, ControlPresentReview{
+public class ReviewServiceController implements ControlReviewUpdate, ControlReviewCreation, ControlPresentReview, ControlRecommendationRank{
 
     /**
      * Get string summary of each InstReview under targeted course code.
@@ -116,5 +116,19 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
     @Override
     public boolean editUserReview(String courseCode, String instName, double generalRate, double difficultyRate, String reviewString) {
         return false;
+    }
+
+    /**
+     * Get the arraylist of ranked instructor names for targeted course.
+     * <p>
+     * The arraylist should be in decreasing order of recommendation index, which the first inst in the list should be
+     * the most recommended and the last one should be least recommended.
+     *
+     * @param courseCode given course code
+     * @return array list of instructor name.
+     */
+    @Override
+    public ArrayList<String> getInstRank(String courseCode) {
+        return null;
     }
 }
