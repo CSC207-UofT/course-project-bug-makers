@@ -2,6 +2,7 @@ package com.courseApp.reviewService;
 
 import com.courseApp.constants.Constants;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,6 +39,11 @@ public class RecommendationRequestProcessor implements UseRecommendationUpdate, 
      */
     @Override
     public double modelInference(String reviewString) {
-        return 0; //TODO
+//        // Initialization
+//        BertNLClassifier classifier = BertNLClassifier.createFromFile(context, modelFile);
+//
+//        // Run inference
+//        List<Category> results = classifier.classify(input);
+        return 5.0D;
     }
 }
