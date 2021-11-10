@@ -1,9 +1,5 @@
 package com.courseApp.reviewService;
 
-import com.courseApp.entity.CourseReview;
-import com.courseApp.entity.InstReview;
-import com.courseApp.entity.UserReview;
-
 import java.util.ArrayList;
 import java.util.Map;
 

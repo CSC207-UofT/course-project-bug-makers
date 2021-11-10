@@ -2,6 +2,7 @@ package com.courseApp.reviewService;
 
 import com.courseApp.constants.Constants;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ public class RecommendationRequestProcessor implements UseRecommendationUpdate, 
     @Override
     public Map<String, Double> generateComplexScoreMap(Map<String, Map<String, Double>> recommendationMap) {
         Map<String, Double> res = new HashMap<>();
-        for(var entry : recommendationMap.entrySet()){
+        for(Map.Entry<String, Map<String, Double>> entry : recommendationMap.entrySet()){
             Map<String, Double> instMap = entry.getValue();
             Double generalRate = instMap.get(Constants.GENERAL_RATE);
             Double recommendationScore = instMap.get(Constants.RECOMMENDATION_SCORE);
@@ -38,6 +39,11 @@ public class RecommendationRequestProcessor implements UseRecommendationUpdate, 
      */
     @Override
     public double modelInference(String reviewString) {
-        return 0; //TODO
+//        // Initialization
+//        BertNLClassifier classifier = BertNLClassifier.createFromFile(context, modelFile);
+//
+//        // Run inference
+//        List<Category> results = classifier.classify(input);
+        return 5.0D;
     }
 }

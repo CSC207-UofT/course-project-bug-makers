@@ -76,17 +76,18 @@ public class CalendarPresenter implements ControlCalendarPresentation {
     private String typeDecorator(UsePresentable fallCalendar, UsePresentable winterCalendar,String termType,
                                  Map<String, Map<String, ArrayList<String>>> rawSchedule){
         String resultingCalendar = "";
-        switch (termType) {
-            case Constants.FALL_TERM -> resultingCalendar += fallCalendar.present();
-            case Constants.WINTER_TERM -> resultingCalendar += winterCalendar.present();
-            case Constants.YEAR -> {
-                resultingCalendar += fallCalendar.present();
-                resultingCalendar += headerGenerator(Constants.WINTER_TERM);
-                resultingCalendar += winterCalendar.present();
-            }
-            default -> throw new IllegalStateException(Exceptions.WRONG_TERM_TYPE);
-        }
-        return resultingCalendar;
+//        switch (termType) {
+//            case Constants.FALL_TERM -> resultingCalendar += fallCalendar.present();
+//            case Constants.WINTER_TERM -> resultingCalendar += winterCalendar.present();
+//            case Constants.YEAR -> {
+//                resultingCalendar += fallCalendar.present();
+//                resultingCalendar += headerGenerator(Constants.WINTER_TERM);
+//                resultingCalendar += winterCalendar.present();
+//            }
+//            default -> throw new IllegalStateException(Exceptions.WRONG_TERM_TYPE);
+//        }
+//        return resultingCalendar;
+        return null; //TODO
     }
 
     /**
