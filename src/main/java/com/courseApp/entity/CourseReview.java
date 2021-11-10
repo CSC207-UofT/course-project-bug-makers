@@ -60,7 +60,7 @@ public class CourseReview {
      */
     public void updateCourseDifficultyRate(){
         double res = 0.0D;
-        for (var entry: this.instReviewMap.entrySet()){
+        for (Map.Entry<String, InstReview> entry: this.instReviewMap.entrySet()){
             res += entry.getValue().getInstDifficultyRate();
         }
         if(res > 0){
@@ -72,7 +72,7 @@ public class CourseReview {
      */
     public void updateCourseGeneralRate(){
         double res = 0;
-        for (var entry: this.instReviewMap.entrySet()){
+        for (Map.Entry<String, InstReview> entry: this.instReviewMap.entrySet()){
             res += entry.getValue().getInstGeneralRate();
         }
         if(res > 0){

@@ -1,11 +1,9 @@
 plugins {
     id 'java'
 }
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(16)
-    }
-}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 
 group 'org.example'
@@ -20,6 +18,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'org.mongodb:mongodb-driver:3.12.10'
+    implementation 'org.tensorflow:tensorflow-lite-task-text:0.2.0'
 }
 
 test {

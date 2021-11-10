@@ -71,7 +71,7 @@ public class CourseServiceController implements ControlPresentInformation, Contr
                 .append(Constants.TRI_TAB).append(Constants.SECTION).append(Constants.CHANGE_LINE);
 
         // Generate sections.
-        for(var entry : cig.getCourseSectionScheduleMap().entrySet()){
+        for(Map.Entry<String, Map<String, ArrayList<String>>> entry : cig.getCourseSectionScheduleMap().entrySet()){
             result.append(Constants.TRI_TAB).append(Constants.TRI_TAB);
             result.append(entry.getKey()).append(Constants.TRI_TAB).append(entry.getValue());
             Map<String, String> tempMap = cig.getCourseSectionInstructorMap();

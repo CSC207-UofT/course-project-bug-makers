@@ -49,73 +49,73 @@ public class Constants {
 
 
     // NOTE THAT THIS FEATURE REQUIRE JAVA 16.
-    final static String WORK_DAY_TABLE =
-            """
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |            |     Mon    |     Tue    |     Wed    |     Thu    |     Fri    |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    8:00    |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    9:00    |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    10:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    11:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    12:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    13:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    14:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    15:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    16:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    17:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    18:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    19:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    20:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    21:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+
-                    |            |            |            |            |            |            |
-                    |    22:00   |            |            |            |            |            |
-                    |            |            |            |            |            |            |
-                    +------------+------------+------------+------------+------------+------------+""";
+    final static String WORK_DAY_TABLE =""; //TODO
+//            """
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |            |     Mon    |     Tue    |     Wed    |     Thu    |     Fri    |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    8:00    |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    9:00    |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    10:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    11:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    12:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    13:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    14:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    15:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    16:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    17:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    18:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    19:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    20:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    21:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+
+//                    |            |            |            |            |            |            |
+//                    |    22:00   |            |            |            |            |            |
+//                    |            |            |            |            |            |            |
+//                    +------------+------------+------------+------------+------------+------------+""";
 
     public static List<String> getListedWorkday(){
         return new ArrayList<>(Arrays.asList(WORK_DAY_TABLE.split("\n")));
@@ -158,10 +158,8 @@ public class Constants {
     public static final String DB_USER_COLLECTION_NAME = "userSheet";
     public static final String DB_REVIEW_COLLECTION_NAME = "reviewSheet";
     public static final String DB_LOGGER = "org.mongodb.driver";
-    public static final List<Convention> list = List.of(ANNOTATION_CONVENTION);
     public static final CodecRegistry CODEC_REGISTRY = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
-            fromProviders(PojoCodecProvider.builder().conventions(list).automatic(true).build()));
-    public static final int PROJECTION_TRUE = 1;
+            fromProviders(PojoCodecProvider.builder().automatic(true).build()));
 
 
     //////// Course Code constants
@@ -244,24 +242,26 @@ public class Constants {
 
     //// Driver Constants
 
-    public static final String WELCOME_LOGO = """
-                                                                                                                                                                                                                   \s
-                                                                   `-/+osso+:-                                                                                .oooo+`                                              \s
-                                                                 `/ydddhhhhddo                                                                               `sddddd+                                              \s
-                        .::- .:///:.  .:///-`   ::::`     -:::` `sdddo-.``.-/`     .-////:.      -:::`    .:::.   -::. `-//-   .:////:-.     .:////-`        /ddh:ddd-      .::- .:///-`    `::: `-///:.           \s
-                        +ddhohhhdddhoshhhdddh:  +ddd+    -dddy` +dddo            .shdddhddhs:    oddd.    /ddd/   odds/hddd/ .shddhhhdd+   :yhdhyyddho`     -ddd/ oddy`     /dddohhhdddy/   -dddoyhhdddh+`         \s
-                        +dddh:..:hdddy:../dddh  `sddd-  `yddh.  yddd.           .hddh:..-sddd/   oddd.    /ddd/   odddds/::. /dddo.`.-:`  :dddo.``-ydds    `yddy  `hddo     /dddh:..-yddd-  -dddd/..-sddd+         \s
-                        +ddd+    sddd:    hddd`  `yddy` +ddd:   hddd.           +ddd/    `dddh   oddd.    /ddd/   oddd+      .ydddhs+-`   ydddsooooyddd`   +ddd/...+ddd:    /ddd+    :dddo  -ddds    `dddh         \s
-                        +ddd:    oddd-    yddd`   -ddd+.dddo    oddd/           oddd:     hddd`  oddd-    +ddd/   oddd-       `-+shdddh+  hdddsssssssss`  -ddddddddddddh.   /ddd/    -ddds  -ddds    `dddh         \s
-                        +ddd:    oddd.    yddd`    /dddsddy`    .hddh/.` ```.`  -ddds`  `:ddds   oddd/   .yddd/   oddd-      ``   `-hddd. +ddd/`     ``  `hddh++++++oddds   /dddy`  `oddd/  -dddh.  `/ddds         \s
-                        +ddd:    oddd.    yddd`     +ddddh.      -sdddhysyyhd/   /hddhssyddds`   -hdddssshhddd/   oddd-      +hso++ohdds` `ohddyo+oosy:  oddd/       oddd/  /dddhhssydddo`  -ddddhssydddy.         \s
-                        :sss-    +sss.    osss`     `yddd/         -/syyyyys+.    `/oyyyys+-      .+syyys/`+ss:   /sss.      -osyyyyso:`    ./oyyyyys+. .ssso`       `ssss` /ddd//syyyo:    -dddo:syyys:`          \s
-                                                   `:dddo                                                                                                                   /ddd:           -dddo                  \s
-                                                -ssydddo                                                                                                                    /ddd:           -dddo                  \s
-                                                :yhys+-                                                                                                                     /hhh:           -hhh+                  \s
-                                                                                                                                                                                                                   \s
-                                                                                                                                                                                                             \s
-            """;
+    public static final String WELCOME_LOGO = ""; //TODO
+
+//                                                                                                                                                                                                                   """
+//                                                                                                                                                                                                                   \s
+//                                                                   `-/+osso+:-                                                                                .oooo+`                                              \s
+//                                                                 `/ydddhhhhddo                                                                               `sddddd+                                              \s
+//                        .::- .:///:.  .:///-`   ::::`     -:::` `sdddo-.``.-/`     .-////:.      -:::`    .:::.   -::. `-//-   .:////:-.     .:////-`        /ddh:ddd-      .::- .:///-`    `::: `-///:.           \s
+//                        +ddhohhhdddhoshhhdddh:  +ddd+    -dddy` +dddo            .shdddhddhs:    oddd.    /ddd/   odds/hddd/ .shddhhhdd+   :yhdhyyddho`     -ddd/ oddy`     /dddohhhdddy/   -dddoyhhdddh+`         \s
+//                        +dddh:..:hdddy:../dddh  `sddd-  `yddh.  yddd.           .hddh:..-sddd/   oddd.    /ddd/   odddds/::. /dddo.`.-:`  :dddo.``-ydds    `yddy  `hddo     /dddh:..-yddd-  -dddd/..-sddd+         \s
+//                        +ddd+    sddd:    hddd`  `yddy` +ddd:   hddd.           +ddd/    `dddh   oddd.    /ddd/   oddd+      .ydddhs+-`   ydddsooooyddd`   +ddd/...+ddd:    /ddd+    :dddo  -ddds    `dddh         \s
+//                        +ddd:    oddd-    yddd`   -ddd+.dddo    oddd/           oddd:     hddd`  oddd-    +ddd/   oddd-       `-+shdddh+  hdddsssssssss`  -ddddddddddddh.   /ddd/    -ddds  -ddds    `dddh         \s
+//                        +ddd:    oddd.    yddd`    /dddsddy`    .hddh/.` ```.`  -ddds`  `:ddds   oddd/   .yddd/   oddd-      ``   `-hddd. +ddd/`     ``  `hddh++++++oddds   /dddy`  `oddd/  -dddh.  `/ddds         \s
+//                        +ddd:    oddd.    yddd`     +ddddh.      -sdddhysyyhd/   /hddhssyddds`   -hdddssshhddd/   oddd-      +hso++ohdds` `ohddyo+oosy:  oddd/       oddd/  /dddhhssydddo`  -ddddhssydddy.         \s
+//                        :sss-    +sss.    osss`     `yddd/         -/syyyyys+.    `/oyyyys+-      .+syyys/`+ss:   /sss.      -osyyyyso:`    ./oyyyyys+. .ssso`       `ssss` /ddd//syyyo:    -dddo:syyys:`          \s
+//                                                   `:dddo                                                                                                                   /ddd:           -dddo                  \s
+//                                                -ssydddo                                                                                                                    /ddd:           -dddo                  \s
+//                                                :yhys+-                                                                                                                     /hhh:           -hhh+                  \s
+//                                                                                                                                                                                                                   \s
+//                                                                                                                                                                                                             \s
+//            """;
 
     ////CmdShell Constants
     public static final String CMD_WELCOME = "Welcome to MyCoursePlanner";

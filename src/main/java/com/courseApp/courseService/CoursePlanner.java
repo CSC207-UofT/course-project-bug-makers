@@ -37,24 +37,24 @@ public class CoursePlanner implements UseCoursePlanning {
      * STEP ONE: SPLITTING INTO FALL AND SPRING(WINTER)
      *
      */
-    private void sort2Schedule(){
-        List<String> looping = List.copyOf(this.courseList);
-        for(String string: looping){
-            if(string.length() > Constants.COURSE_CODE_FLAG){
-                String flag = (string.substring(Constants.COURSE_CODE_FLAG -1, Constants.COURSE_CODE_FLAG ));
-                if( flag.equals(Constants.FALL_TERM)){
-                    this.scheduledF.add(string);
-                }
-                else if (flag.equals(Constants.WINTER_TERM)) {
-                    this.scheduledS.add(string);
-                }else {
-                    this.scheduledF.add(string);
-                    this.scheduledS.add(string);
-                }
-                this.courseList.remove(string);
-            }
-        }
-    }
+//    private void sort2Schedule(){
+//        List<String> looping = List.copyOf(this.courseList);
+//        for(String string: looping){
+//            if(string.length() > Constants.COURSE_CODE_FLAG){
+//                String flag = (string.substring(Constants.COURSE_CODE_FLAG -1, Constants.COURSE_CODE_FLAG ));
+//                if( flag.equals(Constants.FALL_TERM)){
+//                    this.scheduledF.add(string);
+//                }
+//                else if (flag.equals(Constants.WINTER_TERM)) {
+//                    this.scheduledS.add(string);
+//                }else {
+//                    this.scheduledF.add(string);
+//                    this.scheduledS.add(string);
+//                }
+//                this.courseList.remove(string);
+//            }
+//        }
+//    }
 
     public Schedule generateSchedule(){
         Schedule schedule = new Schedule(this.courseList);

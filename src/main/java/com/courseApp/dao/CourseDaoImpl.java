@@ -157,7 +157,7 @@ public class CourseDaoImpl implements CourseDAO {
                     sectionMap.get(section)).get(Constants.SCHEDULE);
             Map<String, ArrayList<String>> sectionSpecific = new HashMap<>();
             // loop over the meeting time
-            for (var entry : sectionDetail.entrySet()){
+            for (Map.Entry<String, Object> entry : sectionDetail.entrySet()){
                 ArrayList<String> meetingTimes = new ArrayList<>();
                 meetingTimes.add( (String)((Map<String, Object>)entry.getValue()).get(Constants.MEETING_START_TIME));
                 meetingTimes.add( (String) ((Map<String, Object>)entry.getValue()).get(Constants.MEETING_END_TIME));
@@ -186,7 +186,7 @@ public class CourseDaoImpl implements CourseDAO {
             Map<String, Object> sectionDetail = (Map<String, Object>) ((Map<String, Object>)
                     sectionMap.get(section)).get(Constants.INSTRUCTOR);
             StringBuilder sb = new StringBuilder();
-            for (var entry: sectionDetail.entrySet()){
+            for (Map.Entry<String, Object> entry: sectionDetail.entrySet()){
                 // loop over the instructor list
                 sb.append(((Map<String, Object>)  entry.getValue()).get(Constants.FIRST_NAME));
                 sb.append(Constants.INSTRUCTOR_SPLIT);

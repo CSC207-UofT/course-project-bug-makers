@@ -21,7 +21,7 @@ public class RecommendationRequestProcessor implements UseRecommendationUpdate, 
     @Override
     public Map<String, Double> generateComplexScoreMap(Map<String, Map<String, Double>> recommendationMap) {
         Map<String, Double> res = new HashMap<>();
-        for(var entry : recommendationMap.entrySet()){
+        for(Map.Entry<String, Map<String, Double>> entry : recommendationMap.entrySet()){
             Map<String, Double> instMap = entry.getValue();
             Double generalRate = instMap.get(Constants.GENERAL_RATE);
             Double recommendationScore = instMap.get(Constants.RECOMMENDATION_SCORE);

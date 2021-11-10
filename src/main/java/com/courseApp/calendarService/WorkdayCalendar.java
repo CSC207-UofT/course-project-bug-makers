@@ -22,13 +22,14 @@ public class WorkdayCalendar extends CalendarFactory implements UsePresentable {
      */
     private int getWeekDay(String weekday) {
         // FEATURE SUPPORTED BY JDK16
-        return switch (weekday) {
-            case "MO" -> Constants.LOCATION_MO;
-            case "TU" -> Constants.LOCATION_TU;
-            case "WE" -> Constants.LOCATION_WE;
-            case "TH" -> Constants.LOCATION_TH;
-            default -> Constants.LOCATION_FR;
-        };
+//        return switch (weekday) {
+//            case "MO" -> Constants.LOCATION_MO;
+//            case "TU" -> Constants.LOCATION_TU;
+//            case "WE" -> Constants.LOCATION_WE;
+//            case "TH" -> Constants.LOCATION_TH;
+//            default -> Constants.LOCATION_FR;
+//        };
+        return 0; //TODO
     }
 
     /**
