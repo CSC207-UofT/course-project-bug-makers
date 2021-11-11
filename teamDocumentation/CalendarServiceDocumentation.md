@@ -25,7 +25,16 @@ in the `CalendarPresenter` class.
     - `"S"` for winter term, 
     - `"Y"` for both of  terms, please be aware that it gives **two** calendars.
 
-  - You can choose different format arguing `calendarType`, so for instant, `"Workday"` is the only available choice as we have only implemented this subclass, `WorkdayCalendar`. 
+  - You can choose different format arguing `calendarType`,
+    - `"Workday"` for a workday calendar,
+    - For `SingledayCalendar` , you HAVE to specify the exact weekday
+      - Note that `SingledayCalendar` itself is abstract so `"Singleday"` does **NOT** make sense.
+      - `"Monday"` for only Monday on the calendar, etc.
+      - `"Tuesday"`
+      - `"Wednesday"`
+      - `"Thursday"` 
+      - `"Friday"`
+    - `"Week"` for the calendar of the whole week.
 
 
 - The rest of the code are functional, but they will not be accessed or used directly by users.
