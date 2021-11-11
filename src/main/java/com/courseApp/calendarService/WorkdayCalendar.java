@@ -1,14 +1,17 @@
 package com.courseApp.calendarService;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.courseApp.constants.Constants;
+import com.courseApp.constants.Exceptions;
 import com.courseApp.utils.AggregateList;
 import com.courseApp.utils.TimeConversion;
 
+/**
+ * Subclass of CalendarFactory that generates a 5-day calendar from Monday to Friday.
+ */
 public class WorkdayCalendar extends CalendarFactory implements UsePresentable {
 
     public WorkdayCalendar(Map<String, Map<String, ArrayList<String>>> formattedSchedule) {
@@ -24,7 +27,7 @@ public class WorkdayCalendar extends CalendarFactory implements UsePresentable {
     protected int getWeekDay(String weekday) {
         switch (weekday) {
             case Constants.MONDAY:
-                return Constants.LOCATION_MO;
+                return Constants.LOCATION_FIRST_DAY;
             case Constants.TUESDAY:
                 return Constants.LOCATION_TU;
             case Constants.WEDNESDAY:
@@ -34,7 +37,7 @@ public class WorkdayCalendar extends CalendarFactory implements UsePresentable {
             case Constants.FRIDAY:
                 return Constants.LOCATION_FR;
         }
-        return -1; //default, if error
+        throw new IllegalStateException(Exceptions.WRONG_WEEKDAY_TYPE);
     }
 
     /**
@@ -59,7 +62,7 @@ public class WorkdayCalendar extends CalendarFactory implements UsePresentable {
 
 
     /**
-     * This present method realizes
+     * This present method realizes the String representation of the WorkdayCalendar.
      *
      * Generate a String representation of the desired Calendar.
      * The String representation may vary based on the calendar type.
@@ -82,43 +85,43 @@ public class WorkdayCalendar extends CalendarFactory implements UsePresentable {
 
 
 
-    public static void main(String[] args) {
-        ArrayList<String> th_schedule = new ArrayList<>();
-        th_schedule.add("17:00");
-        th_schedule.add("19:00");
-
-
-        ArrayList<String> tu_schedule = new ArrayList<>();
-        tu_schedule.add("11:00");
-        tu_schedule.add("14:00");
-
-
-        ArrayList<String> th_schedule2 = new ArrayList<>();
-        th_schedule2.add("8:00");
-        th_schedule2.add("9:00");
-
-
-        ArrayList<String> mo_schedule2 = new ArrayList<>();
-        mo_schedule2.add("10:00");
-        mo_schedule2.add("11:00");
-
-        Map<String, ArrayList<String>> day = new HashMap<>();
-        day.put("TH", th_schedule);
-        day.put("TU", tu_schedule);
-
-        Map<String, ArrayList<String>> day2 = new HashMap<>();
-        day2.put("TH", th_schedule2);
-        day2.put("MO", mo_schedule2);
-
-        Map<String, Map<String, ArrayList<String>>> cad = new HashMap<>();
-        cad.put("CSC207SLEC0101", day);
-        cad.put("CSC108SLEC0102", day2);
-
-        System.out.println(cad);
-
-        System.out.println(new WeekCalendar(cad).present());
-
-    }
+//    public static void main(String[] args) {
+//        ArrayList<String> th_schedule = new ArrayList<>();
+//        th_schedule.add("17:00");
+//        th_schedule.add("19:00");
+//
+//
+//        ArrayList<String> tu_schedule = new ArrayList<>();
+//        tu_schedule.add("11:00");
+//        tu_schedule.add("14:00");
+//
+//
+//        ArrayList<String> th_schedule2 = new ArrayList<>();
+//        th_schedule2.add("8:00");
+//        th_schedule2.add("9:00");
+//
+//
+//        ArrayList<String> mo_schedule2 = new ArrayList<>();
+//        mo_schedule2.add("10:00");
+//        mo_schedule2.add("11:00");
+//
+//        Map<String, ArrayList<String>> day = new HashMap<>();
+//        day.put("TH", th_schedule);
+//        day.put("TU", tu_schedule);
+//
+//        Map<String, ArrayList<String>> day2 = new HashMap<>();
+//        day2.put("TH", th_schedule2);
+//        day2.put("MO", mo_schedule2);
+//
+//        Map<String, Map<String, ArrayList<String>>> cad = new HashMap<>();
+//        cad.put("CSC207SLEC0101", day);
+//        cad.put("CSC108SLEC0102", day2);
+//
+//        System.out.println(cad);
+//
+//        System.out.println(new WeekCalendar(cad).present());
+//
+//    }
 
 
 

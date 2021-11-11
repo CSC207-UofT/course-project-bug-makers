@@ -5,10 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 import com.courseApp.constants.Constants;
-import com.courseApp.constants.Exceptions;
 import com.courseApp.utils.TimeConversion;
 
-
+/**
+ * Abstract subclass of CalendarFactory for generating a one-day calendar.
+ * Its 5 subclasses each generate a calendar for one specific workday.
+ * Note that itself is abstract thus it won't generate anything.
+ */
 public abstract class SingledayCalendar extends CalendarFactory implements UsePresentable {
     public SingledayCalendar(Map<String, Map<String, ArrayList<String>>> formattedSchedule) {
         super(formattedSchedule);
@@ -37,7 +40,7 @@ public abstract class SingledayCalendar extends CalendarFactory implements UsePr
     protected int getWeekDay(String weekday){
 //        if (weekday.equals(Constants.MONDAY) | weekday.equals(Constants.TUESDAY)| weekday.equals(Constants.WEDNESDAY)|
 //                weekday.equals(Constants.THURSDAY)| weekday.equals(Constants.FRIDAY)) {
-            return Constants.LOCATION_MO;
+            return Constants.LOCATION_FIRST_DAY;
     }
 
     /**

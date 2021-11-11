@@ -5,9 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 import com.courseApp.constants.Constants;
+import com.courseApp.constants.Exceptions;
 import com.courseApp.utils.AggregateList;
 import com.courseApp.utils.TimeConversion;
 
+/**
+ * Subclass of CalendarFactory that generates a 7-day calendar from Sunday to Saturday.
+ */
 public class WeekCalendar extends CalendarFactory implements UsePresentable {
 
     public WeekCalendar(Map<String, Map<String, ArrayList<String>>> formattedSchedule) {
@@ -23,7 +27,7 @@ public class WeekCalendar extends CalendarFactory implements UsePresentable {
     protected int getWeekDay(String weekday) {
         switch (weekday) {
             case Constants.MONDAY:
-                return Constants.LOCATION_MO + Constants.STRING_GAP;
+                return Constants.LOCATION_FIRST_DAY + Constants.STRING_GAP;
             case Constants.TUESDAY:
                 return Constants.LOCATION_TU + Constants.STRING_GAP;
             case Constants.WEDNESDAY:
@@ -33,7 +37,7 @@ public class WeekCalendar extends CalendarFactory implements UsePresentable {
             case Constants.FRIDAY:
                 return Constants.LOCATION_FR + Constants.STRING_GAP;
         }
-        return -1; //default, if error
+        throw new IllegalStateException(Exceptions.WRONG_WEEKDAY_TYPE);
     }
 
     /**
@@ -58,7 +62,7 @@ public class WeekCalendar extends CalendarFactory implements UsePresentable {
 
 
     /**
-     * This present method realizes the  String representation of the WorkdayCalendar.
+     * This present method realizes the String representation of the WeekCalendar.
      *
      * @return a String representation of WorkdayCalendar
      */
