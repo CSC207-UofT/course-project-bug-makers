@@ -26,6 +26,7 @@ public class Constants {
     public final static int START_HEIGHT = 5;
     public final static int TIME_DIFFERENCE_MIN = 1;
     public final static int LOCATION_FIRST_DAY = 14;
+    public final static int LOCATION_MO = 14;
     public final static int LOCATION_TU = 27;
     public final static int LOCATION_WE = 40;
     public final static int LOCATION_TH = 53;

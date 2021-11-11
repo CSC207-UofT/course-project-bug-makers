@@ -27,7 +27,7 @@ public class WorkdayCalendar extends CalendarFactory implements UsePresentable {
     protected int getWeekDay(String weekday) {
         switch (weekday) {
             case Constants.MONDAY:
-                return Constants.LOCATION_FIRST_DAY;
+                return Constants.LOCATION_MO;
             case Constants.TUESDAY:
                 return Constants.LOCATION_TU;
             case Constants.WEDNESDAY:
