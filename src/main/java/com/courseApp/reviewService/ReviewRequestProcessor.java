@@ -1,15 +1,9 @@
 package com.courseApp.reviewService;
 
-import com.courseApp.dao.ReviewDAO;
-import com.courseApp.dao.ReviewDaoImpl;
-import com.courseApp.entity.CourseReview;
-import com.courseApp.entity.InstReview;
-import com.courseApp.entity.UserReview;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
+//TODO: entire doc
 /**
  * Review Request Processor use case for realizing review data query and IO.
  */
@@ -29,25 +23,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public Map<String, String> queryCourseReviewSummary(String courseCode) {
-        ReviewDAO reviewDao = new ReviewDaoImpl();
-        CourseReview courseReview = reviewDao.queryCourseReview(courseCode);
-        if (courseReview != null){
-
-            // Create map to store summary values
-            Map<String, String> summary = new HashMap<>();
-
-            // Add keys and values to the summary map
-            summary.put("courseCode", courseCode);
-            summary.put("courseDifficultyRate",
-                    String.valueOf(courseReview.getCourseDifficultyRate()));
-            summary.put("courseGeneralRate",
-                    String.valueOf(courseReview.getCourseGeneralRate()));
-
-            // return the summary map
-            return summary;
-        } else {
-            return null;
-        }
+        return null;
     }
 
     /**
@@ -57,7 +33,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      * The summary map should be:
      * instructorName: String
      * instDifficultyRate: String
-     * instGeneralRate: String
+     * instDifficultyRate: String
      *
      * @param courseCode course code w/o section flag
      * @param instName   Instructor name
@@ -65,25 +41,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public Map<String, String> queryInstReviewSummary(String courseCode, String instName) {
-        ReviewDAO reviewDao = new ReviewDaoImpl();
-        InstReview instReview = reviewDao.queryInstReview(courseCode, instName);
-        if (instReview != null){
-
-            // Create map to store summary values
-            Map<String, String> summary = new HashMap<>();
-
-            // Add keys and values to the summary map
-            summary.put("instructorName", instName);
-            summary.put("instDifficultyRate",
-                    String.valueOf(instReview.getInstDifficultyRate()));
-            summary.put("courseGeneralRate",
-                    String.valueOf(instReview.getInstGeneralRate()));
-
-            // return the summary map
-            return summary;
-        } else {
-            return null;
-        }
+        return null;
     }
 
     /**
@@ -103,25 +61,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public Map<String, String> queryUserReview(String courseCode, String instName, String username) {
-        ReviewDAO reviewDao = new ReviewDaoImpl();
-        UserReview userReview = reviewDao.queryUserReview(courseCode, instName, username);
-        if (userReview != null){
-            // Create map to store summary values
-            Map<String, String> summary = new HashMap<>();
-
-            // Add keys and values to the summary map
-            summary.put("username", username);
-            summary.put("instDifficultyRate",
-                    String.valueOf(userReview.getDifficultyRate()));
-            summary.put("generalRate",
-                    String.valueOf(userReview.getGeneralRate()));
-            summary.put("reviewString", userReview.getReviewString());
-
-            // return the summary map
-            return summary;
-        } else {
-            return null;
-        }
+        return null;
     }
 
     /**
@@ -131,7 +71,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public ArrayList<String> queryExistingCourse() {
-        return new ReviewDaoImpl().queryExistingCourse();
+        return null;
     }
 
     /**
@@ -142,12 +82,12 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public ArrayList<String> queryExistingInst(String courseCode) {
-        return new CourseReview(courseCode).getInstList();
+        return null;
     }
 
 
     /**
-     * Insert one user review entity to targeted course and instructor.
+     * Inset one user review entity to targeted course and instructor.
      * <p>
      * Note that the recommendation rate will be updated by <></>.
      *
@@ -162,18 +102,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public boolean insertOneUserReview(String courseCode, String instName, String username, double generalRate, double difficultyRate, double recommendationRate, String reviewString) {
-        ReviewDAO reviewDAO = new ReviewDaoImpl();
-
-        // Create new User Review using given parameters
-        UserReview newUserReview =
-                new UserReview(username, generalRate, difficultyRate, recommendationRate, reviewString);
-
-        // Create a new ArrayList to store the new User Review and add the User Review to the ArrayList
-        ArrayList<UserReview> UserReviewList = new ArrayList<>();
-        UserReviewList.add(newUserReview);
-
-        // Update the user's UserReviewList and return true iff insertion is successful
-        return reviewDAO.UpdateUserReviewList(courseCode, instName, UserReviewList);
+        return false;
     }
 
     /**
@@ -187,24 +116,6 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public boolean deleteOneUserReview(String courseCode, String instName, String username) {
-        ReviewDAO reviewDAO = new ReviewDaoImpl();
-
-        // Query the instReview for the given courseCode and instName
-        InstReview InstReview = reviewDAO.queryInstReview(courseCode, instName);
-
-        // Get the specific review of the instructor given a username
-        UserReview userReview = InstReview.getSpecificUserReview(username);
-
-        // Get the list of reviews of the instructor from InstReview
-        ArrayList<UserReview> userReviews = InstReview.getUserReviewList();
-
-        // Check to see if the review is in the reviews list
-        // if true, then remove the review and update the instructor's review list
-        if (userReviews.contains(userReview)){
-            userReviews.remove(userReview);
-            reviewDAO.UpdateUserReviewList(courseCode, instName, userReviews);
-            return true;
-        }
         return false;
     }
 
@@ -218,18 +129,19 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public boolean createOneInstReview(String courseCode, String instName) {
-        return new ReviewDaoImpl().createInstReview(courseCode, instName);
+        return false;
     }
 
     /**
-     * Create one new course review section under targeted course.
+     * Create one new instructor review section under targeted course.
      *
      * @param courseCode targeted course
+     * @param instName   instructor name to be created
      * @return true iff the creation is successful
      */
     @Override
-    public boolean createOneCourseReview(String courseCode) {
-        return new ReviewDaoImpl().createCourseReview(courseCode);
+    public boolean createOneCourseReview(String courseCode, String instName) {
+        return false;
     }
 
     /**
@@ -244,35 +156,6 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public Map<String, Map<String, Double>> getRecommendationMap(String courseCode) {
-        ReviewDAO reviewDAO = new ReviewDaoImpl();
-
-        // Create a Map, where key is the instName and value is a Map of the instructor's ratings
-        Map<String, Map<String, Double>> recommendationMap = new HashMap<>();
-
-        // Query the courseReview given the courseCode
-        CourseReview courseReview = reviewDAO.queryCourseReview(courseCode);
-
-        // Use the courseReview to get a list of instructors for the course
-        ArrayList<String> instructors = courseReview.getInstList();
-
-        // Iterate through the list of instructors
-        for (String instructor: instructors){
-
-            // Query the instructor's review given the course code and instName
-            InstReview instReview = reviewDAO.queryInstReview(courseCode, instructor);
-
-            // Create a new Map to store the instructor's ratings
-            Map<String, Double> instructorRates = new HashMap<>();
-
-            // Add the instructor's ratings to the map
-            instructorRates.put("generalRate", instReview.getInstGeneralRate());
-            instructorRates.put("difficultyRate", instReview.getInstDifficultyRate());
-            instructorRates.put("recommendationScore", instReview.getInstRecommendationScore());
-
-            // Add the map of ratings to the recommendation map, with the key being the instName, and values being
-            // the map of ratings
-            recommendationMap.put(instructor, instructorRates);
-        }
-        return recommendationMap;
+        return null;
     }
 }
