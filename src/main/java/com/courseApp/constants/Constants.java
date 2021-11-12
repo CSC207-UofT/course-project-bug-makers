@@ -327,7 +327,7 @@ public class Constants {
     public static final String NAME_PREREQUISITE ="- Prerequisite: ";
     public static final String LONG_LINE = " ---------- ---------- ---------- ---------- ---------- ----------";
 
-    //////// Uer DAO constants
+    //////// User DAO constants
     public static final String USERNAME = "username";
     public static final String COURSE_LIST = "courseList";
     public static final String WISH_LIST = "wishList";

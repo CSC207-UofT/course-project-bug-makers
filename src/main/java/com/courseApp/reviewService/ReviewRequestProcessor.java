@@ -5,6 +5,7 @@ import com.courseApp.dao.ReviewDaoImpl;
 import com.courseApp.entity.CourseReview;
 import com.courseApp.entity.InstReview;
 import com.courseApp.entity.UserReview;
+import com.courseApp.constants.Constants;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,10 +38,10 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
             Map<String, String> summary = new HashMap<>();
 
             // Add keys and values to the summary map
-            summary.put("courseCode", courseCode);
-            summary.put("courseDifficultyRate",
+            summary.put(Constants.COURSE_CODE_DB, courseCode);
+            summary.put(Constants.COURSE_DIFFICULTY_RATE,
                     String.valueOf(courseReview.getCourseDifficultyRate()));
-            summary.put("courseGeneralRate",
+            summary.put(Constants.COURSE_GENERAL_RATE,
                     String.valueOf(courseReview.getCourseGeneralRate()));
 
             // return the summary map
@@ -73,10 +74,10 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
             Map<String, String> summary = new HashMap<>();
 
             // Add keys and values to the summary map
-            summary.put("instructorName", instName);
-            summary.put("instDifficultyRate",
+            summary.put(Constants.INST_NAME, instName);
+            summary.put(Constants.INST_DIFFICULTY_RATE,
                     String.valueOf(instReview.getInstDifficultyRate()));
-            summary.put("courseGeneralRate",
+            summary.put(Constants.INST_GENERAL_RATE,
                     String.valueOf(instReview.getInstGeneralRate()));
 
             // return the summary map
@@ -110,12 +111,12 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
             Map<String, String> summary = new HashMap<>();
 
             // Add keys and values to the summary map
-            summary.put("username", username);
-            summary.put("instDifficultyRate",
+            summary.put(Constants.USERNAME, username);
+            summary.put(Constants.DIFFICULTY_RATE,
                     String.valueOf(userReview.getDifficultyRate()));
-            summary.put("generalRate",
+            summary.put(Constants.GENERAL_RATE,
                     String.valueOf(userReview.getGeneralRate()));
-            summary.put("reviewString", userReview.getReviewString());
+            summary.put(Constants.REVIEW_STRING, userReview.getReviewString());
 
             // return the summary map
             return summary;
@@ -265,9 +266,9 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
             Map<String, Double> instructorRates = new HashMap<>();
 
             // Add the instructor's ratings to the map
-            instructorRates.put("generalRate", instReview.getInstGeneralRate());
-            instructorRates.put("difficultyRate", instReview.getInstDifficultyRate());
-            instructorRates.put("recommendationScore", instReview.getInstRecommendationScore());
+            instructorRates.put(Constants.GENERAL_RATE, instReview.getInstGeneralRate());
+            instructorRates.put(Constants.DIFFICULTY_RATE, instReview.getInstDifficultyRate());
+            instructorRates.put(Constants.RECOMMENDATION_SCORE, instReview.getInstRecommendationScore());
 
             // Add the map of ratings to the recommendation map, with the key being the instName, and values being
             // the map of ratings
