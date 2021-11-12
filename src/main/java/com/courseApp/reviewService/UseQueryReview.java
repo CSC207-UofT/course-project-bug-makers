@@ -73,7 +73,7 @@ public interface UseQueryReview {
      *
      * @return Arraylist of instructor's name
      */
-    ArrayList<String> queryExistingInst(String courseCode) throws Throwable;
+    ArrayList<String> queryExistingInst(String courseCode);
 
 
 
