@@ -53,11 +53,10 @@ public interface UseUpdateReview {
     boolean createOneInstReview(String courseCode, String instName);
 
     /**
-     * Create one new instructor review section under targeted course.
+     * Create one new course review section under targeted course.
      *
      * @param courseCode targeted course
-     * @param instName instructor name to be created
      * @return true iff the creation is successful
      */
-    boolean createOneCourseReview(String courseCode, String instName);
+    boolean createOneCourseReview(String courseCode);
 }
