@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Profile - Brand</title>
+    <title>Course - bugMaker</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
@@ -53,41 +53,10 @@
                         <ul class="navbar-nav flex-nowrap ms-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
                                 <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown">
-                                    <form class="me-auto navbar-search w-100">
-                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
-                                            <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
-                                        </div>
-                                    </form>
+
                                 </div>
                             </li>
-                            <li class="nav-item dropdown no-arrow mx-1">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"></a>
-                                    <div class="dropdown-menu dropdown-menu-end dropdown-list animated--grow-in">
-                                        <h6 class="dropdown-header">alerts center</h6><a class="dropdown-item d-flex align-items-center" href="#">
-                                            <div class="me-3">
-                                                <div class="bg-primary icon-circle"><i class="fas fa-file-alt text-white"></i></div>
-                                            </div>
-                                            <div><span class="small text-gray-500">December 12, 2019</span>
-                                                <p>A new monthly report is ready to download!</p>
-                                            </div>
-                                        </a><a class="dropdown-item d-flex align-items-center" href="#">
-                                            <div class="me-3">
-                                                <div class="bg-success icon-circle"><i class="fas fa-donate text-white"></i></div>
-                                            </div>
-                                            <div><span class="small text-gray-500">December 7, 2019</span>
-                                                <p>$290.29 has been deposited into your account!</p>
-                                            </div>
-                                        </a><a class="dropdown-item d-flex align-items-center" href="#">
-                                            <div class="me-3">
-                                                <div class="bg-warning icon-circle"><i class="fas fa-exclamation-triangle text-white"></i></div>
-                                            </div>
-                                            <div><span class="small text-gray-500">December 2, 2019</span>
-                                                <p>Spending Alert: We've noticed unusually high spending for your account.</p>
-                                            </div>
-                                        </a><a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                                    </div>
-                                </div>
-                            </li>
+
                             <li class="nav-item dropdown no-arrow mx-1">
                                 <div class="shadow dropdown-list dropdown-menu dropdown-menu-end" aria-labelledby="alertsDropdown"></div>
                             </li>
@@ -107,15 +76,15 @@
                         <div class="intro" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
                             <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="background: rgb(239, 149, 13);border-color: rgb(255,255,255);color: rgb(239, 149, 13);">
                                 <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                                    <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
-                                        <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);"><input class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="Search for the course you want..." style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;"><button class="btn btn-primary border rounded-pill py-0" type="button" style="background: rgb(239, 149, 13);border-color: rgb(205,205,205);color: rgb(205,205,205);"><i class="fas fa-search" style="color: rgb(255,255,255);"></i></button></div>
+                                    <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);" th:action="@{/course_service/query_summary}" method="post">
+                                        <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);"><input class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="Search for the course you want..." name ="courseCode" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;"><button class="btn btn-primary border rounded-pill py-0" type="submit" style="background: rgb(239, 149, 13);border-color: rgb(205,205,205);color: rgb(205,205,205);"><i class="fas fa-search" style="color: rgb(255,255,255);"></i></button></div>
                                     </form>
                                 </div>
                             </nav>
                             <p class="text-center"></p>
                         </div>
                         <div class="row articles" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
-                            <div class="col-sm-6 col-md-4 col-xxl-12 offset-xxl-0 item"><a href="#"><img class="img-fluid" src="assets/img/f8c0d1e5-bbd6-9898-1dc5-a28fccc6c091.gif"></a>
+                            <div class="col-sm-6 col-md-4 col-xxl-12 offset-xxl-0 item"><a href="#"></a>
                                 <h3 class="name">Intro functions</h3>
                                 <p class="description">BLAH BLAH BLAH ! ! !</p><a class="action" href="#"></a>
                             </div>
@@ -126,7 +95,7 @@
             </div>
             <footer class="bg-white sticky-footer" style="background: rgb(146,146,146);">
                 <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2021</span></div>
+                    <div class="text-center my-auto copyright"><span>Copyright © bugMaker 2021</span></div>
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>

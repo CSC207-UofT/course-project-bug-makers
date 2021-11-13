@@ -54,6 +54,12 @@ public class UserWebDriver {
     }
 
 
+    @RequestMapping(value = "addCourse", method = POST)
+    public String addCourse(String courseCode, HttpSession session){
+        if(session.getAttribute("username") == null) {return "redirect:/login";}
+        usc.addCourse(session.getAttribute("username").toString(), courseCode);
+        return "redirect:/schedule_service";
+    }
 
 
 }
