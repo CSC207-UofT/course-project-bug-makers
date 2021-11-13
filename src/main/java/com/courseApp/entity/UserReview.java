@@ -3,6 +3,7 @@ package com.courseApp.entity;
 import com.courseApp.constants.Constants;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.springframework.data.annotation.PersistenceConstructor;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -32,7 +33,8 @@ public class UserReview {
      * @param timestamp Bson timestamp
      */
      @BsonCreator
-    public UserReview(@BsonProperty(Constants.USERNAME) String username,
+     @PersistenceConstructor
+     public UserReview(@BsonProperty(Constants.USERNAME) String username,
                       @BsonProperty(Constants.GENERAL_RATE) double generalRate,
                       @BsonProperty(Constants.DIFFICULTY_RATE) double difficultyRate,
                       @BsonProperty(Constants.RECOMMENDATION_SCORE) double recommendationScore,

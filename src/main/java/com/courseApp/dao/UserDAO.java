@@ -1,109 +1,48 @@
 package com.courseApp.dao;
 
-import com.courseApp.entity.Schedule;
 import com.courseApp.entity.User;
-import com.courseApp.entity.UserReview;
-
-import java.util.ArrayList;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * UserDAO interface for querying user data, register action and login action.
+ *
+ * Supported by spring boot repository.
  */
-public interface UserDAO {
+@Repository
+public interface UserDAO extends MongoRepository<User, String> {
 
     /**
-     * Return a User obj, syncing with the database iff the password is correct.
+     * Return a User obj iff the encrypted password is correct.
      *
-     * @return User obj iff password is correct
+     * @param username username
+     * @param encryptedPassword encrypted password
+     * @return User Entity
      */
-    User queryUser();
+    User findByUsernameAndEncryptedPassword(String username, String encryptedPassword);
 
     /**
-     * Check if the username already exists ControlPresentInfo the DB.
+     * Return a User obj
      *
-     * @return true iff the username is ControlPresentInfo the DB, otherwise, false
+     * @param username username
+     * @return User Entity
      */
-    Boolean queryUserInDB();
+    User findByUsername(String username);
 
     /**
-     * User register service with user existence checked.
+     * Return true iff the username and password matches the record.
      *
-     * @return true iff register is successful, otherwise, false
+     * @param username username
+     * @param encryptedPassword encrypted password
+     * @return User Entity
      */
-    Boolean userRegister();
+    Boolean existsByUsernameAndEncryptedPassword(String username, String encryptedPassword);
 
     /**
-     * User Login service with password check and username check.
+     * Check if the username already exists in the DB.
      *
-     * @return ture iff login is successful, otherwise, false.
+     * @return true iff the username is in the DB, otherwise, false
      */
-    Boolean userLogin();
-
-    /**
-     * Query User's role
-     *
-     * @return user's role
-     */
-    String queryUserRole();
-
-    /**
-     * Query user's course list
-     *
-     * @return user's course list
-     */
-    ArrayList<String> queryCourseList();
-
-    /**
-     * Query user's wish list
-     *
-     * @return user's wish list
-     */
-    ArrayList<String> queryWishList();
-
-    /**
-     * Query user's schedule list
-     *
-     * @return user's schedule list with no schedule map ControlPresentInfo the schedule object.
-     */
-    ArrayList<Schedule> queryScheduleList();
-
-    /**
-     * Rewrite the course list in the database.
-     *
-     * @param courseList User course list
-     * @return ture iff the update is successful
-     */
-    boolean updateCourseList(ArrayList<String> courseList);
-
-    /**
-     * Rewrite the wish list in the database.
-     *
-     * @param wishList User wish list
-     * @return ture iff the update is successful
-     */
-    boolean updateWishList(ArrayList<String> wishList);
-
-    /**
-     * Rewrite schedule list in the database.
-     *
-     * @param scheduleList list of schedule
-     * @return ture iff the update is successful
-     */
-    boolean updateScheduleList(ArrayList<Schedule> scheduleList);
-
-    /**
-     * Query the user review list, corresponding to the targeted user.
-     *
-     * @return ArrayList of User Review entity.
-     */
-    ArrayList<UserReview> queryUserReviewList();
-
-    /**
-     * Rewrite the review list in the database
-     *
-     * @param reviewList list of UserReviews
-     * @return true iff teh update is successful
-     */
-    boolean updateUserReviewList(ArrayList<UserReview> reviewList);
+    Boolean existsByUsername(String username);
 
 }

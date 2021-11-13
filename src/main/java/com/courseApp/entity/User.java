@@ -6,14 +6,19 @@ import com.courseApp.constants.Constants;
 import com.courseApp.utils.PasswordEncoderMD5;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 
 /**
  * Abstract class representing the users of this app. User has a username for identification purpose.
  */
+@Document(Constants.DB_USER_COLLECTION_NAME)
 public class User {
 
+    @Id
     private  String username;
     private  ArrayList<String> courseList; // High priority ControlPresentInfo course planning
     private  ArrayList<String> wishList; // Low priority ControlPresentInfo course planning
@@ -34,6 +39,7 @@ public class User {
      * @param encryptedPassword Bson encryptedPassword
      */
     @BsonCreator
+    @PersistenceConstructor
     public User(@BsonProperty(Constants.USERNAME) String username,
                 @BsonProperty(Constants.COURSE_LIST) ArrayList<String> courseList,
                 @BsonProperty(Constants.WISH_LIST) ArrayList<String> wishList,

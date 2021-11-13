@@ -1,9 +1,11 @@
 package com.courseApp.userService;
 
-import com.courseApp.dao.UserDAO;
 import com.courseApp.dao.UserDaoImpl;
 import com.courseApp.entity.Schedule;
 import com.courseApp.entity.UserReview;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
@@ -11,29 +13,60 @@ import java.util.ArrayList;
  * functions.
  *
  */
+@Service
 public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister, UseUpdateUserData {
 
-     private final String username;
-     private String password;
+    @Autowired
+    UserDaoImpl udi;
+
+
 
     /**
-     * Constructor of taking ControlPresentInfo one username and password.
+     * Default constructor for Spring boot autowire.
+     */
+    public UserRequestProcessor() {
+    }
+
+    /**
+     * Constructor of taking in one username and password.
      *
      * @param username username
      * @param password password
      */
     public UserRequestProcessor(String username, String password) {
-        this.username = username;
-        this.password = password;
+        udi.setUserName(username);
+        udi.setPassword(password);
     }
 
     /**
-     * Constructor of taking ControlPresentInfo only username.
+     * Initiation of udi with given username.
+     *
+     * @param username username
+     */
+    public void initWithUsername(String username){
+        udi.setUserName(username);
+    }
+
+    /**
+     * Initiation of udi with given username and password.
+     *
+     * @param username username
+     * @param password password
+     */
+    public void initWithUsernamePassword(String username, String password){
+        udi.setUserName(username);
+        udi.setPassword(password);
+    }
+
+
+
+    /**
+     * Constructor of taking in only username.
      *
      * @param username username
      */
     public UserRequestProcessor(String username) {
-        this.username = username;
+        udi.setUserName(username);
     }
 
     /**
@@ -43,7 +76,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public boolean userLogin() {
-        return new UserDaoImpl(this.username, this.password).userLogin();
+        return udi.userLogin();
     }
 
     /**
@@ -53,7 +86,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public boolean userRegister(){
-        return new UserDaoImpl(this.username, this.password).userRegister();
+        return udi.userRegister();
     }
 
     /**
@@ -63,7 +96,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public ArrayList<String> queryUserCourseList(){
-        return new UserDaoImpl(this.username).queryCourseList();
+        return udi.queryCourseList();
     }
 
 
@@ -74,7 +107,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public ArrayList<String> queryUserWishList(){
-        return new UserDaoImpl(this.username).queryWishList();
+        return udi.queryWishList();
     }
 
 
@@ -85,7 +118,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public ArrayList<Schedule> queryUserScheduleList(){
-        return new UserDaoImpl(this.username).queryScheduleList();
+        return udi.queryScheduleList();
     }
 
     /**
@@ -95,7 +128,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public ArrayList<UserReview> queryUserReviewList() {
-        return new UserDaoImpl(this.username).queryUserReviewList();
+        return udi.queryUserReviewList();
     }
 
 
@@ -108,7 +141,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public boolean insertOneCourse(String courseCode) {
-        UserDAO userDao = new UserDaoImpl(this.username);
+        UserDaoImpl userDao = udi;
         ArrayList<String> res = userDao.queryCourseList();
         res.add(courseCode);
         return userDao.updateCourseList(res);
@@ -124,7 +157,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public boolean insertOneWish(String courseCode) {
-        UserDAO userDao = new UserDaoImpl(this.username);
+        UserDaoImpl userDao = udi;
         ArrayList<String> res = userDao.queryWishList();
         res.add(courseCode);
         userDao.updateWishList(res);
@@ -140,7 +173,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public boolean insertOneReview(UserReview userReview) {
-        UserDAO userDao = new UserDaoImpl(this.username);
+        UserDaoImpl userDao = udi;
         ArrayList<UserReview> res = userDao.queryUserReviewList();
         res.add(userReview);
         userDao.updateUserReviewList(res);
@@ -156,7 +189,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public boolean removeOneCourse(String courseCode) {
-        UserDAO userDao = new UserDaoImpl(this.username);
+        UserDaoImpl userDao = udi;
         ArrayList<String> res = userDao.queryCourseList();
         if (res.contains(courseCode)){
             res.remove(courseCode);
@@ -174,7 +207,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public boolean removeOneReview(UserReview userReview) {
-        UserDAO userDao = new UserDaoImpl(this.username);
+        UserDaoImpl userDao = udi;
         ArrayList<UserReview> res = userDao.queryUserReviewList();
         if (res.contains(userReview)){
             res.remove(userReview);
@@ -193,7 +226,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public boolean removeOneWish(String courseCode) {
-        UserDAO userDao = new UserDaoImpl(this.username);
+        UserDaoImpl userDao = udi;
         ArrayList<String> res = userDao.queryWishList();
         if (res.contains(courseCode)){
             res.remove(courseCode);
@@ -209,7 +242,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public boolean clearCourseList() {
-        UserDAO userDao = new UserDaoImpl(this.username);
+        UserDaoImpl userDao = udi;
         userDao.updateCourseList(new ArrayList<>());
         return true;
     }
@@ -221,7 +254,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public boolean clearWishList() {
-        UserDAO userDao = new UserDaoImpl(this.username);
+        UserDaoImpl userDao = udi;
         userDao.updateWishList(new ArrayList<>());
         return true;
     }
@@ -233,7 +266,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public boolean clearScheduleList() {
-        UserDAO userDao = new UserDaoImpl(this.username);
+        UserDaoImpl userDao = udi;
         return userDao.updateScheduleList(new ArrayList<>());
 
     }
@@ -246,14 +279,10 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
      */
     @Override
     public boolean insertOneSchedule(Schedule schedule) {
-        UserDAO userDao = new UserDaoImpl(this.username);
+        UserDaoImpl userDao = udi;
         ArrayList<Schedule> res = userDao.queryScheduleList();
         res.add(0, schedule);
         return userDao.updateScheduleList(res);
-
     }
 
-//    public static void main(String[] args) {
-//        new UserRequestProcessor().clearCourseList("TestRegister2");
-//    }
 }

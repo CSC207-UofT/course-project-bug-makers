@@ -4,6 +4,7 @@ package com.courseApp.entity;
 import com.courseApp.constants.Constants;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.springframework.data.annotation.PersistenceConstructor;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -23,6 +24,7 @@ public class Schedule {
      * @param scheduleMap Bson scheduleMap
      */
     @BsonCreator
+    @PersistenceConstructor
     public Schedule(@BsonProperty(Constants.SECTION_LIST) ArrayList<String> sectionList,
                     @BsonProperty(Constants.SCHEDULE_MAP) Map<String, Map<String, ArrayList<String>>> scheduleMap) {
         this.sectionList = sectionList;

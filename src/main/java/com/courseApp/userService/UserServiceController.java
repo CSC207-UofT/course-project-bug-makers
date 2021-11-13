@@ -1,13 +1,25 @@
 package com.courseApp.userService;
-import com.courseApp.constants.Constants;
 import com.courseApp.entity.Schedule;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 
 /**
  * User Service Controller for user-related demands.
  */
+@RestController
+@RequestMapping("/rest")
 public class UserServiceController implements ControlLoginRegister, ControlRM, ControlClear,
         ControlPresentInfo, ControlAddOne, ControlLatestSchedule{
+
+
+    @Autowired
+    UserRequestProcessor urp;
+
 
     /**
      *  User login
@@ -17,8 +29,10 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @return true iff login is successful
      */
     @Override
-    public boolean userLogin(String username, String password){
-        return new UserRequestProcessor(username, password).userLogin();
+    @RequestMapping(value = "/user/userLogin/{username}:{password}", method = POST, produces = "application/json")
+    public boolean userLogin(@PathVariable String username, @PathVariable String password){
+        urp.initWithUsernamePassword(username, password);
+        return urp.userLogin();
     }
 
     /**
@@ -29,8 +43,10 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @return true iff register is successful
      */
     @Override
-    public boolean userRegister(String username, String password) {
-        return new UserRequestProcessor(username, password).userRegister();
+    @RequestMapping(value = "/user/userRegister/{username}:{password}", method = POST, produces = "application/json")
+    public boolean userRegister(@PathVariable String username, @PathVariable String password) {
+        urp.initWithUsernamePassword(username, password);
+        return urp.userRegister();
     }
 
     /**
@@ -42,8 +58,10 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @return true iff clear is successful
      */
     @Override
-    public boolean userClearCourseList(String username){
-        return new UserRequestProcessor(username).clearCourseList();
+    @RequestMapping(value = "/user/userClearCourseList/{username}", method = DELETE, produces = "application/json")
+    public boolean userClearCourseList(@PathVariable String username){
+        urp.initWithUsername(username);
+        return urp.clearCourseList();
 
     }
 
@@ -56,8 +74,10 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @return true iff clear is successful
      */
     @Override
-    public boolean userClearWishList(String username){
-        return new UserRequestProcessor(username).clearWishList();
+    @RequestMapping(value = "/user/userClearWishList/{username}", method = DELETE, produces = "application/json")
+    public boolean userClearWishList(@PathVariable String username){
+        urp.initWithUsername(username);
+        return urp.clearWishList();
     }
 
     /**
@@ -69,8 +89,10 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @return true iff clear is successful
      */
     @Override
-    public boolean userClearScheduleList(String username){
-        return new UserRequestProcessor(username).clearScheduleList();
+    @RequestMapping(value = "/user/userClearScheduleList/{username}", method = DELETE, produces = "application/json")
+    public boolean userClearScheduleList(@PathVariable String username){
+        urp.initWithUsername(username);
+        return urp.clearScheduleList();
     }
 
     /**
@@ -82,8 +104,11 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @param courseCode target course code
      * @return true iff removal is successful
      */
-    public boolean rmCourse(String username, String courseCode){
-        return new UserRequestProcessor(username).removeOneCourse(courseCode);
+    @Override
+    @RequestMapping(value = "/user/rmCourse/{username}:{courseCode}", method = DELETE, produces = "application/json")
+    public boolean rmCourse(@PathVariable String username, @PathVariable String courseCode){
+        urp.initWithUsername(username);
+        return urp.removeOneCourse(courseCode);
     }
 
     /**
@@ -96,8 +121,10 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @return true iff removal is successful
      */
     @Override
-    public boolean rmWish(String username, String courseCode){
-        return new UserRequestProcessor(username).removeOneWish(courseCode);
+    @RequestMapping(value = "/user/rmWish/{username}:{courseCode}", method = POST, produces = "application/json")
+    public boolean rmWish(@PathVariable String username, @PathVariable String courseCode){
+        urp.initWithUsername(username);
+        return urp.removeOneWish(courseCode);
     }
 
     /**
@@ -106,9 +133,10 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @param username username
      * @return String representation of user course list
      */
-    @Override
-    public String getCourseList(String username){
-        return new UserRequestProcessor(username).queryUserCourseList().toString();
+    @RequestMapping(value = "/user/getCourseList/{username}", method = GET, produces = "application/json")
+    public String getCourseList(@PathVariable String username){
+        urp.initWithUsername(username);
+        return urp.queryUserCourseList().toString();
     }
 
     /**
@@ -118,8 +146,10 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @return String representation of user wish list
      */
     @Override
-    public String getWishList(String username){
-        return new UserRequestProcessor(username).queryUserWishList().toString();
+    @RequestMapping(value = "/user/getWishList/{username}", method = GET, produces = "application/json")
+    public String getWishList(@PathVariable String username){
+        urp.initWithUsername(username);
+        return urp.queryUserWishList().toString();
     }
 
     /**
@@ -129,8 +159,10 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @return String representation of schedule list
      */
     @Override
-    public String getScheduleList(String username){
-        return new UserRequestProcessor(username).queryUserScheduleList().toString();
+    @RequestMapping(value = "/user/getScheduleList/{username}", method = GET, produces = "application/json")
+    public String getScheduleList(@PathVariable String username){
+        urp.initWithUsername(username);
+        return urp.queryUserScheduleList().toString();
     }
 
 
@@ -142,8 +174,10 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @return true iff the insertion is successful
      */
     @Override
-    public boolean addCourse(String username, String courseCode) {
-        return new UserRequestProcessor(username).insertOneCourse(courseCode);
+    @RequestMapping(value = "/user/addCourse/{username}:{courseCode}", method = PUT, produces = "application/json")
+    public boolean addCourse(@PathVariable String username, @PathVariable String courseCode) {
+        urp.initWithUsername(username);
+        return urp.insertOneCourse(courseCode);
     }
 
     /**
@@ -154,8 +188,10 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @return ture iff the insertion is successful
      */
     @Override
-    public boolean addWish(String username, String courseCode) {
-        return new UserRequestProcessor(username).insertOneWish(courseCode);
+    @RequestMapping(value = "/user/addWish/{username}:{courseCode}", method = PUT, produces = "application/json")
+    public boolean addWish(@PathVariable String username, @PathVariable String courseCode) {
+        urp.initWithUsername(username);
+        return urp.insertOneWish(courseCode);
     }
 
     /**
@@ -165,14 +201,10 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
      * @return Schedule at the default position
      */
     @Override
-    public Schedule getLatestSchedule(String username) {
-        return new UserRequestProcessor(username).queryUserScheduleList().get(Constants.DEFAULT_SCHEDULE);
+    @RequestMapping(value = "/user/getLatestSchedule/{username}", method = GET, produces = "application/json")
+    public Schedule getLatestSchedule(@PathVariable String username) {
+        urp.initWithUsername(username);
+        return urp.queryUserScheduleList().get(0);
     }
 
-//    public static void main(String[] args) {
-//        System.out.println(new UserServiceController().userRegister("bugMaker", "bugMaker"));
-//        System.out.println(new UserServiceController().getCourseList("bugMaker"));
-//        System.out.println(new UserServiceController().addCourse("bugMaker", "CSC207FLEC0101"));
-//        System.out.println(new UserServiceController().getCourseList("bugMaker"));
-//    }
 }

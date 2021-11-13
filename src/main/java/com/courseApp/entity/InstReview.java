@@ -3,6 +3,7 @@ package com.courseApp.entity;
 import com.courseApp.constants.Constants;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.springframework.data.annotation.PersistenceConstructor;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class InstReview {
      * @param userReviewList Bson userReviewList
      */
     @BsonCreator
+    @PersistenceConstructor
     public InstReview(@BsonProperty(Constants.INST_NAME) String instructorName,
                       @BsonProperty(Constants.INST_GENERAL_RATE) double instGeneralRate,
                       @BsonProperty(Constants.INST_DIFFICULTY_RATE) double instDifficultyRate,

@@ -12,7 +12,6 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
     /**
      * Check the existence of course review, and then return the course review summary map, or null if the course review is
      * not in the database.
-     * <p>
      * The summary map should be:
      * courseCode: String
      * courseDifficultyRate: String
@@ -150,7 +149,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      * - generalRate: Double
      * - difficultyRate: Double
      * - recommendationScore : Double
-     *
+     *createOneCourseReview
      * @param courseCode course code
      * @return recommendation map
      */

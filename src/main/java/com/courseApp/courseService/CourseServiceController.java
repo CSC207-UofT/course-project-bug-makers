@@ -5,15 +5,23 @@ import com.courseApp.constants.Constants;
 import com.courseApp.entity.Schedule;
 import com.courseApp.userService.UserRequestProcessor;
 import com.courseApp.userService.UserServiceController;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
 
 /**
  * Course Service Controller for Present course-related information and course planning.
  */
+@RestController
+@RequestMapping("/rest")
 public class CourseServiceController implements ControlPresentInformation, ControlUserCoursePlanning {
 
 
@@ -25,7 +33,8 @@ public class CourseServiceController implements ControlPresentInformation, Contr
      * @throws Throwable exception
      */
     @Override
-    public String getCourseGeneralInformation(String courseCode) throws Throwable {
+    @RequestMapping(value = "/course/getCourseGeneralInformation/{courseCode}", method = GET, produces = "application/json")
+    public String getCourseGeneralInformation(@PathVariable String courseCode) throws Throwable {
         return generateCourseGeneralInformationTable(courseCode);
 
     }
@@ -38,7 +47,8 @@ public class CourseServiceController implements ControlPresentInformation, Contr
      * @throws Throwable exception
      */
     @Override
-    public String getSectionInformation(String courseCodeWSection) throws Throwable {
+    @RequestMapping(value = "/course/getSectionInformation/{courseCodeWSection}", method = GET, produces = "application/json")
+    public String getSectionInformation(@PathVariable String courseCodeWSection) throws Throwable {
         return generateSectionInformation(courseCodeWSection);
     }
 
@@ -126,15 +136,12 @@ public class CourseServiceController implements ControlPresentInformation, Contr
      */
 
     @Override
-    public String planCourse(String username) {
+    @RequestMapping(value = "/course/planCourse/{username}", method = GET, produces = "application/json")
+    public String planCourse(@PathVariable String username) {
         Schedule schedule = new CoursePlanner(username).generateSchedule();
         new UserRequestProcessor(username).insertOneSchedule(schedule);
         return schedule.getSectionList().toString();
     }
 
-//    public static void main(String[] args) throws Throwable {
-//        CourseServiceController csc = new CourseServiceController();
-//        System.out.println(csc.getSectionInformation("CSC207FLEC0101"));
-//    }
 
 }

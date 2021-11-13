@@ -3,6 +3,8 @@ package com.courseApp.entity;
 import com.courseApp.constants.Constants;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +14,7 @@ import java.util.Map;
  * course review entity for course code, course difficulty rate, course general rate, instructor review map and known instructor list.
  */
 public class CourseReview {
+    @Id
     private String courseCode;
     private double courseDifficultyRate;
     private double courseGeneralRate;
@@ -27,6 +30,7 @@ public class CourseReview {
      * @param instReviewMap instructor map
      */
     @BsonCreator
+    @PersistenceConstructor
     public CourseReview(@BsonProperty(Constants.COURSE_CODE_DB) String courseCode,
                         @BsonProperty(Constants.COURSE_DIFFICULTY_RATE) double courseDifficultyRate,
                         @BsonProperty(Constants.COURSE_GENERAL_RATE) double courseGeneralRate,
