@@ -40,15 +40,15 @@
                                 <div class="p-5" style="background: rgb(255,255,255);color: rgb(239, 149, 13);">
                                     <h2 class="text-center" style="color: rgb(239, 149, 13);font-family: 'Abril Fatface', serif;font-family: 'Abril Fatface', serif;">Welcome Back ! ! !</h2>
                                     <div class="text-center" style="background: rgb(205,205,205);"></div>
-                                    <form class="user">
-                                        <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username..." name="email" style="font-family: 'Abril Fatface', serif;"></div>
-                                        <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password..." name="password" style="font-family: 'Abril Fatface', serif;"></div>
+                                    <form th:action="@{/user/login}" method="post">
+                                        <div class="mb-3"><input class="form-control form-control-user" type="text" aria-describedby="username help" placeholder="Username..." name="username" style="font-family: 'Abril Fatface', serif;"></div>
+                                        <div class="mb-3"><input class="form-control form-control-user" type="password"  placeholder="Password..." name="password" style="font-family: 'Abril Fatface', serif;"></div>
                                         <div class="mb-3">
                                             <div class="custom-control custom-checkbox small"></div>
                                         </div><button class="btn btn-primary d-block btn-user w-100" type="submit" style="background: rgb(239, 149, 13);font-family: 'Abril Fatface', serif;">Login</button>
                                         <hr>
                                     </form>
-                                    <div class="text-center" style="font-family: 'Abril Fatface', serif;"><a class="small" href="register.html">Create an Account!</a></div>
+                                    <div class="text-center" style="font-family: 'Abril Fatface', serif;"><a class="small" href="register">Create an Account!</a></div>
                                 </div>
                             </div>
                             <div class="col" style="margin: 0;padding: 0;background: #ffffff;"><img class="img-fluid" th:src="@{/img/flag.gif}" style="margin: 0;padding: 0;">

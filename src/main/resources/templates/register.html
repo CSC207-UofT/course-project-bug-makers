@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Register - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
@@ -15,49 +14,58 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+
+
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/fontawesome5-overrides.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/ionicons.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/fontawesome-all.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+
 </head>
 
-<body class="bg-gradient-primary" style="background: rgb(255,255,255);border-left-color: rgb(255,255,255);color: rgb(255,255,255);box-shadow: 0px 0px 17px 6px rgb(146,146,146);">
+<body class="bg-gradient-primary" style="background: rgb(255,255,255);border-left-color: rgb(255,255,255);color: rgb(255,255,255);box-shadow: 0 0 17px 6px rgb(146,146,146);">
     <div class="container" style="background: rgb(255,255,255);border-left-color: rgb(255,255,255);color: rgb(255,255,255);">
         <div class="card shadow-lg o-hidden border-0 my-5" style="background: rgb(239, 149, 13);color: rgb(255,255,255);">
             <div class="card-body p-0" style="background: rgb(239, 149, 13);color: rgb(255,255,255);">
                 <div class="row" style="background: rgb(255,255,255);border-left-color: rgb(255,255,255);color: rgb(255,255,255);">
-                    <div class="col-lg-7 col-xxl-7 offset-xxl-0" style="background: rgb(255,255,255);border-left-color: rgb(255,255,255);border-radius: 20;color: rgb(255,255,255);">
+                    <div class="col-lg-7 col-xxl-7 offset-xxl-0" style="background: rgb(255,255,255);border-left-color: rgb(255,255,255);border-radius: 0;color: rgb(255,255,255);">
                         <div class="border rounded-0 p-5" style="background: rgb(255,255,255);border-left-color: rgb(255,255,255);color: rgb(255,255,255);">
                             <div class="text-center">
                                 <h2 class="text-center" style="color: rgb(239, 149, 13);font-family: 'Abril Fatface', serif;font-family: 'Abril Fatface', serif;">Register Now ! ! !</h2>
                             </div>
-                            <form class="user">
+                            <form th:action="@{/user/register}" method="post">
                                 <div class="row mb-3">
-                                    <div class="col-sm-6 col-xxl-12 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="examplePasswordInput-1" placeholder="Username" name="password" style="font-family: 'Abril Fatface', serif;"></div>
+                                    <div class="col-sm-6 col-xxl-12 mb-3 mb-sm-0"><label
+                                            for="username"></label><input class="form-control form-control-user" type="text" placeholder="Username" name="username" id="username" style="font-family: 'Abril Fatface', serif;"></div>
                                 </div>
                                 <div class="mb-3"></div>
                                 <div class="row mb-3">
-                                    <div class="col-sm-6 col-xxl-12 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="examplePasswordInput" placeholder="Password" name="password" style="font-family: 'Abril Fatface', serif;"></div>
+                                    <div class="col-sm-6 col-xxl-12 mb-3 mb-sm-0"><label
+                                            for="password"></label><input class="form-control form-control-user" type="password" placeholder="Password" name="password" id="password" style="font-family: 'Abril Fatface', serif;"></div>
                                 </div>
+                                <div class="text-center"></div><button class="btn btn-primary d-block btn-user w-100" type="submit" style="background: rgb(239, 149, 13);font-family: 'Abril Fatface', serif;">Register Account</button>
                             </form>
-                            <div class="text-center"></div><button class="btn btn-primary d-block btn-user w-100" type="submit" style="background: rgb(239, 149, 13);font-family: 'Abril Fatface', serif;">Register Account</button>
-                            <div class="text-center"><a class="small" href="login.html" style="font-family: 'Abril Fatface', serif;">Already have an account? Login!</a></div>
+                            <div class="text-center"><a class="small" href="login" style="font-family: 'Abril Fatface', serif;">Already have an account? Login!</a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/script.min.js}"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
+
 </body>
 
 </html>
