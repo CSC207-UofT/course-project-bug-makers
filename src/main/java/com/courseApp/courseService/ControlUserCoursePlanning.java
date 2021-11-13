@@ -17,5 +17,5 @@ public interface ControlUserCoursePlanning {
      * @param username username
      * @return schedule list String
      */
-    String planCourse(String username);
+    String planCourse(String username) throws Throwable;
 }
