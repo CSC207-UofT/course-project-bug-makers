@@ -8,7 +8,7 @@ import com.courseApp.constants.Constants;
 import com.courseApp.utils.TimeConversion;
 
 /**
- * Abstract subclass of CalendarFactory for generating a one-day calendar.
+ * Abstract subclass of CalendarFactory for producing a one-day calendar.
  * Its 5 subclasses each generate a calendar for one specific workday.
  * Note that itself is abstract thus it won't generate anything.
  */
