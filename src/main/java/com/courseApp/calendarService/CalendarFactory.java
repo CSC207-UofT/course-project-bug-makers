@@ -26,7 +26,8 @@ abstract class CalendarFactory implements UsePresentable{
 
     /**
      * Reformat the list to modify the cell size according to the length of the event.
-     *
+     * Remove the dotted line between two cells if the course time exceeds 1-hour timeslot
+     * 
      * @param list the Calendar list
      * @param weekDay weekday's location in the Calendar
      * @param startingT Starting time of this section
