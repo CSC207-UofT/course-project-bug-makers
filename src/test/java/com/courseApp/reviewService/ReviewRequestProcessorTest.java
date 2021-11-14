@@ -14,7 +14,6 @@ class ReviewRequestProcessorTest {
     ReviewRequestProcessor rrp = new ReviewRequestProcessor();
     Random random = new Random();
     String instructorName = "TestProf"+ valueOf(random.nextInt(10000));
-//    rrp.createOneCourseReview("CSC209");
 
     @BeforeEach
     void setUp() {
