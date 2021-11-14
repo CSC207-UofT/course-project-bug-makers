@@ -1,5 +1,8 @@
 package com.courseApp.userService;
 
+/**
+ * Interface mediating the login/register process.
+ */
 public interface ControlLoginRegister {
 
     /**

@@ -1,5 +1,8 @@
 package com.courseApp.userService;
 
+/**
+ * Interface for clearing the lists
+ */
 public interface ControlClear {
 
     /**
