@@ -5,7 +5,7 @@ import com.courseApp.constants.Constants;
 import com.courseApp.constants.Exceptions;
 import com.courseApp.entity.Schedule;
 import com.courseApp.userService.UserRequestProcessor;
-import com.courseApp.entity.Section;
+import com.courseApp.utils.SectionTool;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class CoursePlanner implements UseCoursePlanning {
     private ArrayList<String> wishList;
     private List<String> scheduledF;
     private List<String> scheduledS;
-    private ArrayList<ArrayList<Section>> sectionList;
+    private ArrayList<ArrayList<SectionTool>> sectionList;
 
     public CoursePlanner(String username) throws Throwable {
         this.username = username;
@@ -46,10 +46,10 @@ public class CoursePlanner implements UseCoursePlanning {
             e.printStackTrace();
         }
         ArrayList<ArrayList<String>> result = new ArrayList<>();
-        ArrayList<ArrayList<Section>> scheduleList = planScheduleList(new ArrayList<>(), this.sectionList);
-        for (ArrayList<Section> schedule : scheduleList) {
+        ArrayList<ArrayList<SectionTool>> scheduleList = planScheduleList(new ArrayList<>(), this.sectionList);
+        for (ArrayList<SectionTool> schedule : scheduleList) {
             ArrayList<String> string_schedule = new ArrayList<>();
-            for (Section section : schedule) {
+            for (SectionTool section : schedule) {
                 string_schedule.add(section.getSectionCode());
             }
             result.add(string_schedule);
@@ -71,20 +71,20 @@ public class CoursePlanner implements UseCoursePlanning {
      * @return ArrayList of course codes
      * @throws Throwable exceptions
      */
-    private ArrayList<ArrayList<Section>> planScheduleList(ArrayList<ArrayList<Section>> schedule_list,
-                                                         ArrayList<ArrayList<Section>> section_list) throws Throwable {
-        ArrayList<ArrayList<Section>> result = new ArrayList<>();
+    private ArrayList<ArrayList<SectionTool>> planScheduleList(ArrayList<ArrayList<SectionTool>> schedule_list,
+                                                               ArrayList<ArrayList<SectionTool>> section_list) throws Throwable {
+        ArrayList<ArrayList<SectionTool>> result = new ArrayList<>();
         if (schedule_list.isEmpty()) {
-            for (Section section : section_list.get(0)) {
-                ArrayList<Section> sublist = new ArrayList<>();
+            for (SectionTool section : section_list.get(0)) {
+                ArrayList<SectionTool> sublist = new ArrayList<>();
                 sublist.add(section);
                 result.add(sublist);
             }
         }
-        else for (ArrayList<Section> schedule : schedule_list) {
-            ArrayList<Section> new_schedule = new ArrayList<>(schedule);
-            for (Section section : section_list.get(0)) {
-                for (Section schedule_section : schedule) {
+        else for (ArrayList<SectionTool> schedule : schedule_list) {
+            ArrayList<SectionTool> new_schedule = new ArrayList<>(schedule);
+            for (SectionTool section : section_list.get(0)) {
+                for (SectionTool schedule_section : schedule) {
                     if (CheckConflict(schedule_section, section)) {
                         break;
                     } else if (schedule_section.equals(schedule.get(schedule.size() - 1))) {
@@ -115,7 +115,7 @@ public class CoursePlanner implements UseCoursePlanning {
      * @param section2: A section of a course
      * @return True iff the sections have overlapping times
      */
-    private boolean CheckConflict(Section section1, Section section2) {
+    private boolean CheckConflict(SectionTool section1, SectionTool section2) {
         if (section1.getSectionCode().charAt(6) != section2.getSectionCode().charAt(6)) {
             if (section1.getSectionCode().charAt(6) != 'Y' && section2.getSectionCode().charAt(6) != 'Y') {
                 return false;
@@ -145,8 +145,8 @@ public class CoursePlanner implements UseCoursePlanning {
      * @param course_list A list of course codes with sections
      * @return An ArrayList containing lists of sections sorted by type
      */
-    private ArrayList<ArrayList<Section>> CreateSectionList(ArrayList<String> course_list) throws Throwable {
-        ArrayList<ArrayList<Section>> result = new ArrayList<>();
+    private ArrayList<ArrayList<SectionTool>> CreateSectionList(ArrayList<String> course_list) throws Throwable {
+        ArrayList<ArrayList<SectionTool>> result = new ArrayList<>();
         ArrayList<String> course_codes = new ArrayList<>();
         ArrayList<String> course_list_new = new ArrayList<>();
         for (String course : course_list) {
@@ -159,10 +159,10 @@ public class CoursePlanner implements UseCoursePlanning {
         for (String course : course_list_new) {
             List<String> section_list = new CourseInformationGenerator(course).getCourseSectionList();
             for (String type : Constants.SECTION_TYPES) {
-                ArrayList<Section> type_list = new ArrayList<>();
+                ArrayList<SectionTool> type_list = new ArrayList<>();
                 for (String s : section_list) {
                     s = course.substring(0, 7) + s.replace("-", "");
-                    Section section = new Section(s, new CourseInformationGenerator(s).getSectionSpecificSchedule());
+                    SectionTool section = new SectionTool(s, new CourseInformationGenerator(s).getSectionSpecificSchedule());
                     if (section.getSectionType().equals(type)) {
                         type_list.add(section);
                     }

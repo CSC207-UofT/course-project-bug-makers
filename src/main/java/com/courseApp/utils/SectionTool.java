@@ -1,20 +1,20 @@
-package com.courseApp.entity;
+package com.courseApp.utils;
 
 
 import java.util.ArrayList;
 import java.util.Map;
 
 /**
- * Section Entity
+ * SectionTool Entity
  */
-public class Section {
+public class SectionTool {
     private final String sectionCode;
     private final Map<String, ArrayList<String>> scheduleMap;
     private final String sectionType;
     private final String courseCode;
 
 
-    public Section(String sectionCode, Map<String, ArrayList<String>> scheduleMap) {
+    public SectionTool(String sectionCode, Map<String, ArrayList<String>> scheduleMap) {
         this.sectionCode = sectionCode;
         this.scheduleMap = scheduleMap;
         this.sectionType = sectionCode.substring(7, 10);
