@@ -1,6 +1,7 @@
 package com.courseApp.webDriver.drivers;
 
 import com.courseApp.calendarService.CalendarPresenter;
+import com.courseApp.courseService.CourseServiceController;
 import com.courseApp.userService.UserServiceController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,9 +28,25 @@ public class CalendarWebDriver {
     @RequestMapping(value = "generate", method = POST)
     public String generateCalendar(String term, String type, HttpSession session){
         if(session.getAttribute("username") == null) {return "redirect:/login";}
-        session.setAttribute("res", new CalendarPresenter().presentCalendar(term, type,
-                usc.getLatestSchedule(session.getAttribute("username").toString()).getScheduleMap()));
-        return "redirect:/result";
+
+        int limit = 2;
+        int curr = 0;
+
+
+        while(true) {
+            try {
+                session.setAttribute("res", new CalendarPresenter().presentCalendar(term, type,
+                        usc.getLatestSchedule(session.getAttribute("username").toString()).getScheduleMap()));
+                return "redirect:/result";
+            } catch (Exception e) {
+                e.printStackTrace();
+                new CourseServiceController().planCourse(session.getAttribute("username").toString());
+                if (++ curr == limit) return "redirect:/register";
+            }
+        }
+
+
     }
+
 
 }
