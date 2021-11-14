@@ -35,7 +35,7 @@ We have a test account for you!
 ```
 $ getCourseGeneralInformation CSC207F
 ```
-3. Check our intelligent pre-set course list (and then *Star* our Project)!
+3. Check our excellent pre-set course list (and then *Star* our Project)!
 ```
 $ getCourseList
 ``` 
@@ -55,19 +55,13 @@ Here's our little GIF instruction:
 We also have a test account for you in our web interface! 
 
 We have a test account for you!
-1. Run `Main.java` (in `dev/springboot` branch ). Try to log in our test account!
+1. Run `SpringbootApp.java` (in `dev/springboot` branch ). Try to log in our test account!
     - Username: `ReadMeDemo`;
     - Password: `1234567890`.
 2. Explore `CSC207F`'s summary!
-```
-$ getCourseGeneralInformation CSC207F
-```
-3. Check our intelligent pre-set course list (and then *Star* our Project)!
-```
-$ getCourseList
-``` 
-4. Try our auto-generated calendar and take a screenshot (share it to your Ins story)!
-```
-$ presentCalendar F Workday
-```
-5. Click [here](teamDocumentation/cmdDocumentation.md) for more interesting commands (make sure you have `JDK 1.8`)!
+
+3. Check our excellent pre-set course list (and then *Star* our Project)!
+
+4. Try our auto-generated calendar and take a screenshot!
+
+![](README.assets/webdemo.gif)
