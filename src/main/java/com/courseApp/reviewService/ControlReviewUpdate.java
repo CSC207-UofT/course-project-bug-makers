@@ -30,5 +30,5 @@ public interface ControlReviewUpdate {
                            String instName,
                            double generalRate,
                            double difficultyRate,
-                           String reviewString);
+                           String reviewString) throws Exception;
 }
