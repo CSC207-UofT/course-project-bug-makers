@@ -37,7 +37,7 @@ class UserRequestProcessorTest {
     @Test
     void userRegister() {
         Random random = new Random();
-        String username = valueOf(random.ints(10000,20000));
+        String username = valueOf(random.nextInt(10000)+10000);
         UserRequestProcessor register = new UserRequestProcessor(username, "1111");
         assertTrue(register.userRegister());
     }
