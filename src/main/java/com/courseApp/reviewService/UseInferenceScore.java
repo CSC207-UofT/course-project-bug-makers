@@ -1,5 +1,7 @@
 package com.courseApp.reviewService;
 
+import java.io.IOException;
+
 public interface UseInferenceScore {
     /**
      * Run the model inference on the review string and get the recommendation score.
@@ -7,5 +9,5 @@ public interface UseInferenceScore {
      * @param reviewString user review string
      * @return text recommendation score in double format
      */
-    double modelInference(String reviewString);
+    double modelInference(String reviewString) throws Exception;
 }

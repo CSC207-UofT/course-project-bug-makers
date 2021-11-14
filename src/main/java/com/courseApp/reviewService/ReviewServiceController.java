@@ -1,8 +1,12 @@
 package com.courseApp.reviewService;
 
-import java.util.ArrayList;
+import com.courseApp.constants.Constants;
 
-//TODO: entire doc
+import java.util.*;
+
+/**
+ * Review Service Controller for providing review service branch api.
+ */
 public class ReviewServiceController implements ControlReviewUpdate, ControlReviewCreation, ControlPresentReview, ControlRecommendationRank{
 
     /**
@@ -11,13 +15,37 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      * - name of the instructor
      * - general rate
      * - difficulty rate
-     *
      * @param courseCode targeted course code
+     *
      * @return array list of String representation.
      */
     @Override
     public ArrayList<String> getInstReviewSummary(String courseCode) {
-        return null;
+
+        ReviewRequestProcessor rrp = new ReviewRequestProcessor();
+        StringBuilder result = new StringBuilder();
+        ArrayList<String> InstReviewSummary = new ArrayList<>();
+
+        for (String instName: new ReviewRequestProcessor().queryExistingInst(courseCode)){
+            for (Map.Entry<String, String> entry: rrp.queryInstReviewSummary(courseCode, instName).entrySet()){
+                result.append(Constants.TRI_TAB).append(Constants.INST_NAME).append(instName).append(Constants.CHANGE_LINE);
+                if (entry.getKey().equals(Constants.INST_GENERAL_RATE)){
+                    String instGeneralRate = entry.getValue();
+                    result.append(Constants.TRI_TAB).append(Constants.INST_GENERAL_RATE).append(instGeneralRate).append(Constants.CHANGE_LINE);
+                }
+                if (entry.getKey().equals(Constants.INST_DIFFICULTY_RATE)){
+                    String instDifficultyRate = entry.getValue();
+                    result.append(Constants.TRI_TAB).append(Constants.INST_DIFFICULTY_RATE).append(instDifficultyRate).append(Constants.CHANGE_LINE);
+                }
+
+            }
+
+            InstReviewSummary.add(result.toString());
+
+        }
+
+    return InstReviewSummary;
+
     }
 
     /**
@@ -34,7 +62,30 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      */
     @Override
     public ArrayList<String> getUserReviewSummary(String courseCode, String instName) {
-        return null;
+
+        ReviewRequestProcessor rrp = new ReviewRequestProcessor();
+        StringBuilder result = new StringBuilder();
+        ArrayList<String> UserReviewSummary = new ArrayList<>();
+
+        for (String username: new ReviewRequestProcessor().queryUsername(courseCode, instName)){
+            for (Map.Entry<String, String> entry: rrp.queryUserReview(courseCode, instName, username).entrySet()) {
+                result.append(Constants.TRI_TAB).append(Constants.USERNAME).append(username).append(Constants.CHANGE_LINE);
+                if (entry.getKey().equals(Constants.GENERAL_RATE)) {
+                    String generalRate = entry.getValue();
+                    result.append(Constants.TRI_TAB).append(Constants.GENERAL_RATE).append(generalRate).append(Constants.CHANGE_LINE);
+                }
+                if (entry.getKey().equals(Constants.DIFFICULTY_RATE)) {
+                    String difficultyRate = entry.getValue();
+                    result.append(Constants.TRI_TAB).append(Constants.DIFFICULTY_RATE).append(difficultyRate).append(Constants.CHANGE_LINE);
+                }
+            }
+
+            UserReviewSummary.add(result.toString());
+
+        }
+
+        return UserReviewSummary;
+
     }
 
     /**
@@ -44,7 +95,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      */
     @Override
     public ArrayList<String> getExistingCourseList() {
-        return null;
+        return new ReviewRequestProcessor().queryExistingCourse();
     }
 
     /**
@@ -55,7 +106,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      */
     @Override
     public boolean createNewCourse(String courseCode) {
-        return false;
+            return new ReviewRequestProcessor().createOneCourseReview(courseCode);
     }
 
     /**
@@ -67,7 +118,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      */
     @Override
     public boolean createNewInst(String courseCode, String instName) {
-        return false;
+        return new ReviewRequestProcessor().createOneInstReview(courseCode, instName);
     }
 
     /**
@@ -80,11 +131,17 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      * @param generalRate    given general rate
      * @param difficultyRate given difficulty rate
      * @param reviewString   given review string
-     * @return ture iff the creation is successful
+     * @return true iff the creation is successful
      */
     @Override
-    public boolean createNewUserReview(String courseCode, String instName, double generalRate, double difficultyRate, String reviewString) {
-        return false;
+    public boolean createNewUserReview(String courseCode, String instName, double generalRate, double difficultyRate, String reviewString) throws Exception {
+        ReviewRequestProcessor rrp = new ReviewRequestProcessor();
+        RecommendationRequestProcessor recommendationRR = new RecommendationRequestProcessor();
+
+        for (String username: new ReviewRequestProcessor().queryUsername(courseCode, instName)){
+            return rrp.insertOneUserReview(courseCode, username,  instName, generalRate, difficultyRate, recommendationRR.modelInference(reviewString), reviewString);
+        }
+    return false;
     }
 
     /**
@@ -98,7 +155,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      */
     @Override
     public boolean deleteUserReview(String courseCode, String instName, String username) {
-        return false;
+        return new ReviewRequestProcessor().deleteOneUserReview(courseCode, instName, username);
     }
 
     /**
@@ -111,11 +168,18 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      * @param generalRate    given general rate
      * @param difficultyRate given difficulty rate
      * @param reviewString   given review string
-     * @return ture iff the creation is successful
+     * @return true iff the creation is successful
      */
     @Override
-    public boolean editUserReview(String courseCode, String instName, double generalRate, double difficultyRate, String reviewString) {
-        return false;
+    public boolean editUserReview(String courseCode, String instName, double generalRate, double difficultyRate, String reviewString) throws Exception {
+        ReviewRequestProcessor rrp = new ReviewRequestProcessor();
+        RecommendationRequestProcessor recommendationRR = new RecommendationRequestProcessor();
+
+        for (String username: new ReviewRequestProcessor().queryUsername(courseCode, instName)){
+            rrp.deleteOneUserReview(courseCode, instName, username);
+            return rrp.insertOneUserReview(courseCode, instName, username, generalRate, difficultyRate, recommendationRR.modelInference(reviewString), reviewString);
+        }
+    return false;
     }
 
     /**
@@ -129,6 +193,16 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      */
     @Override
     public ArrayList<String> getInstRank(String courseCode) {
-        return null;
+        ReviewRequestProcessor rrp = new ReviewRequestProcessor();
+        RecommendationRequestProcessor recommendationRR = new RecommendationRequestProcessor();
+        ArrayList<String> InstRank = new ArrayList<>();
+
+        LinkedHashMap<String, Double> instRank = new LinkedHashMap<>();
+        recommendationRR.generateComplexScoreMap(rrp.getRecommendationMap(courseCode)).
+                entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).forEachOrdered(x -> instRank.put(x.getKey(), x.getValue()));
+
+        InstRank.add(instRank.toString());
+
+        return InstRank;
     }
 }

@@ -57,8 +57,8 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      * <p>
      * The summary map should be:
      * instructorName: String
-     * instDifficultyRate: String
      * instGeneralRate: String
+     * instDifficultyRate: String
      *
      * @param courseCode course code w/o section flag
      * @param instName   Instructor name
@@ -143,13 +143,26 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public ArrayList<String> queryExistingInst(String courseCode) {
-        return new CourseReview(courseCode).getInstList();
+        return new ReviewDaoImpl().queryCourseReview(courseCode).getInstList();
     }
 
+    /**
+     * Query existing username name under specific instructor.
+     *
+     * @param instName   Instructor name
+     * @return Arraylist of username's
+     */
+    @Override
+    public ArrayList<String> queryUsername(String courseCode, String instName) {
+        ArrayList<String> res = new ArrayList<>();
+        for (UserReview uR: new ReviewDaoImpl().queryInstReview(courseCode, instName).getUserReviewList()){
+            res.add(uR.getUsername());
+        };
+        return res;
+    }
 
     /**
      * Insert one user review entity to targeted course and instructor.
-     * <p>
      * Note that the recommendation rate will be updated by <></>.
      *
      * @param courseCode         courseCode targeted course

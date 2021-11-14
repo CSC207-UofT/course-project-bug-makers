@@ -1,5 +1,8 @@
 package com.courseApp.userService;
 
+/**
+ * Interface for presenting user information
+ */
 public interface ControlPresentInfo {
 
     /**

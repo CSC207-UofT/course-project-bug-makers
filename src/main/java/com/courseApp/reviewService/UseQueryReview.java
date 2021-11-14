@@ -75,6 +75,15 @@ public interface UseQueryReview {
      */
     ArrayList<String> queryExistingInst(String courseCode);
 
+    /**
+     * Query existing username name under specific instructor.
+     *
+     * @param instName   Instructor name
+     *
+     * @return Arraylist of username's
+     */
+    ArrayList<String> queryUsername(String courseCode, String instName);
+
 
 
 }
