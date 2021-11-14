@@ -23,25 +23,17 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
     public ArrayList<String> getInstReviewSummary(String courseCode) {
 
         ReviewRequestProcessor rrp = new ReviewRequestProcessor();
-        StringBuilder result = new StringBuilder();
         ArrayList<String> InstReviewSummary = new ArrayList<>();
 
         for (String instName: new ReviewRequestProcessor().queryExistingInst(courseCode)){
-            for (Map.Entry<String, String> entry: rrp.queryInstReviewSummary(courseCode, instName).entrySet()){
-                result.append(Constants.TRI_TAB).append(Constants.INST_NAME).append(instName).append(Constants.CHANGE_LINE);
-                if (entry.getKey().equals(Constants.INST_GENERAL_RATE)){
-                    String instGeneralRate = entry.getValue();
-                    result.append(Constants.TRI_TAB).append(Constants.INST_GENERAL_RATE).append(instGeneralRate).append(Constants.CHANGE_LINE);
-                }
-                if (entry.getKey().equals(Constants.INST_DIFFICULTY_RATE)){
-                    String instDifficultyRate = entry.getValue();
-                    result.append(Constants.TRI_TAB).append(Constants.INST_DIFFICULTY_RATE).append(instDifficultyRate).append(Constants.CHANGE_LINE);
-                }
-
-            }
-
+            // loop over the existing instructor list.
+            StringBuilder result = new StringBuilder();
+            Map<String, String> entry = rrp.queryInstReviewSummary(courseCode, instName);
+            result.append(Constants.INST_NAME).append(Constants.TRI_TAB).append(instName).append(Constants.TRI_TAB).append(Constants.CHANGE_LINE); // write name
+            result.append(Constants.TRI_TAB).append(Constants.INST_GENERAL_RATE).append(Constants.TRI_TAB).append(entry.get(Constants.INST_GENERAL_RATE)).append(Constants.CHANGE_LINE); // write general rate
+            result.append(Constants.TRI_TAB).append(Constants.INST_DIFFICULTY_RATE).append(Constants.TRI_TAB).append(entry.get(Constants.INST_DIFFICULTY_RATE)).append(Constants.CHANGE_LINE); // write difficulty rate
+            result.append(Constants.LONG_LINE).append(Constants.CHANGE_LINE);
             InstReviewSummary.add(result.toString());
-
         }
 
     return InstReviewSummary;
@@ -64,24 +56,17 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
     public ArrayList<String> getUserReviewSummary(String courseCode, String instName) {
 
         ReviewRequestProcessor rrp = new ReviewRequestProcessor();
-        StringBuilder result = new StringBuilder();
         ArrayList<String> UserReviewSummary = new ArrayList<>();
 
         for (String username: new ReviewRequestProcessor().queryUsername(courseCode, instName)){
-            for (Map.Entry<String, String> entry: rrp.queryUserReview(courseCode, instName, username).entrySet()) {
-                result.append(Constants.TRI_TAB).append(Constants.USERNAME).append(username).append(Constants.CHANGE_LINE);
-                if (entry.getKey().equals(Constants.GENERAL_RATE)) {
-                    String generalRate = entry.getValue();
-                    result.append(Constants.TRI_TAB).append(Constants.GENERAL_RATE).append(generalRate).append(Constants.CHANGE_LINE);
-                }
-                if (entry.getKey().equals(Constants.DIFFICULTY_RATE)) {
-                    String difficultyRate = entry.getValue();
-                    result.append(Constants.TRI_TAB).append(Constants.DIFFICULTY_RATE).append(difficultyRate).append(Constants.CHANGE_LINE);
-                }
-            }
-
+            // loop over the existing username list.
+            StringBuilder result = new StringBuilder();
+            Map<String, String> UserReview = rrp.queryUserReview(courseCode, instName,username);
+            result.append(Constants.USERNAME).append(Constants.TRI_TAB).append(username).append(Constants.TRI_TAB).append(Constants.CHANGE_LINE); // write username
+            result.append(Constants.TRI_TAB).append(Constants.GENERAL_RATE).append(Constants.TRI_TAB).append(UserReview.get(Constants.GENERAL_RATE)).append(Constants.CHANGE_LINE); // write general rate
+            result.append(Constants.TRI_TAB).append(Constants.DIFFICULTY_RATE).append(Constants.TRI_TAB).append(UserReview.get(Constants.DIFFICULTY_RATE)).append(Constants.CHANGE_LINE); // write difficulty rate
+            result.append(Constants.LONG_LINE).append(Constants.CHANGE_LINE);
             UserReviewSummary.add(result.toString());
-
         }
 
         return UserReviewSummary;
@@ -123,7 +108,6 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
 
     /**
      * Validate the username and then create a new user review under targeted instructor.
-     * <p>
      * Note that the recommendation score should come from the recommendationService.
      *
      * @param courseCode     targeted course code
@@ -134,14 +118,11 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      * @return true iff the creation is successful
      */
     @Override
-    public boolean createNewUserReview(String courseCode, String instName, double generalRate, double difficultyRate, String reviewString) throws Exception {
+    public boolean createNewUserReview(String courseCode, String instName, String username, double generalRate, double difficultyRate, String reviewString) throws Exception {
         ReviewRequestProcessor rrp = new ReviewRequestProcessor();
         RecommendationRequestProcessor recommendationRR = new RecommendationRequestProcessor();
 
-        for (String username: new ReviewRequestProcessor().queryUsername(courseCode, instName)){
-            return rrp.insertOneUserReview(courseCode, username,  instName, generalRate, difficultyRate, recommendationRR.modelInference(reviewString), reviewString);
-        }
-    return false;
+        return rrp.insertOneUserReview(courseCode, instName, username, generalRate, difficultyRate, recommendationRR.modelInference(reviewString), reviewString);
     }
 
     /**
@@ -160,7 +141,6 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
 
     /**
      * Edit the user review under targeted instructor. (Delete + Insert the new one)
-     * <p>
      * Note that the recommendation score should come from the recommendationService.
      *
      * @param courseCode     targeted course code
@@ -184,7 +164,6 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
 
     /**
      * Get the arraylist of ranked instructor names for targeted course.
-     * <p>
      * The arraylist should be in decreasing order of recommendation index, which the first inst in the list should be
      * the most recommended and the last one should be least recommended.
      *
