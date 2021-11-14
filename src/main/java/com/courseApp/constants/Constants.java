@@ -3,8 +3,6 @@ package com.courseApp.constants;
 import com.courseApp.driver.cmdline.commands.*;
 import com.mongodb.MongoClientSettings;
 import org.bson.codecs.configuration.CodecRegistry;
-import org.bson.codecs.pojo.ClassModelBuilder;
-import org.bson.codecs.pojo.Convention;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
 import java.util.ArrayList;
@@ -14,8 +12,6 @@ import java.util.List;
 
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
-import static org.bson.codecs.pojo.Conventions.ANNOTATION_CONVENTION;
-import static org.bson.codecs.pojo.Conventions.SET_PRIVATE_FIELDS_CONVENTION;
 
 
 /**
@@ -29,12 +25,16 @@ public class Constants {
     public final static int START_TIME = 8;
     public final static int START_HEIGHT = 5;
     public final static int TIME_DIFFERENCE_MIN = 1;
+    public final static int LOCATION_FIRST_DAY = 14;
     public final static int LOCATION_MO = 14;
     public final static int LOCATION_TU = 27;
     public final static int LOCATION_WE = 40;
     public final static int LOCATION_TH = 53;
     public final static int LOCATION_FR = 66;
     public final static int COURSE_CODE_LENGTH = 7;
+    public static final int FIRST_DAY_POSITION = 2;
+    public static final int COURSE_WEEKDAY_FLAG = 3;
+    public final static int STRING_GAP = 13;
 
     public static final String FALL_TERM = "F";
     public static final String WINTER_TERM = "S";
@@ -42,14 +42,27 @@ public class Constants {
     public static final String TIME_COMMA = ":";
     public static final String CHANGE_LINE = "\n";
     public static final String TYPE_WORKDAY = "Workday";
+    public static final String TYPE_MONDAY = "Monday";
+    public static final String TYPE_TUESDAY = "Tuesday";
+    public static final String TYPE_WEDNESDAY = "Wednesday";
+    public static final String TYPE_THURSDAY = "Thursday";
+    public static final String TYPE_FRIDAY = "Friday";
+    public static final String TYPE_WEEK = "Week";
     public static final String YEAR_HEADER = "Calendar of the Year\n";
     public static final String FALL_HEADER = "Calendar of the Fall Term\n";
     public static final String WINTER_HEADER = "Calendar of the Winter Term\n";
 
+    public static final String MONDAY = "MO";
+    public static final String TUESDAY = "TU";
+    public static final String WEDNESDAY = "WE";
+    public static final String THURSDAY = "TH";
+    public static final String FRIDAY = "FR";
+
+
 
 
     // NOTE THAT THIS FEATURE REQUIRE JAVA 16.
-    final static String WORK_DAY_TABLE =
+    final static String WORKDAY_TABLE =
                     "+------------+------------+------------+------------+------------+------------+\n"+
                     "|            |            |            |            |            |            |\n"+
                     "|            |     Mon    |     Tue    |     Wed    |     Thu    |     Fri    |\n"+
@@ -115,9 +128,148 @@ public class Constants {
                     "|    22:00   |            |            |            |            |            |\n"+
                     "|            |            |            |            |            |            |\n"+
                     "+------------+------------+------------+------------+------------+------------+\n";
+    final static String SINGLEDAY_TABLE =
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|            |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    8:00    |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    9:00    |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    10:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    11:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    12:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    13:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    14:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    15:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    16:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    17:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    18:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    19:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    20:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    21:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+\n" +
+            "|            |            |\n" +
+            "|    22:00   |            |\n" +
+            "|            |            |\n" +
+            "+------------+------------+";
+
+    final static String WEEKDAY_TABLE =
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|            |     Sun    |     Mon    |     Tue    |     Wed    |     Thu    |     Fri    |     Sat    |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    8:00    |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    9:00    |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    10:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    11:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    12:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    13:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    14:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    15:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    16:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    17:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    18:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    19:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    20:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    21:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "|    22:00   |            |            |            |            |            |            |            |\n" +
+            "|            |            |            |            |            |            |            |            |\n" +
+            "+------------+------------+------------+------------+------------+------------+------------+------------+";
 
     public static List<String> getListedWorkday(){
-        return new ArrayList<>(Arrays.asList(WORK_DAY_TABLE.split("\n")));
+        return new ArrayList<>(Arrays.asList(WORKDAY_TABLE.split("\n")));
+    }
+    public static List<String> getListedSingleday(){
+        return new ArrayList<>(Arrays.asList(SINGLEDAY_TABLE.split("\n")));
+    }
+    public static List<String> getListedWeekday(){
+        return new ArrayList<>(Arrays.asList(WEEKDAY_TABLE.split("\n")));
     }
 
  //////// UofT API constants
