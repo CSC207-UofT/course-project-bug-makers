@@ -56,12 +56,11 @@ public class CourseDaoImpl implements CourseDAO {
 
 
     /**
-     * Return URL for querying the course information.
+     * Set URL for querying the course information.
      * courseCode must end with the term indicator, i.e., F/S/Y,
      * otherwise throw WRONG_COURSE_CODE_FORMAT exception.
      */
-    @Override
-    public void generateQuery() throws Throwable {
+    private void generateQuery() throws Throwable {
         if (this.courseTerm.equals(Constants.WINTER_TERM) | this.courseTerm.equals(Constants.FALL_TERM) | this.courseTerm.equals(Constants.YEAR)) {
             String res = Constants.UT_API_URL.replace(Constants.COURSE_CODE, this.courseCode.substring(0,
                     this.courseCode.length() - 1));
@@ -76,8 +75,7 @@ public class CourseDaoImpl implements CourseDAO {
      * Setter method for converting Json response from the API to a map instance variable.
      */
     @SuppressWarnings({"unchecked", "SuspiciousMethodCalls"})
-    @Override
-    public void setMap() throws Throwable {
+    private void setMap() throws Throwable {
         this.generateQuery();
         String webContent = UrlReader.read(this.url);
         this.map = new Gson().fromJson(JsonParser.parseString(webContent), Map.class);

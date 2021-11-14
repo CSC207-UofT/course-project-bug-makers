@@ -19,21 +19,6 @@ public interface CourseDAO {
       */
      Course generateCourseEntity();
 
-
-     /**
-      * Return URL for querying the course information.
-      * courseCode must end with the term indicator, i.e., F/S/Y,
-      * otherwise throw WRONG_COURSE_CODE_FORMAT exception.
-      */
-     void generateQuery() throws Throwable;
-
-
-     /**
-      * Setter method for converting Json response from the API to a map instance variable.
-      */
-     void setMap() throws Throwable;
-
-
      /**
       * Getter method for getting map instance variable, where map is the Json response from the API.
       *
@@ -85,5 +70,4 @@ public interface CourseDAO {
       * @return Map of section as key and Instructor name as value.
       */
      Map<String, String> querySectionInstructorMap();
-
 }
