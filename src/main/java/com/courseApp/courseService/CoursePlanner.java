@@ -5,11 +5,11 @@ import com.courseApp.constants.Constants;
 import com.courseApp.constants.Exceptions;
 import com.courseApp.entity.Schedule;
 import com.courseApp.userService.UserRequestProcessor;
+import com.courseApp.entity.Section;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Course Planner use case for implementing course planning service.
@@ -26,30 +26,38 @@ public class CoursePlanner implements UseCoursePlanning {
     private ArrayList<String> wishList;
     private List<String> scheduledF;
     private List<String> scheduledS;
+    private ArrayList<ArrayList<Section>> sectionList;
 
-    public CoursePlanner(String username) {
+    public CoursePlanner(String username) throws Throwable {
         this.username = username;
         this.courseList = new UserRequestProcessor(username).queryUserCourseList();
         this.wishList = new UserRequestProcessor(username).queryUserWishList();
         this.scheduledF = new ArrayList<>();
         this.scheduledS = new ArrayList<>();
+        this.sectionList = CreateSectionList(this.courseList);
 //        this.sort2Schedule();
     }
 
     public Schedule generateSchedule() throws Throwable {
         UserRequestProcessor user = new UserRequestProcessor(username);
-        ArrayList<ArrayList<String>> courses = ConfigureSections(user.queryUserCourseList());
         try {
-            planScheduleList(new ArrayList<>(), courses);
+            planScheduleList(new ArrayList<>(), this.sectionList);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        ArrayList<ArrayList<String>> result = planScheduleList(new ArrayList<>(), courses);
+        ArrayList<ArrayList<String>> result = new ArrayList<>();
+        ArrayList<ArrayList<Section>> scheduleList = planScheduleList(new ArrayList<>(), this.sectionList);
+        for (ArrayList<Section> schedule : scheduleList) {
+            ArrayList<String> string_schedule = new ArrayList<>();
+            for (Section section : schedule) {
+                string_schedule.add(section.getSectionCode());
+            }
+            result.add(string_schedule);
+        }
         Schedule schedule = new Schedule(result.get(0));
         new ScheduleUpdater().updateScheduleMap(schedule);
         user.insertOneSchedule(schedule);
         return schedule;
-
     }
 
 
@@ -63,13 +71,20 @@ public class CoursePlanner implements UseCoursePlanning {
      * @return ArrayList of course codes
      * @throws Throwable exceptions
      */
-    private ArrayList<ArrayList<String>> planScheduleList(ArrayList<ArrayList<String>> schedule_list,
-                                                         List<ArrayList<String>> section_list) throws Throwable {
-        ArrayList<ArrayList<String>> result = new ArrayList<>();
-        for (ArrayList<String> schedule : schedule_list) {
-            ArrayList<String> new_schedule = new ArrayList<>(schedule);
-            for (String section : section_list.get(0)) {
-                for (String schedule_section : schedule) {
+    private ArrayList<ArrayList<Section>> planScheduleList(ArrayList<ArrayList<Section>> schedule_list,
+                                                         ArrayList<ArrayList<Section>> section_list) throws Throwable {
+        ArrayList<ArrayList<Section>> result = new ArrayList<>();
+        if (schedule_list.isEmpty()) {
+            for (Section section : section_list.get(0)) {
+                ArrayList<Section> sublist = new ArrayList<>();
+                sublist.add(section);
+                result.add(sublist);
+            }
+        }
+        else for (ArrayList<Section> schedule : schedule_list) {
+            ArrayList<Section> new_schedule = new ArrayList<>(schedule);
+            for (Section section : section_list.get(0)) {
+                for (Section schedule_section : schedule) {
                     if (CheckConflict(schedule_section, section)) {
                         break;
                     } else if (schedule_section.equals(schedule.get(schedule.size() - 1))) {
@@ -85,11 +100,11 @@ public class CoursePlanner implements UseCoursePlanning {
             return result;
         } else {
             try {
-                planScheduleList(result, section_list.subList(1, section_list.size() - 1));
+                planScheduleList(result, new ArrayList<>(section_list.subList(1, section_list.size())));
             } catch (Exception NO_EXISTING_SCHEDULE) {
                 throw new Exception(NO_EXISTING_SCHEDULE);
             }
-            return planScheduleList(result, section_list.subList(1, section_list.size() - 1));
+            return planScheduleList(result, new ArrayList<>(section_list.subList(1, section_list.size())));
         }
     }
 
@@ -100,29 +115,23 @@ public class CoursePlanner implements UseCoursePlanning {
      * @param section2: A section of a course
      * @return True iff the sections have overlapping times
      */
-    private boolean CheckConflict(String section1, String section2) throws Throwable {
-        if (section1.charAt(6) != section2.charAt(6)) {
-            if (section1.charAt(6) != 'Y' && section2.charAt(6) != 'Y') {
-                return true;
+    private boolean CheckConflict(Section section1, Section section2) {
+        if (section1.getSectionCode().charAt(6) != section2.getSectionCode().charAt(6)) {
+            if (section1.getSectionCode().charAt(6) != 'Y' && section2.getSectionCode().charAt(6) != 'Y') {
+                return false;
             }
         }
-        try {
-            new CourseInformationGenerator(section1);
-            new CourseInformationGenerator(section2);
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
-        CourseInformationGenerator cig1 = new CourseInformationGenerator(section1);
-        CourseInformationGenerator cig2 = new CourseInformationGenerator(section2);
-        Map<String, ArrayList<String>> times1 = cig1.getSectionSpecificSchedule();
-        Map<String, ArrayList<String>> times2 = cig2.getSectionSpecificSchedule();
-        for (String s : times1.keySet()) {
-            if (times2.containsKey(s)) {
-                if (LocalTime.parse(times1.get(s).get(0) + ":00").isBefore(LocalTime.parse(times2.get(s).get(0) + ":00")) &&
-                        LocalTime.parse(times1.get(s).get(1) + ":00").isAfter(LocalTime.parse(times2.get(s).get(1) + ":00"))) {
+        for (String s : section1.getScheduleMap().keySet()) {
+            if (section2.getScheduleMap().containsKey(s)) {
+                if (LocalTime.parse(section1.getScheduleMap().get(s).get(0) +
+                        ":00").isBefore(LocalTime.parse(section2.getScheduleMap().get(s).get(0) + ":00")) &&
+                        LocalTime.parse(section1.getScheduleMap().get(s).get(1) +
+                                ":00").isAfter(LocalTime.parse(section2.getScheduleMap().get(s).get(1) + ":00"))) {
                     return true;
-                } else if (LocalTime.parse(times1.get(s).get(0) + ":00").isAfter(LocalTime.parse(times2.get(s).get(0) + ":00")) &&
-                        LocalTime.parse(times2.get(s).get(1) + ":00").isAfter(LocalTime.parse(times1.get(s).get(0) + ":00"))) {
+                } else if (LocalTime.parse(section1.getScheduleMap().get(s).get(0) +
+                        ":00").isAfter(LocalTime.parse(section2.getScheduleMap().get(s).get(0) + ":00")) &&
+                        LocalTime.parse(section2.getScheduleMap().get(s).get(1) +
+                                ":00").isAfter(LocalTime.parse(section1.getScheduleMap().get(s).get(0) + ":00"))) {
                     return true;
                 }
             }
@@ -133,18 +142,28 @@ public class CoursePlanner implements UseCoursePlanning {
     /**
      * Creates a map of section types with their corresponding section codes of all courses in course_list
      *
-     * @param course_list A list of course codes
-     * @return A map containing keys of section types that correspond with lists of section codes
+     * @param course_list A list of course codes with sections
+     * @return An ArrayList containing lists of sections sorted by type
      */
-    private ArrayList<ArrayList<String>> ConfigureSections(ArrayList<String> course_list) throws Throwable {
-        ArrayList<ArrayList<String>> result = new ArrayList<>();
+    private ArrayList<ArrayList<Section>> CreateSectionList(ArrayList<String> course_list) throws Throwable {
+        ArrayList<ArrayList<Section>> result = new ArrayList<>();
+        ArrayList<String> course_codes = new ArrayList<>();
+        ArrayList<String> course_list_new = new ArrayList<>();
         for (String course : course_list) {
+            if (!course_codes.contains(course.substring(0, 7))) {
+                course_codes.add(course.substring(0, 7));
+                course_list_new.add(course);
+            }
+
+        }
+        for (String course : course_list_new) {
             List<String> section_list = new CourseInformationGenerator(course).getCourseSectionList();
             for (String type : Constants.SECTION_TYPES) {
-                ArrayList<String> type_list = new ArrayList<>();
-                for (String section : section_list) {
-                    section = section.replace("-", "");
-                    if (section.substring(0, 2).equals(type)) {
+                ArrayList<Section> type_list = new ArrayList<>();
+                for (String s : section_list) {
+                    s = course.substring(0, 7) + s.replace("-", "");
+                    Section section = new Section(s, new CourseInformationGenerator(s).getSectionSpecificSchedule());
+                    if (section.getSectionType().equals(type)) {
                         type_list.add(section);
                     }
                 }
@@ -152,8 +171,8 @@ public class CoursePlanner implements UseCoursePlanning {
                     result.add(type_list);
                 }
             }
-
         }
         return result;
     }
+
 }

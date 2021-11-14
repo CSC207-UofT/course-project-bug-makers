@@ -271,6 +271,7 @@ public class CourseServiceController implements ControlPresentInformation, Contr
 //    public static void main(String[] args) throws Throwable {
 //        CourseServiceController csc = new CourseServiceController();
 //        System.out.println(csc.getSectionInformation("CSC207FLEC0101"));
+//        System.out.println(csc.planCourse("CalendarTest2"));
 //    }
 
 }

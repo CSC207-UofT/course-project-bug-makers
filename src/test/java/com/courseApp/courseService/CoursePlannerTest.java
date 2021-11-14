@@ -15,7 +15,7 @@ class CoursePlannerTest {
 
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws Throwable {
         csc = new CoursePlanner("CalendarTest2");
 
         //// Test Schedule
