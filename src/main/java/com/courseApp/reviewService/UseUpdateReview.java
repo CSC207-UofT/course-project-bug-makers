@@ -12,7 +12,7 @@ public interface UseUpdateReview {
     /**
      * Inset one user review entity to targeted course and instructor.
      *
-     * Note that the recommendation rate will be updated by <></>.
+     * Note that the recommendation rate will be updated by model inference.
      *
      * @param courseCode courseCode targeted course
      * @param instName instName targeted instructor

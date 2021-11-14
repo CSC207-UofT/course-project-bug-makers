@@ -327,7 +327,7 @@ public class Constants {
     public static final String NAME_PREREQUISITE ="- Prerequisite: ";
     public static final String LONG_LINE = " ---------- ---------- ---------- ---------- ---------- ----------";
 
-    //////// Uer DAO constants
+    //////// User DAO constants
     public static final String USERNAME = "username";
     public static final String COURSE_LIST = "courseList";
     public static final String WISH_LIST = "wishList";
@@ -429,5 +429,23 @@ public class Constants {
     public static final String CREATE_ACCOUNT = "Let's create an account for you! \n Please enter your username: ";
     public static final String CREATE_PASSWORD = "Please enter your password: ";
 
+//    Azure Inference
+
+    public static final String JSON_BODY ="{\"tasks\":{\"customClassificationTasks\":[{\"parameters\":{\"project-name\":\"courseTagClassified\",\"deployment-name\":\"prod\"}}]},\"displayName\":\"CustomTextPortal_singleClassification\",\"analysisInput\":{\"documents\":[{\"id\":\"document_singleClassification\",\"text\":\"<YOUR_DOCUMENT_HERE>\",\"language\":\"en-us\"}]}}";
+    public static final String DOC_IDENTIFIER = "<YOUR_DOCUMENT_HERE>";
+
+    public static final String PREDICTION_URL = "https://westus2.api.cognitive.microsoft.com/text/analytics/v3.2-preview.2/analyze";
+
+    public static final String SUBSCRIPTION_KEY = "Ocp-Apim-Subscription-Key";
+
+    public static final String SUBSCRIPTION_VALUE = "e4ad4518cabb46ab8de9c1f93ce7cdb5";
+
+    public static final String CONTENT_TYPE = "Content-Type";
+
+    public static final String JSON_TYPE = "application/json";
+
+    public static final String OPERATION_LOCATION = "operation-location";
+
+    public static final String REGEX_CLASSIFICATION = "\"classification\":\\{\"category\":\"[0-9]+";
 
 }
