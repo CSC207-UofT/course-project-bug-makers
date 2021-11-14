@@ -20,12 +20,12 @@ class ReviewDaoImplTest {
 
     @Test
     void queryCourseReview() {
-        assertEquals(rdi.queryCourseReview("CSC1000"),null);
+        assertNull(rdi.queryCourseReview("CSC1000"));
     }
 
     @Test
     void queryExistingCourse() {
-        assertEquals(rdi.queryExistingCourse().toString(),"[CSC207]");
+        assertNotNull(rdi.queryExistingCourse());
     }
 
     @Test
