@@ -4,7 +4,9 @@ import com.courseApp.constants.Constants;
 
 import java.util.*;
 
-//TODO: entire doc
+/**
+ * Review Service Controller for providing review service branch api.
+ */
 public class ReviewServiceController implements ControlReviewUpdate, ControlReviewCreation, ControlPresentReview, ControlRecommendationRank{
 
     /**
@@ -27,11 +29,11 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
         for (String instName: new ReviewRequestProcessor().queryExistingInst(courseCode)){
             for (Map.Entry<String, String> entry: rrp.queryInstReviewSummary(courseCode, instName).entrySet()){
                 result.append(Constants.TRI_TAB).append(Constants.INST_NAME).append(instName).append(Constants.CHANGE_LINE);
-                if (entry.getKey().equals("instGeneralRate")){
+                if (entry.getKey().equals(Constants.INST_GENERAL_RATE)){
                     String instGeneralRate = entry.getValue();
                     result.append(Constants.TRI_TAB).append(Constants.INST_GENERAL_RATE).append(instGeneralRate).append(Constants.CHANGE_LINE);
                 }
-                if (entry.getKey().equals("instDifficultyRate")){
+                if (entry.getKey().equals(Constants.INST_DIFFICULTY_RATE)){
                     String instDifficultyRate = entry.getValue();
                     result.append(Constants.TRI_TAB).append(Constants.INST_DIFFICULTY_RATE).append(instDifficultyRate).append(Constants.CHANGE_LINE);
                 }
@@ -68,11 +70,11 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
         for (String username: new ReviewRequestProcessor().queryUsername(instName)){
             for (Map.Entry<String, String> entry: rrp.queryUserReview(courseCode, instName, username).entrySet()) {
                 result.append(Constants.TRI_TAB).append(Constants.USERNAME).append(username).append(Constants.CHANGE_LINE);
-                if (entry.getKey().equals("generalRate")) {
+                if (entry.getKey().equals(Constants.GENERAL_RATE)) {
                     String generalRate = entry.getValue();
                     result.append(Constants.TRI_TAB).append(Constants.GENERAL_RATE).append(generalRate).append(Constants.CHANGE_LINE);
                 }
-                if (entry.getKey().equals("difficultyRate")) {
+                if (entry.getKey().equals(Constants.DIFFICULTY_RATE)) {
                     String difficultyRate = entry.getValue();
                     result.append(Constants.TRI_TAB).append(Constants.DIFFICULTY_RATE).append(difficultyRate).append(Constants.CHANGE_LINE);
                 }
@@ -104,10 +106,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      */
     @Override
     public boolean createNewCourse(String courseCode) {
-        for (String instName: new ReviewRequestProcessor().queryExistingInst(courseCode)){
-            return new ReviewRequestProcessor().createOneCourseReview(courseCode, instName);
-        }
-        return false;
+            return new ReviewRequestProcessor().createOneCourseReview(courseCode);
     }
 
     /**
@@ -135,7 +134,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      * @return true iff the creation is successful
      */
     @Override
-    public boolean createNewUserReview(String courseCode, String instName, double generalRate, double difficultyRate, String reviewString) {
+    public boolean createNewUserReview(String courseCode, String instName, double generalRate, double difficultyRate, String reviewString) throws Exception {
         ReviewRequestProcessor rrp = new ReviewRequestProcessor();
         RecommendationRequestProcessor recommendationRR = new RecommendationRequestProcessor();
 
@@ -172,7 +171,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      * @return true iff the creation is successful
      */
     @Override
-    public boolean editUserReview(String courseCode, String instName, double generalRate, double difficultyRate, String reviewString) {
+    public boolean editUserReview(String courseCode, String instName, double generalRate, double difficultyRate, String reviewString) throws Exception {
         ReviewRequestProcessor rrp = new ReviewRequestProcessor();
         RecommendationRequestProcessor recommendationRR = new RecommendationRequestProcessor();
 
