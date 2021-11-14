@@ -1,5 +1,9 @@
 package com.courseApp.userService;
 
+/**
+ * Interface for removing items.
+ *
+ */
 public interface ControlRM {
     /**
      * Remove the given course in the user's course list.
