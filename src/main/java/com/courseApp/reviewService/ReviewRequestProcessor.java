@@ -143,7 +143,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public ArrayList<String> queryExistingInst(String courseCode) {
-        return new CourseReview(courseCode).getInstList();
+        return new ReviewDaoImpl().queryCourseReview(courseCode).getInstList();
     }
 
     /**
@@ -153,8 +153,12 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      * @return Arraylist of username's
      */
     @Override
-    public ArrayList<String> queryUsername(String instName) {
-        return null;
+    public ArrayList<String> queryUsername(String courseCode, String instName) {
+        ArrayList<String> res = new ArrayList<>();
+        for (UserReview uR: new ReviewDaoImpl().queryInstReview(courseCode, instName).getUserReviewList()){
+            res.add(uR.getUsername());
+        };
+        return res;
     }
 
     /**

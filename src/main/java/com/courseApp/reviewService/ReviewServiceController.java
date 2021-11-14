@@ -67,7 +67,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
         StringBuilder result = new StringBuilder();
         ArrayList<String> UserReviewSummary = new ArrayList<>();
 
-        for (String username: new ReviewRequestProcessor().queryUsername(instName)){
+        for (String username: new ReviewRequestProcessor().queryUsername(courseCode, instName)){
             for (Map.Entry<String, String> entry: rrp.queryUserReview(courseCode, instName, username).entrySet()) {
                 result.append(Constants.TRI_TAB).append(Constants.USERNAME).append(username).append(Constants.CHANGE_LINE);
                 if (entry.getKey().equals(Constants.GENERAL_RATE)) {
@@ -138,7 +138,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
         ReviewRequestProcessor rrp = new ReviewRequestProcessor();
         RecommendationRequestProcessor recommendationRR = new RecommendationRequestProcessor();
 
-        for (String username: new ReviewRequestProcessor().queryUsername(instName)){
+        for (String username: new ReviewRequestProcessor().queryUsername(courseCode, instName)){
             return rrp.insertOneUserReview(courseCode, username,  instName, generalRate, difficultyRate, recommendationRR.modelInference(reviewString), reviewString);
         }
     return false;
@@ -175,7 +175,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
         ReviewRequestProcessor rrp = new ReviewRequestProcessor();
         RecommendationRequestProcessor recommendationRR = new RecommendationRequestProcessor();
 
-        for (String username: new ReviewRequestProcessor().queryUsername(instName)){
+        for (String username: new ReviewRequestProcessor().queryUsername(courseCode, instName)){
             rrp.deleteOneUserReview(courseCode, instName, username);
             return rrp.insertOneUserReview(courseCode, instName, username, generalRate, difficultyRate, recommendationRR.modelInference(reviewString), reviewString);
         }

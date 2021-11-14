@@ -82,7 +82,7 @@ public interface UseQueryReview {
      *
      * @return Arraylist of username's
      */
-    ArrayList<String> queryUsername(String instName);
+    ArrayList<String> queryUsername(String courseCode, String instName);
 
 
 
