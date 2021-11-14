@@ -32,7 +32,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      * <p>
      * The summary map should be:
      * instructorName: String
-     * instDifficultyRate: String
+     * instGeneralRate: String
      * instDifficultyRate: String
      *
      * @param courseCode course code w/o section flag
@@ -85,9 +85,19 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
         return null;
     }
 
+    /**
+     * Query existing username name under specific instructor.
+     *
+     * @param instName   Instructor name
+     * @return Arraylist of username's
+     */
+    @Override
+    public ArrayList<String> queryUsername(String instName) {
+        return null;
+    }
 
     /**
-     * Inset one user review entity to targeted course and instructor.
+     * Insert one user review entity to targeted course and instructor.
      * <p>
      * Note that the recommendation rate will be updated by <></>.
      *
