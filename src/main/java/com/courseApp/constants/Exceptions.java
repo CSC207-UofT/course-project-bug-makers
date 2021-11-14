@@ -7,4 +7,5 @@ public class Exceptions {
     public static final String COMMAND_NOT_FOUND = "No such command.";
     public static final String WRONG_CALENDAR_TYPE = "The calendar type is invalid.";
     public static final String WRONG_TERM_TYPE = "The term type is invalid.";
+    public static final String INFERENCE_SERVER_ERROR = "Inference serve time out, check Azure service";
 }
