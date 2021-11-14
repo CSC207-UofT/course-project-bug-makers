@@ -67,7 +67,7 @@ class CourseServiceControllerTest {
     }
 
     @Test
-    void planCourse() {
+    void planCourse() throws Throwable {
         assertEquals(csc.planCourse("CalendarTest2"),
                 "[CSC207FTUT0101, CSC236FLEC0301, CSC207FLEC0401, ECO200YLEC5101, CSC209SLEC0102, BIO260SLEC0101]");
     }
