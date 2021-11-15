@@ -66,7 +66,6 @@ public class ReviewDaoImpl extends AbstractDatabaseDao implements ReviewDAO{
 
     /**
      * Query User Review by given course code, instructor name and username
-     * <p>
      * Note that, one user shall only write one per instructor.
      * So there should be only one review under each username per instructor.
      *

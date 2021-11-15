@@ -2,9 +2,12 @@ package com.courseApp.courseService;
 
 
 import com.courseApp.constants.Constants;
+import com.courseApp.constants.Exceptions;
 import com.courseApp.entity.Schedule;
 import com.courseApp.userService.UserRequestProcessor;
+import com.courseApp.utils.SectionTool;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,145 +26,153 @@ public class CoursePlanner implements UseCoursePlanning {
     private ArrayList<String> wishList;
     private List<String> scheduledF;
     private List<String> scheduledS;
+    private ArrayList<ArrayList<SectionTool>> sectionList;
 
-    public CoursePlanner(String username) {
+    public CoursePlanner(String username) throws Throwable {
         this.username = username;
         this.courseList = new UserRequestProcessor(username).queryUserCourseList();
         this.wishList = new UserRequestProcessor(username).queryUserWishList();
         this.scheduledF = new ArrayList<>();
         this.scheduledS = new ArrayList<>();
+        this.sectionList = CreateSectionList(this.courseList);
 //        this.sort2Schedule();
     }
 
-    /**
-     * STEP ONE: SPLITTING INTO FALL AND SPRING(WINTER)
-     *
-     */
-//    private void sort2Schedule(){
-//        List<String> looping = List.copyOf(this.courseList);
-//        for(String string: looping){
-//            if(string.length() > Constants.COURSE_CODE_FLAG){
-//                String flag = (string.substring(Constants.COURSE_CODE_FLAG -1, Constants.COURSE_CODE_FLAG ));
-//                if( flag.equals(Constants.FALL_TERM)){
-//                    this.scheduledF.add(string);
-//                }
-//                else if (flag.equals(Constants.WINTER_TERM)) {
-//                    this.scheduledS.add(string);
-//                }else {
-//                    this.scheduledF.add(string);
-//                    this.scheduledS.add(string);
-//                }
-//                this.courseList.remove(string);
-//            }
-//        }
-//    }
-
-    public Schedule generateSchedule(){
-        Schedule schedule = new Schedule(this.courseList);
+    public Schedule generateSchedule() throws Throwable {
+        UserRequestProcessor user = new UserRequestProcessor(username);
+        try {
+            planScheduleList(new ArrayList<>(), this.sectionList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ArrayList<ArrayList<String>> result = new ArrayList<>();
+        ArrayList<ArrayList<SectionTool>> scheduleList = planScheduleList(new ArrayList<>(), this.sectionList);
+        for (ArrayList<SectionTool> schedule : scheduleList) {
+            ArrayList<String> string_schedule = new ArrayList<>();
+            for (SectionTool section : schedule) {
+                string_schedule.add(section.getSectionCode());
+            }
+            result.add(string_schedule);
+        }
+        Schedule schedule = new Schedule(result.get(0));
         new ScheduleUpdater().updateScheduleMap(schedule);
+        user.insertOneSchedule(schedule);
         return schedule;
-
-        //    public ArrayList<String> PlanCourseHelper(Schedule schedule, ArrayList<String> courses, ArrayList<String> wishlist) {
-//        if (courses.size() == 1 && wishlist.isEmpty()) {
-//            String course = courses.get(0);
-//            ArrayList<String> current_sections = schedule.getSectionList();
-//            ArrayList<String> new_sections = CourseDaoImpl(course).queryCourseSectionList();
-//            for (String s : new_sections) {
-//                for (String c : current_sections) {
-//                    //if (conflicts(s, c)) {
-//                    //  break
-//                    //}
-//                    //else if (c == current_sections.get(current_sections.size()) && conflicts(s, c) == false) {
-//                    // return new ArrayList<String>(s)
-//                    //}
-//                }
-//            }
-//            throw new Exception(NO_EXISTING_SCHEUDULE); //Someone teach me whats wrong with this
-//        }
-//        else if (courses.isEmpty()) {
-//            try {
-//                PlanCourseHelper(schedule, wishlist, new ArrayList<String>());
-//            } catch(Exception NO_EXISTING_SCHEDULE) {
-//                return new ArrayList<String>();
-//            } finally {
-//                return PlanCourseHelper(schedule, wishlist, new ArrayList<String>());
-//            }
-//        }
-//        else {
-//            ArrayList<String> result = new ArrayList<String>();
-//            String course = courses.get(0);
-//            ArrayList<String> current_sections = schedule.getSectionList();
-//            ArrayList<String> new_sections = CourseDaoImpl(course).queryCourseSectionList();
-//            for (String s : new_sections) {
-//                for (String c : current_sections) {
-//                    if (conflicts(s, c)) {
-//                        break;
-//                    }
-//                    if (c == current_sections.get(current_sections.size()) && conflicts(s, c) == false) {
-//                        result.add(s);
-//                    }
-//                }
-//                if (result.isEmpty() == false) {
-//                    try {
-//                        PlanCourseHelper(schedule, new ArrayList<String>(courses.subList(1, courses.size() - 1)), wishlist);
-//                    } catch(Exception NO_EXISTING_SCHEDULE) {
-//                        result.clear();
-//                    } finally {
-//                        result.addAll(PlanCourseHelper(schedule, wishlist, new ArrayList<String>()));
-//                        return result;
-//                    }
-//                }
-//            }
-//            throw new Exception(NO_EXISTING_SCHEUDULE);
-//        }
-//    }
+    }
 
 
-//    public static void main(String[] args) throws Throwable {
-//        ArrayList<String> th_schedule = new ArrayList<>();
-//        th_schedule.add("17:00");
-//        th_schedule.add("19:00");
-//
-//
-//        ArrayList<String> tu_schedule = new ArrayList<>();
-//        tu_schedule.add("11:00");
-//        tu_schedule.add("14:00");
-//
-//
-//        ArrayList<String> th_schedule2 = new ArrayList<>();
-//        th_schedule2.add("8:00");
-//        th_schedule2.add("9:00");
-//
-//
-//        ArrayList<String> mo_schedule2 = new ArrayList<>();
-//        mo_schedule2.add("10:00");
-//        mo_schedule2.add("11:00");
-//
-//        Map<String, ArrayList<String>> day = new HashMap<>();
-//        day.put("TH", th_schedule);
-//
-//
-//        Map<String, ArrayList<String>> day2 = new HashMap<>();
-//        day2.put("TH", th_schedule2);
-//
-//        Map<String, ArrayList<String>> day3 = new HashMap<>();
-//        day3.put("TU", tu_schedule);
-//
-//        Map<String, ArrayList<String>> day4 = new HashMap<>();
-//        day4.put("MO", mo_schedule2);
-//
-//        Map<String, Map<String, ArrayList<String>>> cad = new HashMap<>();
-//        cad.put("CSC207SLEC0101", day);
-//        cad.put("CSC108SLEC0102", day2);
-//        cad.put("MAT137YLEC0102", day3);
-//        cad.put("CSC209FLEC0102", day4);
-//
-//        Schedule schedule = new Schedule(cad);
-//        System.out.println(new CourseServiceController().getScheduleSummary(schedule));
 
-//        CourseServiceController csc = new CourseServiceController();
-//        System.out.println(csc.getSectionInformation("CSC207FLEC0101"));
-//    }
+    /**
+     * Returns a list of valid (without time conflicts) schedules from existing schedules in schedule_list that
+     * contains all sections in section_list
+     *
+     * @param schedule_list List of schedule entities
+     * @param section_list  ArrayList of strings representing courses with section codes
+     * @return ArrayList of course codes
+     * @throws Throwable exceptions
+     */
+    private ArrayList<ArrayList<SectionTool>> planScheduleList(ArrayList<ArrayList<SectionTool>> schedule_list,
+                                                               ArrayList<ArrayList<SectionTool>> section_list) throws Throwable {
+        ArrayList<ArrayList<SectionTool>> result = new ArrayList<>();
+        if (schedule_list.isEmpty()) {
+            for (SectionTool section : section_list.get(0)) {
+                ArrayList<SectionTool> sublist = new ArrayList<>();
+                sublist.add(section);
+                result.add(sublist);
+            }
+        }
+        else for (ArrayList<SectionTool> schedule : schedule_list) {
+            ArrayList<SectionTool> new_schedule = new ArrayList<>(schedule);
+            for (SectionTool section : section_list.get(0)) {
+                for (SectionTool schedule_section : schedule) {
+                    if (CheckConflict(schedule_section, section)) {
+                        break;
+                    } else if (schedule_section.equals(schedule.get(schedule.size() - 1))) {
+                        new_schedule.add(section);
+                        result.add(new_schedule);
+                    }
+                }
+            }
+        }
+        if (result.isEmpty()) {
+            throw new Exception(Exceptions.NO_EXISTING_SCHEDULE);
+        } else if (section_list.size() == 1) {
+            return result;
+        } else {
+            try {
+                planScheduleList(result, new ArrayList<>(section_list.subList(1, section_list.size())));
+            } catch (Exception NO_EXISTING_SCHEDULE) {
+                throw new Exception(NO_EXISTING_SCHEDULE);
+            }
+            return planScheduleList(result, new ArrayList<>(section_list.subList(1, section_list.size())));
+        }
+    }
+
+    /**
+     * Check if two sections occur at the same time
+     *
+     * @param section1: A section of a course
+     * @param section2: A section of a course
+     * @return True iff the sections have overlapping times
+     */
+    private boolean CheckConflict(SectionTool section1, SectionTool section2) {
+        if (section1.getSectionCode().charAt(6) != section2.getSectionCode().charAt(6)) {
+            if (section1.getSectionCode().charAt(6) != 'Y' && section2.getSectionCode().charAt(6) != 'Y') {
+                return false;
+            }
+        }
+        for (String s : section1.getScheduleMap().keySet()) {
+            if (section2.getScheduleMap().containsKey(s)) {
+                if (LocalTime.parse(section1.getScheduleMap().get(s).get(0) +
+                        ":00").isBefore(LocalTime.parse(section2.getScheduleMap().get(s).get(0) + ":00")) &&
+                        LocalTime.parse(section1.getScheduleMap().get(s).get(1) +
+                                ":00").isAfter(LocalTime.parse(section2.getScheduleMap().get(s).get(1) + ":00"))) {
+                    return true;
+                } else if (LocalTime.parse(section1.getScheduleMap().get(s).get(0) +
+                        ":00").isAfter(LocalTime.parse(section2.getScheduleMap().get(s).get(0) + ":00")) &&
+                        LocalTime.parse(section2.getScheduleMap().get(s).get(1) +
+                                ":00").isAfter(LocalTime.parse(section1.getScheduleMap().get(s).get(0) + ":00"))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Creates a map of section types with their corresponding section codes of all courses in course_list
+     *
+     * @param course_list A list of course codes with sections
+     * @return An ArrayList containing lists of sections sorted by type
+     */
+    private ArrayList<ArrayList<SectionTool>> CreateSectionList(ArrayList<String> course_list) throws Throwable {
+        ArrayList<ArrayList<SectionTool>> result = new ArrayList<>();
+        ArrayList<String> course_codes = new ArrayList<>();
+        ArrayList<String> course_list_new = new ArrayList<>();
+        for (String course : course_list) {
+            if (!course_codes.contains(course.substring(0, 7))) {
+                course_codes.add(course.substring(0, 7));
+                course_list_new.add(course);
+            }
+
+        }
+        for (String course : course_list_new) {
+            List<String> section_list = new CourseInformationGenerator(course).getCourseSectionList();
+            for (String type : Constants.SECTION_TYPES) {
+                ArrayList<SectionTool> type_list = new ArrayList<>();
+                for (String s : section_list) {
+                    s = course.substring(0, 7) + s.replace("-", "");
+                    SectionTool section = new SectionTool(s, new CourseInformationGenerator(s).getSectionSpecificSchedule());
+                    if (section.getSectionType().equals(type)) {
+                        type_list.add(section);
+                    }
+                }
+                if (!type_list.isEmpty()) {
+                    result.add(type_list);
+                }
+            }
+        }
+        return result;
     }
 
 }

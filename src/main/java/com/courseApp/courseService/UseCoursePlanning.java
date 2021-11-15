@@ -7,5 +7,5 @@ import com.courseApp.entity.Schedule;
  *
  */
 public interface UseCoursePlanning {
-    Schedule generateSchedule();
+    Schedule generateSchedule() throws Throwable;
 }
