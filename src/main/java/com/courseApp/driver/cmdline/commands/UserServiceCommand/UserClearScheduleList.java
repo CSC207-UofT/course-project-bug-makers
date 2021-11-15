@@ -1,13 +1,12 @@
-package com.courseApp.driver.cmdline.commands;
+package com.courseApp.driver.cmdline.commands.UserServiceCommand;
 
 import com.courseApp.driver.cmdline.IShellState;
 import com.courseApp.userService.UserServiceController;
 
 import java.util.List;
 
-public class UserClearCourseList extends UserCommand{
-
-    public UserClearCourseList() {
+public class UserClearScheduleList extends UserCommand {
+    public UserClearScheduleList() {
         super(0, 0);
     }
 
@@ -17,12 +16,12 @@ public class UserClearCourseList extends UserCommand{
         boolean result = false;
         UserServiceController userServiceController = new UserServiceController();
         try{
-            result = userServiceController.userClearCourseList(username);
+            result = userServiceController.userClearScheduleList(username);
         }catch(Throwable e) {
             e.printStackTrace();
         }
-        if (result){return "Clear course list successfully";}
-        else {return "Failed to clear course list";}
+        if (result){return "Clear schedule list successfully";}
+        else {return "Failed to clear schedule list";}
     }
 
     @Override

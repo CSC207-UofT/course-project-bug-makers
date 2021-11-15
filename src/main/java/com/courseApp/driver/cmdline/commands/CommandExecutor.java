@@ -2,6 +2,7 @@ package com.courseApp.driver.cmdline.commands;
 
 import com.courseApp.constants.Exceptions;
 import com.courseApp.driver.cmdline.IShellState;
+import com.courseApp.driver.cmdline.commands.UserServiceCommand.UserCommand;
 import com.courseApp.utils.CmdArgTuple;
 import com.courseApp.constants.Constants;
 

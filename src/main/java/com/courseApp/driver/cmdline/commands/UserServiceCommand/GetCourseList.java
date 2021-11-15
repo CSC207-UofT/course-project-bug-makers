@@ -1,11 +1,11 @@
-package com.courseApp.driver.cmdline.commands;
+package com.courseApp.driver.cmdline.commands.UserServiceCommand;
 
 import com.courseApp.driver.cmdline.IShellState;
 import com.courseApp.userService.UserServiceController;
 
 import java.util.List;
 
-public class GetCourseList extends UserCommand{
+public class GetCourseList extends UserCommand {
     public GetCourseList() {
         super(0, 0);
     }

@@ -1,4 +1,4 @@
-package com.courseApp.driver.cmdline.commands;
+package com.courseApp.driver.cmdline.commands.UserServiceCommand;
 
 import com.courseApp.driver.cmdline.IShellState;
 import com.courseApp.userService.UserServiceController;

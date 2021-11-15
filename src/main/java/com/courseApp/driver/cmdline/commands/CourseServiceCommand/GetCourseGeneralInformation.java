@@ -1,11 +1,11 @@
-package com.courseApp.driver.cmdline.commands;
+package com.courseApp.driver.cmdline.commands.CourseServiceCommand;
 
 import com.courseApp.courseService.CourseServiceController;
 import com.courseApp.driver.cmdline.IShellState;
 
 import java.util.List;
 
-public class GetCourseGeneralInformation extends CourseCommand{
+public class GetCourseGeneralInformation extends CourseCommand {
 
     public GetCourseGeneralInformation() {
         super(1, 1);

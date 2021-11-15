@@ -1,16 +1,15 @@
-package com.courseApp.driver.cmdline.commands;
+package com.courseApp.driver.cmdline.commands.CalendarServiceCommand;
 
-
-import com.courseApp.courseService.CourseServiceController;
+import com.courseApp.calendarService.CalendarPresenter;
 import com.courseApp.driver.cmdline.IShellState;
 import com.courseApp.userService.UserServiceController;
 
 import java.util.List;
 
-public class PlanCourse extends CourseCommand{
+public class PresentCalendar extends CalendarCommand {
 
-    public PlanCourse() {
-        super(0, 0);
+    public PresentCalendar() {
+        super(2, 2);
     }
 
     @Override
@@ -18,12 +17,12 @@ public class PlanCourse extends CourseCommand{
         checkArgumentsNum(arguments);
         StringBuilder result = new StringBuilder();
         StringBuilder allErrorMsg = new StringBuilder();
+        CalendarPresenter presenter = new CalendarPresenter();
         UserServiceController usc = new UserServiceController();
-        CourseServiceController csc = new CourseServiceController();
-        // append all information about the course to result
+            // append all information about the course to result
         try {
-            String res = csc.planCourse(shellState.getUsername());
-            if(res != null){result.append(res);}else {result.append("Fail to schedule.");}
+            result.append(presenter.presentCalendar(arguments.get(0), arguments.get(1),
+                    usc.getLatestSchedule(shellState.getUsername()).getScheduleMap()));
         } catch (Throwable e) {
             e.printStackTrace();
         }

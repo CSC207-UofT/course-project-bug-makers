@@ -1,4 +1,4 @@
-package com.courseApp.driver.cmdline.commands;
+package com.courseApp.driver.cmdline.commands.CourseServiceCommand;
 
 import com.courseApp.courseService.CourseServiceController;
 import com.courseApp.driver.cmdline.IShellState;
@@ -6,7 +6,7 @@ import com.courseApp.userService.UserServiceController;
 
 import java.util.List;
 
-public class GetScheduleSummary extends CourseCommand{
+public class GetScheduleSummary extends CourseCommand {
 
     public GetScheduleSummary(int maxArguments, int minArguments) {
         super(0, 0);

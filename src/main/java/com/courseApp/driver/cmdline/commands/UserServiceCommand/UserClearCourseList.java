@@ -1,13 +1,14 @@
-package com.courseApp.driver.cmdline.commands;
+package com.courseApp.driver.cmdline.commands.UserServiceCommand;
 
 import com.courseApp.driver.cmdline.IShellState;
 import com.courseApp.userService.UserServiceController;
 
 import java.util.List;
 
-public class AddCourse extends UserCommand{
-    public AddCourse() {
-        super(100, 1);
+public class UserClearCourseList extends UserCommand {
+
+    public UserClearCourseList() {
+        super(0, 0);
     }
 
     @Override
@@ -15,15 +16,13 @@ public class AddCourse extends UserCommand{
         checkArgumentsNum(arguments);
         boolean result = false;
         UserServiceController userServiceController = new UserServiceController();
-        for (String courseCode : arguments) {
-            try {
-                result = userServiceController.addCourse(username, courseCode);
-            } catch (Throwable e) {
-                e.printStackTrace();
-            }
+        try{
+            result = userServiceController.userClearCourseList(username);
+        }catch(Throwable e) {
+            e.printStackTrace();
         }
-        if (result){return "Added course successfully";}
-        else {return "Failed to add course";}
+        if (result){return "Clear course list successfully";}
+        else {return "Failed to clear course list";}
     }
 
     @Override

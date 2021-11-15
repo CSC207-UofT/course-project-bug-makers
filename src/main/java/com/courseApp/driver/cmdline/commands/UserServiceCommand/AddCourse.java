@@ -1,12 +1,12 @@
-package com.courseApp.driver.cmdline.commands;
+package com.courseApp.driver.cmdline.commands.UserServiceCommand;
 
 import com.courseApp.driver.cmdline.IShellState;
 import com.courseApp.userService.UserServiceController;
 
 import java.util.List;
 
-public class AddWish extends UserCommand{
-    public AddWish() {
+public class AddCourse extends UserCommand {
+    public AddCourse() {
         super(100, 1);
     }
 
@@ -17,13 +17,13 @@ public class AddWish extends UserCommand{
         UserServiceController userServiceController = new UserServiceController();
         for (String courseCode : arguments) {
             try {
-                result = userServiceController.addWish(username, courseCode);
+                result = userServiceController.addCourse(username, courseCode);
             } catch (Throwable e) {
                 e.printStackTrace();
             }
         }
-        if (result){return "Added course to wish list successfully";}
-        else {return "Failed to add course to wish list";}
+        if (result){return "Added course successfully";}
+        else {return "Failed to add course";}
     }
 
     @Override

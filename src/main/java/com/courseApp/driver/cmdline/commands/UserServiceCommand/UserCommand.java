@@ -1,10 +1,11 @@
-package com.courseApp.driver.cmdline.commands;
+package com.courseApp.driver.cmdline.commands.UserServiceCommand;
 
 import com.courseApp.driver.cmdline.IShellState;
+import com.courseApp.driver.cmdline.commands.Command;
 
 import java.util.List;
 
-public abstract class UserCommand extends Command{
+public abstract class UserCommand extends Command {
 
     public UserCommand(int maxArguments, int minArguments) {
         super(maxArguments, minArguments);
