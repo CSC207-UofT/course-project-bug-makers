@@ -1,6 +1,6 @@
 - Design Pattern
   - We incorporated various design patterns in our project, including Factory Method, Decorator and Adapter etc. We will be focusing on several highlights in this design document.
-  - **Factory Method Design Pattern**
+  - **Factory Method Design Pattern**: Click [here](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42) for associated PR and [here](https://github.com/CSC207-UofT/course-project-bug-makers/issues/41) for associated issue.
     - Background
       - In our calendar service, we are providing user with various customization choices, such as Workday Calendar, Week Calendar, and Single-day Calendar etc. Thus, we are looking for design pattern with extensibility and rapid deployment. 
     - Implementation
@@ -10,7 +10,7 @@
     - Advantage
       - By applying Factory Method design pattern, we will organize "calendar" visualization and differentiations.
       - Factory Method design pattern provides an architecture that is open to extension, which means we can design more calendar types for our users without substantial codebase changes.
-  - **Decorator Design Pattern**
+  - **Decorator Design Pattern**: Click [here](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42) for associated PR and [here](https://github.com/CSC207-UofT/course-project-bug-makers/issues/41) for associated issue.
     - Background
       - Similar to the previous one, we would like to provide more customizations to our calendar, where we allow the user to choose the calendar term. For example, the calendar will present the fall/winter term only or the whole year (combination of fall/winter term).
       - We would like to reduce the duplicate code and simply the codebase maintenance.
@@ -21,7 +21,7 @@
     - Advantage
       - It enables multiple presentations of our calendar. 
       - By applying Decorator design pattern, we reduced our duplicated code.
-  - **Adaptor Design Pattern**
+  - **Adaptor Design Pattern** Click [here](https://github.com/CSC207-UofT/course-project-bug-makers/pull/37) for the refactor PR.
     - Background
       - In our course service branch, we need to query data from the UofT database through UofT's API. However, the course information provided by UofT API is too complicated and lack interpretability. In addition, it comes in an HTTP body and JSON format, which could not be converted into Java object directly. 
       - Therefore, we need an Adaptor to connect with the UofT API to convert the data into desired data type by extracting desired information from the JSON file.
