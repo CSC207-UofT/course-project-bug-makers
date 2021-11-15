@@ -1,8 +1,8 @@
 # Progress Report
 
-![](progress_report.assets/myCourseApp.jpg)
+![](progress_report.assets/p1demo.jpeg)
 
-![](progress_report.assets/CourseAppMindMap.png)
+![](progress_report.assets/myCourseAppIntrop1.png)
 
 ## Goals for `Phase1`
 - [x] TODO
