@@ -169,10 +169,4 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
         return new UserRequestProcessor(username).queryUserScheduleList().get(Constants.DEFAULT_SCHEDULE);
     }
 
-//    public static void main(String[] args) {
-//        System.out.println(new UserServiceController().userRegister("bugMaker", "bugMaker"));
-//        System.out.println(new UserServiceController().getCourseList("bugMaker"));
-//        System.out.println(new UserServiceController().addCourse("bugMaker", "CSC207FLEC0101"));
-//        System.out.println(new UserServiceController().getCourseList("bugMaker"));
-//    }
 }

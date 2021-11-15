@@ -1,14 +1,13 @@
 package com.courseApp.reviewService;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
-import static java.lang.String.valueOf;
 import static org.junit.jupiter.api.Assertions.*;
 
+@SuppressWarnings("ALL")
 class ReviewServiceControllerTest {
     ReviewServiceController rsc;
     Random random = new Random();
@@ -25,11 +24,6 @@ class ReviewServiceControllerTest {
                 "          instGeneralRate          4.0\n" +
                 "          instDifficultyRate          5.0\n" +
                 " ---------- ---------- ---------- ---------- ---------- ----------\n]");
-    }
-
-    @Test
-    void getUserReviewSummary() {
-        // Not testable
     }
 
     @Test
@@ -52,22 +46,8 @@ class ReviewServiceControllerTest {
     }
 
     @Test
-    void createNewUserReviewAndDelete() {
-        // Not testable
-    }
-
-    @Test
-    void editUserReview() {
-        // Not testable
-    }
-
-    @Test
     void getInstRank() {
         assertEquals(rsc.getInstRank("RTC").toString(), "[{prof1=5.0, prof3=3.0, prof2=3.0, prof4=1.0}]");
-    }
-
-    @AfterEach
-    void tearDown() {
     }
 
 }

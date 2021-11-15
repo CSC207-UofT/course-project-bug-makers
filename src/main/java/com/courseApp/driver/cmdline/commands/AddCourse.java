@@ -27,7 +27,7 @@ public class AddCourse extends UserCommand{
     }
 
     @Override
-    public String executeCommand(IShellState shellState, List<String> arguments) throws Throwable {
+    public String executeCommand(IShellState shellState, List<String> arguments) {
         return null;
     }
 }

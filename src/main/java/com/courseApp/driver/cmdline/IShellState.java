@@ -1,7 +1,4 @@
 package com.courseApp.driver.cmdline;
-import com.courseApp.userService.UserServiceController;
-import com.courseApp.calendarService.*;
-import com.courseApp.courseService.CourseServiceController;
 
 import java.util.List;
 

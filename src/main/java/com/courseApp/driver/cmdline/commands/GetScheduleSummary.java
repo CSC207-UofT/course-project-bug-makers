@@ -2,7 +2,6 @@ package com.courseApp.driver.cmdline.commands;
 
 import com.courseApp.courseService.CourseServiceController;
 import com.courseApp.driver.cmdline.IShellState;
-import com.courseApp.entity.Schedule;
 import com.courseApp.userService.UserServiceController;
 
 import java.util.List;

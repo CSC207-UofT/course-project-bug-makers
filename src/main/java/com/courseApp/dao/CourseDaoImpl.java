@@ -138,7 +138,7 @@ public class CourseDaoImpl implements CourseDAO {
 
     /** Query method, returns the schedule for each section.
      *
-     * Structure should be like: Map(section -> Map(weekday -> ArrayList(timing)))
+     * Structure should be like: Map(section - Map(weekday - ArrayList(timing)))
      *
      *
      * @return schedule for each section.
@@ -216,17 +216,6 @@ public class CourseDaoImpl implements CourseDAO {
         return description.replace(Constants.DESCRIPTION_FORMATTER_1,
                 "").replace(Constants.DESCRIPTION_FORMATTER_2, "");
     }
-
-
-
-//    public static void main(String[] args) throws Throwable {
-//        System.out.println(1);
-//        CourseDaoImpl cdi = new CourseDaoImpl("CSC207F");
-//        Map<String, String> res = cdi.querySectionInstructorMap();
-//        System.out.println(res);
-//    }
-
-
 
 
 }

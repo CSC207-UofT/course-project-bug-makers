@@ -24,6 +24,8 @@ public interface ControlReviewUpdate {
      * @param generalRate given general rate
      * @param difficultyRate given difficulty rate
      * @param reviewString given review string
+     *
+     * @throws Exception exception
      * @return ture iff the creation is successful
      */
     boolean editUserReview(String  courseCode,

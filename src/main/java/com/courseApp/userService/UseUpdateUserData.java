@@ -6,6 +6,7 @@ import com.courseApp.entity.UserReview;
 /**
  * Interface for realizing user data update.
  */
+@SuppressWarnings("ALL")
 public interface UseUpdateUserData {
 
     /**

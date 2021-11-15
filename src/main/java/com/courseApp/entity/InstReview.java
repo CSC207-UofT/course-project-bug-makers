@@ -98,6 +98,7 @@ public class InstReview {
     /**
      * Get specific user review by a username.
      *
+     * @param username username
      * @return UserReview entity
      */
     public UserReview getSpecificUserReview(String username){

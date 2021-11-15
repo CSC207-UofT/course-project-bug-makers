@@ -253,7 +253,4 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
 
     }
 
-//    public static void main(String[] args) {
-//        new UserRequestProcessor().clearCourseList("TestRegister2");
-//    }
 }

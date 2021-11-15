@@ -25,6 +25,7 @@ public class CourseReview {
      * @param courseDifficultyRate course difficulty rate
      * @param courseGeneralRate course general rate
      * @param instReviewMap instructor map
+     * @param instList list of instructor
      */
     @BsonCreator
     public CourseReview(@BsonProperty(Constants.COURSE_CODE_DB) String courseCode,
