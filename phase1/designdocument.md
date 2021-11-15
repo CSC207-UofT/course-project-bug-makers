@@ -14,7 +14,8 @@
 7. [Code Refactoring](#Code-Refactoring)
 8. [Use of GitHub Features](#Use-of-GitHub-Features)
 9. [Code Testing](#Code-Testing)
-10. [Open Questions and Phase 2 Goals](#Open-Questions-and-Phase-2-Goals)
+10. [Progress Summary](#Progress-Summary)
+11. [Open Questions and Phase 2 Goals](#Open-Questions-and-Phase-2-Goals)
 
 
 ### Specification Summary
@@ -189,7 +190,7 @@ abstractions instead of being dependent on one another from high-level to low-le
     
 ***
 ### Packaging Strategies and Documentations
-- For our code organization, we applied a service-oriented packaging strategy. As we have four service branches (course, calendar, review and user), we organized them into four packages. As `DAO` and `Entiteis` are often shared across the scope, we decided to organize them in their own packages. As for drivers, we split out a new package for the sake of layer segregation and clarity. Besides, we stored our utilities, including password encryption tool, in the util package. We benefit from this organization as it demonstrates clear service differentiation and improves our file structure.
+- For our code organization, we applied a service-oriented packaging strategy. As we have four service branches (course, calendar, review and user), we organized them into four packages by features. As `DAO` and `Entiteis` are often shared across the scope, we decided to organize them in their own packages. As for drivers, we split out a new package for the sake of layer segregation and clarity. Besides, we stored our utilities, including password encryption tool, in the util package. We benefit from this organization as it demonstrates clear service differentiation and improves our file structure.
 - As of our code documentation, we have a J-DOC website for sharing documentation, click [here](https://kuan-pang.github.io/course-project-bug-makers/) to navigate. Our design goals and specifications are listed in our `teamDocumentation` directory. Our code documentation improves our teamwork and keeps a organized record of our achievement.
 
 
@@ -235,6 +236,20 @@ abstractions instead of being dependent on one another from high-level to low-le
 - Difficulties while testing:
   - Some operations are irreversible
   - Some private fields and methods are not reachable.
+
+*** 
+### Progress Summary
+
+- We have `31k` lines implemented/optimized in our `Phase 1` project in total.
+  - [Kuan Pang] Review Service, Web app, Documentation, Code Refactor
+  - [Michael Fang] Review Service, Documentation, Code Refactor
+  - [Li Quan Soh] CMD Shell, Documentation, Code Refactor
+  - [Kevin Cheng] Scheduling algorithm, Documentation, Code Refactor
+  - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
+  - [Sherry You] Review Service, Documentation, Code Refactor
+
+
+
 
 ***
 ### Open Questions and Phase 2 Goals
