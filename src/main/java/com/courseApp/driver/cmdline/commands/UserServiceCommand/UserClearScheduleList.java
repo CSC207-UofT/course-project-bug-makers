@@ -1,0 +1,31 @@
+package com.courseApp.driver.cmdline.commands.UserServiceCommand;
+
+import com.courseApp.driver.cmdline.IShellState;
+import com.courseApp.userService.UserServiceController;
+
+import java.util.List;
+
+public class UserClearScheduleList extends UserCommand {
+    public UserClearScheduleList() {
+        super(0, 0);
+    }
+
+    @Override
+    public String executeCommand(IShellState shellState, List<String> arguments, String username) throws Throwable {
+        checkArgumentsNum(arguments);
+        boolean result = false;
+        UserServiceController userServiceController = new UserServiceController();
+        try{
+            result = userServiceController.userClearScheduleList(username);
+        }catch(Throwable e) {
+            e.printStackTrace();
+        }
+        if (result){return "Clear schedule list successfully";}
+        else {return "Failed to clear schedule list";}
+    }
+
+    @Override
+    public String executeCommand(IShellState shellState, List<String> arguments) {
+        return null;
+    }
+}

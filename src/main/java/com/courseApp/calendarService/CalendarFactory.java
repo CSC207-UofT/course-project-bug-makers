@@ -55,7 +55,7 @@ abstract class CalendarFactory implements UsePresentable{
      * @param courseCode course code w/ section flag, 7-char long.
      */
     protected void markCell(List<String> list, int weekDay, int startingT, String courseCode){
-        int rowStarting = Constants.START_HEIGHT +
+            int rowStarting = Constants.START_HEIGHT +
                 ((startingT - Constants.START_TIME)*Constants.HOUR_HEIGHT);
         list.set(rowStarting, list.get(rowStarting).substring(0, weekDay + 3)+
                 courseCode.substring(0, Constants.COURSE_CODE_LENGTH) +

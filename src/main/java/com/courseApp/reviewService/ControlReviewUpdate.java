@@ -21,6 +21,7 @@ public interface ControlReviewUpdate {
      *
      * @param courseCode targeted course code
      * @param instName instructor name to be created
+     * @param username username
      * @param generalRate given general rate
      * @param difficultyRate given difficulty rate
      * @param reviewString given review string
@@ -30,6 +31,7 @@ public interface ControlReviewUpdate {
      */
     boolean editUserReview(String  courseCode,
                            String instName,
+                           String username,
                            double generalRate,
                            double difficultyRate,
                            String reviewString) throws Exception;

@@ -1,6 +1,11 @@
 package com.courseApp.constants;
 
 import com.courseApp.driver.cmdline.commands.*;
+import com.courseApp.driver.cmdline.commands.CalendarServiceCommand.*;
+import com.courseApp.driver.cmdline.commands.CourseServiceCommand.*;
+import com.courseApp.driver.cmdline.commands.ReviewServiceCommand.*;
+import com.courseApp.driver.cmdline.commands.UserServiceCommand.*;
+import com.courseApp.driver.cmdline.commands.UserServiceCommand.QuitSession;
 import com.mongodb.MongoClientSettings;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
@@ -346,13 +351,14 @@ public class Constants {
     public static final Hashtable<String, UserCommand> USER_COMMAND_DIC = new Hashtable<>();
     public static final Hashtable<String, CourseCommand> COURSE_COMMAND_DIC = new Hashtable<>();
     public static final Hashtable<String, CalendarCommand> CALENDAR_COMMAND_DIC = new Hashtable<>();
+    public static final Hashtable<String, ReviewCommand> REVIEW_COMMAND_DIC = new Hashtable<>();
 
     static{
         // user commands
         ACCOUNT_COMMAND_DIC.put("userLogin", new UserLogin());
         ACCOUNT_COMMAND_DIC.put("userRegister", new UserRegister());
-        ACCOUNT_COMMAND_DIC.put("quitSession", new QuitSession());
 
+        USER_COMMAND_DIC.put("quitSession", new QuitSession());
         USER_COMMAND_DIC.put("userClearCourseList", new UserClearCourseList());
         USER_COMMAND_DIC.put("clearWishList", new UserClearWishList());
         USER_COMMAND_DIC.put("clearScheduleList", new UserClearScheduleList());
@@ -370,6 +376,16 @@ public class Constants {
         COURSE_COMMAND_DIC.put("planCourse", new PlanCourse());
 
         CALENDAR_COMMAND_DIC.put("presentCalendar", new PresentCalendar());
+
+        REVIEW_COMMAND_DIC.put("createNewCourse", new CreateNewCourse());
+        REVIEW_COMMAND_DIC.put("createNewInst", new CreateNewInst());
+        REVIEW_COMMAND_DIC.put("createNewUserReview", new CreateNewUserReview());
+        REVIEW_COMMAND_DIC.put("deleteUserReview", new DeleteUserReview());
+        REVIEW_COMMAND_DIC.put("editUserReview", new EditUserReview());
+        REVIEW_COMMAND_DIC.put("getExistingCourseList", new GetExistingCourseList());
+        REVIEW_COMMAND_DIC.put("getInstRank", new GetInstRank());
+        REVIEW_COMMAND_DIC.put("getInstReviewSummary", new GetInstReviewSummary());
+        REVIEW_COMMAND_DIC.put("getUserReviewSummary", new GetUserReviewSummary());
 
     }
 
@@ -421,6 +437,7 @@ public class Constants {
     public static final String HELPER_USER = "User commands: ";
     public static final String HELPER_COURSE = "Course commands: ";
     public static final String HELPER_CALENDAR = "Calendar commands: ";
+    public static final String HELPER_REVIEW = "Review commands: ";
     public static final String YES = "Y";
     public static final String NO = "N";
     public static final String ENTER_USERNAME = "Please enter your username: ";

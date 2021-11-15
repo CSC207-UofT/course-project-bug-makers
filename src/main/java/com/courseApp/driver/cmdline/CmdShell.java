@@ -23,9 +23,11 @@ public class CmdShell {
             System.out.println(Constants.CMD_ENTER);
             String commandLine = in.nextLine();
             if (commandLine.equals(Constants.HELPER)){
+
                 System.out.println(Constants.HELPER_USER + Constants.USER_COMMAND_DIC.keySet());
                 System.out.println(Constants.HELPER_COURSE + Constants.COURSE_COMMAND_DIC.keySet());
                 System.out.println(Constants.HELPER_CALENDAR + Constants.CALENDAR_COMMAND_DIC.keySet());
+                System.out.println(Constants.HELPER_REVIEW + Constants.REVIEW_COMMAND_DIC.keySet());
             } else {
                 try {
                     String output = commandExecutor.executeCommand(shellState, commandLine, username);

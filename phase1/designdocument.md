@@ -13,6 +13,7 @@
 6. [Packaging Strategies and Documentations](#Packaging-Strategies-and-Documentations)
 7. [Use of GitHub Features](#Use-of-GitHub-Features)
 8. [Code Testing](#Code-Testing)
+9. [Open Questions and Phase 2 Goals](#Open-Questions-and-Phase-2-Goals)
 
 
 ### Specification Summary
@@ -30,6 +31,7 @@ We'll be referring to the following system design diagram in our discussion.
 - CMD shell/ Web GUI: parallel systems providing multiple ways for user to interact with our system.
   - CMD shell's demo (stable release, [here](/teamDocumentation/cmdDocumentation.md) for commands):
     - ![](designdocument.assets/readmedemo.gif)
+    - ![](designdocument.assets/reviewdemo.gif)
   - Web interface demo (preview in our `dev/springboot`):
     - ![](designdocument.assets/webdemo.gif)
 
@@ -218,6 +220,14 @@ abstractions instead of being dependent on one another from high-level to low-le
   - Some operations are irreversible
   - Some private fields and methods are not reachable.
 
+***
+### Open Questions and Phase 2 Goals
+- Open questions
+  - It takes time for our inference server to run the model, the waiting time affects our user experience.
+- Goals
+  - Improve web GUI.
+  - Apply proxy design pattern to our DAOs to realize data persistence.
+  - Implement async model inference.
 
 
 
