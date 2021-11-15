@@ -12,5 +12,24 @@
       - Factory Method design pattern provides an architecture that is open to extension, which means we can design more calendar types for our users without substantial codebase changes.
   - **Decorator Design Pattern**
     - Background
-      - Similar to the previous one, we would like to provide more customizations to our calendar, where we allow the user to choose the calendar term. For example, the calendar will cover the fall/winter term or the whole year.
-      - 
+      - Similar to the previous one, we would like to provide more customizations to our calendar, where we allow the user to choose the calendar term. For example, the calendar will present the fall/winter term only or the whole year (combination of fall/winter term).
+      - We would like to reduce the duplicate code and simply the codebase maintenance.
+    - Structure
+      - As shown in the following diagram, we established a Decorator Design Pattern, the fall calendar and winter calendar are pushed to the calendar decorator for processing, either combining them to produce a year calendar or keeping them original.
+      - The calendar decorator is encoded in `typeDecorator()` method in `CalendarPresenter` class.
+      - ![](designdocument.assets/decoratordiagram.png)
+    - Advantage
+      - It enables multiple presentations of our calendar. 
+      - By applying Decorator design pattern, we reduced our duplicated code.
+  - **Adaptor Design Pattern**
+    - Background
+      - In our course service branch, we need to query data from the UofT database through UofT's API. However, the course information provided by UofT API is too complicated and lack interpretability. In addition, it comes in an HTTP body and JSON format, which could not be converted into Java object directly. 
+      - Therefore, we need an Adaptor to connect with the UofT API to convert the data into desired data type by extracting desired information from the JSON file.
+    - Structure
+      - As shown in the following diagram, our `CourseDAO` queries data through UofT API, then it extracts and processes data to push to our Course Service branch.  
+      - ![](designdocument.assets/Adapter.png)
+
+    - Advantage
+      - This design pattern helps to ensure the "Single Responsibility Principle", where the UofT API connection is segregated from our main business.
+      - We are able to refactor this adaptor to rapidly deploy our app in another university, it is open to extension.
+      - It also simplifies the data flow within our app, as it only extracts useful information and  reformats the data structure to fit our needs. 
