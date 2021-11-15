@@ -2,6 +2,7 @@ package com.courseApp.driver.cmdline.commands;
 
 import com.courseApp.constants.Exceptions;
 import com.courseApp.driver.cmdline.IShellState;
+import com.courseApp.driver.cmdline.commands.UserServiceCommand.UserCommand;
 import com.courseApp.utils.CmdArgTuple;
 import com.courseApp.constants.Constants;
 
@@ -14,6 +15,7 @@ public class CommandExecutor {
      *
      * @param shellState  is the state of the program
      * @param commandLine is the given command line
+     * @param username username
      * @return string that is given back as command is executed
      * @throws Exception if any of the provided arguments is invalid
      */
@@ -38,6 +40,9 @@ public class CommandExecutor {
 
         } else if (Constants.COURSE_COMMAND_DIC.containsKey(command)) {
             apprCmdObject = Constants.COURSE_COMMAND_DIC.get(command);
+            result = apprCmdObject.executeCommand(shellState, arguments);
+        } else if (Constants.REVIEW_COMMAND_DIC.containsKey(command)) {
+            apprCmdObject = Constants.REVIEW_COMMAND_DIC.get(command);
             result = apprCmdObject.executeCommand(shellState, arguments);
         } else {
             apprCmdObject = Constants.CALENDAR_COMMAND_DIC.get(command);

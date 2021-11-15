@@ -1,18 +1,17 @@
 package com.courseApp.reviewService;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
-import static java.lang.String.valueOf;
 import static org.junit.jupiter.api.Assertions.*;
 
+@SuppressWarnings("ALL")
 class ReviewServiceControllerTest {
     ReviewServiceController rsc;
     Random random = new Random();
-    String instructorName = "TestProf"+ valueOf(random.nextInt(10000));
+    String instructorName = "TestProf"+ random.nextInt(10000);
 
     @BeforeEach
     void setUp() {
@@ -28,46 +27,27 @@ class ReviewServiceControllerTest {
     }
 
     @Test
-    void getUserReviewSummary() {
-        // Not testable
-    }
-
-    @Test
     void getExistingCourseList() {
         assertNotNull(rsc.getExistingCourseList());
     }
 
     @Test
     void createNewCourse() {
-        String courseCode = "TEST"+ valueOf(random.nextInt(10000)+10000);
+        String courseCode = "TEST"+ (random.nextInt(10000) + 10000);
         assertTrue(rsc.createNewCourse(courseCode));
     }
 
     @Test
     void createNewInst() {
-        String instCourseCode = "TESTprof"+ valueOf(random.nextInt(10000));
+        String instCourseCode = "TESTprof"+ random.nextInt(10000);
         rsc.createNewCourse(instCourseCode);
         assertTrue(rsc.createNewInst(instCourseCode, instructorName));
 
     }
 
     @Test
-    void createNewUserReviewAndDelete() throws Exception {
-    // Not testable
-    }
-
-    @Test
-    void editUserReview() {
-        // Not testable
-    }
-
-    @Test
     void getInstRank() {
         assertEquals(rsc.getInstRank("RTC").toString(), "[{prof1=5.0, prof3=3.0, prof2=3.0, prof4=1.0}]");
-    }
-
-    @AfterEach
-    void tearDown() {
     }
 
 }

@@ -151,15 +151,12 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      * @return true iff the creation is successful
      */
     @Override
-    public boolean editUserReview(String courseCode, String instName, double generalRate, double difficultyRate, String reviewString) throws Exception {
+    public boolean editUserReview(String courseCode, String instName, String username, double generalRate, double difficultyRate, String reviewString) throws Exception {
         ReviewRequestProcessor rrp = new ReviewRequestProcessor();
         RecommendationRequestProcessor recommendationRR = new RecommendationRequestProcessor();
 
-        for (String username: new ReviewRequestProcessor().queryUsername(courseCode, instName)){
-            rrp.deleteOneUserReview(courseCode, instName, username);
-            return rrp.insertOneUserReview(courseCode, instName, username, generalRate, difficultyRate, recommendationRR.modelInference(reviewString), reviewString);
-        }
-    return false;
+        rrp.deleteOneUserReview(courseCode, instName, username);
+        return rrp.insertOneUserReview(courseCode, instName, username, generalRate, difficultyRate, recommendationRR.modelInference(reviewString), reviewString);
     }
 
     /**

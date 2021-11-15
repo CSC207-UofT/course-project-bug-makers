@@ -32,6 +32,7 @@ public interface ControlReviewCreation {
      * @param reviewString given review string
      * @param userName given username
      *
+     * @throws Exception exception
      * @return ture iff the creation is successful
      */
     boolean createNewUserReview(String courseCode,

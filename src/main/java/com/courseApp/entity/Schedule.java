@@ -54,7 +54,7 @@ public class Schedule {
     /**
      * Getting schedule map.
      *
-     * The map must be ControlPresentInfo format: Map(courseCodeW/Section -> Map(weekDay -> ArrayList(schedule)))
+     * The map must be ControlPresentInfo format: Map(courseCodeW/Section - Map(weekDay - ArrayList(schedule)))
      *
      * @return map of schedules
      */

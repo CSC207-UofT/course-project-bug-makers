@@ -17,6 +17,7 @@ public class CommandReader {
      * Parses the input into a tuple that holds command as String and arguments
      * as List of Strings
      * @param commandLine the input command line
+     * @throws Exception exception
      * @return CmdArgTuple the tuple that holds command and its arguments
      */
     public static CmdArgTuple parseCommandLine(String commandLine) throws Exception{
@@ -38,6 +39,7 @@ public class CommandReader {
     public static boolean isValidCommand(String command) {
         return Constants.USER_COMMAND_DIC.containsKey(command) ||
                 Constants.COURSE_COMMAND_DIC.containsKey(command) ||
+                Constants.REVIEW_COMMAND_DIC.containsKey(command) ||
                 Constants.CALENDAR_COMMAND_DIC.containsKey(command);
     }
 

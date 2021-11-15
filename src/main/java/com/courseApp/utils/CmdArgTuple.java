@@ -16,6 +16,8 @@ public class CmdArgTuple {
 
     /**
      * Return first object
+     *
+     * @return string of command
      */
     public String getCommand() {
         return this.command;
@@ -23,6 +25,8 @@ public class CmdArgTuple {
 
     /**
      * Return second object
+     *
+     * @return  list of args
      */
     public List<String> getArguments() {
         return this.arguments;

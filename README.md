@@ -8,13 +8,13 @@
 
 ## What is myCourseApp?
 
-![](phase1/progress_report.assets/myCourseApp.png)
+![](README.assets/myCourseApp.png)
 For our CSC207 project, we are planning to build a course planning app that allows students to plan and review their courses. A build-in connection to UofT API will present comprehensive course information to users, while user information is safely stored in a remote database. Course planning functionality is provided through our auto-scheduling algorithm. Timetable visualization functionality gives user a convenient course scheduling experience. Students can rate and write reviews on courses they have taken before. Based on these reviews and the user's information, our machine learning model strives to recommend instructor tailored to the user’s request and program requirements. In addition, our app aims to provide a platform for students to connect and network with their fellow peers.
 
 
 
 ## Progress Summary & Design Highlights
-![Course_app](phase1/progress_report.assets/myCourseAppIntrop1.png)
+![Course_app](README.assets/myCourseAppIntrop1.png)
 
 ## System Requirements
 
@@ -30,7 +30,7 @@ For our CSC207 project, we are planning to build a course planning app that allo
 ## Sample Usage for our CMD shell
 
 We have a test account for you!
-1. Run `Main.java` (in `main` branch ). Try to log in our test account!
+1. Run `Main.java` (in `main` branch ). Or, run `course-project-bug-makers.jar`. Try to log in our test account!
    - Username: `ReadMeDemo`;
    - Password: `1234567890`.
 2. Explore `CSC207F`'s summary!
@@ -45,10 +45,21 @@ $ getCourseList
 ```
 $ presentCalendar F Workday
 ```
-5. Click [here](teamDocumentation/cmdDocumentation.md) for more interesting commands (make sure you have `JDK 1.8`)!
+5. Try our course review system!
+
+```
+$ getInstReviewSummary CSC207
+```
+```
+$ getInstRank RTC
+```
+
+6. Click [here](teamDocumentation/cmdDocumentation.md) for more interesting commands (make sure you have `JDK 1.8`)!
 
 Here's our little GIF instruction:
 ![](README.assets/readmedemo.gif)
+![](README.assets/reviewdemo.gif)
+
 
 ## Sample Usage for our web interface (Preview)
 

@@ -12,6 +12,7 @@ import com.courseApp.utils.TimeConversion;
 /**
  * Subclass of CalendarFactory that generates a 5-day calendar from Monday to Friday.
  */
+@SuppressWarnings("DuplicatedCode")
 public class WorkdayCalendar extends CalendarFactory implements UsePresentable {
 
     public WorkdayCalendar(Map<String, Map<String, ArrayList<String>>> formattedSchedule) {
@@ -75,54 +76,10 @@ public class WorkdayCalendar extends CalendarFactory implements UsePresentable {
         //loop over all the keys(course codes) ControlPresentInfo this schedule
         for(String courseCode : this.formattedSchedule.keySet()){
             Map<String, ArrayList<String>> sections = this.formattedSchedule.get(courseCode);
-            //loop over the time slot(s) that this section occurs
-            for (String weekday : sections.keySet()){
-                setupCell(list, sections, weekday, courseCode);
-            }
+            for (String weekday : sections.keySet()){setupCell(list, sections, weekday, courseCode);}
         }
         return(AggregateList.aggregate(list));
     }
-
-
-
-//    public static void main(String[] args) {
-//        ArrayList<String> th_schedule = new ArrayList<>();
-//        th_schedule.add("17:00");
-//        th_schedule.add("19:00");
-//
-//
-//        ArrayList<String> tu_schedule = new ArrayList<>();
-//        tu_schedule.add("11:00");
-//        tu_schedule.add("14:00");
-//
-//
-//        ArrayList<String> th_schedule2 = new ArrayList<>();
-//        th_schedule2.add("8:00");
-//        th_schedule2.add("9:00");
-//
-//
-//        ArrayList<String> mo_schedule2 = new ArrayList<>();
-//        mo_schedule2.add("10:00");
-//        mo_schedule2.add("11:00");
-//
-//        Map<String, ArrayList<String>> day = new HashMap<>();
-//        day.put("TH", th_schedule);
-//        day.put("TU", tu_schedule);
-//
-//        Map<String, ArrayList<String>> day2 = new HashMap<>();
-//        day2.put("TH", th_schedule2);
-//        day2.put("MO", mo_schedule2);
-//
-//        Map<String, Map<String, ArrayList<String>>> cad = new HashMap<>();
-//        cad.put("CSC207SLEC0101", day);
-//        cad.put("CSC108SLEC0102", day2);
-//
-//        System.out.println(cad);
-//
-//        System.out.println(new WeekCalendar(cad).present());
-//
-//    }
-
 
 
 }

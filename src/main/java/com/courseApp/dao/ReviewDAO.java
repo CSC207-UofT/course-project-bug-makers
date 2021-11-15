@@ -9,6 +9,7 @@ import java.util.ArrayList;
 /**
  * Interface providing connection to database reviewSheet
  */
+@SuppressWarnings("ALL")
 public interface ReviewDAO {
 
     /**

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 /**
  * UserDAO interface for querying user data, register action and login action.
  */
+@SuppressWarnings({"UnusedReturnValue", "SameReturnValue"})
 public interface UserDAO {
 
     /**

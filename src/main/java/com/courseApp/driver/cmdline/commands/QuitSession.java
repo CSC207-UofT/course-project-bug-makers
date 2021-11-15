@@ -10,7 +10,7 @@ public class QuitSession extends Command{
     }
 
     @Override
-    public String executeCommand(IShellState shellState, List<String> arguments) throws Throwable {
+    public String executeCommand(IShellState shellState, List<String> arguments) {
         shellState.stopRunning();
         return null;
     }

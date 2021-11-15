@@ -1,15 +1,13 @@
 package com.courseApp.reviewService;
 
-import com.courseApp.userService.UserRequestProcessor;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
-import static java.lang.String.valueOf;
 import static org.junit.jupiter.api.Assertions.*;
 
+@SuppressWarnings("ALL")
 class ReviewRequestProcessorTest {
     ReviewRequestProcessor rrp = new ReviewRequestProcessor();
     Random random = new Random();
@@ -32,11 +30,6 @@ class ReviewRequestProcessorTest {
     }
 
     @Test
-    void queryUserReview() {
-        // Not testable
-        }
-
-    @Test
     void queryExistingCourse() {
         assertNotNull(rrp.queryExistingCourse());
     }
@@ -44,11 +37,6 @@ class ReviewRequestProcessorTest {
     @Test
     void queryExistingInst() {
         assertEquals(rrp.queryExistingInst("CSC211").toString(), "[profTest]");
-    }
-
-    @Test
-    void queryUsername() {
-// not testable
     }
 
     @Test

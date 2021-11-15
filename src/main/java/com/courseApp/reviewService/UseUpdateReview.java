@@ -1,7 +1,5 @@
 package com.courseApp.reviewService;
 
-import com.courseApp.entity.UserReview;
-
 /**
  * Interface for realizing review update.
  *

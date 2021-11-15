@@ -1,28 +1,10 @@
 package com.courseApp.reviewService;
 
 import com.courseApp.constants.Constants;
-import com.courseApp.dao.InferenceDAO;
 import com.courseApp.dao.InferenceDaoImpl;
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static com.courseApp.constants.Constants.*;
-import static com.courseApp.constants.Exceptions.INFERENCE_SERVER_ERROR;
 
 /**
  * Recommendation Request Processor for recommendation score update.

@@ -163,7 +163,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
 
     /**
      * Insert one user review entity to targeted course and instructor.
-     * Note that the recommendation rate will be updated by <></>.
+     * Note that the recommendation rate will be updated.
      *
      * @param courseCode         courseCode targeted course
      * @param instName           instName targeted instructor

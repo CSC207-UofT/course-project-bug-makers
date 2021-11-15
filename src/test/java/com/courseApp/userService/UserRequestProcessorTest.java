@@ -59,7 +59,7 @@ class UserRequestProcessorTest {
 
     @Test
     void queryUserReviewList() {
-        //TODO
+        assertEquals(urp.queryUserReviewList().toString(),"[]");
     }
 
     @Test
@@ -73,18 +73,8 @@ class UserRequestProcessorTest {
     }
 
     @Test
-    void insertOneReview() {
-        //TODO
-    }
-
-    @Test
     void removeOneCourse() {
         assertTrue(urp.removeOneCourse("CSC209SLEC0102"));
-    }
-
-    @Test
-    void removeOneReview() {
-        //TODO
     }
 
     @Test
