@@ -49,7 +49,6 @@ TODO:
 
 ## Phase 1 Progress and Next Steps
 - We have `k` lines implemented/optimized in our `Phase 1` project in total.
-- We achieved FULL test coverage for the ServiceControllers.**73%** of the methods in our system was tested, some private methods in the DaoImpl and varying hashcode add difficulty to testing.
 - [Kuan Pang]
 - [Michael Fang]
 - [Li Quan Soh]
