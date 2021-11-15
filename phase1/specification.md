@@ -24,7 +24,12 @@ Phase 0 and the end of Phase 1.
 TODO: 
 
 ### 2. Course Scheduling
-TODO:
+We discussed the process of viewing and storing schedules using our app in phase 0. As a quick recap, our app takes 
+schedules consisting of a course code, section code, and a time slot, and stores them in a user's current timetable. We 
+then generate a calendar view of the user's timetable. The user can also search for course-specific information, such as a general description.
+
+Now, we have implemented the auto scheduling function. In its current iteration, our app generates a valid timetable with 
+no scheduling conflicts. In the future, we hope to allow the user to cycle through various timetables.
 
 
 ## Project Architecture
