@@ -78,9 +78,9 @@ The LCP states that:
 The LCP is demonstrated through the use of many interfaces in our program. For instance, lets look at our 
 `MondayCalendar` class again. `MondayCalendar` is a subclass of `SingledayCalendar`, and from one perspective
 we could say that `MondayCalendar` "is a" `SingledayCalendar`. However, this is not completely true, because 
-a `SingledayCalendar` has more behaviours than a `MondayCalendar`. Therefore, in this case, `MondayCalendar` extends 
-`SingledayCalendar` and implements the `UsePresentable` interface so that it does not modify or remove features of 
-its superclass.
+a `MondayCalendar` has more behaviours than a `SingledayCalendar`. Therefore, in this case, `MondayCalendar` extends 
+`SingledayCalendar` and implements the `UsePresentable` interface so that if we substitute `MondayCalendar` with a 
+`SingledayCalendar`, its desired properties will not be altered.
 
 ###### 4. Interface Segregation Principal (ISP)
 The ISP states that: 
@@ -112,7 +112,7 @@ abstractions instead of being dependent on one another from high-level to low-le
 
 ***
 ### Summary of Design Patterns
-a 
+
 
 
 
