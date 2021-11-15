@@ -2,6 +2,7 @@ package com.courseApp.userService;
 
 import com.courseApp.courseService.ScheduleUpdater;
 import com.courseApp.entity.Schedule;
+import com.courseApp.entity.UserReview;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -59,7 +60,7 @@ class UserRequestProcessorTest {
 
     @Test
     void queryUserReviewList() {
-        //TODO
+        assertEquals(urp.queryUserReviewList().toString(),"[]");
     }
 
     @Test
@@ -74,7 +75,7 @@ class UserRequestProcessorTest {
 
     @Test
     void insertOneReview() {
-        //TODO
+        // Not testable
     }
 
     @Test
@@ -84,7 +85,7 @@ class UserRequestProcessorTest {
 
     @Test
     void removeOneReview() {
-        //TODO
+        // Not testable
     }
 
     @Test

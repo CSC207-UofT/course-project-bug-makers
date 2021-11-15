@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ReviewServiceControllerTest {
     ReviewServiceController rsc;
     Random random = new Random();
-    String instructorName = "TestProf"+ valueOf(random.nextInt(10000));
+    String instructorName = "TestProf"+ random.nextInt(10000);
 
     @BeforeEach
     void setUp() {
@@ -39,21 +39,21 @@ class ReviewServiceControllerTest {
 
     @Test
     void createNewCourse() {
-        String courseCode = "TEST"+ valueOf(random.nextInt(10000)+10000);
+        String courseCode = "TEST"+ (random.nextInt(10000) + 10000);
         assertTrue(rsc.createNewCourse(courseCode));
     }
 
     @Test
     void createNewInst() {
-        String instCourseCode = "TESTprof"+ valueOf(random.nextInt(10000));
+        String instCourseCode = "TESTprof"+ random.nextInt(10000);
         rsc.createNewCourse(instCourseCode);
         assertTrue(rsc.createNewInst(instCourseCode, instructorName));
 
     }
 
     @Test
-    void createNewUserReviewAndDelete() throws Exception {
-    // Not testable
+    void createNewUserReviewAndDelete() {
+        // Not testable
     }
 
     @Test
