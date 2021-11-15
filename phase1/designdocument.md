@@ -11,9 +11,10 @@
 4. [SOLID Design Principals](#SOLID-Design-Principals)
 5. [Summary of Design Patterns](#Summary-of-Design-Patterns)
 6. [Packaging Strategies and Documentations](#Packaging-Strategies-and-Documentations)
-7. [Use of GitHub Features](#Use-of-GitHub-Features)
-8. [Code Testing](#Code-Testing)
-9. [Open Questions and Phase 2 Goals](#Open-Questions-and-Phase-2-Goals)
+7. [Code Refactoring](#Code-Refactoring)
+8. [Use of GitHub Features](#Use-of-GitHub-Features)
+9. [Code Testing](#Code-Testing)
+10. [Open Questions and Phase 2 Goals](#Open-Questions-and-Phase-2-Goals)
 
 
 ### Specification Summary
@@ -156,7 +157,7 @@ abstractions instead of being dependent on one another from high-level to low-le
   - Background
     - In our calendar service, we are providing user with various customization choices, such as Workday Calendar, Week Calendar, and Single-day Calendar etc. Thus, we are looking for design pattern with extensibility and rapid deployment.
   - Implementation
-    - We implemented three styles of calendars and seven kinds of calendars in total for our Phase 1, they implement `UsePresentable` interface to generate readable string representation.
+    - We implemented three styles of calendars and seven types of calendars in total for our Phase 1, they implement `UsePresentable` interface to generate readable string representation.
     - As shown in following diagram, we established a Factory Method pattern in our `CalednarService` branch, where our calendars with `UsePresentable` interface serve as products in Factory Method design pattern. The `Calendar Presenter` creates Calendars and call its implemented `UsePresentable` interface to realize calendar visualization.
     - ![](designdocument.assets/factoryMethodGraph.png)
   - Advantage
@@ -191,17 +192,32 @@ abstractions instead of being dependent on one another from high-level to low-le
 - For our code organization, we applied a service-oriented packaging strategy. As we have four service branches (course, calendar, review and user), we organized them into four packages. As `DAO` and `Entiteis` are often shared across the scope, we decided to organize them in their own packages. As for drivers, we split out a new package for the sake of layer segregation and clarity. Besides, we stored our utilities, including password encryption tool, in the util package. We benefit from this organization as it demonstrates clear service differentiation and improves our file structure.
 - As of our code documentation, we have a J-DOC website for sharing documentation, click [here](https://kuan-pang.github.io/course-project-bug-makers/) to navigate. Our design goals and specifications are listed in our `teamDocumentation` directory. Our code documentation improves our teamwork and keeps a organized record of our achievement.
 
+
+***
+### Code Refactoring
+
+- We have refactored our codebase and resolved several code smells using Design Patterns:
+  - We applied Decorator Pattern to resolve the code smell "Duplicated Code".
+    - While incorporating new Calendar types, we realized that the original controller `CalendarPresenter` had a substantial amount of code duplications. 
+    - In PR[#42](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42), we refined it with Decorator Design Pattern, and, thus, resolved the duplication. Calendars are now pushed to the calendar decorator for further processing.
+- Meantime, we also extracted methods into superclasses and resolved code smells by inheritance. 
+  - For instance, in our Calendar Service PR[#52](https://github.com/CSC207-UofT/course-project-bug-makers/pull/52), we realized there were several common methods, such as `markCell` (add course code onto the calendar). We extracted them into a superclass and turned them into `Protected` methods. By inheritance, subclasses could call the methods without duplication. In this way, we significantly reduced code base size while strictly following SOLID principle.
+- In addition, we also refactored our code for improving user experience and code readability. 
+  - We customized a codec for our `DAO` and achieved a better database performance through applying POJO (plain old java object) support, where we directly stored the entities in the database through binary JSON. Aside from DB performance enhancement, this feature increases the readability of our codes. Details are explained in PR[#](https://github.com/CSC207-UofT/course-project-bug-makers/pull/43).
+
+
+
 ***
 ### Use of GitHub Features
 - Multiple issues were opened and resolved by pull requests to meet our `Phase1` goals, for example:
   - We established an auto-workflow, using `fix` statement to link the PR to the issue
-    - [`Issue #49`](https://github.com/CSC207-UofT/course-project-bug-makers/issues/49):
+    - Issue [#49](https://github.com/CSC207-UofT/course-project-bug-makers/issues/49):
       - Conflicts arose within our dependencies under JDK16 environment, so we decided to downgrade it to JDK1.8
-      - JDK successfully downgraded by merged pull requests: [`PR #50`](https://github.com/CSC207-UofT/course-project-bug-makers/pull/50), [`PR #51`](https://github.com/CSC207-UofT/course-project-bug-makers/pull/51)
+      - JDK successfully downgraded by merged pull requests: PR [#50](https://github.com/CSC207-UofT/course-project-bug-makers/pull/50), PR [#51](https://github.com/CSC207-UofT/course-project-bug-makers/pull/51)
   - We also labeled issues to keep our workspace organized.
-    - [`Issue #45`](https://github.com/CSC207-UofT/course-project-bug-makers/issues/45) is labelled as enhancement
+    - Issue [#45](https://github.com/CSC207-UofT/course-project-bug-makers/issues/45) is labelled as enhancement
       - `userService` needs to support `reviewService`, so we decide to enhance their skeleton.
-      - `userService` successfully supports operations on `review` entity groups with integrated database by merged pull requests: [`PR #47`](https://github.com/CSC207-UofT/course-project-bug-makers/pull/47)
+      - `userService` successfully supports operations on `review` entity groups with integrated database by merged pull requests: PR [#47](https://github.com/CSC207-UofT/course-project-bug-makers/pull/47)
 - Over 90% of merged Pull Requests were reviewed and approved by other team members. The PR brings significant improvements in our team communication regarding:
   - New functionalities, and
   - Fixed bugs or typos, and
