@@ -1,0 +1,16 @@
+- Design Pattern
+  - We incorporated various design patterns in our project, including Factory Method, Decorator and Adapter etc. We will be focusing on several highlights in this design document.
+  - **Factory Method Design Pattern**
+    - Background
+      - In our calendar service, we are providing user with various customization choices, such as Workday Calendar, Week Calendar, and Single-day Calendar etc. Thus, we are looking for design pattern with extensibility and rapid deployment. 
+    - Implementation
+      - We implemented three styles of calendars and seven kinds of calendars in total for our Phase 1, they implement `UsePresentable` interface to generate readable string representation.
+      - As shown in following diagram, we established a Factory Method pattern in our `CalednarService` branch, where our calendars with `UsePresentable` interface serve as products in Factory Method design pattern. The `Calendar Presenter` creates Calendars and call its implemented `UsePresentable` interface to realize calendar visualization. 
+      - ![](designdocument.assets/factoryMethodGraph.png)
+    - Advantage
+      - By applying Factory Method design pattern, we will organize "calendar" visualization and differentiations.
+      - Factory Method design pattern provides an architecture that is open to extension, which means we can design more calendar types for our users without substantial codebase changes.
+  - **Decorator Design Pattern**
+    - Background
+      - Similar to the previous one, we would like to provide more customizations to our calendar, where we allow the user to choose the calendar term. For example, the calendar will cover the fall/winter term or the whole year.
+      - 
