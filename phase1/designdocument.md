@@ -21,10 +21,6 @@
 ###### Figure 2: Phase 1 Architecture Diagram
 ![CD](designdocument.assets/AchiDiagram.png)
 
-###### Figure 3: Class Diagram
-
-![CD](designdocument.assets/courseAppUML.png)
-
 ***
 ### Major Design Decisions
 
@@ -102,14 +98,21 @@ The DIP states that:
 > - High-level modules should not be dependent on low-level modules. Both should be dependent on abstractions.
 > - Abstractions should not be dependent upon details, rather, details should be dependent on abstractions.
 
-The DIP is demonstrated through 
+The DIP can be demonstrated through our class diagram:
+###### Figure 3: Class Diagram
+![CD](designdocument.assets/courseAppUML.png)
+You can see that none of the classes hold a reference to a concrete class, they only hold references
+to either an abstract class or an interface. For instance, we can take a look at our `MondayCalendar` again. Instead of 
+directly depending on the `CalendarFactory` to generate a calendar, both classes implement the interface `UsePresentable`,
+which allows both of the classes to use a method called `present`. This makes sure that both classes are dependent on 
+abstractions instead of being dependent on one another from high-level to low-level.
 
 ***
 ### Packaging Strategies
 
 ***
 ### Summary of Design Patterns
-
+a 
 
 
 
