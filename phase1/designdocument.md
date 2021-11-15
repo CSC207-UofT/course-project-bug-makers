@@ -1,9 +1,29 @@
-# Design Document
+# myCourseApp Design Document
 ***
+![](progress_report.assets/myCourseApp.jpg)
+
+![](progress_report.assets/CourseAppMindMap.png)
+
+## Table of Contents
+1. [Specification Summary](#Specification-Summary)
+2. [Major Design Decisions](#Major-Design-Decisions)
+3. [Clean Architecture ](#Clean-Architecture)
+4. [SOLID Design Principals](#SOLID-Design-Principals)
+6. [Packaging Strategies](#Packaging-Strategies)
+7. [Summary of Design Patterns](#Summary-of-Design-Patterns)
+
 ### Specification Summary
 
 ***
-###### Figure 1: Class Diagram
+###### Figure 1: Phase 1 System Design
+![CD](designdocument.assets/SystemDesign.png)
+
+###### Figure 2: Phase 1 Architecture Diagram
+![CD](designdocument.assets/AchiDiagram.png)
+
+###### Figure 3: Class Diagram
+
+![CD](designdocument.assets/courseAppUML.png)
 
 ***
 ### Major Design Decisions
@@ -49,7 +69,7 @@ generating a one-day calendar. `SingledayCalendar` has 5 subclasses: `MondayCale
 which has a method called `present`. This method will be inherited by each specific-day calendar since it extends 
 `SingledayCalendar` which extends `CalendarFactory`.
 
-Instead of directly modifying the `present` method, we had all the different calendars extend to 'CalendarFactory' which implements
+Instead of directly modifying the `present` method, we had all the different calendars extend to `CalendarFactory` which implements
 the `UsePresentable` interface. Through this, we were able to keep the objects open 
 for extension but closed for modification, thus abiding to the OCP.
 
@@ -59,13 +79,31 @@ The LCP states that:
 > substitute objects of type S with objects of type T without altering any of the desired properties
 > of the program.
 
+The LCP is demonstrated through the use of many interfaces in our program. For instance, lets look at our 
+`MondayCalendar` class again. `MondayCalendar` is a subclass of `SingledayCalendar`, and from one perspective
+we could say that `MondayCalendar` "is a" `SingledayCalendar`. However, this is not completely true, because 
+a `SingledayCalendar` has more behaviours than a `MondayCalendar`. Therefore, in this case, `MondayCalendar` extends 
+`SingledayCalendar` and implements the `UsePresentable` interface so that it does not modify or remove features of 
+its superclass.
+
 ###### 4. Interface Segregation Principal (ISP)
 The ISP states that: 
-> 
+> No client should be forced to implement irrelevant methods of an interface. Instead of 
+> having a few large interfaces, it is better to have a lot of small, specific
+> interfaces.
+
+The ISP is demonstrated through the multiple interfaces we have created for our classes. For instance, our 
+`ReviewRequestProcessor` class in `ReviewService` implements three different interfaces: `UseQueryReview`, 
+`UseUpdateReview`, and `UseQueryRecommendationInfo`. Instead of implementing one big interface, we seperated 
+the methods into three interfaces so that we will not have to implement any irrelevant methods when using an interface.
+
 ###### 5. Dependency Inversion Principal (DIP)
 The DIP states that:
 > - High-level modules should not be dependent on low-level modules. Both should be dependent on abstractions.
 > - Abstractions should not be dependent upon details, rather, details should be dependent on abstractions.
+
+The DIP is demonstrated through 
+
 ***
 ### Packaging Strategies
 
