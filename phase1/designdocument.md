@@ -26,10 +26,10 @@ For our CSC207 project, we are planning to build a course planning app that allo
 
 We'll be referring to the following system design diagram in our discussion.
 ![](designdocument.assets/systemdesign.png)
-- Course Service: present course information to users and seclude the timetable based on user's course list, by a tested scheduling algorithm. ([here](/teamDocumentation/CourseServiceControllerDocumentation.md) for details)
-- Review Service: user can rate and share their comments to instructors and courses. In addition, review service integrates with our course service to provide instructor recommendation functionality thorough a machine learning approach. ([here](/teamDocumentation/ReviewServiceDocumentation.md) for review detail and [here](/teamDocumentation/ReviewRecommendationSystem.md) for ML detail)
-- Calendar Service: visualize user's schedule by presenting calendar and timetables. Note that we offer 7 types of calendar design and 3 term options, which produces 21 customizations for our user. ([here](/teamDocumentation/CalendarServiceDocumentation.md) for details)
-- User Service: storing and synthesising user's information stored in our cloud database. ([here](/teamDocumentation/UserServiceDocumentation.md) for details)
+- Course Service: presents course information to users and schedules the timetable based on user's course list through a tested scheduling algorithm. ([here](/teamDocumentation/CourseServiceControllerDocumentation.md) for details)
+- Review Service: user can rate and share their comments to instructors and courses. In addition, the review service integrates with our course service to provide instructor recommendation functionality thorough a machine learning approach. ([here](/teamDocumentation/ReviewServiceDocumentation.md) for review detail and [here](/teamDocumentation/ReviewRecommendationSystem.md) for ML detail)
+- Calendar Service: visualizes a user's schedule by presenting calendars and timetables. Note that we offer 7 types of calendar designs and 3 term options, which produces 21 customizations for our user. ([here](/teamDocumentation/CalendarServiceDocumentation.md) for details)
+- User Service: stores and synthesizes a user's information stored in our cloud database. ([here](/teamDocumentation/UserServiceDocumentation.md) for details)
 - CMD shell/ Web GUI: parallel systems providing multiple ways for user to interact with our system.
   - CMD shell's demo (stable release, [here](/teamDocumentation/cmdDocumentation.md) for commands):
     - ![](designdocument.assets/readmedemo.gif)
@@ -40,19 +40,19 @@ We'll be referring to the following system design diagram in our discussion.
 
 Storing and Loading States
 
-- As can be seen from the diagram, all of our services interact with our database. More specifically,
-we have many services that interact with the user database through the UserInfo Service. This is the
+- As seen from the diagram, all of our services interact with our database. More specifically,
+we have many services that interact with the user database through the `UserInfo Service`. This is the
 main method by which our app stores and loads states.
 
-- When a user logs in through the Account Service, they load their account data from all previous sessions. That means
-any timetables they have created and saved in the past can be loaded directly from the database, and their course and
-wishlists persist across load states. Our app can then generate the same calendar each time using the information from the database.
+- When a user logs in through the `Account Service`, their account data from all previous sessions is loaded. This means
+that any timetables they have created and saved in the past can be loaded directly from the database, and their course and
+wishlists will persist across load states. Our app can then generate the same calendar each time using the information from the database.
 
-- By the same token, a user can store new data or alter their old account data using the various services, to be loaded up from the
-user database the next time they log in.
+- By the same token, a user can store new data or alter their old account data using the various services. This information
+will also be loaded up from the user database the next time they log in.
 
 - Our app also stores reviews created by users. When a user creates a review for a particular course, it is stored in the database.
-Then, other users loading reviews for the course will load the new review as well!
+Then, when other users load the reviews for a specific course, the reviews from other users will be loaded as well!
 
   
 ***
@@ -61,13 +61,13 @@ Then, other users loading reviews for the course will load the new review as wel
 - Overall structure
   - Our app consists of 4 controllers, 11 use cases and 4 entity groups, where the overall structure can be demonstrated in the following architecture diagram.
     ![](designdocument.assets/p1ca.jpg)
-  - Our architecture design strictly follows the clean architecture principle, where code dependencies are unidirectional, going from outer layer to the inner layer.
-  - Our controller layer (or Interface Adaptor layer) are designed to be the only layer exposing to front-end, it interacts with our use case layer (or Application Business Layer) to execute user's request.
-  - Our use case layer then interacts with our entity layer (or Enterprise Business Rules). As we have connection with database, there is one extra DAO layer (classified as Application Business Rule) to perform the data I/O requests.
+  - Our architecture design strictly follows the clean architecture principle, where code dependencies are uni-directional, going from the outer layer to the inner layer.
+  - Our controller layer (or Interface Adaptor layer) is designed to be the only layer exposed to front-end, and it interacts with our use case layer (or Application Business Layer) to execute the user's request.
+  - Our use case layer then interacts with our entity layer (or Enterprise Business Rules). As we have a connection with a database, there is one extra DAO layer (classified as Application Business Rule) to perform the data I/O requests.
 - Example: Review Service Branch, a layer segregation design
-  - As shown in following graph, we demonstrate a clean architecture in our Review Service Branch. Begin with our user sending a review creation request to `Reveiw Service Controller`. Our `Review Service Controller` calls `Recommendation Request Request Processor` (use case) to generate a recommendation score of user review. The generation of machine learning recommendation score is running on our remote inference server, where the connection to inference server is established by `Inference DAO` (use case) without violating clean architecture principle.
-  - Once obtained a response from inference server, our controller calls `Recommendation Request Processor` (use case), to config a review entity and then update to the database through `Review DAO`.
-  - Therefore, our dependency is constructing from outer layer to inner layer without bypassing intermediates. Thus, strictly following clean architecture principle.
+  - As shown in following graph, we are able to demonstrate clean architecture through our Review Service Branch. Begin with our user sending a review creation request to `Reveiw Service Controller`. Our `Review Service Controller` calls `Recommendation Request Request Processor` (use case) to generate a recommendation score of user review. The generation of a recommendation score, through machine learning, runs on our remote inference server, where the connection to inference server is established by `Inference DAO` (use case) without violating the clean architecture principle.
+  - Once obtained a response from inference server, our controller calls `Recommendation Request Processor` (use case), to configure a review entity and then update the database through `Review DAO`.
+  - Our dependency constructs from the outer layer to the inner layer without bypassing any intermediates, thus, strictly following the clean architecture principle.
   - ![](designdocument.assets/reviewca.png)
 
 
@@ -122,9 +122,8 @@ The LCP states that:
 The LCP is demonstrated through the use of many interfaces in our program. For instance, lets look at our 
 `MondayCalendar` class again. `MondayCalendar` is a subclass of `SingledayCalendar`, and from one perspective
 we could say that `MondayCalendar` "is a" `SingledayCalendar`. However, this is not completely true, because 
-a `SingledayCalendar` has more behaviours than a `MondayCalendar`. Therefore, in this case, `MondayCalendar` extends 
-`SingledayCalendar` and implements the `UsePresentable` interface so that it does not modify or remove features of 
-its superclass.
+a `MondayCalendar` has more behaviours than a `SingledayCalendar`. In this case, we can substitute a `MondayCalendar` 
+with a `SingledayCalendar` without needing to modify or remove its desired properties, therefore, the LCP holds. 
 
 ###### 4. Interface Segregation Principal (ISP)
 The ISP states that: 
@@ -153,31 +152,31 @@ abstractions instead of being dependent on one another from high-level to low-le
 
 ***
 ### Summary of Design Patterns
-- We incorporated various design patterns in our project, including Factory Method, Decorator and Adapter etc. We will be focusing on several highlights in this design document.
+- We incorporated various design patterns in our project, including the Factory method, Decorator method and Adapter method. We will be focusing on several highlights in this design document.
 - **Factory Method Design Pattern**: Click [here](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42) for associated PR and [here](https://github.com/CSC207-UofT/course-project-bug-makers/issues/41) for associated issue.
   - Background
-    - In our calendar service, we are providing user with various customization choices, such as Workday Calendar, Week Calendar, and Single-day Calendar etc. Thus, we are looking for design pattern with extensibility and rapid deployment.
+    - In our calendar service, we are providing the user with various customization choices, such as Workday Calendar, Week Calendar, and Single-day Calendar etc. Thus, we are looking for design pattern with extensibility and rapid deployment.
   - Implementation
-    - We implemented three styles of calendars and seven types of calendars in total for our Phase 1, they implement `UsePresentable` interface to generate readable string representation.
-    - As shown in following diagram, we established a Factory Method pattern in our `CalednarService` branch, where our calendars with `UsePresentable` interface serve as products in Factory Method design pattern. The `Calendar Presenter` creates Calendars and call its implemented `UsePresentable` interface to realize calendar visualization.
+    - We implemented three styles of calendars and seven types of calendars in total for our Phase 1. All calenders implement the `UsePresentable` interface to generate a readable string representation.
+    - As shown in following diagram, we established a Factory Method pattern in our `CalednarService` branch, where our calendars with the `UsePresentable` interface serve as products in Factory Method design pattern. The `Calendar Presenter` creates Calendars and call its implemented `UsePresentable` interface to realize a calendar visualization.
     - ![](designdocument.assets/factoryMethodGraph.png)
   - Advantage
-    - By applying Factory Method design pattern, we will organize "calendar" visualization and differentiations.
-    - Factory Method design pattern provides an architecture that is open to extension, which means we can design more calendar types for our users without substantial codebase changes.
+    - By applying Factory Method design pattern, we can organize "calendar" visualization and differentiations.
+    - Factory Method design pattern provides an architecture that is open to extension, which means that we can design more calendar types for our users without any substantial codebase changes.
 - **Decorator Design Pattern**: Click [here](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42) for associated PR and [here](https://github.com/CSC207-UofT/course-project-bug-makers/issues/41) for associated issue.
   - Background
-    - Similar to the previous one, we would like to provide more customizations to our calendar, where we allow the user to choose the calendar term. For example, the calendar will present the fall/winter term only or the whole year (combination of fall/winter term).
-    - We would like to reduce the duplicate code and simply the codebase maintenance.
+    - Similar to the previous method, we wanted to provide more customizations to our calendar, where we allow the user to choose the calendar term. For example, the calendar can present the fall/winter term only or the whole year (combination of fall/winter term).
+    - We would also like to reduce the duplicate code and simplify the codebase maintenance.
   - Structure
-    - As shown in the following diagram, we established a Decorator Design Pattern, the fall calendar and winter calendar are pushed to the calendar decorator for processing, either combining them to produce a year calendar or keeping them original.
-    - The calendar decorator is encoded in `typeDecorator()` method in `CalendarPresenter` class.
+    - As shown in the following diagram, after we established a Decorator Design Pattern, the fall calendar and winter calendar are pushed to the calendar decorator for processing. The calendar decorator then either combinines them to produce a year calendar, or keeps them in its original form.
+    - The calendar decorator is encoded in the `typeDecorator()` method in the `CalendarPresenter` class.
     - ![](designdocument.assets/decoratordiagram.png)
   - Advantage
     - It enables multiple presentations of our calendar.
     - By applying Decorator design pattern, we reduced our duplicated code.
 - **Adaptor Design Pattern** Click [here](https://github.com/CSC207-UofT/course-project-bug-makers/pull/37) for the refactor PR.
   - Background
-    - In our course service branch, we need to query data from the UofT database through UofT's API. However, the course information provided by UofT API is too complicated and lack interpretability. In addition, it comes in an HTTP body and JSON format, which could not be converted into Java object directly.
+    - In our course service branch, we needed to query data from the UofT database through the UofT's API. However, the course information provided by the UofT API is too complicated and lacks interpretability. In addition, it comes in an HTTP body and JSON format, which could not be converted into a Java object directly.
     - Therefore, we need an Adaptor to connect with the UofT API to convert the data into desired data type by extracting desired information from the JSON file.
   - Structure
     - As shown in the following diagram, our `CourseDAO` queries data through UofT API, then it extracts and processes data to push to our Course Service branch.
@@ -185,19 +184,19 @@ abstractions instead of being dependent on one another from high-level to low-le
 
   - Advantage
     - This design pattern helps to ensure the "Single Responsibility Principle", where the UofT API connection is segregated from our main business.
-    - We are able to refactor this adaptor to rapidly deploy our app in another university, it is open to extension.
+    - We are able to refactor this adaptor to rapidly deploy our app in another university, as it is open to extension.
     - It also simplifies the data flow within our app, as it only extracts useful information and  reformats the data structure to fit our needs.
     
 ***
 ### Packaging Strategies and Documentations
-- For our code organization, we applied a service-oriented packaging strategy. As we have four service branches (course, calendar, review and user), we organized them into four packages by features. As `DAO` and `Entiteis` are often shared across the scope, we decided to organize them in their own packages. As for drivers, we split out a new package for the sake of layer segregation and clarity. Besides, we stored our utilities, including password encryption tool, in the util package. We benefit from this organization as it demonstrates clear service differentiation and improves our file structure.
+- For our code organization, we applied a service-oriented packaging strategy. As we have four service branches (course, calendar, review and user), we organized them into four packages by features. As `DAO` and `Entities` are often shared across the scope, we decided to organize them in their own packages. As for drivers, we split out a new package for the sake of layer segregation and clarity. Besides those packages, we also stored our utilities, including password encryption tool, in the util package. We benefit from this organization as it demonstrates clear service differentiation and improves our file structure.
 - As of our code documentation, we have a J-DOC website for sharing documentation, click [here](https://kuan-pang.github.io/course-project-bug-makers/) to navigate. Our design goals and specifications are listed in our `teamDocumentation` directory. Our code documentation improves our teamwork and keeps a organized record of our achievement.
 
 
 ***
 ### Code Refactoring
 
-- We have refactored our codebase and resolved several code smells using Design Patterns:
+- We have refactored our codebase and resolved several code smells using various Design Patterns:
   - We applied Decorator Pattern to resolve the code smell "Duplicated Code".
     - While incorporating new Calendar types, we realized that the original controller `CalendarPresenter` had a substantial amount of code duplications. 
     - In PR[#42](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42), we refined it with Decorator Design Pattern, and, thus, resolved the duplication. Calendars are now pushed to the calendar decorator for further processing.
@@ -220,16 +219,16 @@ abstractions instead of being dependent on one another from high-level to low-le
       - `userService` needs to support `reviewService`, so we decide to enhance their skeleton.
       - `userService` successfully supports operations on `review` entity groups with integrated database by merged pull requests: PR [#47](https://github.com/CSC207-UofT/course-project-bug-makers/pull/47)
 - Over 90% of merged Pull Requests were reviewed and approved by other team members. The PR brings significant improvements in our team communication regarding:
-  - New functionalities, and
-  - Fixed bugs or typos, and
+  - New functionalities
+  - Fixed bugs or typos
   - Codebase refactors.
 - We used GitHub Actions, complimented with auto-testing Workflow, to keep our codebase robust and reduce potential runtime errors.
 
 ***
 ### Code Testing
 - We achieved FULL test coverage for the testable Service Controllers. **73%** of the methods in our system were covered by our test cases.
-- We introduce randomness in the code-test system, to ensure test case comprehensiveness.
-  - We make `userRegister()` testable by generating random Usernames.
+- We introduced randomness in the code-test system, to ensure test case comprehensiveness.
+  - We made `userRegister()` testable by generating random Usernames.
 - In the most challenging database test, for the data access objects, we developed a full set of approaches to test the codes without interfering the normal functionality of our database.
   - In the `createNewCourse()`, we introduced randomness to avoid duplication in the database.
   - In the `UserServiceControllerTest`, after each test case, we empty the Lists to prevent subsequent changes in the database.
