@@ -55,7 +55,7 @@ public interface UseCourseBasicInfo {
     /**
      * Get the schedule map for all sections.
      *
-     * Note that the structure be like: Map(section -> Map(weekday -> ArrayList(timing)))
+     * Note that the structure be like: Map(section - Map(weekday - ArrayList(timing)))
      *
      * @return map of schedule for all sections.
      */

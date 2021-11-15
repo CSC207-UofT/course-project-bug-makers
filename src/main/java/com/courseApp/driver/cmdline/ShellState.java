@@ -3,6 +3,7 @@ package com.courseApp.driver.cmdline;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("CanBeFinal")
 public class ShellState implements IShellState{
 
     boolean running;

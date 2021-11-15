@@ -2,7 +2,6 @@ package com.courseApp.userService;
 
 import com.courseApp.courseService.ScheduleUpdater;
 import com.courseApp.entity.Schedule;
-import com.courseApp.entity.UserReview;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -74,18 +73,8 @@ class UserRequestProcessorTest {
     }
 
     @Test
-    void insertOneReview() {
-        // Not testable
-    }
-
-    @Test
     void removeOneCourse() {
         assertTrue(urp.removeOneCourse("CSC209SLEC0102"));
-    }
-
-    @Test
-    void removeOneReview() {
-        // Not testable
     }
 
     @Test

@@ -6,7 +6,6 @@ import java.util.Map;
 
 import com.courseApp.constants.Constants;
 import com.courseApp.utils.AggregateList;
-import com.courseApp.utils.TimeConversion;
 
 /**
  * Subclass of SingledayCalendar, presenting only Monday's courses.

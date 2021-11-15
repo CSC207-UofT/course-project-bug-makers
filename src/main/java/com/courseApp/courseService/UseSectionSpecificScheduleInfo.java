@@ -18,7 +18,7 @@ public interface UseSectionSpecificScheduleInfo {
 
     /**
      * Get the instructor name of the given section.
-     *
+     * @throws Exception exception
      * @return name of the given section
      */
     String getSectionSpecificInstructor() throws Throwable;

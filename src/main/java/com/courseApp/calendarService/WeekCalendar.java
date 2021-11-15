@@ -12,6 +12,7 @@ import com.courseApp.utils.TimeConversion;
 /**
  * Subclass of CalendarFactory that generates a 7-day calendar from Sunday to Saturday.
  */
+@SuppressWarnings("DuplicatedCode") // as it is not solvable
 public class WeekCalendar extends CalendarFactory implements UsePresentable {
 
     public WeekCalendar(Map<String, Map<String, ArrayList<String>>> formattedSchedule) {
@@ -76,7 +77,10 @@ public class WeekCalendar extends CalendarFactory implements UsePresentable {
             for (String weekday : sections.keySet()){
                 setupCell(list, sections, weekday, courseCode);
             }
+
         }
+
+        // return the aggregated list
         return(AggregateList.aggregate(list));
     }
 

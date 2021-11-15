@@ -14,6 +14,7 @@ public class CommandExecutor {
      *
      * @param shellState  is the state of the program
      * @param commandLine is the given command line
+     * @param username username
      * @return string that is given back as command is executed
      * @throws Exception if any of the provided arguments is invalid
      */

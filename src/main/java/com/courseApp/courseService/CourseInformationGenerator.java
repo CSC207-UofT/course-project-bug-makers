@@ -127,7 +127,7 @@ public class CourseInformationGenerator implements UseCourseBasicInfo, UseSectio
     /**
      * Get the schedule map for all sections.
      *
-     * Note that the structure be like: Map(section -> Map(weekday -> ArrayList(timing)))
+     * Note that the structure be like: Map(section - Map(weekday - ArrayList(timing)))
      *
      * @return map of schedule for all sections.
      */
@@ -192,11 +192,5 @@ public class CourseInformationGenerator implements UseCourseBasicInfo, UseSectio
             throw new Throwable(Exceptions.NO_SECTION_CODE);
         }
     }
-
-//
-//    public static void main(String[] args) throws Throwable {
-//        CourseInformationGenerator cig = new CourseInformationGenerator("CSC207FLEC0101");
-//        System.out.println(cig.getSectionSpecificInstructor());
-//    }
 
 }

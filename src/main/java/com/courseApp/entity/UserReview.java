@@ -4,11 +4,8 @@ import com.courseApp.constants.Constants;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
-
-import static com.courseApp.constants.Constants.GENERAL_RATE;
 
 /**
  * User Review entity for username, general rate, difficulty rate, timestamp and review.

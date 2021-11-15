@@ -2,17 +2,12 @@ package com.courseApp.calendarService;
 
 import com.courseApp.constants.Constants;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 import com.courseApp.constants.Exceptions;
-import com.courseApp.courseService.CourseServiceController;
-import com.courseApp.entity.Schedule;
-import com.courseApp.userService.UserServiceController;
 
 /**
  * Presenter for presenting a target calendar.
@@ -142,30 +137,4 @@ public class CalendarPresenter implements ControlCalendarPresentation {
         return resultingCalendar;
     }
 
-//    public static void main(String[] args) {
-//        CalendarPresenter cad = new CalendarPresenter();
-//        Map<String, Map<String, ArrayList<String>>> rawSchedule = new HashMap<>();
-//        Map<String, ArrayList<String>> course = new HashMap<>();
-//        ArrayList<String> array = new ArrayList<>();
-//        course.put("MO", array);
-//        rawSchedule.put("BIO230FLEC9901", course);
-//        System.out.println(cad.presentCalendar("W", "Workday", rawSchedule));
-//
-//        UserServiceController USC2 = new UserServiceController();
-//        USC2.userRegister("USC2", "1234567890");
-//
-//
-////        USC2.userClearCourseList("USC2");
-////        USC2.addCourse("USC2", "BIO230FLEC9901");
-////        USC2.addCourse("USC2", "STA238SLEC0201");
-////        USC2.addCourse("USC2", "MAT223SLEC0301");
-////        USC2.addCourse("USC2", "CSC209SLEC0102");
-////        USC2.addCourse("USC2", "MAT137YTUT0503");
-////        USC2.getScheduleList("USC2");
-////        new CourseServiceController().planCourse("USC2");
-//
-//
-//        cad = new CalendarPresenter();
-//
     }
-//}

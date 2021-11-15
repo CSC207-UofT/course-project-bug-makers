@@ -57,7 +57,7 @@ public interface CourseDAO {
 
      /** Query method, returns the schedule for each section.
       *
-      * Structure should be like: Map(section -> Map(weekday -> ArrayList(timing)))
+      * Structure should be like: Map(section - Map(weekday - ArrayList(timing)))
       *
       *
       * @return schedule for each section.

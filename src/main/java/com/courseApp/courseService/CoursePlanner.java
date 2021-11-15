@@ -13,31 +13,24 @@ import java.util.List;
 
 /**
  * Course Planner use case for implementing course planning service.
- *
- *
- *
- *
- * [UNDER CONSTRUCTION]
  */
 public class CoursePlanner implements UseCoursePlanning {
 
-    private String username;
-    private ArrayList<String> courseList;
-    private ArrayList<String> wishList;
-    private List<String> scheduledF;
-    private List<String> scheduledS;
-    private ArrayList<ArrayList<SectionTool>> sectionList;
+    private final String username;
+    private final ArrayList<ArrayList<SectionTool>> sectionList;
 
     public CoursePlanner(String username) throws Throwable {
         this.username = username;
-        this.courseList = new UserRequestProcessor(username).queryUserCourseList();
-        this.wishList = new UserRequestProcessor(username).queryUserWishList();
-        this.scheduledF = new ArrayList<>();
-        this.scheduledS = new ArrayList<>();
-        this.sectionList = CreateSectionList(this.courseList);
-//        this.sort2Schedule();
+        ArrayList<String> courseList = new UserRequestProcessor(username).queryUserCourseList();
+        this.sectionList = CreateSectionList(courseList);
     }
 
+    /**
+     * Generate one possible schedule for the user
+     *
+     * @return schedule
+     * @throws Throwable exception
+     */
     public Schedule generateSchedule() throws Throwable {
         UserRequestProcessor user = new UserRequestProcessor(username);
         try {

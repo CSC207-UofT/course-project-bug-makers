@@ -12,12 +12,12 @@ public class UserLogin extends UserCommand{
     }
 
     @Override
-    public String executeCommand(IShellState shellState, List<String> arguments) throws Exception {
+    public String executeCommand(IShellState shellState, List<String> arguments) {
         return null;
     }
 
     @Override
-    public String executeCommand(IShellState shellState, List<String> arguments, String username) throws Throwable {
+    public String executeCommand(IShellState shellState, List<String> arguments, String username) {
         return null;
     }
 }
