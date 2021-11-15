@@ -30,7 +30,7 @@ For our CSC207 project, we are planning to build a course planning app that allo
 ## Sample Usage for our CMD shell
 
 We have a test account for you!
-1. Run `Main.java` (in `main` branch ). Try to log in our test account!
+1. Run `Main.java` (in `main` branch ). Or, run `course-project-bug-makers.jar`. Try to log in our test account!
    - Username: `ReadMeDemo`;
    - Password: `1234567890`.
 2. Explore `CSC207F`'s summary!
@@ -45,10 +45,21 @@ $ getCourseList
 ```
 $ presentCalendar F Workday
 ```
-5. Click [here](teamDocumentation/cmdDocumentation.md) for more interesting commands (make sure you have `JDK 1.8`)!
+5. Try our course review system!
+
+```
+$ getInstReviewSummary CSC207
+```
+```
+$ getInstRank RTC
+```
+
+6. Click [here](teamDocumentation/cmdDocumentation.md) for more interesting commands (make sure you have `JDK 1.8`)!
 
 Here's our little GIF instruction:
 ![](README.assets/readmedemo.gif)
+![](README.assets/reviewdemo.gif)
+
 
 ## Sample Usage for our web interface (Preview)
 

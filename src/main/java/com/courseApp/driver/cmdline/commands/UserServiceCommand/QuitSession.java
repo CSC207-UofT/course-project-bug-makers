@@ -11,13 +11,13 @@ public class QuitSession extends UserCommand {
 
 
     @Override
-    public String executeCommand(IShellState shellState, List<String> arguments, String username) throws Throwable {
+    public String executeCommand(IShellState shellState, List<String> arguments, String username) {
         shellState.stopRunning();
         return "Goodbye " + username + ". Thank you for using myCourseApp!";
     }
 
     @Override
-    public String executeCommand(IShellState shellState, List<String> arguments) throws Throwable {
+    public String executeCommand(IShellState shellState, List<String> arguments) {
         return null;
     }
 }

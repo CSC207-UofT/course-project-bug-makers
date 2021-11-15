@@ -1,5 +1,9 @@
 # CMD Line Driver Documentation
 
+For more information click [here](https://kuan-pang.github.io/course-project-bug-makers/).
+
+
+
 - `userClearCourseList`; Clear the user's course list.
 - `clearScheduleList`; Clear the user's schedule list.
 - `rmCourse`; Remove given course from the course list. It takes one arg, which is the course code.
@@ -18,6 +22,21 @@
 - `presentCalendar`; Show the calendar for the latest schedule. It takes two args. First one is for the term type (`F`/`S`/`Y`). Second one is for the calendar type (`Workday`, etc.)
   - Note that, for term arg, `F` or `S` would give one single calendar while `Y` gives both.
     - eg. `presentCalendar F Workday`
+
+> Special note on review service, to make sure you write a review successfully, you will need to ensure there are existing course review and instructor review existing in the database. If not, you may want to create one.
+    
+- `createNewCourse`; Create a course review. It takes one arg, which is the course code.
+- `createNewInst`; Create an instructor review. It takes two args, which are the course code and the instructor name.
+- `createNewUserReview`; Create a user review. It takes 6 args, which are courseCode, instName, userName, generalRate, difficultyRate, reviewString.
+- `deleteUserReview`; Delete a user review. It takes 3 args, which are courseCode, instName, userName.
+- `editUserReview`; Edit a user review. It takes 6 args, which are courseCode, instName, username, generalRate, difficultyRate, reviewString.
+- `getExistingCourseList`; Give you the existing courses in the database; 
+- `getInstRank`; Give you an instructor rank for a course. It takes in 1 arg, which is the course code.
+- `getInstReviewSummary`; Give you an instructor review summary for a course. It takes in 1 arg, which is the course code.
+- `getUserReviewSummary`; Give you an instructor review summary for an instructor. It takes in 2 args, which are the course code and the instructor name.
+
+
+For more information click [here](https://kuan-pang.github.io/course-project-bug-makers/).
 
 
 Please Enjoy,

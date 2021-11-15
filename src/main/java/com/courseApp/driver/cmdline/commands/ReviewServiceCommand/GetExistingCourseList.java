@@ -3,13 +3,12 @@ package com.courseApp.driver.cmdline.commands.ReviewServiceCommand;
 import com.courseApp.reviewService.ReviewServiceController;
 import com.courseApp.driver.cmdline.IShellState;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GetExistingCourseList extends ReviewCommand {
 
     public GetExistingCourseList(){
-        super(0, 0);
+        super(0, 1);
     }
 
 

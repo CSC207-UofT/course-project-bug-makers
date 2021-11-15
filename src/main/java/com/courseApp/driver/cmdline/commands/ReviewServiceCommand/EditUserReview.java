@@ -6,10 +6,11 @@ import com.courseApp.driver.cmdline.IShellState;
 
 import java.util.List;
 
+@SuppressWarnings("DuplicatedCode")
 public class EditUserReview extends ReviewCommand {
 
     public EditUserReview(){
-        super(5, 5);
+        super(6, 6);
     }
 
 
@@ -20,13 +21,14 @@ public class EditUserReview extends ReviewCommand {
         boolean result = false;
         String courseCode = arguments.get(0);
         String instName = arguments.get(1);
-        double generalRate = Double.parseDouble(arguments.get(2));
-        double difficultyRate = Double.parseDouble(arguments.get(3));
-        String reviewString =arguments.get(4);
+        String username = arguments.get(2);
+        double generalRate = Double.parseDouble(arguments.get(3));
+        double difficultyRate = Double.parseDouble(arguments.get(4));
+        String reviewString =arguments.get(5);
 
         try{
             result = reviewController.editUserReview(
-                    courseCode, instName, generalRate, difficultyRate, reviewString);
+                    courseCode, instName, username, generalRate, difficultyRate, reviewString);
         } catch (Throwable e) {
             e.printStackTrace();
         }

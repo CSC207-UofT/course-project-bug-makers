@@ -5,6 +5,7 @@ import com.courseApp.driver.cmdline.commands.CalendarServiceCommand.*;
 import com.courseApp.driver.cmdline.commands.CourseServiceCommand.*;
 import com.courseApp.driver.cmdline.commands.ReviewServiceCommand.*;
 import com.courseApp.driver.cmdline.commands.UserServiceCommand.*;
+import com.courseApp.driver.cmdline.commands.UserServiceCommand.QuitSession;
 import com.mongodb.MongoClientSettings;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;

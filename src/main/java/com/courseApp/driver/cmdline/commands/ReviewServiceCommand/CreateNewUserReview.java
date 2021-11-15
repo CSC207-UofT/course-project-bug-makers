@@ -13,6 +13,7 @@ public class CreateNewUserReview extends ReviewCommand {
     }
 
 
+    @SuppressWarnings("DuplicatedCode")
     @Override
     public String executeCommand(IShellState shellState, List<String> arguments) throws Throwable {
         checkArgumentsNum(arguments);

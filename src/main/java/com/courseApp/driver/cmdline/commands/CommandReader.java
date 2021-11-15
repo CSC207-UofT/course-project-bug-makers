@@ -39,6 +39,7 @@ public class CommandReader {
     public static boolean isValidCommand(String command) {
         return Constants.USER_COMMAND_DIC.containsKey(command) ||
                 Constants.COURSE_COMMAND_DIC.containsKey(command) ||
+                Constants.REVIEW_COMMAND_DIC.containsKey(command) ||
                 Constants.CALENDAR_COMMAND_DIC.containsKey(command);
     }
 

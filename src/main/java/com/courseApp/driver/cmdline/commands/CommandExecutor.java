@@ -41,6 +41,9 @@ public class CommandExecutor {
         } else if (Constants.COURSE_COMMAND_DIC.containsKey(command)) {
             apprCmdObject = Constants.COURSE_COMMAND_DIC.get(command);
             result = apprCmdObject.executeCommand(shellState, arguments);
+        } else if (Constants.REVIEW_COMMAND_DIC.containsKey(command)) {
+            apprCmdObject = Constants.REVIEW_COMMAND_DIC.get(command);
+            result = apprCmdObject.executeCommand(shellState, arguments);
         } else {
             apprCmdObject = Constants.CALENDAR_COMMAND_DIC.get(command);
             result = apprCmdObject.executeCommand(shellState, arguments);
