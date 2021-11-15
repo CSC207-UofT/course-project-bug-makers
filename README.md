@@ -1,27 +1,29 @@
-## myCourseApp - Course Planning App for UofT Students
+## myCourseApp - Course Planning Platform for UofT Students
 
 ![myCourseApp](README.assets/p1demo.jpeg)
 
-> Note that this project requires `JDK1.8` and internet connection for could database operation and machine learning model inference. Dependencies can be found in  `build.gradle` . Please refer to `teamDocumentation` for details.
+> Note that this project requires `JDK1.8` and internet connection for could database operation and machine learning model inference. Dependencies can be found in  `build.gradle` . Please refer to `teamDocumentation` and `phase1` for details.
+
+> Our primary code base is on branch `main`, please refer to `main` for code quality evaluation. Web application (on branch `dev/springboot`) is a preview and expected to be improved in phase 2.
 
 ## What is myCourseApp?
 
-![](README.assets/myCourseAppIntrop1.png)
+![](phase1/progress_report.assets/myCourseApp.png)
 For our CSC207 project, we are planning to build a course planning app that allows students to plan and review their courses. A build-in connection to UofT API will present comprehensive course information to users, while user information is safely stored in a remote database. Course planning functionality is provided through our auto-scheduling algorithm. Timetable visualization functionality gives user a convenient course scheduling experience. Students can rate and write reviews on courses they have taken before. Based on these reviews and the user's information, our machine learning model strives to recommend instructor tailored to the user’s request and program requirements. In addition, our app aims to provide a platform for students to connect and network with their fellow peers.
 
 
 
 ## Progress Summary & Design Highlights
-![Course_app](README.assets/mindmapP1.png)
+![Course_app](phase1/progress_report.assets/myCourseAppIntrop1.png)
 
 ## System Requirements
 
 - *JDK1.8*
 - Dependencies
-  - `mongodb-driver:3.12.10` : User Database Access
+  - `mongodb-driver:3.12.10` : Cloud Database Access
   - `gson:2.8.8` : JSON Support
-  - `junit-jupiter-api:5.8.1'`: JUNIT test
-  - `httpcore:4.4.14'` & `httpclient:4.5.13`: Apache HTTP request support
+  - `junit-jupiter-api:5.8.1'`: JUNIT Test
+  - `httpcore:4.4.14'` & `httpclient:4.5.13`: Apache HTTP Request Support
 
 
 

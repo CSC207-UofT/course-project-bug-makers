@@ -1,6 +1,6 @@
+
 # myCourseApp Design Document
-***
-![](progress_report.assets/myCourseApp.jpg)
+
 
 ![](progress_report.assets/CourseAppMindMap.png)
 

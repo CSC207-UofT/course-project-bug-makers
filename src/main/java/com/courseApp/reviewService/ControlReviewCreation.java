@@ -30,10 +30,13 @@ public interface ControlReviewCreation {
      * @param generalRate given general rate
      * @param difficultyRate given difficulty rate
      * @param reviewString given review string
+     * @param userName given username
+     *
      * @return ture iff the creation is successful
      */
-    boolean createNewUserReview(String  courseCode,
+    boolean createNewUserReview(String courseCode,
                                 String instName,
+                                String userName,
                                 double generalRate,
                                 double difficultyRate,
                                 String reviewString) throws Exception;

@@ -5,6 +5,7 @@ import com.mongodb.MongoClientSettings;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
@@ -57,8 +58,10 @@ public class Constants {
     public static final String WEDNESDAY = "WE";
     public static final String THURSDAY = "TH";
     public static final String FRIDAY = "FR";
-
-
+    public static final String LECTURE = "LEC";
+    public static final String TUTORIAL = "TUT";
+    public static final String PRACTICAL = "PRA";
+    public static final List<String> SECTION_TYPES = new ArrayList<>(Arrays.asList(LECTURE, TUTORIAL, PRACTICAL));
 
 
     // NOTE THAT THIS FEATURE REQUIRE JAVA 16.

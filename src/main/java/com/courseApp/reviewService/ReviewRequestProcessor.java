@@ -157,7 +157,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
         ArrayList<String> res = new ArrayList<>();
         for (UserReview uR: new ReviewDaoImpl().queryInstReview(courseCode, instName).getUserReviewList()){
             res.add(uR.getUsername());
-        };
+        }
         return res;
     }
 
@@ -183,7 +183,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
                 new UserReview(username, generalRate, difficultyRate, recommendationRate, reviewString);
 
         // Create a new ArrayList to store the new User Review and add the User Review to the ArrayList
-        ArrayList<UserReview> UserReviewList = new ArrayList<>();
+        ArrayList<UserReview> UserReviewList = reviewDAO.queryInstReview(courseCode, instName).getUserReviewList();
         UserReviewList.add(newUserReview);
 
         // Update the user's UserReviewList and return true iff insertion is successful
