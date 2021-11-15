@@ -17,5 +17,9 @@
 ## ReviewServiceController
 - General Responsibility:
     - Execute user's writing or reading request to the review system.  
+- Check the Jdoc for detail.
+
+
+
     
 
