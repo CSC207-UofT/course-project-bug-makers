@@ -1,4 +1,4 @@
-##Refactoring
+## Refactoring
 - We successfully refactored CalendarService using Design Patterns:
   - We applied Decorator Pattern to resolve the code smell "Duplicated Code".
     - While incorporating new Calendar types, the controller `Calendarpresenter` add an almost **identical** "if statement" to decide which term(s) 
