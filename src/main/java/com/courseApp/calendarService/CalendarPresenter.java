@@ -65,11 +65,9 @@ public class CalendarPresenter implements ControlCalendarPresentation {
      * @param fallCalendar Fall Calendar of required type
      * @param winterCalendar Winter Calendar of required type
      * @param termType the String term(s) required
-     * @param rawSchedule the input map from the schedule, containing all the courses of the year.
      * @return a String presentation of Calendar of the desired termType
      */
-    private String typeDecorator(UsePresentable fallCalendar, UsePresentable winterCalendar,String termType,
-                                 Map<String, Map<String, ArrayList<String>>> rawSchedule){
+    private String typeDecorator(UsePresentable fallCalendar, UsePresentable winterCalendar, String termType){
         String resultingCalendar = "";
         if (Objects.equals(termType, Constants.FALL_TERM)){
             resultingCalendar += fallCalendar.present();}
@@ -133,7 +131,7 @@ public class CalendarPresenter implements ControlCalendarPresentation {
         //edit String accordingly
         String resultingCalendar = "";
         resultingCalendar += headerGenerator(termType);
-        resultingCalendar += typeDecorator(fallCalendar, winterCalendar, termType, rawSchedule);
+        resultingCalendar += typeDecorator(fallCalendar, winterCalendar, termType);
         return resultingCalendar;
     }
 
