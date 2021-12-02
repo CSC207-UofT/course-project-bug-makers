@@ -9,7 +9,7 @@ import java.util.List;
 public class CreateNewUserReview extends ReviewCommand {
 
     public CreateNewUserReview(){
-        super(6, 6);
+        super(5, 5);
     }
 
 
@@ -21,10 +21,10 @@ public class CreateNewUserReview extends ReviewCommand {
         boolean result = false;
         String courseCode = arguments.get(0);
         String instName = arguments.get(1);
-        String userName = arguments.get(2);
-        double generalRate = Double.parseDouble(arguments.get(3));
-        double difficultyRate = Double.parseDouble(arguments.get(4));
-        String reviewString =arguments.get(5);
+        String userName = shellState.getUsername();
+        double generalRate = Double.parseDouble(arguments.get(2));
+        double difficultyRate = Double.parseDouble(arguments.get(3));
+        String reviewString =arguments.get(4);
 
         try{
             result = reviewController.createNewUserReview(
@@ -34,6 +34,6 @@ public class CreateNewUserReview extends ReviewCommand {
         }
 
         if (result){return "Created new user review successfully";}
-        else {return "Failed to create user review";}
+        else {return "Failed to create user review， please check the course code and instructor name";}
     }
 }
