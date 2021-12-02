@@ -34,6 +34,6 @@ public class CreateNewUserReview extends ReviewCommand {
         }
 
         if (result){return "Created new user review successfully";}
-        else {return "Failed to create user review， please check the course code and instructor name";}
+        else {return "Failed to create user review, please check the course code and instructor name";}
     }
 }
