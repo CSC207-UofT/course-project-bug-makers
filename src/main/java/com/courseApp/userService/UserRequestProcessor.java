@@ -16,7 +16,6 @@ import java.util.ArrayList;
 @Service
 public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister, UseUpdateUserData {
 
-    @Autowired
     UserDaoImpl udi;
 
 
@@ -24,6 +23,7 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
     /**
      * Default constructor for Spring boot autowire.
      */
+    @Autowired
     public UserRequestProcessor() {
     }
 

@@ -1,11 +1,14 @@
 package com.courseApp.reviewService;
 
 import com.courseApp.constants.Constants;
-
+import com.courseApp.dao.InferenceDaoImpl;
 
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Recommendation Request Processor for recommendation score update.
+ */
 public class RecommendationRequestProcessor implements UseRecommendationUpdate, UseInferenceScore{
     /**
      * generate a complex recommendation map by ratio in the recommendation map.
@@ -38,12 +41,14 @@ public class RecommendationRequestProcessor implements UseRecommendationUpdate, 
      * @return text recommendation score in double format
      */
     @Override
-    public double modelInference(String reviewString) {
-//        // Initialization
-//        BertNLClassifier classifier = BertNLClassifier.createFromFile(context, modelFile);
-//
-//        // Run inference
-//        List<Category> results = classifier.classify(input);
-        return 5.0D;
+    public double modelInference(String reviewString) throws Exception {
+
+        return new InferenceDaoImpl().modelInference(reviewString);
     }
+
+
+
+
+
+
 }

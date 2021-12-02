@@ -1,9 +1,5 @@
 package com.courseApp.reviewService;
 
-import com.courseApp.entity.CourseReview;
-import com.courseApp.entity.InstReview;
-import com.courseApp.entity.UserReview;
-
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -74,6 +70,16 @@ public interface UseQueryReview {
      * @return Arraylist of instructor's name
      */
     ArrayList<String> queryExistingInst(String courseCode);
+
+    /**
+     * Query existing username name under specific instructor.
+     *
+     * @param instName   Instructor name
+     * @param courseCode Course code
+     *
+     * @return Arraylist of username's
+     */
+    ArrayList<String> queryUsername(String courseCode, String instName);
 
 
 

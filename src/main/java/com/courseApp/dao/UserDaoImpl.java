@@ -29,7 +29,6 @@ public class UserDaoImpl {
     private  String userName;
     private String password;
 
-    @Autowired
     UserDAO userDao;
 
 
@@ -37,6 +36,7 @@ public class UserDaoImpl {
      * Default constructor for Spring boot.
      *
      */
+    @Autowired
     public UserDaoImpl() { }
 
     /**

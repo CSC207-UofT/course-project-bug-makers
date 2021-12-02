@@ -16,10 +16,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 public class UserServiceController implements ControlLoginRegister, ControlRM, ControlClear,
         ControlPresentInfo, ControlAddOne, ControlLatestSchedule{
 
-
-    @Autowired
     UserRequestProcessor urp;
 
+    @Autowired
+    public UserServiceController(UserRequestProcessor urp) {
+    }
 
     /**
      *  User login

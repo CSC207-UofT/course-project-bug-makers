@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.ArrayList;
 
 /**
- * Abstract class representing the users of this app. User has a username for identification purpose.
+ * Class representing the users of this app. User has a username for identification purpose.
  */
 @Document(Constants.DB_USER_COLLECTION_NAME)
 public class User {

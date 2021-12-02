@@ -5,14 +5,18 @@ import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.courseApp.constants.Constants.DB_REVIEW_COLLECTION_NAME;
+
 /**
  * course review entity for course code, course difficulty rate, course general rate, instructor review map and known instructor list.
  */
+@Document(DB_REVIEW_COLLECTION_NAME)
 public class CourseReview {
     @Id
     private String courseCode;

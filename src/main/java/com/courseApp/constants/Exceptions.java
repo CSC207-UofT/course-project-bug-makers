@@ -8,4 +8,6 @@ public class Exceptions {
     public static final String WRONG_CALENDAR_TYPE = "The calendar type is invalid.";
     public static final String WRONG_TERM_TYPE = "The term type is invalid.";
     public static final String WRONG_WEEKDAY_TYPE = "The weekday type is invalid.";
+    public static final String INFERENCE_SERVER_ERROR = "Inference serve time out, check Azure service";
+
 }
