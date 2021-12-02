@@ -177,8 +177,9 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
         recommendationRR.generateComplexScoreMap(rrp.getRecommendationMap(courseCode)).
                 entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).forEachOrdered(x -> instRank.put(x.getKey(), x.getValue()));
 
-        InstRank.add(instRank.toString());
-
+        for(Map.Entry<String, Double> i: instRank.entrySet()) {
+            InstRank.add(i.getKey() + Constants.TIME_COMMA + i.getValue().toString());
+        }
         return InstRank;
     }
 }

@@ -25,6 +25,6 @@ public class CreateNewCourse extends ReviewCommand {
             }
         }
         if (result){return "Added new course review successfully";}
-        else {return "Failed to add course review";}
+        else {return "Failed to add course review, please check the course code";}
     }
 }

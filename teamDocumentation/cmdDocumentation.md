@@ -27,9 +27,9 @@ For more information click [here](https://kuan-pang.github.io/course-project-bug
     
 - `createNewCourse`; Create a course review. It takes one arg, which is the course code.
 - `createNewInst`; Create an instructor review. It takes two args, which are the course code and the instructor name.
-- `createNewUserReview`; Create a user review. It takes 6 args, which are courseCode, instName, userName, generalRate, difficultyRate, reviewString.
-- `deleteUserReview`; Delete a user review. It takes 3 args, which are courseCode, instName, userName.
-- `editUserReview`; Edit a user review. It takes 6 args, which are courseCode, instName, username, generalRate, difficultyRate, reviewString.
+- `createNewUserReview`; Create a user review. It takes 5 args, which are courseCode, instName, generalRate, difficultyRate, reviewString.
+- `deleteUserReview`; Delete your review. It takes 2 args, which are courseCode, instName.
+- `editUserReview`; Edit a user review. It takes 5 args, which are courseCode, instName, generalRate, difficultyRate, reviewString.
 - `getExistingCourseList`; Give you the existing courses in the database; 
 - `getInstRank`; Give you an instructor rank for a course. It takes in 1 arg, which is the course code.
 - `getInstReviewSummary`; Give you an instructor review summary for a course. It takes in 1 arg, which is the course code.
