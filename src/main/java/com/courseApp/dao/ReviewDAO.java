@@ -24,11 +24,11 @@ public interface ReviewDAO extends MongoRepository<CourseReview, String> {
     CourseReview findByCourseCode(String courseCode);
 
     /**
-     * Query existing course list in the review database.
+     * Query existing course review list in the review database.
      *
      * @return Arraylist of course code.
      */
-    ArrayList<String> findAllCourseCode();
+    List<CourseReview> findAll();
 
 
 }

@@ -11,6 +11,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
 import java.util.Objects;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -50,7 +52,12 @@ public class ReviewDaoImpl{
      * @return Arraylist of course code.
      */
     public ArrayList<String> queryExistingCourse() {
-        return reviewDao.findAllCourseCode();
+        List<CourseReview> crList = reviewDao.findAll();
+        ArrayList<String> res = new ArrayList<>();
+        for(CourseReview cr: crList){
+            res.add(cr.getCourseCode());
+        }
+        return res;
     }
 
     /**
