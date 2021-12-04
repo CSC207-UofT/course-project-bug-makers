@@ -20,10 +20,11 @@ class ReviewServiceControllerTest {
 
     @Test
     void getInstReviewSummary() {
-        assertEquals(rsc.getInstReviewSummary("CSC211").toString(),"[instructorName          profTest          \n" +
-                "          instGeneralRate          4.0\n" +
-                "          instDifficultyRate          5.0\n" +
-                " ---------- ---------- ---------- ---------- ---------- ----------\n]");
+        assertEquals("[instructorName          test          \n" +
+                "          instGeneralRate          1.0\n" +
+                "          instDifficultyRate          1.0\n" +
+                " ---------- ---------- ---------- ---------- ---------- ----------\n" +
+                "]", rsc.getInstReviewSummary("CSC207").toString());
     }
 
     @Test
@@ -47,7 +48,7 @@ class ReviewServiceControllerTest {
 
     @Test
     void getInstRank() {
-        //TODO
+        assertEquals(rsc.getInstRank("CSC211").toString(), "[profTest2:5.0, profTest:3.5625]");
     }
 
 }

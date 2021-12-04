@@ -178,8 +178,8 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
         ReviewDAO reviewDAO = new ReviewDaoImpl();
 
         // Request validation
-        if (reviewDAO.queryCourseReview(courseCode).getInstList().contains(instName)){return false;}
-        if (reviewDAO.queryExistingCourse().contains(courseCode)){return false;}
+        if (!reviewDAO.queryCourseReview(courseCode).getInstList().contains(instName)){return false;}
+        if (!reviewDAO.queryExistingCourse().contains(courseCode)){return false;}
 
         // Create new User Review using given parameters
         UserReview newUserReview =
