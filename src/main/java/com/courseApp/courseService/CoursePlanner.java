@@ -162,23 +162,23 @@ public class CoursePlanner implements UseCoursePlanning {
         }
         return result;
     }
-    public static void main(String[] args) throws Throwable {
-        ArrayList<String> course_list = new ArrayList<>();
-        course_list.add("CSC207FLEC0101");
-        course_list.add("ECO200YLEC0401");
-        course_list.add("CSC236FLEC0101");
-        course_list.add("CSC209SLEC0201");
-        course_list.add("CSC207FTUT0101");
-
-        ArrayList<ArrayList<SectionTool>> section_list = CreateSectionList(course_list);
-
-        ArrayList<ArrayList<SectionTool>> schedule_list = planScheduleList(new ArrayList<>(), section_list);
-        ArrayList<String> result = new ArrayList<>();
-        for (SectionTool section : schedule_list.get(0)) {
-            result.add(section.getSectionCode());
-        }
-        Schedule schedule = new Schedule(result);
-        new ScheduleUpdater().updateScheduleMap(schedule);
-        System.out.println(schedule);
-    }
+//    public static void main(String[] args) throws Throwable {
+//        ArrayList<String> course_list = new ArrayList<>();
+//        course_list.add("CSC207FLEC0101");
+//        course_list.add("ECO200YLEC0401");
+//        course_list.add("CSC236FLEC0101");
+//        course_list.add("CSC209SLEC0201");
+//        course_list.add("CSC207FTUT0101");
+//
+//        ArrayList<ArrayList<SectionTool>> section_list = CreateSectionList(course_list);
+//
+//        ArrayList<ArrayList<SectionTool>> schedule_list = planScheduleList(new ArrayList<>(), section_list);
+//        ArrayList<String> result = new ArrayList<>();
+//        for (SectionTool section : schedule_list.get(0)) {
+//            result.add(section.getSectionCode());
+//        }
+//        Schedule schedule = new Schedule(result);
+//        new ScheduleUpdater().updateScheduleMap(schedule);
+//        System.out.println(schedule);
+//    }
 }
