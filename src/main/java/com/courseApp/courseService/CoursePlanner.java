@@ -17,18 +17,17 @@ import java.util.List;
 public class CoursePlanner implements UseCoursePlanning {
 
     private final String username;
-    private final ArrayList<ArrayList<SectionTool>> sectionList;
-    private int index;
+    private final int index;
     private final ArrayList<ArrayList<SectionTool>> scheduleList;
 
     public CoursePlanner(String username, int index) throws Throwable {
         this.username = username;
         ArrayList<String> courseList = new UserRequestProcessor(username).queryUserCourseList();
-        this.sectionList = CreateSectionList(courseList);
+        ArrayList<ArrayList<SectionTool>> sectionList = CreateSectionList(courseList);
         this.index = index;
         ArrayList<ArrayList<SectionTool>> schedule = new ArrayList<>();
         try {
-            schedule = planScheduleList(new ArrayList<>(), this.sectionList);
+            schedule = planScheduleList(new ArrayList<>(), sectionList);
         }
         catch (Exception e) {
             e.printStackTrace();
