@@ -22,12 +22,14 @@ class ReviewRequestProcessorTest {
 
     @Test
     void queryCourseReviewSummary() {
-        assertEquals(rrp.queryCourseReviewSummary("CSC207").toString(),"{courseGeneralRate=1.0, courseDifficultyRate=1.0, courseCode=CSC207}");
+        assertEquals("{courseGeneralRate=1.0, courseDifficultyRate=1.0, courseCode=CSC207}",
+                rrp.queryCourseReviewSummary("CSC207").toString());
     }
 
     @Test
     void queryInstReviewSummary() {
-        assertEquals(rrp.queryInstReviewSummary("CSC211","profTest2").toString(),"{instructorName=profTest2, instGeneralRate=5.0, instDifficultyRate=2.0}");
+        assertEquals("{instructorName=profTest2, instGeneralRate=5.0, instDifficultyRate=2.0}",
+                rrp.queryInstReviewSummary("CSC211","profTest2").toString());
     }
 
     @Test
@@ -71,6 +73,7 @@ class ReviewRequestProcessorTest {
 
     @Test
     void getRecommendationMap() {
-        assertEquals(rrp.getRecommendationMap("CSC211").toString(),"{profTest2={difficultyRate=2.0, recommendationScore=5.0, generalRate=5.0}, profTest={difficultyRate=4.916666666666667, recommendationScore=3.0833333333333335, generalRate=4.041666666666667}}");
+        assertEquals("{profTest2={difficultyRate=2.0, recommendationScore=5.0, generalRate=5.0}, profTest={difficultyRate=4.916666666666667, recommendationScore=3.0833333333333335, generalRate=4.041666666666667}}",
+                rrp.getRecommendationMap("CSC211").toString());
     }
 }
