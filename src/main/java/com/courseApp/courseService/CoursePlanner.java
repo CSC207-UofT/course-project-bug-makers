@@ -18,12 +18,15 @@ public class CoursePlanner implements UseCoursePlanning {
 
     private final String username;
     private final ArrayList<ArrayList<SectionTool>> sectionList;
+    private int index;
 
     public CoursePlanner(String username) throws Throwable {
         this.username = username;
         ArrayList<String> courseList = new UserRequestProcessor(username).queryUserCourseList();
         this.sectionList = CreateSectionList(courseList);
+        this.index = 0;
     }
+
 
     /**
      * Generate one possible schedule for the user
@@ -40,16 +43,20 @@ public class CoursePlanner implements UseCoursePlanning {
         }
         ArrayList<String> result = new ArrayList<>();
         ArrayList<ArrayList<SectionTool>> scheduleList = planScheduleList(new ArrayList<>(), this.sectionList);
-        for (SectionTool section : scheduleList.get(0)) {
+        for (SectionTool section : scheduleList.get(this.index)) {
             result.add(section.getSectionCode());
+        }
+        if (this.index == scheduleList.size() - 1) {
+            this.index = 0;
+        }
+        else {
+            this.index += 1;
         }
         Schedule schedule = new Schedule(result);
         new ScheduleUpdater().updateScheduleMap(schedule);
         user.insertOneSchedule(schedule);
         return schedule;
     }
-
-
 
     /**
      * Returns a list of valid (without time conflicts) schedules from existing schedules in schedule_list that
@@ -97,6 +104,8 @@ public class CoursePlanner implements UseCoursePlanning {
         }
     }
 
+
+
     /**
      * Check if two sections occur at the same time
      *
@@ -115,12 +124,16 @@ public class CoursePlanner implements UseCoursePlanning {
                 if (LocalTime.parse(section1.getScheduleMap().get(s).get(0) +
                         ":00").isBefore(LocalTime.parse(section2.getScheduleMap().get(s).get(0) + ":00")) &&
                         LocalTime.parse(section1.getScheduleMap().get(s).get(1) +
-                                ":00").isAfter(LocalTime.parse(section2.getScheduleMap().get(s).get(1) + ":00"))) {
+                                ":00").isAfter(LocalTime.parse(section2.getScheduleMap().get(s).get(0) + ":00"))) {
                     return true;
-                } else if (LocalTime.parse(section1.getScheduleMap().get(s).get(0) +
-                        ":00").isAfter(LocalTime.parse(section2.getScheduleMap().get(s).get(0) + ":00")) &&
+                } else if (LocalTime.parse(section2.getScheduleMap().get(s).get(0) +
+                        ":00").isBefore(LocalTime.parse(section1.getScheduleMap().get(s).get(0) + ":00")) &&
                         LocalTime.parse(section2.getScheduleMap().get(s).get(1) +
                                 ":00").isAfter(LocalTime.parse(section1.getScheduleMap().get(s).get(0) + ":00"))) {
+                    return true;
+                } else if (LocalTime.parse(section1.getScheduleMap().get(s).get(0) +
+                        ":00").equals(LocalTime.parse(section2.getScheduleMap().get(s).get(0) +
+                        ":00"))) {
                     return true;
                 }
             }
@@ -161,5 +174,10 @@ public class CoursePlanner implements UseCoursePlanning {
             }
         }
         return result;
+    }
+
+    public static void main(String[] args) throws Throwable {
+        CoursePlanner coursePlanner = new CoursePlanner("planCourse");
+        coursePlanner.generateSchedule();
     }
 }
