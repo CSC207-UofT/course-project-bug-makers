@@ -102,11 +102,32 @@ specific preferences and abilities.
 
 Notes for Future Improvement:
 - To accommodate for right or left-handed access and use, we could update the navigation 
-bar so that users can choose the 
+bar so that users can relocate the navigation bar to the right or left depending on their ease of accessibility and 
+preferences
+- Implementation of the speak feature would allow users to have the choice of reading or listening to 
+the text displayed on MyCourseApp's website depending on their preferences and abilities. 
 
 ###### Principle 3: Simple and Intuitive Use
+MyCourseApp's new language selection feature allows users to read and understand the text in their preferred language. 
+Through this feature, we are able to accommodate to a wider range of users with different levels of literacy and 
+language skills. In addition, the new navigation bar feature allows the user to easily navigate through the pages of 
+our website, with the most relevant pages listed first. This simplifies the usage of MyCourseApp and 
+streamlines the user's experience.
+
+Notes for Future Improvement:
+- To further decrease the complexity of our website, we could implement a short tutorial of MyCourseApp
+that walks the user through the website's features and capabilities
+  - For instance, the tutorial could explain to a user how they can create and save a schedule
+- A small help menu could display tips for the user, answers to frequently asked questions about the 
+website, and other information that can help increase user comprehension on various features of MyCourseApp
 
 ###### Principle 4: Perceptible Information
+The newly implemented colour contrast feature allows users to pick their preferred colour scheme for the visual
+display of MyCourseApp's website. Light and dark mode accommodates for website usage under 
+different environments, as dark mode reduces the strain on the user's eyes. In addition, dark mode is able to reduce 
+battery usage and prolong the usage of the user's electronics. The colour contrast feature allows increased contrast
+between important information and its surroundings, thus improving on MyCourseApp's ability to communicate essential 
+information to the user. 
 
 ###### Principle 5: Tolerance for Error
 
