@@ -48,7 +48,7 @@ class ReviewServiceControllerTest {
 
     @Test
     void getInstRank() {
-        assertEquals("[profTest2:5.0, profTest:3.56]", rsc.getInstRank("CSC211").toString());
+        assertEquals("[profTest2:5.0, profTest1:3.5]", rsc.getInstRank("CSC100").toString());
     }
 
 }
