@@ -1,0 +1,10 @@
+## Refactoring
+- We successfully refactored CalendarService using Design Patterns:
+  - We applied Decorator Pattern to resolve the code smell "Duplicated Code".
+    - While incorporating new Calendar types, the controller `Calendarpresenter` add an almost **identical** "if statement" to decide which term(s) 
+    - In PR[#42](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42), we refined it with Decorator Design Pattern
+    - We successfully avoid potential duplications. Every type of Calendar now push their fall calendar and winter calendar to the calendar decorator to process.
+  - Factory Design Pattern facilitates the extensibility of `Calendarfactory`
+    - While developing new types of Calendars, they need to generate customized calendars as "products".
+    - In PR[#52](https://github.com/CSC207-UofT/course-project-bug-makers/pull/52), every subclass of `Calendarfactory`implement `UsePresentable` interface 
+    - Uniformly formatted string representation of Calendars are generated.

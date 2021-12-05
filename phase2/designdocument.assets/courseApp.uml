@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/work/IdeaProjects/course-project-bug-makers/src/main/java/com/courseApp</OriginalElement>
+  <nodes>
+    <node x="0.0" y="558.0">com.courseApp.userService.ControlAddOne</node>
+    <node x="193.0" y="558.0">com.courseApp.userService.ControlClear</node>
+    <node x="459.5" y="483.0">com.courseApp.driver.cmdline.commands.PlanCourse</node>
+    <node x="2053.0" y="868.0">com.courseApp.utils.AggregateList</node>
+    <node x="1955.2499999999998" y="793.0">com.courseApp.dao.ReviewDaoImpl</node>
+    <node x="469.0" y="948.0">com.courseApp.dao.CourseDaoImpl</node>
+    <node x="262.49999999999994" y="166.0">com.courseApp.calendarService.WorkdayCalendar</node>
+    <node x="212.5" y="483.0">com.courseApp.driver.cmdline.commands.GetScheduleSummary</node>
+    <node x="323.0" y="1023.0">com.courseApp.Main</node>
+    <node x="687.0" y="868.0">com.courseApp.driver.cmdline.IShellState</node>
+    <node x="1620.0" y="868.0">com.courseApp.utils.TimeConversion</node>
+    <node x="364.0" y="558.0">com.courseApp.userService.ControlLatestSchedule</node>
+    <node x="2274.5" y="403.0">com.courseApp.driver.cmdline.commands.UserCommand</node>
+    <node x="204.99999999999994" y="248.0">com.courseApp.calendarService.TuesdayCalendar</node>
+    <node x="1844.0" y="868.0">com.courseApp.entity.CourseReview</node>
+    <node x="2507.75" y="793.0">com.courseApp.reviewService.RecommendationRequestProcessor</node>
+    <node x="841.75" y="793.0">com.courseApp.courseService.CourseServiceController</node>
+    <node x="2321.0" y="558.0">com.courseApp.reviewService.UseQueryRecommendationInfo</node>
+    <node x="530.25" y="248.0">com.courseApp.calendarService.FridayCalendar</node>
+    <node x="3370.0" y="868.0">com.courseApp.driver.cmdline.CmdShell</node>
+    <node x="2835.0" y="868.0">com.courseApp.entity.InstReview</node>
+    <node x="2444.0" y="713.0">com.courseApp.reviewService.UseInferenceScore</node>
+    <node x="689.0" y="948.0">com.courseApp.driver.cmdline.ShellState</node>
+    <node x="692.0" y="713.0">com.courseApp.courseService.ControlPresentInformation</node>
+    <node x="3026.5" y="793.0">com.courseApp.calendarService.CalendarPresenter</node>
+    <node x="2030.9999999999998" y="713.0">com.courseApp.dao.AbstractDatabaseDao</node>
+    <node x="1991.5" y="483.0">com.courseApp.driver.cmdline.commands.UserLogin</node>
+    <node x="2604.0" y="638.0">com.courseApp.reviewService.ReviewRequestProcessor</node>
+    <node x="1769.5" y="483.0">com.courseApp.driver.cmdline.commands.GetLatestSchedule</node>
+    <node x="1393.5" y="483.0">com.courseApp.driver.cmdline.commands.UserRegister</node>
+    <node x="692.5" y="166.0">com.courseApp.calendarService.WeekCalendar</node>
+    <node x="1867.9999999999998" y="713.0">com.courseApp.dao.ReviewDAO</node>
+    <node x="3412.5" y="483.0">com.courseApp.driver.cmdline.commands.AddCourse</node>
+    <node x="2665.0" y="713.0">com.courseApp.reviewService.UseRecommendationUpdate</node>
+    <node x="1036.3641304347825" y="248.0">com.courseApp.calendarService.WednesdayCalendar</node>
+    <node x="820.3641304347825" y="248.0">com.courseApp.calendarService.ThursdayCalendar</node>
+    <node x="0.0" y="713.0">com.courseApp.userService.UseUpdateUserData</node>
+    <node x="615.0" y="558.0">com.courseApp.userService.ControlPresentInfo</node>
+    <node x="1392.25" y="793.0">com.courseApp.courseService.CourseInformationGenerator</node>
+    <node x="1388.0" y="868.0">com.courseApp.driver.cmdline.commands.CommandReader</node>
+    <node x="473.49999999999994" y="166.0">com.courseApp.calendarService.SingledayCalendar</node>
+    <node x="1252.0" y="558.0">com.courseApp.reviewService.ControlReviewUpdate</node>
+    <node x="0.0" y="403.0">com.courseApp.driver.cmdline.commands.CalendarCommand</node>
+    <node x="868.0" y="868.0">com.courseApp.utils.PasswordEncoderMD5</node>
+    <node x="2163.5" y="793.0">com.courseApp.dao.UserDaoImpl</node>
+    <node x="0.0" y="248.0">com.courseApp.calendarService.MondayCalendar</node>
+    <node x="3177.5" y="483.0">com.courseApp.driver.cmdline.commands.UserClearCourseList</node>
+    <node x="3329.0" y="793.0">com.courseApp.courseService.CoursePlanner</node>
+    <node x="2275.0" y="713.0">com.courseApp.dao.UserDAO</node>
+    <node x="2926.5" y="483.0">com.courseApp.driver.cmdline.commands.UserClearScheduleList</node>
+    <node x="14.5" y="868.0">com.courseApp.dao.InferenceDAO</node>
+    <node x="9.5" y="483.0">com.courseApp.driver.cmdline.commands.PresentCalendar</node>
+    <node x="621.5" y="483.0">com.courseApp.driver.cmdline.commands.GetSectionInformation</node>
+    <node x="0.0" y="1023.0">com.courseApp.entity.Schedule</node>
+    <node x="2986.0" y="713.0">com.courseApp.calendarService.ControlCalendarPresentation</node>
+    <node x="233.0" y="713.0">com.courseApp.userService.UseLoginRegister</node>
+    <node x="235.0" y="948.0">com.courseApp.courseService.ScheduleUpdater</node>
+    <node x="1290.0" y="323.0">com.courseApp.driver.cmdline.commands.Command</node>
+    <node x="458.0" y="1023.0">com.courseApp.entity.User</node>
+    <node x="1494.0" y="558.0">com.courseApp.reviewService.ControlRecommendationRank</node>
+    <node x="2297.5" y="483.0">com.courseApp.driver.cmdline.commands.AddWish</node>
+    <node x="1286.0" y="713.0">com.courseApp.courseService.UseCourseBasicInfo</node>
+    <node x="1516.0" y="713.0">com.courseApp.courseService.UseSectionSpecificScheduleInfo</node>
+    <node x="1567.5" y="483.0">com.courseApp.driver.cmdline.commands.GetScheduleList</node>
+    <node x="237.0" y="868.0">com.courseApp.courseService.UseScheduleInfo</node>
+    <node x="212.5" y="793.0">com.courseApp.userService.UserRequestProcessor</node>
+    <node x="483.5" y="868.0">com.courseApp.dao.CourseDAO</node>
+    <node x="834.0" y="558.0">com.courseApp.userService.ControlLoginRegister</node>
+    <node x="2260.0" y="868.0">com.courseApp.utils.CmdArgTuple</node>
+    <node x="444.0" y="713.0">com.courseApp.userService.UseQueryUserData</node>
+    <node x="484.5" y="638.0">com.courseApp.userService.UserServiceController</node>
+    <node x="2637.0" y="558.0">com.courseApp.reviewService.UseQueryReview</node>
+    <node x="2842.0" y="558.0">com.courseApp.reviewService.UseUpdateReview</node>
+    <node x="3310.0" y="713.0">com.courseApp.courseService.UseCoursePlanning</node>
+    <node x="0.0" y="948.0">com.courseApp.dao.InferenceDaoImpl</node>
+    <node x="2462.0" y="868.0">com.courseApp.entity.UserReview</node>
+    <node x="1072.0" y="558.0">com.courseApp.userService.ControlRM</node>
+    <node x="1799.0" y="558.0">com.courseApp.reviewService.ControlReviewCreation</node>
+    <node x="2143.5" y="483.0">com.courseApp.driver.cmdline.commands.RmCourse</node>
+    <node x="2652.0" y="868.0">com.courseApp.constants.Exceptions</node>
+    <node x="3017.0" y="868.0">com.courseApp.constants.Constants</node>
+    <node x="971.0" y="713.0">com.courseApp.courseService.ControlUserCoursePlanning</node>
+    <node x="870.5" y="483.0">com.courseApp.driver.cmdline.commands.GetCourseGeneralInformation</node>
+    <node x="472.48913043478257" y="82.0">com.courseApp.calendarService.CalendarFactory</node>
+    <node x="170.0" y="1023.0">com.courseApp.entity.Course</node>
+    <node x="1653.75" y="638.0">com.courseApp.reviewService.ReviewServiceController</node>
+    <node x="3194.0" y="868.0">com.courseApp.utils.UrlReader</node>
+    <node x="2759.5" y="483.0">com.courseApp.driver.cmdline.commands.GetWishList</node>
+    <node x="474.98913043478257" y="0.0">com.courseApp.calendarService.UsePresentable</node>
+    <node x="539.25" y="403.0">com.courseApp.driver.cmdline.commands.CourseCommand</node>
+    <node x="1376.5" y="403.0">com.courseApp.driver.cmdline.commands.QuitSession</node>
+    <node x="2439.5" y="483.0">com.courseApp.driver.cmdline.commands.GetCourseList</node>
+    <node x="2624.5" y="483.0">com.courseApp.driver.cmdline.commands.RmWish</node>
+    <node x="2051.0" y="558.0">com.courseApp.reviewService.ControlPresentReview</node>
+    <node x="1142.0" y="868.0">com.courseApp.driver.cmdline.commands.CommandExecutor</node>
+    <node x="1176.5" y="483.0">com.courseApp.driver.cmdline.commands.UserClearWishList</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.courseApp.driver.cmdline.commands.GetCourseGeneralInformation" target="com.courseApp.driver.cmdline.commands.CourseCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1013.5" y="458.0" />
+      <point x="633.25" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.dao.InferenceDaoImpl" target="com.courseApp.dao.InferenceDAO" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.CalendarFactory" target="com.courseApp.calendarService.UsePresentable" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.UserLogin" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="2057.5" y="458.0" />
+      <point x="2358.5" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.RmCourse" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="2210.5" y="458.0" />
+      <point x="2358.5" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.GetScheduleList" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1658.5" y="458.0" />
+      <point x="2358.5" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.reviewService.ReviewServiceController" target="com.courseApp.reviewService.ControlReviewCreation" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1775.75" y="613.0" />
+      <point x="1915.0" y="613.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.TuesdayCalendar" target="com.courseApp.calendarService.SingledayCalendar" relationship="GENERALIZATION">
+      <point x="47.0" y="-15.0" />
+      <point x="345.99999999999994" y="227.0" />
+      <point x="573.0" y="227.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.ThursdayCalendar" target="com.courseApp.calendarService.UsePresentable" relationship="REALIZATION">
+      <point x="49.0" y="-15.0" />
+      <point x="967.3641304347825" y="217.0" />
+      <point x="927.8405797101449" y="217.0" />
+      <point x="927.8405797101449" y="56.0" />
+      <point x="562.9891304347825" y="56.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.CourseCommand" target="com.courseApp.driver.cmdline.commands.Command" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="633.25" y="378.0" />
+      <point x="1356.0" y="378.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.UserRegister" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1470.5" y="458.0" />
+      <point x="2358.5" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.userService.UserServiceController" target="com.courseApp.userService.ControlClear" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="597.0" y="613.0" />
+      <point x="268.5" y="613.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.SingledayCalendar" target="com.courseApp.calendarService.UsePresentable" relationship="REALIZATION">
+      <point x="-49.75" y="-15.0" />
+      <point x="523.25" y="134.0" />
+      <point x="461.98913043478257" y="134.0" />
+      <point x="461.98913043478257" y="56.0" />
+      <point x="562.9891304347825" y="56.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.dao.ReviewDaoImpl" target="com.courseApp.dao.AbstractDatabaseDao" relationship="GENERALIZATION">
+      <point x="43.0" y="-15.0" />
+      <point x="2084.25" y="768.0" />
+      <point x="2143.0" y="768.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.userService.UserRequestProcessor" target="com.courseApp.userService.UseLoginRegister" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.WednesdayCalendar" target="com.courseApp.calendarService.UsePresentable" relationship="REALIZATION">
+      <point x="53.5" y="-15.0" />
+      <point x="1196.8641304347825" y="227.0" />
+      <point x="1109.5" y="227.0" />
+      <point x="1109.5" y="56.0" />
+      <point x="562.9891304347825" y="56.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.AddWish" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.userService.UserServiceController" target="com.courseApp.userService.ControlAddOne" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="597.0" y="613.0" />
+      <point x="86.5" y="613.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.WorkdayCalendar" target="com.courseApp.calendarService.CalendarFactory" relationship="GENERALIZATION">
+      <point x="47.75" y="-15.0" />
+      <point x="405.74999999999994" y="144.0" />
+      <point x="562.9891304347825" y="144.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.courseService.CoursePlanner" target="com.courseApp.courseService.UseCoursePlanning" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.reviewService.RecommendationRequestProcessor" target="com.courseApp.reviewService.UseRecommendationUpdate" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="2673.75" y="768.0" />
+      <point x="2803.0" y="768.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.dao.CourseDaoImpl" target="com.courseApp.dao.CourseDAO" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.WednesdayCalendar" target="com.courseApp.calendarService.SingledayCalendar" relationship="GENERALIZATION">
+      <point x="-53.5" y="-15.0" />
+      <point x="1089.8641304347825" y="227.0" />
+      <point x="573.0" y="227.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.UserClearCourseList" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="3285.0" y="458.0" />
+      <point x="2358.5" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.reviewService.ReviewRequestProcessor" target="com.courseApp.reviewService.UseQueryReview" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.UserClearScheduleList" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="3042.0" y="458.0" />
+      <point x="2358.5" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.UserCommand" target="com.courseApp.driver.cmdline.commands.Command" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="2358.5" y="378.0" />
+      <point x="1356.0" y="378.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.CalendarCommand" target="com.courseApp.driver.cmdline.commands.Command" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="101.0" y="378.0" />
+      <point x="1356.0" y="378.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.MondayCalendar" target="com.courseApp.calendarService.SingledayCalendar" relationship="GENERALIZATION">
+      <point x="46.25" y="-15.0" />
+      <point x="138.75" y="227.0" />
+      <point x="573.0" y="227.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.userService.UserServiceController" target="com.courseApp.userService.ControlPresentInfo" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="597.0" y="613.0" />
+      <point x="714.5" y="613.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.ThursdayCalendar" target="com.courseApp.calendarService.SingledayCalendar" relationship="GENERALIZATION">
+      <point x="-49.0" y="-15.0" />
+      <point x="869.3641304347825" y="227.0" />
+      <point x="573.0" y="227.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.WeekCalendar" target="com.courseApp.calendarService.UsePresentable" relationship="REALIZATION">
+      <point x="41.5" y="-15.0" />
+      <point x="817.0" y="144.0" />
+      <point x="744.0" y="144.0" />
+      <point x="744.0" y="56.0" />
+      <point x="562.9891304347825" y="56.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.userService.UserServiceController" target="com.courseApp.userService.ControlLatestSchedule" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="597.0" y="613.0" />
+      <point x="479.5" y="613.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.reviewService.ReviewServiceController" target="com.courseApp.reviewService.ControlPresentReview" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1775.75" y="613.0" />
+      <point x="2163.5" y="613.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.TuesdayCalendar" target="com.courseApp.calendarService.UsePresentable" relationship="REALIZATION">
+      <point x="-47.0" y="-15.0" />
+      <point x="251.99999999999994" y="217.0" />
+      <point x="191.48913043478257" y="217.0" />
+      <point x="191.48913043478257" y="56.0" />
+      <point x="562.9891304347825" y="56.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.userService.UserRequestProcessor" target="com.courseApp.userService.UseQueryUserData" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="328.5" y="768.0" />
+      <point x="545.5" y="768.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.GetSectionInformation" target="com.courseApp.driver.cmdline.commands.CourseCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="736.0" y="458.0" />
+      <point x="633.25" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.userService.UserServiceController" target="com.courseApp.userService.ControlRM" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="597.0" y="613.0" />
+      <point x="1139.5" y="613.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.QuitSession" target="com.courseApp.driver.cmdline.commands.Command" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1449.5" y="378.0" />
+      <point x="1356.0" y="378.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.FridayCalendar" target="com.courseApp.calendarService.SingledayCalendar" relationship="GENERALIZATION">
+      <point x="-42.75" y="-15.0" />
+      <point x="512.4891304347825" y="227.0" />
+      <point x="573.0" y="227.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.courseService.CourseServiceController" target="com.courseApp.courseService.ControlUserCoursePlanning" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="963.75" y="768.0" />
+      <point x="1106.0" y="768.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.courseService.CourseInformationGenerator" target="com.courseApp.courseService.UseCourseBasicInfo" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1530.25" y="768.0" />
+      <point x="1391.0" y="768.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.userService.UserRequestProcessor" target="com.courseApp.userService.UseUpdateUserData" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="328.5" y="768.0" />
+      <point x="106.5" y="768.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.dao.ReviewDaoImpl" target="com.courseApp.dao.ReviewDAO" relationship="REALIZATION">
+      <point x="-43.0" y="-15.0" />
+      <point x="1998.2499999999998" y="768.0" />
+      <point x="1939.4999999999998" y="768.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.reviewService.ReviewServiceController" target="com.courseApp.reviewService.ControlReviewUpdate" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1775.75" y="613.0" />
+      <point x="1363.0" y="613.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.ShellState" target="com.courseApp.driver.cmdline.IShellState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.MondayCalendar" target="com.courseApp.calendarService.UsePresentable" relationship="REALIZATION">
+      <point x="-46.25" y="-15.0" />
+      <point x="46.25" y="56.0" />
+      <point x="562.9891304347825" y="56.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.GetLatestSchedule" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1870.5" y="458.0" />
+      <point x="2358.5" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.SingledayCalendar" target="com.courseApp.calendarService.CalendarFactory" relationship="GENERALIZATION">
+      <point x="49.75" y="-15.0" />
+      <point x="622.75" y="144.0" />
+      <point x="562.9891304347825" y="144.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.courseService.CourseInformationGenerator" target="com.courseApp.courseService.UseSectionSpecificScheduleInfo" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1530.25" y="768.0" />
+      <point x="1669.5" y="768.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.reviewService.ReviewRequestProcessor" target="com.courseApp.reviewService.UseQueryRecommendationInfo" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="2729.5" y="613.0" />
+      <point x="2469.0" y="613.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.dao.UserDaoImpl" target="com.courseApp.dao.AbstractDatabaseDao" relationship="GENERALIZATION">
+      <point x="-38.25" y="-15.0" />
+      <point x="2201.75" y="768.0" />
+      <point x="2143.0" y="768.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.PlanCourse" target="com.courseApp.driver.cmdline.commands.CourseCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="530.5" y="458.0" />
+      <point x="633.25" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.PresentCalendar" target="com.courseApp.driver.cmdline.commands.CalendarCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.WorkdayCalendar" target="com.courseApp.calendarService.UsePresentable" relationship="REALIZATION">
+      <point x="-47.75" y="-15.0" />
+      <point x="310.24999999999994" y="56.0" />
+      <point x="562.9891304347825" y="56.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.courseService.ScheduleUpdater" target="com.courseApp.courseService.UseScheduleInfo" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.FridayCalendar" target="com.courseApp.calendarService.UsePresentable" relationship="REALIZATION">
+      <point x="42.75" y="-15.0" />
+      <point x="658.5" y="217.0" />
+      <point x="869.0" y="217.0" />
+      <point x="869.0" y="56.0" />
+      <point x="562.9891304347825" y="56.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.GetWishList" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="2833.0" y="458.0" />
+      <point x="2358.5" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.AddCourse" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="3482.5" y="458.0" />
+      <point x="2358.5" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.GetScheduleSummary" target="com.courseApp.driver.cmdline.commands.CourseCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="326.0" y="458.0" />
+      <point x="633.25" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.reviewService.ReviewRequestProcessor" target="com.courseApp.reviewService.UseUpdateReview" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="2729.5" y="613.0" />
+      <point x="2939.5" y="613.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.GetCourseList" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="2522.0" y="458.0" />
+      <point x="2358.5" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.WeekCalendar" target="com.courseApp.calendarService.CalendarFactory" relationship="GENERALIZATION">
+      <point x="-41.5" y="-15.0" />
+      <point x="734.0" y="144.0" />
+      <point x="562.9891304347825" y="144.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.courseService.CourseServiceController" target="com.courseApp.courseService.ControlPresentInformation" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="963.75" y="768.0" />
+      <point x="821.5" y="768.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.userService.UserServiceController" target="com.courseApp.userService.ControlLoginRegister" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="597.0" y="613.0" />
+      <point x="943.0" y="613.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.dao.UserDaoImpl" target="com.courseApp.dao.UserDAO" relationship="REALIZATION">
+      <point x="38.25" y="-15.0" />
+      <point x="2278.25" y="768.0" />
+      <point x="2337.0" y="768.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.RmWish" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="2682.0" y="458.0" />
+      <point x="2358.5" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.driver.cmdline.commands.UserClearWishList" target="com.courseApp.driver.cmdline.commands.UserCommand" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1275.0" y="458.0" />
+      <point x="2358.5" y="458.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.reviewService.RecommendationRequestProcessor" target="com.courseApp.reviewService.UseInferenceScore" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="2673.75" y="768.0" />
+      <point x="2544.5" y="768.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.reviewService.ReviewServiceController" target="com.courseApp.reviewService.ControlRecommendationRank" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1775.75" y="613.0" />
+      <point x="1636.5" y="613.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.courseApp.calendarService.CalendarPresenter" target="com.courseApp.calendarService.ControlCalendarPresentation" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6100465746243529" showDependencies="false" x="822.7233052866662" y="513.7147989370338" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
