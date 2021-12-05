@@ -60,7 +60,7 @@ public class CoursePlanner implements UseCoursePlanning {
      * @return ArrayList of course codes
      * @throws Throwable exceptions
      */
-    private static ArrayList<ArrayList<SectionTool>> planScheduleList(ArrayList<ArrayList<SectionTool>> schedule_list,
+    private ArrayList<ArrayList<SectionTool>> planScheduleList(ArrayList<ArrayList<SectionTool>> schedule_list,
                                                                       ArrayList<ArrayList<SectionTool>> section_list) throws Throwable {
         ArrayList<ArrayList<SectionTool>> result = new ArrayList<>();
         if (schedule_list.isEmpty()) {
@@ -104,7 +104,7 @@ public class CoursePlanner implements UseCoursePlanning {
      * @param section2: A section of a course
      * @return True iff the sections have overlapping times
      */
-    private static boolean CheckConflict(SectionTool section1, SectionTool section2) {
+    private boolean CheckConflict(SectionTool section1, SectionTool section2) {
         if (section1.getSectionCode().charAt(6) != section2.getSectionCode().charAt(6)) {
             if (section1.getSectionCode().charAt(6) != 'Y' && section2.getSectionCode().charAt(6) != 'Y') {
                 return false;
@@ -134,7 +134,7 @@ public class CoursePlanner implements UseCoursePlanning {
      * @param course_list A list of course codes with sections
      * @return An ArrayList containing lists of sections sorted by type
      */
-    private static ArrayList<ArrayList<SectionTool>> CreateSectionList(ArrayList<String> course_list) throws Throwable {
+    private ArrayList<ArrayList<SectionTool>> CreateSectionList(ArrayList<String> course_list) throws Throwable {
         ArrayList<ArrayList<SectionTool>> result = new ArrayList<>();
         ArrayList<String> course_codes = new ArrayList<>();
         ArrayList<String> course_list_new = new ArrayList<>();
@@ -162,23 +162,4 @@ public class CoursePlanner implements UseCoursePlanning {
         }
         return result;
     }
-//    public static void main(String[] args) throws Throwable {
-//        ArrayList<String> course_list = new ArrayList<>();
-//        course_list.add("CSC207FLEC0101");
-//        course_list.add("ECO200YLEC0401");
-//        course_list.add("CSC236FLEC0101");
-//        course_list.add("CSC209SLEC0201");
-//        course_list.add("CSC207FTUT0101");
-//
-//        ArrayList<ArrayList<SectionTool>> section_list = CreateSectionList(course_list);
-//
-//        ArrayList<ArrayList<SectionTool>> schedule_list = planScheduleList(new ArrayList<>(), section_list);
-//        ArrayList<String> result = new ArrayList<>();
-//        for (SectionTool section : schedule_list.get(0)) {
-//            result.add(section.getSectionCode());
-//        }
-//        Schedule schedule = new Schedule(result);
-//        new ScheduleUpdater().updateScheduleMap(schedule);
-//        System.out.println(schedule);
-//    }
 }
