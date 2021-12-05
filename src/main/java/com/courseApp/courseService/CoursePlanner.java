@@ -19,12 +19,20 @@ public class CoursePlanner implements UseCoursePlanning {
     private final String username;
     private final ArrayList<ArrayList<SectionTool>> sectionList;
     private int index;
+    private final ArrayList<ArrayList<SectionTool>> scheduleList;
 
-    public CoursePlanner(String username) throws Throwable {
+    public CoursePlanner(String username, int index) throws Throwable {
         this.username = username;
         ArrayList<String> courseList = new UserRequestProcessor(username).queryUserCourseList();
         this.sectionList = CreateSectionList(courseList);
-        this.index = 0;
+        this.index = index;
+        try {
+            planScheduleList(new ArrayList<>(), this.sectionList);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.scheduleList = planScheduleList(new ArrayList<>(), this.sectionList);
     }
 
 
@@ -32,25 +40,12 @@ public class CoursePlanner implements UseCoursePlanning {
      * Generate one possible schedule for the user
      *
      * @return schedule
-     * @throws Throwable exception
      */
-    public Schedule generateSchedule() throws Throwable {
+    public Schedule generateSchedule() {
         UserRequestProcessor user = new UserRequestProcessor(username);
-        try {
-            planScheduleList(new ArrayList<>(), this.sectionList);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         ArrayList<String> result = new ArrayList<>();
-        ArrayList<ArrayList<SectionTool>> scheduleList = planScheduleList(new ArrayList<>(), this.sectionList);
         for (SectionTool section : scheduleList.get(this.index)) {
             result.add(section.getSectionCode());
-        }
-        if (this.index == scheduleList.size() - 1) {
-            this.index = 0;
-        }
-        else {
-            this.index += 1;
         }
         Schedule schedule = new Schedule(result);
         new ScheduleUpdater().updateScheduleMap(schedule);
@@ -174,10 +169,5 @@ public class CoursePlanner implements UseCoursePlanning {
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) throws Throwable {
-        CoursePlanner coursePlanner = new CoursePlanner("planCourse");
-        coursePlanner.generateSchedule();
     }
 }
