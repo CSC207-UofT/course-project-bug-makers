@@ -88,6 +88,6 @@ class CourseServiceControllerTest {
                         "BIO260STUT0101\n" +
                         "          {WE=[11:00, 12:00]}\n" +
                         " ---------- ---------- ---------- ---------- ---------- ----------\n",
-                csc.planCourse("CalendarTest2"));
+                csc.planCourse("CalendarTest2", 0));
     }
 }
