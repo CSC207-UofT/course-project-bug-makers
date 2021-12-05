@@ -110,25 +110,19 @@ public class CoursePlanner implements UseCoursePlanning {
      */
     private boolean CheckConflict(SectionTool section1, SectionTool section2) {
         if (section1.getSectionCode().charAt(6) != section2.getSectionCode().charAt(6)) {
-            if (section1.getSectionCode().charAt(6) != 'Y' && section2.getSectionCode().charAt(6) != 'Y') {
+            if (section1.getSectionCode().charAt(6) != Constants.YEAR_CODE && section2.getSectionCode().charAt(6) != Constants.YEAR_CODE) {
                 return false;
             }
         }
         for (String s : section1.getScheduleMap().keySet()) {
             if (section2.getScheduleMap().containsKey(s)) {
-                if (LocalTime.parse(section1.getScheduleMap().get(s).get(0) +
-                        ":00").isBefore(LocalTime.parse(section2.getScheduleMap().get(s).get(0) + ":00")) &&
-                        LocalTime.parse(section1.getScheduleMap().get(s).get(1) +
-                                ":00").isAfter(LocalTime.parse(section2.getScheduleMap().get(s).get(0) + ":00"))) {
+                if (LocalTime.parse(section1.getScheduleMap().get(s).get(0)).isBefore(LocalTime.parse(section2.getScheduleMap().get(s).get(0))) &&
+                        LocalTime.parse(section1.getScheduleMap().get(s).get(1)).isAfter(LocalTime.parse(section2.getScheduleMap().get(s).get(0)))) {
                     return true;
-                } else if (LocalTime.parse(section2.getScheduleMap().get(s).get(0) +
-                        ":00").isBefore(LocalTime.parse(section1.getScheduleMap().get(s).get(0) + ":00")) &&
-                        LocalTime.parse(section2.getScheduleMap().get(s).get(1) +
-                                ":00").isAfter(LocalTime.parse(section1.getScheduleMap().get(s).get(0) + ":00"))) {
+                } else if (LocalTime.parse(section2.getScheduleMap().get(s).get(0)).isBefore(LocalTime.parse(section1.getScheduleMap().get(s).get(0))) &&
+                        LocalTime.parse(section2.getScheduleMap().get(s).get(1)).isAfter(LocalTime.parse(section1.getScheduleMap().get(s).get(0)))) {
                     return true;
-                } else if (LocalTime.parse(section1.getScheduleMap().get(s).get(0) +
-                        ":00").equals(LocalTime.parse(section2.getScheduleMap().get(s).get(0) +
-                        ":00"))) {
+                } else if (LocalTime.parse(section1.getScheduleMap().get(s).get(0)).equals(LocalTime.parse(section2.getScheduleMap().get(s).get(0)))) {
                     return true;
                 }
             }

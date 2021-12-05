@@ -467,4 +467,5 @@ public class Constants {
 
     public static final String REGEX_CLASSIFICATION = "\"classification\":\\{\"category\":\"[0-9]+";
 
+    public static final Character YEAR_CODE = 'y';
 }
