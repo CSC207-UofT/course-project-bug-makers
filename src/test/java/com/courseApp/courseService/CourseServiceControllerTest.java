@@ -70,24 +70,20 @@ class CourseServiceControllerTest {
     @Test
     void planCourse() throws Throwable {
         //note that the runtime is long
-        assertEquals("[CSC207FLEC0101, CSC207FTUT0101, CSC236FLEC0101, ECO200YLEC0201, CSC209SLEC0101, CSC209STUT0101, BIO260SLEC0101, BIO260STUT0101]\n" +
+        assertEquals("[CSC207FLEC0101, CSC207FTUT0101, CSC236FLEC0201, ECO200YLEC0301, CSC209SLEC0101, CSC209STUT0101]\n" +
                         "CSC209SLEC0101\n" +
                         "          {TU=[14:00, 15:00], TH=[14:00, 15:00]}\n" +
-                        "ECO200YLEC0201\n" +
-                        "          {MO=[12:00, 14:00], WE=[09:00, 11:00]}\n" +
                         "CSC207FLEC0101\n" +
                         "          {TU=[13:00, 14:00], TH=[13:00, 14:00]}\n" +
-                        "BIO260SLEC0101\n" +
-                        "          {MO=[10:00, 11:00], FR=[10:00, 11:00], WE=[10:00, 11:00]}\n" +
-                        "CSC236FLEC0101\n" +
-                        "          {MO=[11:00, 12:00], FR=[11:00, 12:00], WE=[11:00, 12:00]}\n" +
+                        "ECO200YLEC0301\n" +
+                        "          {MO=[15:00, 17:00], WE=[09:00, 11:00]}\n" +
+                        "CSC236FLEC0201\n" +
+                        "          {MO=[12:00, 13:00], FR=[12:00, 13:00], WE=[12:00, 13:00]}\n" +
                         "CSC209STUT0101\n" +
                         "          {FR=[13:00, 14:00]}\n" +
                         "CSC207FTUT0101\n" +
                         "          {MO=[10:00, 12:00]}\n" +
-                        "BIO260STUT0101\n" +
-                        "          {WE=[11:00, 12:00]}\n" +
                         " ---------- ---------- ---------- ---------- ---------- ----------\n",
-                csc.planCourse("CalendarTest2"));
+                csc.planCourse("CoursePlanTest", 0));
     }
 }

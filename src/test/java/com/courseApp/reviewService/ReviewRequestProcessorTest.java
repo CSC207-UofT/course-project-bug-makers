@@ -73,7 +73,7 @@ class ReviewRequestProcessorTest {
 
     @Test
     void getRecommendationMap() {
-        assertEquals("{profTest2={difficultyRate=2.0, recommendationScore=5.0, generalRate=5.0}, profTest={difficultyRate=4.916666666666667, recommendationScore=3.0833333333333335, generalRate=4.041666666666667}}",
+        assertEquals("{profTest2={difficultyRate=2.0, recommendationScore=5.0, generalRate=5.0}, profTest={difficultyRate=4.92, recommendationScore=3.08, generalRate=4.04}}",
                 rrp.getRecommendationMap("CSC211").toString());
     }
 }
