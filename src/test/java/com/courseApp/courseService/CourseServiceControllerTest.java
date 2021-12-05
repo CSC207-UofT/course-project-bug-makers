@@ -84,6 +84,8 @@ class CourseServiceControllerTest {
                         "CSC207FTUT0101\n" +
                         "          {MO=[10:00, 12:00]}\n" +
                         " ---------- ---------- ---------- ---------- ---------- ----------\n",
+
                 csc.planCourse("CoursePlanTest", 0));
+
     }
 }
