@@ -47,6 +47,8 @@ class ReviewRequestProcessorTest {
         rrp.createOneCourseReview(CourseCode);
         rrp.createOneInstReview(CourseCode, instructorName);
         assertTrue(rrp.insertOneUserReview(CourseCode, instructorName, "Turp", 4.0, 5.0, 3.0, "Great course, though it is kind of difficult"));
+//        rrp.createOneInstReview("CSC100", "profTest2");
+//        assertTrue(rrp.insertOneUserReview("CSC100", "profTest2", "tUSC", 5.0, 3.0, 5.0, "Best prof ever."));
         rrp.deleteOneUserReview(CourseCode, instructorName, "Turp"); //tear down
                     }
 
@@ -73,7 +75,7 @@ class ReviewRequestProcessorTest {
 
     @Test
     void getRecommendationMap() {
-        assertEquals("{profTest2={difficultyRate=2.0, recommendationScore=5.0, generalRate=5.0}, profTest={difficultyRate=4.92, recommendationScore=3.08, generalRate=4.04}}",
-                rrp.getRecommendationMap("CSC211").toString());
+        assertEquals("{profTest2={difficultyRate=3.0, recommendationScore=5.0, generalRate=5.0}, profTest1={difficultyRate=5.0, recommendationScore=3.0, generalRate=4.0}}",
+                rrp.getRecommendationMap("CSC100").toString());
     }
 }
