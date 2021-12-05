@@ -26,13 +26,14 @@ public class CoursePlanner implements UseCoursePlanning {
         ArrayList<String> courseList = new UserRequestProcessor(username).queryUserCourseList();
         this.sectionList = CreateSectionList(courseList);
         this.index = index;
+        ArrayList<ArrayList<SectionTool>> schedule = new ArrayList<>();
         try {
-            planScheduleList(new ArrayList<>(), this.sectionList);
+            schedule = planScheduleList(new ArrayList<>(), this.sectionList);
         }
         catch (Exception e) {
             e.printStackTrace();
         }
-        this.scheduleList = planScheduleList(new ArrayList<>(), this.sectionList);
+        this.scheduleList = schedule;
     }
 
 
@@ -91,11 +92,11 @@ public class CoursePlanner implements UseCoursePlanning {
             return result;
         } else {
             try {
-                planScheduleList(result, new ArrayList<>(section_list.subList(1, section_list.size())));
+                result = planScheduleList(result, new ArrayList<>(section_list.subList(1, section_list.size())));
             } catch (Exception NO_EXISTING_SCHEDULE) {
                 throw new Exception(NO_EXISTING_SCHEDULE);
             }
-            return planScheduleList(result, new ArrayList<>(section_list.subList(1, section_list.size())));
+            return result;
         }
     }
 
