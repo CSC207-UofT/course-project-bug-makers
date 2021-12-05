@@ -18,5 +18,5 @@ public interface ControlUserCoursePlanning {
      * @throws Exception exception
      * @return schedule list String
      */
-    String planCourse(String username) throws Throwable;
+    String planCourse(String username, int index) throws Throwable;
 }

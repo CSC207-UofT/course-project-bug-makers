@@ -123,8 +123,7 @@ public class CourseServiceController implements ControlPresentInformation, Contr
      */
 
     @Override
-    public String planCourse(String username) throws Throwable {
-        return new CoursePlanner(username).generateSchedule().toString();
+    public String planCourse(String username, int index) throws Throwable {
+        return new CoursePlanner(username, index).generateSchedule().toString();
     }
-
 }

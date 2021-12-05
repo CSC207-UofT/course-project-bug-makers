@@ -17,30 +17,34 @@ import java.util.List;
 public class CoursePlanner implements UseCoursePlanning {
 
     private final String username;
-    private final ArrayList<ArrayList<SectionTool>> sectionList;
+    private final int index;
+    private final ArrayList<ArrayList<SectionTool>> scheduleList;
 
-    public CoursePlanner(String username) throws Throwable {
+    public CoursePlanner(String username, int index) throws Throwable {
         this.username = username;
         ArrayList<String> courseList = new UserRequestProcessor(username).queryUserCourseList();
-        this.sectionList = CreateSectionList(courseList);
+        ArrayList<ArrayList<SectionTool>> sectionList = CreateSectionList(courseList);
+        this.index = index;
+        ArrayList<ArrayList<SectionTool>> schedule = new ArrayList<>();
+        try {
+            schedule = planScheduleList(new ArrayList<>(), sectionList);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.scheduleList = schedule;
     }
+
 
     /**
      * Generate one possible schedule for the user
      *
      * @return schedule
-     * @throws Throwable exception
      */
-    public Schedule generateSchedule() throws Throwable {
+    public Schedule generateSchedule() {
         UserRequestProcessor user = new UserRequestProcessor(username);
-        try {
-            planScheduleList(new ArrayList<>(), this.sectionList);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         ArrayList<String> result = new ArrayList<>();
-        ArrayList<ArrayList<SectionTool>> scheduleList = planScheduleList(new ArrayList<>(), this.sectionList);
-        for (SectionTool section : scheduleList.get(0)) {
+        for (SectionTool section : scheduleList.get(this.index)) {
             result.add(section.getSectionCode());
         }
         Schedule schedule = new Schedule(result);
@@ -48,8 +52,6 @@ public class CoursePlanner implements UseCoursePlanning {
         user.insertOneSchedule(schedule);
         return schedule;
     }
-
-
 
     /**
      * Returns a list of valid (without time conflicts) schedules from existing schedules in schedule_list that
@@ -89,13 +91,15 @@ public class CoursePlanner implements UseCoursePlanning {
             return result;
         } else {
             try {
-                planScheduleList(result, new ArrayList<>(section_list.subList(1, section_list.size())));
+                result = planScheduleList(result, new ArrayList<>(section_list.subList(1, section_list.size())));
             } catch (Exception NO_EXISTING_SCHEDULE) {
                 throw new Exception(NO_EXISTING_SCHEDULE);
             }
-            return planScheduleList(result, new ArrayList<>(section_list.subList(1, section_list.size())));
+            return result;
         }
     }
+
+
 
     /**
      * Check if two sections occur at the same time
@@ -115,12 +119,16 @@ public class CoursePlanner implements UseCoursePlanning {
                 if (LocalTime.parse(section1.getScheduleMap().get(s).get(0) +
                         ":00").isBefore(LocalTime.parse(section2.getScheduleMap().get(s).get(0) + ":00")) &&
                         LocalTime.parse(section1.getScheduleMap().get(s).get(1) +
-                                ":00").isAfter(LocalTime.parse(section2.getScheduleMap().get(s).get(1) + ":00"))) {
+                                ":00").isAfter(LocalTime.parse(section2.getScheduleMap().get(s).get(0) + ":00"))) {
                     return true;
-                } else if (LocalTime.parse(section1.getScheduleMap().get(s).get(0) +
-                        ":00").isAfter(LocalTime.parse(section2.getScheduleMap().get(s).get(0) + ":00")) &&
+                } else if (LocalTime.parse(section2.getScheduleMap().get(s).get(0) +
+                        ":00").isBefore(LocalTime.parse(section1.getScheduleMap().get(s).get(0) + ":00")) &&
                         LocalTime.parse(section2.getScheduleMap().get(s).get(1) +
                                 ":00").isAfter(LocalTime.parse(section1.getScheduleMap().get(s).get(0) + ":00"))) {
+                    return true;
+                } else if (LocalTime.parse(section1.getScheduleMap().get(s).get(0) +
+                        ":00").equals(LocalTime.parse(section2.getScheduleMap().get(s).get(0) +
+                        ":00"))) {
                     return true;
                 }
             }
