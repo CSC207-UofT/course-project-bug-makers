@@ -62,7 +62,7 @@ public class UserWebDriver {
         return "redirect:/schedule_service";
     }
 
-    @RequestMapping(value = "getSchedule", method = POST)
+    @RequestMapping(value = "get_schedule", method = POST)
     public String getSchedule(HttpSession session){
         if(session.getAttribute("username") == null) {return "redirect:/login";}
         try {

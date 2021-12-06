@@ -40,10 +40,10 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar-1">
                     <li class="nav-item"><a class="nav-link" href="introduction_dashboard" style="font-family: 'Abril Fatface', serif;"><i class="icon ion-ios-settings-strong"></i>Introduction</a></li>
-                    <li class="nav-item"><a class="nav-link" href="course_service"><i class="fa fa-folder-o"></i><span style="font-family: 'Abril Fatface', serif;">Course Service</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="course_service"><i class="fa fa-folder"></i><span style="font-family: 'Abril Fatface', serif;">Course Service</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="schedule_service"><i class="fa fa-calendar"></i><span style="font-family: 'Abril Fatface', serif;">&nbsp;Schedule Service</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="calendar_service" style="font-family: 'Abril Fatface', serif;"><span></span><i class="fas fa-table"></i>&nbsp;Calendar Service</a></li>
-                    <li class="nav-item"><a class="nav-link" href="review_service"><i class="fa fa-calendar"></i><span style="font-family: 'Abril Fatface', serif;">&nbsp;Schedule Service</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="review_service"><i class="fa fa-calendar"></i><span style="font-family: 'Abril Fatface', serif;">&nbsp;Review Service</span></a></li>
                     <li class="nav-item"><a class="nav-link active" href="myplan"><i class="fas fa-user-circle"></i><span style="font-family: 'Abril Fatface', serif;">&nbsp;My Plan</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle-1" type="button"></button></div>
@@ -108,13 +108,9 @@
                     <div class="container" style="color: rgb(146,146,146);background: rgb(255,255,255);border-color: rgb(255,255,255);">
                         <h1 class="display-3 text-center" style="font-family: 'Abril Fatface', serif;border-color: rgb(239, 149, 13);color: rgb(239, 149, 13);">My Plan</h1>
                         <div class="intro" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
-                            <nav class="navbar navbar-light navbar-expand bg-white text-start shadow mb-4 topbar static-top" style="background: rgb(239, 149, 13);border-color: rgb(255,255,255);color: rgb(239, 149, 13);height: 80px;width: 583px;padding: 19px 0px;">
-                                <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><button class="btn btn-primary text-start" type="button" style="height: 47px;width: 172.984px;">Get my course list</button>
-                                    <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
-                                        <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);"></div>
-                                    </form>
-                                </div>
-                            </nav>
+                            <form method="post" th:action="@{/user/get_schedule}">
+                                <button type="submit" class="btn btn-primary d-block btn-user w-100" style="background: rgb(239, 149, 13);font-family: 'Abril Fatface', serif;" >Get my schedule</button>
+                            </form>
                             <p class="text-center"></p>
                         </div>
                     </div>
