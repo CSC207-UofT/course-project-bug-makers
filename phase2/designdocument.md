@@ -43,7 +43,7 @@ We'll be referring to the following system design diagram in our discussion.
   - CMD shell's demo (stable release, [here](/teamDocumentation/cmdDocumentation.md) for commands):
     - ![](designdocument.assets/readmedemo.gif)
     - ![](designdocument.assets/reviewdemo.gif)
-  - Web interface demo (preview in our `dev/springboot`):
+  - Web interface (source code in `dev/springboot`, visit http://bugmaker-env.eba-ss4i3etw.us-east-2.elasticbeanstalk.com/):
     - ![](designdocument.assets/webdemo.gif)
 
 
@@ -67,7 +67,7 @@ Then, when other users load the reviews for a specific course, the reviews from 
 ***
 ### Accessibility Features
 
-In Phase 2, our group decided to implement 3 new features to accommodate for increased accessibility:
+In Phase 2, our group decided to implement new features to accommodate for increased accessibility:
 1. **Language Translator**
    - The language translator feature allows user view and read the webpage's text in their preferred language
 2. **High Colour Contrast**
@@ -232,7 +232,7 @@ The SRP states that:
 
 The SRP is demonstrated through the CRC cards we created in Phase 0. Through these cards,
 you can see that every object has a single responsibility. For example, if we look at 
-the `User.txt` CRC card found in `phase0/crcCards/userServiceBranch/User.txt`, you will find 
+the `User.txt` CRC card found [here](/phase0/crcCards/userServiceBranch/User.txt), you will find 
 that it's single responsibility is to store user information and role. Therefore, if we wanted to store 
 a new piece of information about the user, we would only have to make changes to the User object as it is
 the only object responsible for storing this information.
@@ -389,6 +389,7 @@ abstractions instead of being dependent on one another from high-level to low-le
   - [Li Quan Soh] Web app, Documentation, Code Refactor
     - PR [#21](https://github.com/CSC207-UofT/course-project-bug-makers/pull/21/files)
   - [Kevin Cheng] Scheduling algorithm, Documentation, Code Refactor
+    - PR [#94](https://github.com/CSC207-UofT/course-project-bug-makers/pull/94): This pull request implemented the ability to switch between different possible schedules in the command line, as well as reduce the runtime of the course planning feature from 3 min. to 15 sec!
   - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
     - PR [#42](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42/files)
   - [Sherry You] Review Service, Documentation, Code Refactor

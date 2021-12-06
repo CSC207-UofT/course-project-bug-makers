@@ -16,7 +16,6 @@ public class GetScheduleSummary extends CourseCommand {
     public String executeCommand(IShellState shellState, List<String> arguments) throws Throwable {
         checkArgumentsNum(arguments);
         StringBuilder result = new StringBuilder();
-        StringBuilder allErrorMsg = new StringBuilder();
         CourseServiceController courseController = new CourseServiceController();
         UserServiceController usc = new UserServiceController();
             // append all information about the Schedule to result

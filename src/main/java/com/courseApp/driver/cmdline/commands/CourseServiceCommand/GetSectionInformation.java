@@ -14,7 +14,6 @@ public class GetSectionInformation extends CourseCommand {
     public String executeCommand(IShellState shellState, List<String> arguments) throws Throwable {
         checkArgumentsNum(arguments);
         StringBuilder result = new StringBuilder();
-        StringBuilder allErrorMsg = new StringBuilder();
         CourseServiceController courseController = new CourseServiceController();
         for (String courseCodeWSection: arguments){
             // append all information about the section to result

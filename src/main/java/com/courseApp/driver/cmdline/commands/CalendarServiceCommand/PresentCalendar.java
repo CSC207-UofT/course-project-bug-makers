@@ -16,7 +16,6 @@ public class PresentCalendar extends CalendarCommand {
     public String executeCommand(IShellState shellState, List<String> arguments) throws Throwable {
         checkArgumentsNum(arguments);
         StringBuilder result = new StringBuilder();
-        StringBuilder allErrorMsg = new StringBuilder();
         CalendarPresenter presenter = new CalendarPresenter();
         UserServiceController usc = new UserServiceController();
             // append all information about the course to result

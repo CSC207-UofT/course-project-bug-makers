@@ -20,8 +20,6 @@ public class PlanCourse extends CourseCommand {
         int index = 0;
         checkArgumentsNum(arguments);
         StringBuilder result = new StringBuilder();
-        StringBuilder allErrorMsg = new StringBuilder();
-        UserServiceController usc = new UserServiceController();
         CourseServiceController csc = new CourseServiceController();
         // append all information about the course to result
         try {
