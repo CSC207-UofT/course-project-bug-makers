@@ -383,11 +383,16 @@ abstractions instead of being dependent on one another from high-level to low-le
 
 - We achieved a codebase size of 28K lines in our project, and we focused on accessibility improvement in our project `Phase 2`. 
   - [Kuan Pang] Review Service, Web app, Documentation, Code Refactor
+    - PR [#43](https://github.com/CSC207-UofT/course-project-bug-makers/pull/43)
   - [Michael Fang] Review Service, Documentation, Code Refactor
+    - PR [#65](https://github.com/CSC207-UofT/course-project-bug-makers/pull/65/files)
   - [Li Quan Soh] Web app, Documentation, Code Refactor
+    - PR [#21](https://github.com/CSC207-UofT/course-project-bug-makers/pull/21/files)
   - [Kevin Cheng] Scheduling algorithm, Documentation, Code Refactor
   - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
+    - PR [#42](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42/files)
   - [Sherry You] Review Service, Documentation, Code Refactor
+    - PR [#55](https://github.com/CSC207-UofT/course-project-bug-makers/pull/55#issue-1052233350)
 
 ***
 
