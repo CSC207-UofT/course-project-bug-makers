@@ -387,7 +387,7 @@ abstractions instead of being dependent on one another from high-level to low-le
   - [Michael Fang] Review Service, Documentation, Code Refactor
     - PR [#65](https://github.com/CSC207-UofT/course-project-bug-makers/pull/65/files): This pull request implemented the ReviewServiceController which calls RecommendationRequestProcessor to generate a recommendation score of user review.
   - [Li Quan Soh] Web app, Documentation, Code Refactor
-    - PR [#21](https://github.com/CSC207-UofT/course-project-bug-makers/pull/21/files)
+    - PR [#21](https://github.com/CSC207-UofT/course-project-bug-makers/pull/21/files): This pull request implemented the core CMD interface for users to run the program and execute available commands. The pull request also implemented all the commands that interact with the appropriate controllers.
   - [Kevin Cheng] Scheduling algorithm, Documentation, Code Refactor
     - PR [#94](https://github.com/CSC207-UofT/course-project-bug-makers/pull/94): This pull request implemented the ability to switch between different possible schedules in the command line, as well as reduce the runtime of the course planning feature from 3 min. to 15 sec!
   - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
