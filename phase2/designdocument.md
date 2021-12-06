@@ -387,7 +387,7 @@ abstractions instead of being dependent on one another from high-level to low-le
   - [Michael Fang] Review Service, Documentation, Code Refactor
     - PR [#65](https://github.com/CSC207-UofT/course-project-bug-makers/pull/65/files)
   - [Li Quan Soh] Web app, Documentation, Code Refactor
-    - PR [#21](https://github.com/CSC207-UofT/course-project-bug-makers/pull/21/files)
+    - PR [#21](https://github.com/CSC207-UofT/course-project-bug-makers/pull/21/files): I created the core CMD interface for users to run the program and execute available commands. I also created the commands to interact with our controller layers.
   - [Kevin Cheng] Scheduling algorithm, Documentation, Code Refactor
     - PR [#94](https://github.com/CSC207-UofT/course-project-bug-makers/pull/94): This pull request implemented the ability to switch between different possible schedules in the command line, as well as reduce the runtime of the course planning feature from 3 min. to 15 sec!
   - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
