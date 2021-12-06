@@ -29,6 +29,8 @@ public class MvcConfig  implements WebMvcConfigurer {
         registry.addViewController("schedule_service").setViewName("schedule_service");
         registry.addViewController("calendar_service").setViewName("calendar_service");
         registry.addViewController("result").setViewName("result");
+        registry.addViewController("").setViewName("login");
+
 
 
     }
