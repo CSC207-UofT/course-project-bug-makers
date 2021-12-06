@@ -43,7 +43,7 @@ We'll be referring to the following system design diagram in our discussion.
   - CMD shell's demo (stable release, [here](/teamDocumentation/cmdDocumentation.md) for commands):
     - ![](designdocument.assets/readmedemo.gif)
     - ![](designdocument.assets/reviewdemo.gif)
-  - Web interface demo (preview in our `dev/springboot`):
+  - Web interface (source code in `dev/springboot`, visit http://bugmaker-env.eba-ss4i3etw.us-east-2.elasticbeanstalk.com/):
     - ![](designdocument.assets/webdemo.gif)
 
 

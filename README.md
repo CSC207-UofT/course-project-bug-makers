@@ -19,7 +19,7 @@ For our CSC207 project, we are planning to build a course planning app that allo
 ## Play around
 
 - Run `course-project-bug-makers.jar` for our CLI app (click [here](teamDocumentation/cmdDocumentation.md) for interesting commands).
-- Click Bugmaker-env.eba-ss4i3etw.us-east-2.elasticbeanstalk.com for our web deployment.
+- Visit http://bugmaker-env.eba-ss4i3etw.us-east-2.elasticbeanstalk.com/ for our web deployment.
 
 
 ***
@@ -70,7 +70,7 @@ Here's our little GIF instruction:
 
 ## Sample Usage for our web interface
 
-> Click [here](https://Bugmaker-env.eba-ss4i3etw.us-east-2.elasticbeanstalk.com) to access the website.
+> Click [here](http://bugmaker-env.eba-ss4i3etw.us-east-2.elasticbeanstalk.com/) to access the website.
 
 
 We also have a test account for you in our web interface! 
