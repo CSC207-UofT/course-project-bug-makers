@@ -298,7 +298,7 @@ abstractions instead of being dependent on one another from high-level to low-le
   - Background
     - In our calendar service, we are providing the user with various customization choices, such as Workday Calendar, Week Calendar, and Single-day Calendar etc. Thus, we are looking for design pattern with extensibility and rapid deployment.
   - Implementation
-    - We implemented three styles of calendars and seven types of calendars in total for our Phase 1. All calenders implement the `UsePresentable` interface to generate a readable string representation.
+    - We implemented three styles of calendars and seven types of calendars in total for our Phase 2. All calenders implement the `UsePresentable` interface to generate a readable string representation.
     - As shown in following diagram, we established a Factory Method pattern in our `CalednarService` branch, where our calendars with the `UsePresentable` interface serve as products in Factory Method design pattern. The `Calendar Presenter` creates Calendars and call its implemented `UsePresentable` interface to realize a calendar visualization.
     - ![](designdocument.assets/factoryMethodGraph.png)
   - Advantage
@@ -345,13 +345,13 @@ abstractions instead of being dependent on one another from high-level to low-le
   - For instance, in our Calendar Service PR[#52](https://github.com/CSC207-UofT/course-project-bug-makers/pull/52), we realized there were several common methods, such as `markCell` (add course code onto the calendar). We extracted them into a superclass and turned them into `Protected` methods. By inheritance, subclasses could call the methods without duplication. In this way, we significantly reduced code base size while strictly following SOLID principle.
 - In addition, we also refactored our code for improving user experience and code readability. 
 
-  - We customized a codec for our `DAO` and achieved a better database performance through applying POJO (plain old java object) support, where we directly stored the entities in the database through binary JSON. Aside from DB performance enhancement, this feature increases the readability of our codes. Details are explained in PR[#](https://github.com/CSC207-UofT/course-project-bug-makers/pull/43).
+  - We customized a codec for our `DAO` and achieved a better database performance through applying POJO (plain old java object) support, where we directly stored the entities in the database through binary JSON. Aside from DB performance enhancement, this feature increases the readability of our codes. Details are explained in PR[#43](https://github.com/CSC207-UofT/course-project-bug-makers/pull/43).
 
 
 
 ***
 ### Use of GitHub Features
-- Multiple issues were opened and resolved by pull requests to meet our `Phase1` goals, for example:
+- Multiple issues were opened and resolved by pull requests to meet our `Phase 2` goals, for example:
   - We established an auto-workflow, using `fix` statement to link the PR to the issue
     - Issue [#49](https://github.com/CSC207-UofT/course-project-bug-makers/issues/49):
       - Conflicts arose within our dependencies under JDK16 environment, so we decided to downgrade it to JDK1.8
