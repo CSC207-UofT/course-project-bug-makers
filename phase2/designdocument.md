@@ -391,10 +391,9 @@ abstractions instead of being dependent on one another from high-level to low-le
   - [Kevin Cheng] Scheduling algorithm, Documentation, Code Refactor
     - PR [#94](https://github.com/CSC207-UofT/course-project-bug-makers/pull/94): This pull request implemented the ability to switch between different possible schedules in the command line, as well as reduce the runtime of the course planning feature from 3 min. to 15 sec!
   - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
-    - PR [#42](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42/files)
+    - PR [#42](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42/files): This pull request enhanced the function of the controller `CalendarPresenter` and extensibility of the Calendar Service using Decorator and Factory Design Pattern and reduced duplication for future implements.
   - [Sherry You] Review Service, Documentation, Code Refactor
-    - PR [#55](https://github.com/CSC207-UofT/course-project-bug-makers/pull/55#issue-1052233350)
-    - Completed the ReviewRequestProcessor, which processes the requests in the Review Service 
+    - PR [#55](https://github.com/CSC207-UofT/course-project-bug-makers/pull/55#issue-1052233350): Completed the ReviewRequestProcessor, which processes the requests in the Review Service 
 
 ***
 
