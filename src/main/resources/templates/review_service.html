@@ -235,23 +235,82 @@
                 <section class="article-list" >
                     <div class="container" >
                         <h1 class="display-3 text-center" style="font-family: var(--font-family), serif;border-color: rgb(239, 149, 13);color: rgb(239, 149, 13);">Review Service</h1>
-                        <div class="intro" >
-                            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" >
-                                <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                                    <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
-                                        <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);"><input class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="Search for the course review" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;"><button class="btn btn-primary border rounded-pill py-0" type="button" style="background: rgb(239, 149, 13);border-color: rgb(205,205,205);color: rgb(205,205,205);"><i class="fas fa-search" style="color: rgb(255,255,255);"></i></button></div>
+                            <nav class="navbar" >
+                                    <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);" method="post" th:action="@{/review/course_review}"> Search for course review
+                                        <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
+                                            <label>
+                                                <input name="course" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="course code" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                            </label>
+                                            <button class="btn btn-primary border rounded-pill py-0" type="submit" style="background: rgb(239, 149, 13);border-color: rgb(205,205,205);color: rgb(205,205,205);"><i class="fas fa-search" style="color: rgb(255,255,255);"></i></button></div>
                                     </form>
-                                </div>
+
                             </nav>
-                            <p class="text-center"></p>
+
+                        <br><br>
+
+                        <div class="intro" >
+                            <nav class="navbar" >
+                                    <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);" method="post" th:action="@{/review/instructor_review}"> Search for instructor review
+                                        <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
+                                            <label>
+                                                <input name="course" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="course code" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                                <input name="inst" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="inst name" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                            </label>
+                                            <button class="btn btn-primary border rounded-pill py-0" type="submit" style="background: rgb(239, 149, 13);border-color: rgb(205,205,205);color: rgb(205,205,205);"><i class="fas fa-search" style="color: rgb(255,255,255);"></i></button></div>
+                                    </form>
+
+
+                            </nav>
                         </div>
-                        <div class="row articles" >
-                            <div class="col-sm-6 col-md-4 col-xxl-12 offset-xxl-0 item"><a href="#"></a>
-                                <h3 class="name"></h3>
-                                <p class="description"></p><a class="action" href="#"></a>
-                            </div>
+
+
+                        <br><br>
+
+                        <div>
+                            <nav class="navbar" >
+                                    <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);" method="post" th:action="@{/review/create_review}"> Create review
+                                        <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
+                                            <label>
+                                                <input name="course" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="course code" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                                <input name="inst" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="inst name" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                                <input name="generalRate" class="bg-light border rounded-pill form-control border-0 small" type="number" placeholder="general rate" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                                <input name="difficultyRate" class="bg-light border rounded-pill form-control border-0 small" type="number" placeholder="difficulty rate" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                                <input name="reviewString" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="comment" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                            </label>
+                                            <button class="btn btn-primary border rounded-pill py-0" type="submit" style="background: rgb(239, 149, 13);border-color: rgb(205,205,205);color: rgb(205,205,205);"><i class="fas fa-search" style="color: rgb(255,255,255);"></i></button></div>
+                                    </form>
+
+                            </nav>
                         </div>
+
+                        <br><br>
+
+
+                        <div>
+                            <nav class="navbar" >
+                                <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);" method="post" th:action="@{/review/inst_recommend}"> Recommend me instructor!
+                                    <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
+                                        <label>
+                                            <input name="course" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="course code" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                        </label>
+                                        <button class="btn btn-primary border rounded-pill py-0" type="submit" style="background: rgb(239, 149, 13);border-color: rgb(205,205,205);color: rgb(205,205,205);"><i class="fas fa-search" style="color: rgb(255,255,255);"></i></button></div>
+                                </form>
+
+                            </nav>
+                        </div>
+
+
                     </div>
+
+
+
+
+
+
+
+
+
+
                     <div class="container" style=" text-align: center;">
                         <p>Translate this page in your preferred language: </p>
                         <div id="google_translate_element"></div>

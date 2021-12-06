@@ -33,7 +33,8 @@ public class ReviewDaoImpl{
      * Default constructor for spring boot, auto-injection
      */
     @Autowired
-    public ReviewDaoImpl() {
+    public ReviewDaoImpl(ReviewDAO rd) {
+        this.reviewDao = rd;
     }
 
     /**

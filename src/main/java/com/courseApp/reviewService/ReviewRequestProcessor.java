@@ -25,7 +25,8 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      * Default constructor for Spring boot autowire.
      */
     @Autowired
-    public ReviewRequestProcessor() {
+    public ReviewRequestProcessor(ReviewDaoImpl rdi) {
+        this.reviewDao = rdi;
     }
 
     /**
@@ -140,7 +141,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public ArrayList<String> queryExistingCourse() {
-        return new ReviewDaoImpl().queryExistingCourse();
+        return reviewDao.queryExistingCourse();
     }
 
     /**
@@ -151,7 +152,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public ArrayList<String> queryExistingInst(String courseCode) {
-        return new ReviewDaoImpl().queryCourseReview(courseCode).getInstList();
+        return reviewDao.queryCourseReview(courseCode).getInstList();
     }
 
     /**
@@ -163,7 +164,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
     @Override
     public ArrayList<String> queryUsername(String courseCode, String instName) {
         ArrayList<String> res = new ArrayList<>();
-        for (UserReview uR: new ReviewDaoImpl().queryInstReview(courseCode, instName).getUserReviewList()){
+        for (UserReview uR: reviewDao.queryInstReview(courseCode, instName).getUserReviewList()){
             res.add(uR.getUsername());
         }
         return res;
@@ -238,7 +239,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public boolean createOneInstReview(String courseCode, String instName) {
-        return new ReviewDaoImpl().createInstReview(courseCode, instName);
+        return reviewDao.createInstReview(courseCode, instName);
     }
 
     /**
@@ -249,7 +250,7 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public boolean createOneCourseReview(String courseCode) {
-        return new ReviewDaoImpl().createCourseReview(courseCode);
+        return reviewDao.createCourseReview(courseCode);
     }
 
     /**

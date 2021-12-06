@@ -18,7 +18,8 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      * Default constructor for spring boot autoinjection
      */
     @Autowired
-    public ReviewServiceController() {
+    public ReviewServiceController(ReviewRequestProcessor rrp) {
+        this.rrp = rrp;
     }
 
     /**
@@ -36,7 +37,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
 
         ArrayList<String> InstReviewSummary = new ArrayList<>();
 
-        for (String instName: new ReviewRequestProcessor().queryExistingInst(courseCode)){
+        for (String instName: rrp.queryExistingInst(courseCode)){
             // loop over the existing instructor list.
             StringBuilder result = new StringBuilder();
             Map<String, String> entry = rrp.queryInstReviewSummary(courseCode, instName);
@@ -68,7 +69,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
 
         ArrayList<String> UserReviewSummary = new ArrayList<>();
 
-        for (String username: new ReviewRequestProcessor().queryUsername(courseCode, instName)){
+        for (String username: rrp.queryUsername(courseCode, instName)){
             // loop over the existing username list.
             StringBuilder result = new StringBuilder();
             Map<String, String> UserReview = rrp.queryUserReview(courseCode, instName,username);
@@ -90,7 +91,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      */
     @Override
     public ArrayList<String> getExistingCourseList() {
-        return new ReviewRequestProcessor().queryExistingCourse();
+        return rrp.queryExistingCourse();
     }
 
     /**
@@ -101,7 +102,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      */
     @Override
     public boolean createNewCourse(String courseCode) {
-            return new ReviewRequestProcessor().createOneCourseReview(courseCode);
+            return rrp.createOneCourseReview(courseCode);
     }
 
     /**
@@ -113,7 +114,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      */
     @Override
     public boolean createNewInst(String courseCode, String instName) {
-        return new ReviewRequestProcessor().createOneInstReview(courseCode, instName);
+        return rrp.createOneInstReview(courseCode, instName);
     }
 
     /**
@@ -129,6 +130,8 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      */
     @Override
     public boolean createNewUserReview(String courseCode, String instName, String username, double generalRate, double difficultyRate, String reviewString) throws Exception {
+        if(!rrp.queryExistingCourse().contains(courseCode)) rrp.createOneCourseReview(courseCode);
+        if(!rrp.queryExistingInst(courseCode).contains(instName)) rrp.createOneInstReview(courseCode, instName);
         RecommendationRequestProcessor recommendationRR = new RecommendationRequestProcessor();
 
         return rrp.insertOneUserReview(courseCode, instName, username, generalRate, difficultyRate, recommendationRR.modelInference(reviewString), reviewString);
@@ -145,7 +148,7 @@ public class ReviewServiceController implements ControlReviewUpdate, ControlRevi
      */
     @Override
     public boolean deleteUserReview(String courseCode, String instName, String username) {
-        return new ReviewRequestProcessor().deleteOneUserReview(courseCode, instName, username);
+        return rrp.deleteOneUserReview(courseCode, instName, username);
     }
 
     /**

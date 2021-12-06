@@ -1,9 +1,6 @@
 package com.courseApp.webDriver.drivers;
 
-import com.courseApp.calendarService.CalendarPresenter;
-import com.courseApp.courseService.CourseServiceController;
 import com.courseApp.reviewService.ReviewServiceController;
-import com.courseApp.userService.UserServiceController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
-@RequestMapping(value = "review_service")
+@RequestMapping(value = "review")
 public class ReviewWebDriver {
 
 
@@ -67,5 +64,22 @@ public class ReviewWebDriver {
         }
     }
 
+    @RequestMapping(value = "inst_recommend", method = POST)
+    public String recommendInst(String course, HttpSession session) {
+        if (session.getAttribute("username") == null) {
+            return "redirect:/login";
+        }
+
+        try {
+            session.setAttribute("res", rsc.getInstRank(course));
+            return "redirect:/result";
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.setAttribute("res", "Recommendation failed!");
+            return "redirect:/result";
+        }
+    }
 
 }
+
+
