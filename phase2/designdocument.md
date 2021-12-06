@@ -18,8 +18,7 @@
 11. [Use of GitHub Features](#Use-of-GitHub-Features)
 12. [Code Testing](#Code-Testing)
 13. [Progress Summary](#Progress-Summary)
-14. [Open Questions and Phase 2 Goals](#Open-Questions-and-Phase-2-Goals)
-
+***
 
 ### Specification Summary
 For our CSC207 project, we are planning to build a course planning app that allows students to plan and review their 
@@ -68,13 +67,17 @@ Then, when other users load the reviews for a specific course, the reviews from 
 ***
 ### Accessibility Features
 
-In Phase 2, our group decided to implement 3 new features to accommodate for increased accessibility:
+In Phase 2, our group decided to implement new features to accommodate for increased accessibility:
 1. **Language Translator**
    - The language translator feature allows user view and read the webpage's text in their preferred language
 2. **Colour Contrast**
    - The colour contrast feature allows users to choose the colour scheme of the webpage
 3. **Navigation Sidebar**
-   - The navigation sidebar allows for easy access to all the pages of our website 
+   - The navigation sidebar allows for easy access to all the pages of our website
+4. **Printer-friendly calendar**
+   - The printer-friendly calendar format allows user to obtain a physical copy
+5. **All platform access**
+   - The CLI + Web app design allows both professional users and regular users to enjoy our service 
 
 ***
 ### The 7 Principals of Universal Design
@@ -227,7 +230,7 @@ The SRP states that:
 
 The SRP is demonstrated through the CRC cards we created in Phase 0. Through these cards,
 you can see that every object has a single responsibility. For example, if we look at 
-the `User.txt` CRC card found in `phase0/crcCards/userServiceBranch/User.txt`, you will find 
+the `User.txt` CRC card found [here](/phase0/crcCards/userServiceBranch/User.txt), you will find 
 that it's single responsibility is to store user information and role. Therefore, if we wanted to store 
 a new piece of information about the user, we would only have to make changes to the User object as it is
 the only object responsible for storing this information.
@@ -325,7 +328,7 @@ abstractions instead of being dependent on one another from high-level to low-le
 ***
 ### Packaging Strategies and Documentations
 - For our code organization, we applied a service-oriented packaging strategy. As we have four service branches (course, calendar, review and user), we organized them into four packages by features. As `DAO` and `Entities` are often shared across the scope, we decided to organize them in their own packages. As for drivers, we split out a new package for the sake of layer segregation and clarity. Besides those packages, we also stored our utilities, including password encryption tool, in the util package. We benefit from this organization as it demonstrates clear service differentiation and improves our file structure.
-- As of our code documentation, we have a J-DOC website for sharing documentation, click [here](https://kuan-pang.github.io/course-project-bug-makers/) to navigate. Our design goals and specifications are listed in our `teamDocumentation` directory. Our code documentation improves our teamwork and keeps a organized record of our achievement.
+- As of our code documentation, we have a J-DOC website for sharing documentation, click [here](https://kuan-pang.github.io/course-project-bug-makers/) to navigate. Our design goals and specifications are listed in our `teamDocumentation` directory. Our code documentation improves our teamwork and keeps an organized record of our achievement.
 
 
 ***
@@ -362,7 +365,7 @@ abstractions instead of being dependent on one another from high-level to low-le
 
 ***
 ### Code Testing
-- We achieved FULL test coverage for the testable Service Controllers. **73%** of the methods in our system were covered by our test cases.
+- We achieved FULL test coverage for the testable Service Controllers. **87%** of the methods in our system were covered by our test cases.
 - We introduced randomness in the code-test system, to ensure test case comprehensiveness.
   - We made `userRegister()` testable by generating random Usernames.
 - In the most challenging database test, for the data access objects, we developed a full set of approaches to test the codes without interfering the normal functionality of our database.
@@ -376,14 +379,15 @@ abstractions instead of being dependent on one another from high-level to low-le
 ***
 ### Progress Summary
 
-- We focused on accessibility improvement in our `Phase 2` project.
+- We achieved a codebase size of 28K lines in our project, and we focused on accessibility improvement in our project `Phase 2`. 
   - [Kuan Pang] Review Service, Web app, Documentation, Code Refactor
   - [Michael Fang] Review Service, Documentation, Code Refactor
-  - [Li Quan Soh] CMD Shell, Documentation, Code Refactor
+  - [Li Quan Soh] Web app, Documentation, Code Refactor
   - [Kevin Cheng] Scheduling algorithm, Documentation, Code Refactor
   - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
   - [Sherry You] Review Service, Documentation, Code Refactor
 
-  
-[comment]: <> (  TODO)
+***
+
+Thanks for everybody's great effort! 
 
