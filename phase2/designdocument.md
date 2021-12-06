@@ -394,6 +394,7 @@ abstractions instead of being dependent on one another from high-level to low-le
     - PR [#42](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42/files)
   - [Sherry You] Review Service, Documentation, Code Refactor
     - PR [#55](https://github.com/CSC207-UofT/course-project-bug-makers/pull/55#issue-1052233350)
+    - Completed the ReviewRequestProcessor, which processes the requests in the Review Service 
 
 ***
 
