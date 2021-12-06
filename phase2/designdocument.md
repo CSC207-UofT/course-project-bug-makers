@@ -70,8 +70,10 @@ Then, when other users load the reviews for a specific course, the reviews from 
 In Phase 2, our group decided to implement new features to accommodate for increased accessibility:
 1. **Language Translator**
    - The language translator feature allows user view and read the webpage's text in their preferred language
-2. **Colour Contrast**
-   - The colour contrast feature allows users to choose the colour scheme of the webpage
+2. **High Colour Contrast**
+   - The high colour contrast feature allows users to view the webpage through a high contrast colour scheme 
+   paired with monospace font, which significantly improves the reading performance and helps people with 
+   dyslexia 
 3. **Navigation Sidebar**
    - The navigation sidebar allows for easy access to all the pages of our website
 4. **Printer-friendly calendar**
@@ -381,12 +383,17 @@ abstractions instead of being dependent on one another from high-level to low-le
 
 - We achieved a codebase size of 28K lines in our project, and we focused on accessibility improvement in our project `Phase 2`. 
   - [Kuan Pang] Review Service, Web app, Documentation, Code Refactor
+    - PR [#43](https://github.com/CSC207-UofT/course-project-bug-makers/pull/43)
   - [Michael Fang] Review Service, Documentation, Code Refactor
+    - PR [#65](https://github.com/CSC207-UofT/course-project-bug-makers/pull/65/files)
   - [Li Quan Soh] Web app, Documentation, Code Refactor
+    - PR [#21](https://github.com/CSC207-UofT/course-project-bug-makers/pull/21/files)
   - [Kevin Cheng] Scheduling algorithm, Documentation, Code Refactor
     - PR [#94](https://github.com/CSC207-UofT/course-project-bug-makers/pull/94): This pull request implemented the ability to switch between different possible schedules in the command line, as well as reduce the runtime of the course planning feature from 3 min. to 15 sec!
   - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
+    - PR [#42](https://github.com/CSC207-UofT/course-project-bug-makers/pull/42/files)
   - [Sherry You] Review Service, Documentation, Code Refactor
+    - PR [#55](https://github.com/CSC207-UofT/course-project-bug-makers/pull/55#issue-1052233350)
 
 ***
 

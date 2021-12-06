@@ -22,6 +22,7 @@ For our CSC207 project, we are planning to build a course planning app that allo
 - Visit http://bugmaker-env.eba-ss4i3etw.us-east-2.elasticbeanstalk.com/ for our web deployment.
 
 
+
 ***
 ## System Requirements
 
@@ -70,7 +71,9 @@ Here's our little GIF instruction:
 
 ## Sample Usage for our web interface
 
+
 > Click [here](http://bugmaker-env.eba-ss4i3etw.us-east-2.elasticbeanstalk.com/) to access the website.
+
 
 
 We also have a test account for you in our web interface! 
