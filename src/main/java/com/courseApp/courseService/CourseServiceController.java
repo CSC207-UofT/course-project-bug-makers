@@ -112,19 +112,18 @@ public class CourseServiceController implements ControlPresentInformation, Contr
      * Plan the schedule for user with given username and password.
      * Course planning will base on courseList, then wishList with courseList at a higher priority
      * and wishList at a lower priority.
-     * <p>
      * Planned schedule should be added to scheduleList iff the planning is not successful.
-     * <p>
      * Return the planned schedule list String iff the planning is successful, otherwise, null.
      *
      * @param username username
+     * @param index index of the possible schedule list
+     *
      * @return schedule list String
      * @throws Throwable exceptions
      */
 
     @Override
-    public String planCourse(String username) throws Throwable {
-        return new CoursePlanner(username).generateSchedule().toString();
+    public String planCourse(String username, int index) throws Throwable {
+        return new CoursePlanner(username, index).generateSchedule().toString();
     }
-
 }

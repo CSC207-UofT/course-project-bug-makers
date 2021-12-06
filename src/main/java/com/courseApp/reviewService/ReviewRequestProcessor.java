@@ -90,7 +90,6 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
     /**
      * Check the existence of the user review, and then return the user review summary map, or null if the
      * instructor entity is not in the database
-     * <p>
      * The summary map should be:
      * username: String
      * generalRate: String
@@ -178,6 +177,10 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
     public boolean insertOneUserReview(String courseCode, String instName, String username, double generalRate, double difficultyRate, double recommendationRate, String reviewString) {
         ReviewDAO reviewDAO = new ReviewDaoImpl();
 
+        // Request validation
+        if (!reviewDAO.queryCourseReview(courseCode).getInstList().contains(instName)){return false;}
+        if (!reviewDAO.queryExistingCourse().contains(courseCode)){return false;}
+
         // Create new User Review using given parameters
         UserReview newUserReview =
                 new UserReview(username, generalRate, difficultyRate, recommendationRate, reviewString);
@@ -232,7 +235,9 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public boolean createOneInstReview(String courseCode, String instName) {
-        return new ReviewDaoImpl().createInstReview(courseCode, instName);
+        ReviewDaoImpl rdi = new ReviewDaoImpl();
+        if (rdi.queryCourseReview(courseCode).getInstList().contains(instName)){return false;}
+        return rdi.createInstReview(courseCode, instName);
     }
 
     /**
@@ -243,7 +248,9 @@ public class ReviewRequestProcessor implements UseQueryReview, UseUpdateReview, 
      */
     @Override
     public boolean createOneCourseReview(String courseCode) {
-        return new ReviewDaoImpl().createCourseReview(courseCode);
+        ReviewDaoImpl rdi = new ReviewDaoImpl();
+        if (rdi.queryExistingCourse().contains(courseCode)){return false;}
+        return rdi.createCourseReview(courseCode);
     }
 
     /**

@@ -27,6 +27,6 @@ public class CreateNewInst extends ReviewCommand {
         }
 
         if (result){return "Added new instructor review successfully";}
-        else {return "Failed to add instructor review";}
+        else {return "Failed to add instructor review, please check the instructor name";}
     }
 }

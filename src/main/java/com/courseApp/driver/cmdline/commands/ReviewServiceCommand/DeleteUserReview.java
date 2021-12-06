@@ -9,7 +9,7 @@ import java.util.List;
 public class DeleteUserReview extends ReviewCommand {
 
     public DeleteUserReview(){
-        super(3, 3);
+        super(2, 2);
     }
 
 
@@ -20,7 +20,7 @@ public class DeleteUserReview extends ReviewCommand {
         boolean result = false;
         String courseCode = arguments.get(0);
         String instName = arguments.get(1);
-        String userName = arguments.get(2);
+        String userName = shellState.getUsername();
 
 
         try{

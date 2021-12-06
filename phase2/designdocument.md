@@ -30,6 +30,7 @@ rate and write reviews on courses they have taken before. Based on these reviews
 learning model strives to recommend instructor tailored to the user’s request and program requirements. In addition, 
 our app aims to provide a platform for students to connect and network with their fellow peers.
 
+
 ***
 ### Major Design Decisions and Functionalities
 
@@ -61,6 +62,7 @@ wishlists will persist across load states. Our app can then generate the same ca
 will also be loaded up from the user database the next time they log in.
 
 - Our app also stores reviews created by users. When a user creates a review for a particular course, it is stored in the database.
+
 Then, when other users load the reviews for a specific course, the reviews from other users will be loaded as well!
 
 ***
@@ -185,6 +187,7 @@ help students organize and plan their courses for their upcoming semesters. Due 
 text-to-speech features, we also believe that MyCourseApp is less likely to be used by users who are experiencing 
 complete vision loss. However, if possible, we hope that the implementation of these features can allow for 
 increased accessibility for all users including those who may be experiencing vision impairment.
+
 
 
 ***
@@ -335,6 +338,7 @@ abstractions instead of being dependent on one another from high-level to low-le
 - Meantime, we also extracted methods into superclasses and resolved code smells by inheritance. 
   - For instance, in our Calendar Service PR[#52](https://github.com/CSC207-UofT/course-project-bug-makers/pull/52), we realized there were several common methods, such as `markCell` (add course code onto the calendar). We extracted them into a superclass and turned them into `Protected` methods. By inheritance, subclasses could call the methods without duplication. In this way, we significantly reduced code base size while strictly following SOLID principle.
 - In addition, we also refactored our code for improving user experience and code readability. 
+
   - We customized a codec for our `DAO` and achieved a better database performance through applying POJO (plain old java object) support, where we directly stored the entities in the database through binary JSON. Aside from DB performance enhancement, this feature increases the readability of our codes. Details are explained in PR[#](https://github.com/CSC207-UofT/course-project-bug-makers/pull/43).
 
 
@@ -368,10 +372,11 @@ abstractions instead of being dependent on one another from high-level to low-le
   - Some operations are irreversible
   - Some private fields and methods are not reachable.
 
-*** 
+
+***
 ### Progress Summary
 
-- We have `31k` lines implemented/optimized in our `Phase 1` project in total.
+- We focused on accessibility improvement in our `Phase 2` project.
   - [Kuan Pang] Review Service, Web app, Documentation, Code Refactor
   - [Michael Fang] Review Service, Documentation, Code Refactor
   - [Li Quan Soh] CMD Shell, Documentation, Code Refactor
@@ -379,19 +384,6 @@ abstractions instead of being dependent on one another from high-level to low-le
   - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
   - [Sherry You] Review Service, Documentation, Code Refactor
 
-
-
-
-***
-### Open Questions and Phase 2 Goals
-- Open questions
-  - It takes time for our inference server to run the model, the waiting time affects our user experience.
-- Goals
-  - Improve web GUI.
-  - Apply proxy design pattern to our DAOs to realize data persistence.
-  - Implement async model inference.
-
-
-
-
+  
+[comment]: <> (  TODO)
 

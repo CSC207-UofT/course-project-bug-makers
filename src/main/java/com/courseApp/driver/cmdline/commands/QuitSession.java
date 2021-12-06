@@ -9,6 +9,7 @@ public class QuitSession extends Command{
         super(0, 0);
     }
 
+
     @Override
     public String executeCommand(IShellState shellState, List<String> arguments) {
         shellState.stopRunning();

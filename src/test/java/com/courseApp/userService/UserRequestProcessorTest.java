@@ -44,22 +44,22 @@ class UserRequestProcessorTest {
 
     @Test
     void queryUserCourseList() {
-        assertEquals(urp.queryUserCourseList().toString(), "[CSC209SLEC0102]");
+        assertEquals("[CSC209SLEC0102]", urp.queryUserCourseList().toString());
     }
 
     @Test
     void queryUserWishList() {
-        assertEquals(urp.queryUserWishList().toString(), "[BIO260SLEC0101]");
+        assertEquals("[BIO260SLEC0101]", urp.queryUserWishList().toString());
     }
 
     @Test
     void queryUserScheduleList() {
-        assertEquals(urp.queryUserScheduleList().toString(), "[]");
+        assertEquals("[]", urp.queryUserScheduleList().toString());
     }
 
     @Test
     void queryUserReviewList() {
-        assertEquals(urp.queryUserReviewList().toString(),"[]");
+        assertEquals("[]", urp.queryUserReviewList().toString());
     }
 
     @Test

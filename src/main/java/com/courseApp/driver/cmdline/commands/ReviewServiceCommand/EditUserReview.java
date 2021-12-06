@@ -10,7 +10,7 @@ import java.util.List;
 public class EditUserReview extends ReviewCommand {
 
     public EditUserReview(){
-        super(6, 6);
+        super(5, 5);
     }
 
 
@@ -21,10 +21,10 @@ public class EditUserReview extends ReviewCommand {
         boolean result = false;
         String courseCode = arguments.get(0);
         String instName = arguments.get(1);
-        String username = arguments.get(2);
-        double generalRate = Double.parseDouble(arguments.get(3));
-        double difficultyRate = Double.parseDouble(arguments.get(4));
-        String reviewString =arguments.get(5);
+        String username = shellState.getUsername();
+        double generalRate = Double.parseDouble(arguments.get(2));
+        double difficultyRate = Double.parseDouble(arguments.get(3));
+        String reviewString =arguments.get(4);
 
         try{
             result = reviewController.editUserReview(
