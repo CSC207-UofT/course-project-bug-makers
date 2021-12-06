@@ -383,11 +383,11 @@ abstractions instead of being dependent on one another from high-level to low-le
 
 - We achieved a codebase size of 28K lines in our project, and we focused on accessibility improvement in our project `Phase 2`. 
   - [Kuan Pang] Review Service, Web app, Documentation, Code Refactor
-    - PR [#43](https://github.com/CSC207-UofT/course-project-bug-makers/pull/43): This PR fixes three issues and introduces `POJO` design to the DAO objects, which improves app performance. Details are included in the comment so the PR is easy to follow.
+    - PR [#43](https://github.com/CSC207-UofT/course-project-bug-makers/pull/43)
   - [Michael Fang] Review Service, Documentation, Code Refactor
-    - PR [#65](https://github.com/CSC207-UofT/course-project-bug-makers/pull/65/files)
+    - PR [#65](https://github.com/CSC207-UofT/course-project-bug-makers/pull/65/files): This pull request implemented the ReviewServiceController which calls RecommendationRequestProcessor to generate a recommendation score of user review.
   - [Li Quan Soh] Web app, Documentation, Code Refactor
-    - PR [#21](https://github.com/CSC207-UofT/course-project-bug-makers/pull/21/files): I created the core CMD interface for users to run the program and execute available commands. I also created the commands to interact with our controller layers.
+    - PR [#21](https://github.com/CSC207-UofT/course-project-bug-makers/pull/21/files)
   - [Kevin Cheng] Scheduling algorithm, Documentation, Code Refactor
     - PR [#94](https://github.com/CSC207-UofT/course-project-bug-makers/pull/94): This pull request implemented the ability to switch between different possible schedules in the command line, as well as reduce the runtime of the course planning feature from 3 min. to 15 sec!
   - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
