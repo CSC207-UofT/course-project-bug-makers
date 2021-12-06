@@ -106,6 +106,10 @@ bar so that users can relocate the navigation bar to the right or left depending
 preferences
 - Implementation of the speak feature would allow users to have the choice of reading or listening to 
 the text displayed on MyCourseApp's website depending on their preferences and abilities. 
+- Implementation of a voice recognition software could allow users to have the choice of either speaking or typing 
+into the application, as the voice recognition software would be capable of transcribing speech into text format
+- Implementation of fingerprint recognition could allow users to choose between typing their login credentials or 
+using their fingerprint to login into their account 
 
 ###### Principle 3: Simple and Intuitive Use
 MyCourseApp's new language selection feature allows users to read and understand the text in their preferred language. 
