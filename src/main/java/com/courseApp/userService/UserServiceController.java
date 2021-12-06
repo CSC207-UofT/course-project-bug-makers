@@ -20,6 +20,7 @@ public class UserServiceController implements ControlLoginRegister, ControlRM, C
 
     @Autowired
     public UserServiceController(UserRequestProcessor urp) {
+        this.urp = urp;
     }
 
     /**

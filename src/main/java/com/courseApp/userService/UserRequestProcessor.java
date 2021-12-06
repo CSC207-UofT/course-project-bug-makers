@@ -18,25 +18,14 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
 
     UserDaoImpl udi;
 
-
-
     /**
      * Default constructor for Spring boot autowire.
      */
     @Autowired
-    public UserRequestProcessor() {
+    public UserRequestProcessor(UserDaoImpl udi) {
+        this.udi = udi;
     }
 
-    /**
-     * Constructor of taking in one username and password.
-     *
-     * @param username username
-     * @param password password
-     */
-    public UserRequestProcessor(String username, String password) {
-        udi.setUserName(username);
-        udi.setPassword(password);
-    }
 
     /**
      * Initiation of udi with given username.
@@ -60,14 +49,6 @@ public class UserRequestProcessor implements UseQueryUserData, UseLoginRegister,
 
 
 
-    /**
-     * Constructor of taking in only username.
-     *
-     * @param username username
-     */
-    public UserRequestProcessor(String username) {
-        udi.setUserName(username);
-    }
 
     /**
      * User Login Authentication.

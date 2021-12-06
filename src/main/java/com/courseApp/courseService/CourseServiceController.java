@@ -22,7 +22,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
  */
 @RestController
 @RequestMapping("/rest")
-public class CourseServiceController implements ControlPresentInformation, ControlUserCoursePlanning {
+public class CourseServiceController implements ControlPresentInformation {
 
 
     /**
@@ -122,26 +122,6 @@ public class CourseServiceController implements ControlPresentInformation, Contr
         return schedule.toString();
     }
 
-    /**
-     * Plan the schedule for user with given username and password.
-     * Course planning will base on courseList, then wishList with courseList at a higher priority
-     * and wishList at a lower priority.
-     *
-     * Planned schedule should be added to scheduleList iff the planning is not successful.
-     *
-     * Return the planned schedule list String iff the planning is successful, otherwise, null.
-     *
-     * @param username username
-     * @return schedule list String
-     */
-
-    @Override
-    @RequestMapping(value = "/course/planCourse/{username}", method = GET, produces = "application/json")
-    public String planCourse(@PathVariable String username) {
-        Schedule schedule = new CoursePlanner(username).generateSchedule();
-        new UserRequestProcessor(username).insertOneSchedule(schedule);
-        return schedule.getSectionList().toString();
-    }
 
 
 }

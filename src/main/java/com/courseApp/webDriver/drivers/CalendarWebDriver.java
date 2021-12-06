@@ -29,21 +29,16 @@ public class CalendarWebDriver {
     public String generateCalendar(String term, String type, HttpSession session){
         if(session.getAttribute("username") == null) {return "redirect:/login";}
 
-        int limit = 2;
-        int curr = 0;
 
-
-        while(true) {
             try {
                 session.setAttribute("res", new CalendarPresenter().presentCalendar(term, type,
                         usc.getLatestSchedule(session.getAttribute("username").toString()).getScheduleMap()));
                 return "redirect:/result";
             } catch (Exception e) {
                 e.printStackTrace();
-                new CourseServiceController().planCourse(session.getAttribute("username").toString());
-                if (++ curr == limit) return "redirect:/register";
+                session.setAttribute("res", "Fail to generate the calendar");
+                return "redirect:/result";
             }
-        }
 
 
     }

@@ -1,6 +1,7 @@
 package com.courseApp.webDriver.drivers;
 
 
+import com.courseApp.calendarService.CalendarPresenter;
 import com.courseApp.userService.UserServiceController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,6 +60,19 @@ public class UserWebDriver {
         if(session.getAttribute("username") == null) {return "redirect:/login";}
         usc.addCourse(session.getAttribute("username").toString(), courseCode);
         return "redirect:/schedule_service";
+    }
+
+    @RequestMapping(value = "getSchedule", method = POST)
+    public String getSchedule(HttpSession session){
+        if(session.getAttribute("username") == null) {return "redirect:/login";}
+        try {
+            session.setAttribute("res", usc.getLatestSchedule((String) session.getAttribute("username")));
+            return "redirect:/result";
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.setAttribute("res", "Fail to find the latest schedule.");
+            return "redirect:/result";
+        }
     }
 
 

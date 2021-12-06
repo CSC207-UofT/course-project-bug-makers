@@ -1,24 +1,17 @@
 package com.courseApp.dao;
 
-import com.courseApp.constants.Constants;
 import com.courseApp.entity.Schedule;
 import com.courseApp.entity.User;
 import com.courseApp.entity.UserReview;
 import com.courseApp.utils.PasswordEncoderMD5;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import org.bson.conversions.Bson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.combine;
-import static com.mongodb.client.model.Updates.set;
 
 /**
  * Implemented User DAO for user data querying, login/register services.
@@ -26,7 +19,7 @@ import static com.mongodb.client.model.Updates.set;
 @Repository
 @EnableMongoRepositories(basePackageClasses = UserDAO.class)
 public class UserDaoImpl {
-    private  String userName;
+    private String userName;
     private String password;
 
     UserDAO userDao;
@@ -37,7 +30,7 @@ public class UserDaoImpl {
      *
      */
     @Autowired
-    public UserDaoImpl() { }
+    public UserDaoImpl(UserDAO ud) {this.userDao = ud;}
 
     /**
      * Constructor taking ControlPresentInfo username and password, for register/login service.
@@ -135,13 +128,11 @@ public class UserDaoImpl {
      * Rewrite the wish list in the database.
      *
      * @param wishList User wish list
-     * @return ture iff the update is successful
      */
-    public boolean updateWishList(ArrayList<String> wishList) {
+    public void updateWishList(ArrayList<String> wishList) {
         User user = userDao.findByUsername(this.userName);
         user.setWishList(wishList);
         userDao.save(user);
-        return true;
     }
 
     /**
@@ -170,13 +161,11 @@ public class UserDaoImpl {
      * Rewrite the review list in the database
      *
      * @param reviewList list of UserReviews
-     * @return true iff teh update is successful
      */
-    public boolean updateUserReviewList(ArrayList<UserReview> reviewList) {
+    public void updateUserReviewList(ArrayList<UserReview> reviewList) {
         User user = userDao.findByUsername(this.userName);
         user.setReviewList(reviewList);
         userDao.save(user);
-        return true;
     }
 
     /**
