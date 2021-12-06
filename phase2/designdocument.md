@@ -384,7 +384,7 @@ abstractions instead of being dependent on one another from high-level to low-le
   - [Michael Fang] Review Service, Documentation, Code Refactor
   - [Li Quan Soh] Web app, Documentation, Code Refactor
   - [Kevin Cheng] Scheduling algorithm, Documentation, Code Refactor
-  - https://github.com/CSC207-UofT/course-project-bug-makers/pull/94: This pull request implemented the ability to switch between different possible schedules in the command line, as well as reduce the runtime of the course planning feature from 3 min. to 15 sec!
+    - https://github.com/CSC207-UofT/course-project-bug-makers/pull/94: This pull request implemented the ability to switch between different possible schedules in the command line, as well as reduce the runtime of the course planning feature from 3 min. to 15 sec!
   - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
   - [Sherry You] Review Service, Documentation, Code Refactor
 
