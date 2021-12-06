@@ -15,7 +15,6 @@ public class GetCourseGeneralInformation extends CourseCommand {
     public String executeCommand(IShellState shellState, List<String> arguments) throws Throwable{
         checkArgumentsNum(arguments);
         StringBuilder result = new StringBuilder();
-        StringBuilder allErrorMsg = new StringBuilder();
         CourseServiceController courseController = new CourseServiceController();
         for (String courseCode: arguments){
             // append all information about the course to result
