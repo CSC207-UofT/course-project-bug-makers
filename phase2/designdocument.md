@@ -130,11 +130,29 @@ between important information and its surroundings, thus improving on MyCourseAp
 information to the user. 
 
 ###### Principle 5: Tolerance for Error
+Currently, MyCourseApp does not have any features that adhere to Principle 5.
+
+Notes for Future Improvements:
+- Implementation of a confirmation button for adding or making changes to a user’s schedule can prevent users from 
+making any accidental changes
+- In addition, we can implement a rollback or under feature, which would allow users to navigate to a previous state 
+for their saved calendar or schedule
+- In the case that MyCourseApp was unable to save their schedule, we could implement a feature that informs and 
+instructs the user for further steps on what to do
 
 ###### Principle 6: Low Physical Effort
+The implementation of the navigation bar not only provides easy navigation of MyCourseApp’s website, but it also 
+reduces the amount of repetitive actions. This way, users do not need to repeatedly click on the go back button to 
+navigate through the pages that they have previously visited. As a result, this minimizes the number of repetitive 
+actions the user has to take to comfortably navigate our website.
 
 ###### Principle 7: Size and Space for Approach and Use
+Important features such as the search bar or other buttons that allow the user to perform actions through the website
+are magnified to provide ease of viewing for all users regardless of the user’s body size, posture, or mobility.
 
+Notes for Future Improvement:
+- Implementation of a feature that allows users to change the size of the buttons would increase the ease of reach
+and manipulation for a wider range of users
 
 ***
 ### Target Market Analysis 
