@@ -9,7 +9,7 @@
 2. [Major Design Decisions & Functionalities](#Major-Design-Decisions-and-Functionalities)
 3. [Accessibility Features](#Accessibility-Features)
 4. [The 7 Principals of Universal Design](#The-7-Principals-of-Universal-Design)
-5. [Target Market Analysis](#Target-Market-Analysis)
+5. [Market Analysis](#Market-Analysis)
 6. [Clean Architecture](#Clean-Architecture)
 7. [SOLID Design Principals](#SOLID-Design-Principals)
 8. [Summary of Design Patterns](#Summary-of-Design-Patterns)
@@ -155,8 +155,32 @@ Notes for Future Improvement:
 and manipulation for a wider range of users
 
 ***
-### Target Market Analysis 
+### Market Analysis 
+###### Target Market
+After analyzing the current markets and MyCourseApp’s features, we have decided that our program should direct our 
+marketing towards students who study at the University of Toronto. Currently, the University of Toronto has the 
+largest student population in Canada, therefore, it is a valuable market worth pursuing with high demand potential.
+To be more specific, our average consumer would be a University of Toronto student between the ages of 17-29 of any 
+income, gender and geographic location. The average consumer is more likely to be very busy and is looking for 
+applications that can help them plan their university schedule. Through the implementation of MyCourseApp’s website,
+we believe that our program will be easily accessible through an internet connection, and will be able to provide 
+quick and easy planning of the consumer’s schedule.
 
+As students tend to start off with lower-income, we decided that it would be best to offer MyCourseApp as a free 
+application, with our main stream of revenue coming from in-app advertisements. Furthermore, by making the 
+application free for all users, it allows easier accessibility for all students regardless of their income.
+
+
+###### Demographics Who Are Less Likely to Use MyCourseApp
+After analyzing the design of MyCourseApp, we concluded that our program is less likely to be used by certain 
+demographics. As MyCourseApp is specifically designed for students who study at the University of Toronto, it would be 
+very unlikely for students of other schools to use the program. To accommodate a wider range of students, we can 
+consider expanding MyCourseApp to incorporate additional universities and colleges. In addition, consumers who do 
+not fall in the student demographic are also more unlikely to use the program, as it is specifically designed to 
+help students organize and plan their courses for their upcoming semesters. Due to the lack of audio and 
+text-to-speech features, we also believe that MyCourseApp is less likely to be used by users who are experiencing 
+complete vision loss. However, if possible, we hope that the implementation of these features can allow for 
+increased accessibility for all users including those who may be experiencing vision impairment.
 
 
 ***
