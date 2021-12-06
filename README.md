@@ -4,18 +4,25 @@
 
 > Note that this project requires `JDK1.8` and internet connection for could database operation and machine learning model inference. Dependencies can be found in  `build.gradle` . Please refer to `teamDocumentation` and `phase1` for details.
 
-> Our primary code base is on branch `main`, please refer to `main` for code quality evaluation. Web application (on branch `dev/springboot`) is a preview and expected to be improved in phase 2.
+> Our primary code base is on branch `main`, please refer to `main` for code quality evaluation. Web application (on branch `dev/springboot`) is a preview.
 
 ## What is myCourseApp?
 
 ![](README.assets/myCourseApp.png)
 For our CSC207 project, we are planning to build a course planning app that allows students to plan and review their courses. A build-in connection to UofT API will present comprehensive course information to users, while user information is safely stored in a remote database. Course planning functionality is provided through our auto-scheduling algorithm. Timetable visualization functionality gives user a convenient course scheduling experience. Students can rate and write reviews on courses they have taken before. Based on these reviews and the user's information, our machine learning model strives to recommend instructor tailored to the user’s request and program requirements. In addition, our app aims to provide a platform for students to connect and network with their fellow peers.
 
-
-
+***
 ## Progress Summary & Design Highlights
 ![Course_app](README.assets/myCourseAppIntrop1.png)
 
+***
+## Play around
+
+- Run `course-project-bug-makers.jar` for our CLI app (click [here](teamDocumentation/cmdDocumentation.md) for interesting commands).
+- Click Bugmaker-env.eba-ss4i3etw.us-east-2.elasticbeanstalk.com for our web deployment.
+
+
+***
 ## System Requirements
 
 - *JDK1.8*
@@ -27,7 +34,7 @@ For our CSC207 project, we are planning to build a course planning app that allo
 
 
 
-## Sample Usage for our CMD shell
+## Sample Usage for our CLI
 
 We have a test account for you!
 1. Run `Main.java` (in `main` branch ). Or, run `course-project-bug-makers.jar`. Try to log in our test account!
@@ -61,14 +68,15 @@ Here's our little GIF instruction:
 ![](README.assets/reviewdemo.gif)
 
 
-## Sample Usage for our web interface (Preview)
+## Sample Usage for our web interface
 
-> Please note that this is a preview.
+> Click [here](https://Bugmaker-env.eba-ss4i3etw.us-east-2.elasticbeanstalk.com) to access the website.
+
 
 We also have a test account for you in our web interface! 
 
 We have a test account for you!
-1. Run `SpringbootApp.java` (in `dev/springboot` branch ). Try to log in our test account!
+1. Click above link (source code is in `dev/springboot`). Try to log in our test account!
     - Username: `ReadMeDemo`;
     - Password: `1234567890`.
 2. Explore `CSC207F`'s summary!

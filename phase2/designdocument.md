@@ -18,8 +18,7 @@
 11. [Use of GitHub Features](#Use-of-GitHub-Features)
 12. [Code Testing](#Code-Testing)
 13. [Progress Summary](#Progress-Summary)
-14. [Open Questions and Phase 2 Goals](#Open-Questions-and-Phase-2-Goals)
-
+***
 
 ### Specification Summary
 For our CSC207 project, we are planning to build a course planning app that allows students to plan and review their 
@@ -77,11 +76,10 @@ In Phase 2, our group decided to implement 3 new features to accommodate for inc
    dyslexia 
 3. **Navigation Sidebar**
    - The navigation sidebar allows for easy access to all the pages of our website
-4. **Printer Friendly**
-   - The calendar format is printer friendly, which makes it quick and easy for the user to print out their schedule 
-   if needed
-5. **Cross-Platform**
-   - MyCourse app is available on both mobile and computing devices, making it quick and easily accessible
+4. **Printer-friendly calendar**
+   - The printer-friendly calendar format allows user to obtain a physical copy
+5. **All platform access**
+   - The CLI + Web app design allows both professional users and regular users to enjoy our service 
 
 ***
 ### The 7 Principals of Universal Design
@@ -194,6 +192,8 @@ help students organize and plan their courses for their upcoming semesters. Due 
 text-to-speech features, we also believe that MyCourseApp is less likely to be used by users who are experiencing 
 complete vision loss. However, if possible, we hope that the implementation of these features can allow for 
 increased accessibility for all users including those who may be experiencing vision impairment.
+
+
 
 ***
 ### Clean Architecture 
@@ -330,7 +330,7 @@ abstractions instead of being dependent on one another from high-level to low-le
 ***
 ### Packaging Strategies and Documentations
 - For our code organization, we applied a service-oriented packaging strategy. As we have four service branches (course, calendar, review and user), we organized them into four packages by features. As `DAO` and `Entities` are often shared across the scope, we decided to organize them in their own packages. As for drivers, we split out a new package for the sake of layer segregation and clarity. Besides those packages, we also stored our utilities, including password encryption tool, in the util package. We benefit from this organization as it demonstrates clear service differentiation and improves our file structure.
-- As of our code documentation, we have a J-DOC website for sharing documentation, click [here](https://kuan-pang.github.io/course-project-bug-makers/) to navigate. Our design goals and specifications are listed in our `teamDocumentation` directory. Our code documentation improves our teamwork and keeps a organized record of our achievement.
+- As of our code documentation, we have a J-DOC website for sharing documentation, click [here](https://kuan-pang.github.io/course-project-bug-makers/) to navigate. Our design goals and specifications are listed in our `teamDocumentation` directory. Our code documentation improves our teamwork and keeps an organized record of our achievement.
 
 
 ***
@@ -367,7 +367,7 @@ abstractions instead of being dependent on one another from high-level to low-le
 
 ***
 ### Code Testing
-- We achieved FULL test coverage for the testable Service Controllers. **73%** of the methods in our system were covered by our test cases.
+- We achieved FULL test coverage for the testable Service Controllers. **87%** of the methods in our system were covered by our test cases.
 - We introduced randomness in the code-test system, to ensure test case comprehensiveness.
   - We made `userRegister()` testable by generating random Usernames.
 - In the most challenging database test, for the data access objects, we developed a full set of approaches to test the codes without interfering the normal functionality of our database.
@@ -381,14 +381,15 @@ abstractions instead of being dependent on one another from high-level to low-le
 ***
 ### Progress Summary
 
-- We focused on accessibility improvement in our `Phase 2` project.
+- We achieved a codebase size of 28K lines in our project, and we focused on accessibility improvement in our project `Phase 2`. 
   - [Kuan Pang] Review Service, Web app, Documentation, Code Refactor
   - [Michael Fang] Review Service, Documentation, Code Refactor
-  - [Li Quan Soh] CMD Shell, Documentation, Code Refactor
+  - [Li Quan Soh] Web app, Documentation, Code Refactor
   - [Kevin Cheng] Scheduling algorithm, Documentation, Code Refactor
   - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
   - [Sherry You] Review Service, Documentation, Code Refactor
 
-  
-[comment]: <> (  TODO)
+***
+
+Thanks for everybody's great effort! 
 

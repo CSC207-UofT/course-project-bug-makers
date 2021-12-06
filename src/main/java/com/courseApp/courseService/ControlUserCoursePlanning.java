@@ -15,6 +15,7 @@ public interface ControlUserCoursePlanning {
      * Return the planned schedule list String iff the planning is successful, otherwise, null.
      *
      * @param username username
+     * @param index index
      * @throws Exception exception
      * @return schedule list String
      */
