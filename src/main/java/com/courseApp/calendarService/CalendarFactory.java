@@ -21,6 +21,7 @@ abstract class CalendarFactory implements UsePresentable{
      * Convert the String weekday to an integer format indicating its location in any Calendar.
      *
      * @param weekday String of Days of week
+     * @return int date
      */
     abstract int getWeekDay(String weekday);
 

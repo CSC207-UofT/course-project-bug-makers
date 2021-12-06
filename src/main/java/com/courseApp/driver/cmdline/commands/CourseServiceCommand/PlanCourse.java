@@ -5,7 +5,6 @@ import com.courseApp.courseService.CourseServiceController;
 import com.courseApp.driver.cmdline.IShellState;
 import com.courseApp.userService.UserServiceController;
 
-import java.io.InputStream;
 import java.util.List;
 import java.util.Scanner;
 
