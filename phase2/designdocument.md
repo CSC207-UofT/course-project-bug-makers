@@ -383,7 +383,7 @@ abstractions instead of being dependent on one another from high-level to low-le
 
 - We achieved a codebase size of 28K lines in our project, and we focused on accessibility improvement in our project `Phase 2`. 
   - [Kuan Pang] Review Service, Web app, Documentation, Code Refactor
-    - PR [#43](https://github.com/CSC207-UofT/course-project-bug-makers/pull/43)
+    - PR [#43](https://github.com/CSC207-UofT/course-project-bug-makers/pull/43): This PR fixes three issues and introduces `POJO` design to the DAO objects, which improves app performance. Details are included in the comment so the PR is easy to follow.
   - [Michael Fang] Review Service, Documentation, Code Refactor
     - PR [#65](https://github.com/CSC207-UofT/course-project-bug-makers/pull/65/files)
   - [Li Quan Soh] Web app, Documentation, Code Refactor
