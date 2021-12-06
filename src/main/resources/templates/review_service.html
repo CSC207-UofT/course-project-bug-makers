@@ -26,11 +26,140 @@
     <link rel="stylesheet" type="text/css" th:href="@{/fonts/fontawesome-all.min.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}" />
 
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .theme-light {
+            --color-primary: #0060df;
+            --color-secondary: #fbfbfe;
+            --color-accent: #fd6f53;
+            --font-color: #000000;
+            --font-family: 'Abril Fatface';
+        }
+        .theme-dark {
+            --color-primary: #17ed90;
+            --color-secondary: #000000;
+            --color-accent: #12cdea;
+            --font-color: #daa520;
+            --font-family: monospace;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background: var(--color-secondary);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container h1 {
+            color: var(--font-color);
+            font-family: var(--font-family);
+        }
+
+        .container h2 {
+            color: var(--font-color);
+            font-family: var(--font-family);
+        }
+
+        .container p {
+            color: var(--font-color);
+            font-family: var(--font-family);
+        }
+
+        .container div {
+            color: var(--font-color);
+            font-family: var(--font-family);
+        }
+
+        .container footer {
+            color: var(--font-color);
+            font-family: var(--font-family);
+        }
+
+        /* The switch - the box around the slider */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: 	#dc143c;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 40px;
+            width: 40px;
+            left: 0px;
+            bottom: 4px;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+            box-shadow: 0 0px 15px #2020203d;
+            background: white url('https://i.ibb.co/FxzBYR9/night.png');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        input:checked + .slider {
+            background-color: #2196f3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196f3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(24px);
+            -ms-transform: translateX(24px);
+            transform: translateX(24px);
+            background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+
 
 </head>
 
-<body class="d-xxl-flex" id="page-top" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
-    <div id="wrapper" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
+<body class="d-xxl-flex" id="page-top" >
+    <div id="wrapper" >
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: rgb(239, 149, 13);border-style: none;border-color: rgb(239, 149, 13);box-shadow: 0px 0px 20px 8px rgb(146,146,146);">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#" style="box-shadow: 0px 0px 15px 3px rgb(146,146,146);">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="far fa-calendar-alt"></i></div>
@@ -42,15 +171,15 @@
                     <li class="nav-item"><a class="nav-link" href="course_service"><i class="fa fa-folder-o"></i><span style="font-family: 'Abril Fatface', serif;">Course Service</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="schedule_service"><i class="fa fa-calendar"></i><span style="font-family: 'Abril Fatface', serif;">&nbsp;Schedule Service</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="calendar_service" style="font-family: 'Abril Fatface', serif;"><span></span><i class="fas fa-table"></i>&nbsp;Calendar Service</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="review_service"><i class="fa fa-calendar"></i><span style="font-family: 'Abril Fatface', serif;">&nbsp;Schedule Service</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="review_service"><i class="fa fa-calendar"></i><span style="font-family: 'Abril Fatface', serif;">&nbsp;Review Service</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="myplan"><i class="fas fa-user-circle"></i><span style="font-family: 'Abril Fatface', serif;">&nbsp;My Plan</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle-1" type="button"></button></div>
             </div>
         </nav>
-        <div class="d-flex flex-column" id="content-wrapper" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
-            <div id="content" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
-                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="background: rgb(255,255,255);color: rgb(255,255,255);border-style: none;border-color: rgb(255,255,255);">
+        <div class="d-flex flex-column" id="content-wrapper" >
+            <div id="content" >
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" >
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop-1" type="button"><i class="fas fa-bars"></i></button>
                         <ul class="navbar-nav flex-nowrap ms-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
@@ -103,11 +232,11 @@
                         </ul>
                     </div>
                 </nav>
-                <section class="article-list" style="border-color: rgb(255,255,255);background: rgb(255,255,255);">
-                    <div class="container" style="color: rgb(146,146,146);background: rgb(255,255,255);border-color: rgb(255,255,255);">
-                        <h1 class="display-3 text-center" style="font-family: 'Abril Fatface', serif;border-color: rgb(239, 149, 13);color: rgb(239, 149, 13);">Review Service</h1>
-                        <div class="intro" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
-                            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="background: rgb(239, 149, 13);border-color: rgb(255,255,255);color: rgb(239, 149, 13);">
+                <section class="article-list" >
+                    <div class="container" >
+                        <h1 class="display-3 text-center" style="font-family: var(--font-family), serif;border-color: rgb(239, 149, 13);color: rgb(239, 149, 13);">Review Service</h1>
+                        <div class="intro" >
+                            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" >
                                 <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                                     <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
                                         <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);"><input class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="Search for the course review" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;"><button class="btn btn-primary border rounded-pill py-0" type="button" style="background: rgb(239, 149, 13);border-color: rgb(205,205,205);color: rgb(205,205,205);"><i class="fas fa-search" style="color: rgb(255,255,255);"></i></button></div>
@@ -116,12 +245,21 @@
                             </nav>
                             <p class="text-center"></p>
                         </div>
-                        <div class="row articles" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
+                        <div class="row articles" >
                             <div class="col-sm-6 col-md-4 col-xxl-12 offset-xxl-0 item"><a href="#"></a>
                                 <h3 class="name"></h3>
                                 <p class="description"></p><a class="action" href="#"></a>
                             </div>
                         </div>
+                    </div>
+                    <div class="container" style=" text-align: center;">
+                        <p>Translate this page in your preferred language: </p>
+                        <div id="google_translate_element"></div>
+                        <p>High Contrast Mode Toggle</p>
+                        <label id="switch" class="switch">
+                            <input type="checkbox" onchange="toggleTheme()" id="slider">
+                            <span class="slider round"></span>
+                        </label>
                     </div>
                 </section>
             </div>
@@ -138,6 +276,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en',
+                    includedLanguages:'fr,it,pt,de,zh-CN,zh-TW,vi,es,en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        // function to set a given theme/color-scheme
+        function setTheme(themeName) {
+            localStorage.setItem('theme', themeName);
+            document.documentElement.className = themeName;
+        }
+
+        // function to toggle between light and dark theme
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-light');
+            } else {
+                setTheme('theme-dark');
+            }
+        }
+
+        // Immediately invoked function to set the theme on initial load
+        (function () {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-dark');
+                document.getElementById('slider').checked = false;
+            } else {
+                setTheme('theme-light');
+                document.getElementById('slider').checked = true;
+            }
+        })();
+    </script>
 
 </body>
 

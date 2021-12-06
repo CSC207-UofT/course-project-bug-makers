@@ -26,10 +26,139 @@
     <link rel="stylesheet" type="text/css" th:href="@{/fonts/ionicons.min.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/fonts/fontawesome-all.min.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .theme-light {
+            --color-primary: #0060df;
+            --color-secondary: #fbfbfe;
+            --color-accent: #fd6f53;
+            --font-color: #000000;
+            --font-family: 'Abril Fatface';
+        }
+        .theme-dark {
+            --color-primary: #17ed90;
+            --color-secondary: #000000;
+            --color-accent: #12cdea;
+            --font-color: #daa520;
+            --font-family: monospace;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background: var(--color-secondary);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container h1 {
+            color: var(--font-color);
+            font-family: var(--font-family);
+        }
+
+        .container h2 {
+            color: var(--font-color);
+            font-family: var(--font-family);
+        }
+
+        .container p {
+            color: var(--font-color);
+            font-family: var(--font-family);
+        }
+
+        .container div {
+             color: var(--font-color);
+             font-family: var(--font-family);
+         }
+
+        .container footer {
+            color: var(--font-color);
+            font-family: var(--font-family);
+        }
+
+        /* The switch - the box around the slider */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: 	#dc143c;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 40px;
+            width: 40px;
+            left: 0px;
+            bottom: 4px;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+            box-shadow: 0 0px 15px #2020203d;
+            background: white url('https://i.ibb.co/FxzBYR9/night.png');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        input:checked + .slider {
+            background-color: #2196f3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196f3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(24px);
+            -ms-transform: translateX(24px);
+            transform: translateX(24px);
+            background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
 </head>
 
-<body id="page-top" style="background: rgb(239, 149, 13);">
-    <div id="wrapper" style="background: rgb(205,205,205);">
+<body id="page-top"     >
+    <div id="wrapper" >
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: rgb(239, 149, 13);border-style: none;border-color: rgb(239, 149, 13);box-shadow: 0px 0px 20px 8px rgb(146,146,146);">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#" style="box-shadow: 0px 0px 15px 3px rgb(146,146,146);">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="far fa-calendar-alt"></i></div>
@@ -47,21 +176,30 @@
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle-1" type="button"></button></div>
             </div>
         </nav>
-        <div class="d-flex flex-column" id="content-wrapper" style="background: var(--bs-red);">
-            <div id="content" style="background: rgb(255,255,255);">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content" >
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4" style="background: rgb(255,255,255);"></div>
                 </div>
-                <h1 style="color: rgb(239, 149, 13);font-size: 74px;font-family: 'Abril Fatface', serif;text-align: center;">Dashboard</h1>
+                <h1  style="color:#daa520; font-size: 74px;font-family: 'Abril Fatface', serif;text-align: center;">Dashboard</h1>
                 <section class="photo-gallery">
                     <div class="container">
                         <div class="intro">
                             <img class="img-fluid" th:src="@{/img/myCourseApp.png}" style="margin: 0;padding: 0;"      width="1400"  height="1500">
                         </div>
                     </div>
+                    <div class="container" style=" text-align: center;">
+                        <p>Translate this page in your preferred language: </p>
+                        <div id="google_translate_element"></div>
+                        <p>High Contrast Mode Toggle</p>
+                        <label id="switch" class="switch">
+                            <input type="checkbox" onchange="toggleTheme()" id="slider">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
                 </section>
             </div>
-            <footer class="bg-white sticky-footer" style="background: rgb(146,146,146);">
+            <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
                     <div class="text-center my-auto copyright"><span>Copyright © bugMaker 2021</span></div>
                 </div>
@@ -74,6 +212,44 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en',
+                    includedLanguages:'fr,it,pt,de,zh-CN,zh-TW,vi,es,en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        // function to set a given theme/color-scheme
+        function setTheme(themeName) {
+            localStorage.setItem('theme', themeName);
+            document.documentElement.className = themeName;
+        }
+
+        // function to toggle between light and dark theme
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-light');
+            } else {
+                setTheme('theme-dark');
+            }
+        }
+
+        // Immediately invoked function to set the theme on initial load
+        (function () {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-dark');
+                document.getElementById('slider').checked = false;
+            } else {
+                setTheme('theme-light');
+                document.getElementById('slider').checked = true;
+            }
+        })();
+    </script>
 </body>
 
 </html>
