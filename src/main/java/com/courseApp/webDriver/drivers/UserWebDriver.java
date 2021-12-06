@@ -70,7 +70,7 @@ public class UserWebDriver {
             return "redirect:/result";
         } catch (Exception e) {
             e.printStackTrace();
-            session.setAttribute("res", "Fail to find the latest schedule.");
+            session.setAttribute("res", "You dont have a schedule!");
             return "redirect:/result";
         }
     }

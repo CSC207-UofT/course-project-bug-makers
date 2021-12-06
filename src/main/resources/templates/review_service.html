@@ -185,7 +185,7 @@
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
                                 <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown">
                                     <form class="me-auto navbar-search w-100">
-                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ... ">
                                             <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
                                         </div>
                                     </form>
@@ -239,7 +239,7 @@
                                     <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);" method="post" th:action="@{/review/course_review}"> Search for course review
                                         <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
                                             <label>
-                                                <input name="course" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="course code" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                                <input name="course" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="course code (eg. CSC207)" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
                                             </label>
                                             <button class="btn btn-primary border rounded-pill py-0" type="submit" style="background: rgb(239, 149, 13);border-color: rgb(205,205,205);color: rgb(205,205,205);"><i class="fas fa-search" style="color: rgb(255,255,255);"></i></button></div>
                                     </form>
@@ -253,8 +253,8 @@
                                     <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);" method="post" th:action="@{/review/instructor_review}"> Search for instructor review
                                         <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
                                             <label>
-                                                <input name="course" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="course code" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
-                                                <input name="inst" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="inst name" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                                <input name="course" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="course code (eg. CSC207)" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                                <input name="inst" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="instructor name" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
                                             </label>
                                             <button class="btn btn-primary border rounded-pill py-0" type="submit" style="background: rgb(239, 149, 13);border-color: rgb(205,205,205);color: rgb(205,205,205);"><i class="fas fa-search" style="color: rgb(255,255,255);"></i></button></div>
                                     </form>
@@ -271,8 +271,8 @@
                                     <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);" method="post" th:action="@{/review/create_review}"> Create review
                                         <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
                                             <label>
-                                                <input name="course" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="course code" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
-                                                <input name="inst" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="inst name" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                                <input name="course" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="course code (eg. CSC207)" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                                <input name="inst" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="instructor name" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
                                                 <input name="generalRate" class="bg-light border rounded-pill form-control border-0 small" type="number" placeholder="general rate" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
                                                 <input name="difficultyRate" class="bg-light border rounded-pill form-control border-0 small" type="number" placeholder="difficulty rate" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
                                                 <input name="reviewString" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="comment" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
@@ -291,7 +291,7 @@
                                 <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" style="background: rgb(255,255,255);border-color: rgb(255,255,255);" method="post" th:action="@{/review/inst_recommend}"> Recommend me instructor!
                                     <div class="input-group" style="background: rgb(255,255,255);border-color: rgb(255,255,255);">
                                         <label>
-                                            <input name="course" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="course code" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
+                                            <input name="course" class="bg-light border rounded-pill form-control border-0 small" type="text" placeholder="course code (eg. CSC207)" style="color: rgb(205,205,205);border-color: rgb(255,255,255);background: rgb(255,255,255);font-family: 'Abril Fatface', serif;">
                                         </label>
                                         <button class="btn btn-primary border rounded-pill py-0" type="submit" style="background: rgb(239, 149, 13);border-color: rgb(205,205,205);color: rgb(205,205,205);"><i class="fas fa-search" style="color: rgb(255,255,255);"></i></button></div>
                                 </form>
