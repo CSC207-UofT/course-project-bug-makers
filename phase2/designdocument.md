@@ -71,10 +71,17 @@ Then, when other users load the reviews for a specific course, the reviews from 
 In Phase 2, our group decided to implement 3 new features to accommodate for increased accessibility:
 1. **Language Translator**
    - The language translator feature allows user view and read the webpage's text in their preferred language
-2. **Colour Contrast**
-   - The colour contrast feature allows users to choose the colour scheme of the webpage
+2. **High Colour Contrast**
+   - The high colour contrast feature allows users to view the webpage through a high contrast colour scheme 
+   paired with monospace font, which significantly improves the reading performance and helps people with 
+   dyslexia 
 3. **Navigation Sidebar**
-   - The navigation sidebar allows for easy access to all the pages of our website 
+   - The navigation sidebar allows for easy access to all the pages of our website
+4. **Printer Friendly**
+   - The calendar format is printer friendly, which makes it quick and easy for the user to print out their schedule 
+   if needed
+5. **Cross-Platform**
+   - MyCourse app is available on both mobile and computing devices, making it quick and easily accessible
 
 ***
 ### The 7 Principals of Universal Design
@@ -187,8 +194,6 @@ help students organize and plan their courses for their upcoming semesters. Due 
 text-to-speech features, we also believe that MyCourseApp is less likely to be used by users who are experiencing 
 complete vision loss. However, if possible, we hope that the implementation of these features can allow for 
 increased accessibility for all users including those who may be experiencing vision impairment.
-
-
 
 ***
 ### Clean Architecture 
