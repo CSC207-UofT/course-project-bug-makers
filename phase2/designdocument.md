@@ -104,8 +104,8 @@ Notes for Future Improvement:
     being displayed on MyCourseApp
 
 ###### Principle 2: Flexibility in Use
-Currently, MyCourseApp does not have any features that can accommodate for a wide range of users with 
-specific preferences and abilities. 
+MyCourseApp is currently avaliable in both mobile and computing applications. This allows user to access the application through a variety of outlets, thus
+increasing the flexibility in use for the user. 
 
 Notes for Future Improvement:
 - To accommodate for right or left-handed access and use, we could update the navigation 
@@ -141,7 +141,8 @@ between important information and its surroundings, thus improving on MyCourseAp
 information to the user. 
 
 ###### Principle 5: Tolerance for Error
-Currently, MyCourseApp does not have any features that adhere to Principle 5.
+Currently, MyCourseApp provides detailed instructions for all the different functionalities and actions the user can take in the program. This 
+minimizes the potential hazards and consequences of any accidental actions.  
 
 Notes for Future Improvements:
 - Implementation of a confirmation button for adding or making changes to a user’s schedule can prevent users from 
