@@ -9,6 +9,7 @@
 ***
 
 [![website](https://img.shields.io/badge/visit-webpage-blue)](http://bugmaker-env.eba-ss4i3etw.us-east-2.elasticbeanstalk.com/)
+[![jdoc](https://img.shields.io/badge/visit-jdoc-pink)](https://kuan-pang.github.io/course-project-bug-makers/)
 ![build](https://img.shields.io/github/workflow/status/CSC207-UofT/course-project-bug-makers/GitHub%20Classroom%20Workflow)
 
 
