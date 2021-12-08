@@ -1,4 +1,4 @@
-# CMD Line Driver Documentation
+# CLI Documentation
 
 For more information click [here](https://kuan-pang.github.io/course-project-bug-makers/).
 

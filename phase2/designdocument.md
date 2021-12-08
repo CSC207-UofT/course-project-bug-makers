@@ -39,8 +39,8 @@ We'll be referring to the following system design diagram in our discussion.
 - Review Service: user can rate and share their comments to instructors and courses. In addition, the review service integrates with our course service to provide instructor recommendation functionality thorough a machine learning approach. ([here](/teamDocumentation/ReviewServiceDocumentation.md) for review detail and [here](/teamDocumentation/ReviewRecommendationSystem.md) for ML detail)
 - Calendar Service: visualizes a user's schedule by presenting calendars and timetables. Note that we offer 7 types of calendar designs and 3 term options, which produces 21 customizations for our user. ([here](/teamDocumentation/CalendarServiceDocumentation.md) for details)
 - User Service: stores and synthesizes a user's information stored in our cloud database. ([here](/teamDocumentation/UserServiceDocumentation.md) for details)
-- CMD shell/ Web GUI: parallel systems providing multiple ways for user to interact with our system.
-  - CMD shell's demo (stable release, [here](/teamDocumentation/cmdDocumentation.md) for commands):
+- CLI/ Web GUI: parallel systems providing multiple ways for user to interact with our system.
+  - CLI's demo (stable release, [here](/teamDocumentation/cmdDocumentation.md) for commands):
     - ![](designdocument.assets/readmedemo.gif)
     - ![](designdocument.assets/reviewdemo.gif)
   - Web interface (source code in `dev/springboot`, visit http://bugmaker-env.eba-ss4i3etw.us-east-2.elasticbeanstalk.com/):
@@ -168,6 +168,7 @@ and manipulation for a wider range of users
 
 ***
 ### Market Analysis 
+
 ###### Target Market
 After analyzing the current markets and MyCourseApp’s features, we have decided that our program should direct our 
 marketing towards students who study at the University of Toronto. Currently, the University of Toronto has the 
@@ -382,13 +383,13 @@ abstractions instead of being dependent on one another from high-level to low-le
 ***
 ### Progress Summary
 
-- We achieved a codebase size of 28K lines in our project, and we focused on accessibility improvement in our project `Phase 2`. 
+- We achieved a codebase size of 28K lines in our project, and we focused on accessibility improvement in our project `Phase 2`.
   - [Kuan Pang] Review Service, Web app, Documentation, Code Refactor
     - PR [#43](https://github.com/CSC207-UofT/course-project-bug-makers/pull/43): This PR fixes three issues and introduces `POJO` design to the DAO objects, which improves app performance. Details are included in the comment so the PR is easy to follow.
   - [Michael Fang] Review Service, Documentation, Code Refactor
     - PR [#65](https://github.com/CSC207-UofT/course-project-bug-makers/pull/65/files): This pull request implemented the ReviewServiceController which calls RecommendationRequestProcessor to generate a recommendation score of user review.
   - [Li Quan Soh] Web app, Documentation, Code Refactor
-    - PR [#21](https://github.com/CSC207-UofT/course-project-bug-makers/pull/21/files): This pull request implemented the core CMD interface for users to run the program and execute available commands. The pull request also implemented all the commands that interact with the appropriate controllers.
+    - PR [#21](https://github.com/CSC207-UofT/course-project-bug-makers/pull/21/files): This pull request implemented the core CLI for users to run the program and execute available commands. The pull request also implemented all the commands that interact with the appropriate controllers.
   - [Kevin Cheng] Scheduling algorithm, Documentation, Code Refactor
     - PR [#94](https://github.com/CSC207-UofT/course-project-bug-makers/pull/94): This pull request implemented the ability to switch between different possible schedules in the command line, as well as reduce the runtime of the course planning feature from 3 min. to 15 sec!
   - [Jiaming Weng] Calendar Service, Documentation, Code Refactor
