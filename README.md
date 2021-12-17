@@ -1,5 +1,9 @@
 ## myCourseApp - Course Planning Platform for UofT Students
 
+
+> Web service, inference server and cloud mongoDB for this project have been terminated, woohoooo!
+
+
 ![myCourseApp](README.assets/p1demo.jpeg)
 
 > Note that this project requires `JDK1.8` and internet connection for could database operation and machine learning model inference. Dependencies can be found in  `build.gradle` . Please refer to `teamDocumentation` and `phase1` for details.
